@@ -1,0 +1,116 @@
+---
+layout: layouts/base.njk
+title: Windows 95 - RetroOS Museum
+description: Experience the revolutionary Windows 95 desktop with its iconic Start menu, taskbar, and classic applications.
+bodyClass: win95-body
+permalink: /os/windows-95/
+---
+
+{% block head %}
+<!-- Windows 95 CSS -->
+<link rel="stylesheet" href="/assets/css/win95.css">
+<style>
+  /* Hide default header and footer for full desktop experience */
+  body.win95-body header,
+  body.win95-body footer {
+    display: none;
+  }
+
+  body.win95-body main {
+    padding: 0;
+    max-width: none;
+    margin: 0;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Windows 95 Desktop Environment -->
+<div id="win95-desktop" class="win95-desktop" role="application" aria-label="Windows 95 Desktop">
+  <!-- Desktop Icons Container -->
+  <div id="desktop-icons" class="desktop-icons">
+    <!-- Icons will be added by JavaScript -->
+  </div>
+
+  <!-- Taskbar -->
+  <div id="win95-taskbar" class="win95-taskbar" role="navigation" aria-label="Taskbar">
+    <!-- Start Button -->
+    <button id="start-button" class="start-button" aria-label="Start Menu" aria-expanded="false" aria-haspopup="true">
+      <img src="/assets/os/windows95/icons/windows-logo.svg" alt="" class="start-logo" width="16" height="16">
+      <span class="start-text">Start</span>
+    </button>
+
+    <!-- Quick Launch (optional) -->
+    <div class="quick-launch">
+      <!-- Quick launch icons can be added here -->
+    </div>
+
+    <!-- Window Buttons Area -->
+    <div id="taskbar-windows" class="taskbar-windows">
+      <!-- Window buttons will be added dynamically -->
+    </div>
+
+    <!-- System Tray -->
+    <div class="system-tray">
+      <div class="tray-icons">
+        <!-- Tray icons -->
+        <span class="tray-icon" title="Volume">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M8 3L4 6H1v4h3l4 3V3z"/>
+            <path d="M11 5c.5.5 1 1.5 1 3s-.5 2.5-1 3"/>
+          </svg>
+        </span>
+      </div>
+      <div id="clock" class="clock" aria-live="polite" aria-atomic="true">
+        <span id="clock-time">12:00 PM</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Start Menu (hidden by default) -->
+  <div id="start-menu" class="start-menu" role="menu" aria-label="Start Menu" hidden>
+    <div class="start-menu-banner">
+      <span class="start-menu-logo">Windows<span class="win-95">95</span></span>
+    </div>
+    <div class="start-menu-items">
+      <!-- Menu items will be populated by JavaScript -->
+    </div>
+  </div>
+
+  <!-- Windows Container -->
+  <div id="windows-container" class="windows-container">
+    <!-- Windows will be added here by WindowManager -->
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<!-- Core Systems -->
+<script src="/assets/js/window-manager.js"></script>
+<script src="/assets/js/menu-system.js"></script>
+<script src="/assets/js/desktop.js"></script>
+
+<!-- Windows 95 Specific -->
+<script src="/assets/js/win95-taskbar.js"></script>
+<script src="/assets/js/win95-start-menu.js"></script>
+<script src="/assets/js/win95-desktop.js"></script>
+
+<!-- Applications -->
+<script src="/assets/js/apps/win95-notepad.js"></script>
+<script src="/assets/js/apps/win95-explorer.js"></script>
+<script src="/assets/js/apps/win95-control-panel.js"></script>
+
+<!-- Initialize Windows 95 -->
+<script>
+  // Wait for DOM to be ready
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize Windows 95 desktop
+    if (typeof Win95Desktop !== 'undefined') {
+      window.win95 = new Win95Desktop();
+      window.win95.init();
+    } else {
+      console.error('Win95Desktop not loaded');
+    }
+  });
+</script>
+{% endblock %}

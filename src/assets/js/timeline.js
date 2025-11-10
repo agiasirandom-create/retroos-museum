@@ -352,6 +352,19 @@
 
   // ===== Modal Functions =====
   function openOSModal(osId) {
+    // Check if OS has a dedicated recreation page
+    const osPages = {
+      'windows-95': '/os/windows-95/',
+      'macos-system7': '/os/macos-system7/'
+    };
+
+    // If OS page exists, navigate to it
+    if (osPages[osId]) {
+      window.location.href = osPages[osId];
+      return;
+    }
+
+    // Otherwise, show placeholder modal
     if (!elements.modal || !elements.modalBody) return;
 
     // Find OS data (in a real implementation, this would fetch from data)
