@@ -1,0 +1,534 @@
+/**
+ * OS Generator Styles
+ * Common styles for generated OS instances
+ */
+
+/* Desktop and Icons */
+.desktop-icons {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.desktop-icon {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  padding: 8px;
+  transition: background-color 0.2s;
+}
+
+.desktop-icon:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.desktop-icon.selected {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.desktop-icon.dragging {
+  opacity: 0.7;
+  z-index: 1000;
+}
+
+.desktop-icon-image {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  margin-bottom: 4px;
+}
+
+.desktop-icon-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.desktop-icon-label {
+  font-size: 11px;
+  text-align: center;
+  color: var(--color-text, #fff);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  max-width: 80px;
+  word-wrap: break-word;
+}
+
+/* Selection Box */
+.selection-box {
+  position: absolute;
+  border: 1px dashed rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+  z-index: 999;
+}
+
+/* Taskbar */
+.taskbar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: var(--taskbar-height, 28px);
+  background: var(--taskbar-background, #c0c0c0);
+  border-top: 2px solid var(--color-button-highlight, #fff);
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+}
+
+.start-button {
+  height: 100%;
+  padding: 0 16px;
+  border: none;
+  background: var(--color-button-face, #c0c0c0);
+  border-top: 2px solid var(--color-button-highlight, #fff);
+  border-left: 2px solid var(--color-button-highlight, #fff);
+  border-right: 2px solid var(--color-button-shadow, #808080);
+  border-bottom: 2px solid var(--color-button-shadow, #808080);
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.start-button:active {
+  border-top: 2px solid var(--color-button-shadow, #808080);
+  border-left: 2px solid var(--color-button-shadow, #808080);
+  border-right: 2px solid var(--color-button-highlight, #fff);
+  border-bottom: 2px solid var(--color-button-highlight, #fff);
+}
+
+.start-icon {
+  font-size: 16px;
+}
+
+.task-list {
+  flex: 1;
+  display: flex;
+  gap: 2px;
+  padding: 0 4px;
+}
+
+.system-tray {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 8px;
+  border-left: 1px solid var(--color-button-shadow, #808080);
+}
+
+.taskbar-clock {
+  padding: 0 8px;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  border-left: 2px solid var(--color-button-shadow, #808080);
+  border-top: 2px solid var(--color-button-shadow, #808080);
+  border-right: 2px solid var(--color-button-highlight, #fff);
+  border-bottom: 2px solid var(--color-button-highlight, #fff);
+  height: calc(100% - 4px);
+  display: flex;
+  align-items: center;
+}
+
+/* Global Menu Bar (Mac) */
+.global-menu-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--menubar-height, 20px);
+  background: var(--menubar-background, #eee);
+  border-bottom: 1px solid #999;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  gap: 16px;
+  z-index: 2000;
+  font-family: var(--font-menu-family);
+  font-size: var(--font-menu-size);
+}
+
+.global-menu-bar .menu-item {
+  cursor: pointer;
+  padding: 2px 8px;
+}
+
+.global-menu-bar .menu-item:hover {
+  background: var(--color-menu-highlight, #00c);
+  color: var(--color-highlight-text, #fff);
+}
+
+.global-menu-bar .apple-icon {
+  font-size: 14px;
+}
+
+.global-menu-bar .app-name {
+  font-weight: bold;
+}
+
+.menu-bar-right {
+  margin-left: auto;
+  display: flex;
+  gap: 12px;
+}
+
+.menu-bar-clock {
+  font-size: 10px;
+}
+
+/* Application Styles */
+.app-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--color-window-background, #fff);
+}
+
+/* Menu Bar in Windows */
+.menu-bar {
+  display: flex;
+  background: var(--color-menu-background, #c0c0c0);
+  border-bottom: 1px solid var(--color-button-shadow, #808080);
+  padding: 2px 4px;
+  gap: 8px;
+  font-family: var(--font-menu-family);
+  font-size: var(--font-menu-size);
+}
+
+.menu-bar .menu-item {
+  position: relative;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+.menu-bar .menu-item:hover {
+  background: var(--color-menu-highlight, #00c);
+  color: var(--color-highlight-text, #fff);
+}
+
+.menu-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--color-menu-background, #c0c0c0);
+  border: 1px solid var(--color-button-shadow, #808080);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  min-width: 200px;
+  z-index: 1000;
+}
+
+.menu-item:hover .menu-dropdown {
+  display: block;
+}
+
+.menu-dropdown-item {
+  padding: 4px 16px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-dropdown-item:hover {
+  background: var(--color-menu-highlight, #00c);
+  color: var(--color-highlight-text, #fff);
+}
+
+.menu-separator {
+  height: 1px;
+  background: var(--color-button-shadow, #808080);
+  margin: 2px 0;
+}
+
+.menu-shortcut {
+  font-size: 10px;
+  opacity: 0.7;
+  margin-left: 16px;
+}
+
+/* Status Bar */
+.status-bar {
+  display: flex;
+  gap: 16px;
+  padding: 4px 8px;
+  background: var(--color-button-face, #c0c0c0);
+  border-top: 1px solid var(--color-button-shadow, #808080);
+  font-family: var(--font-family);
+  font-size: 11px;
+}
+
+.status-item {
+  padding: 0 8px;
+  border-left: 1px solid var(--color-button-shadow, #808080);
+  border-top: 1px solid var(--color-button-shadow, #808080);
+  border-right: 1px solid var(--color-button-highlight, #fff);
+  border-bottom: 1px solid var(--color-button-highlight, #fff);
+}
+
+/* Text Editor */
+.text-editor-area {
+  flex: 1;
+  border: none;
+  padding: 8px;
+  font-family: var(--font-mono-family, monospace);
+  font-size: var(--font-mono-size, 12px);
+  background: var(--color-window-background, #fff);
+  color: var(--color-text, #000);
+  resize: none;
+  outline: none;
+}
+
+/* File Manager */
+.toolbar {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  background: var(--color-button-face, #c0c0c0);
+  border-bottom: 1px solid var(--color-button-shadow, #808080);
+}
+
+.toolbar-button {
+  padding: 4px 8px;
+  background: var(--color-button-face, #c0c0c0);
+  border: 1px solid var(--color-button-border, #000);
+  cursor: pointer;
+}
+
+.address-bar {
+  flex: 1;
+  padding: 0 8px;
+}
+
+.address-bar input {
+  width: 100%;
+  padding: 4px;
+  border: 1px solid var(--color-button-shadow, #808080);
+}
+
+.file-view {
+  flex: 1;
+  padding: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 16px;
+  overflow-y: auto;
+}
+
+.file-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.file-item:hover {
+  background: var(--color-highlight, #00c);
+  color: var(--color-highlight-text, #fff);
+}
+
+.file-icon {
+  font-size: 32px;
+  margin-bottom: 4px;
+}
+
+.file-name {
+  font-size: 11px;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+/* Terminal */
+.terminal {
+  background: #000;
+  color: #0f0;
+  font-family: var(--font-mono-family, monospace);
+  font-size: var(--font-mono-size, 12px);
+  padding: 8px;
+  overflow-y: auto;
+}
+
+.terminal-output {
+  margin-bottom: 8px;
+}
+
+.terminal-line {
+  margin: 2px 0;
+}
+
+.terminal-input-line {
+  display: flex;
+  align-items: center;
+}
+
+.terminal-prompt {
+  color: #0f0;
+  margin-right: 4px;
+}
+
+.terminal-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #0f0;
+  font-family: inherit;
+  font-size: inherit;
+  outline: none;
+}
+
+/* Calculator */
+.calculator {
+  padding: 8px;
+  background: var(--color-button-face, #c0c0c0);
+}
+
+.calc-display {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 8px;
+  text-align: right;
+  font-family: var(--font-mono-family, monospace);
+  font-size: 18px;
+  border: 2px inset;
+}
+
+.calc-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.calc-row {
+  display: flex;
+  gap: 4px;
+}
+
+.calc-button {
+  flex: 1;
+  padding: 16px;
+  background: var(--color-button-face, #c0c0c0);
+  border: 2px outset;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.calc-button:active {
+  border-style: inset;
+}
+
+/* Control Panel */
+.control-panel-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 16px;
+  padding: 16px;
+}
+
+.control-panel-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px;
+  cursor: pointer;
+}
+
+.control-panel-item:hover {
+  background: var(--color-highlight, #00c);
+  color: var(--color-highlight-text, #fff);
+}
+
+.control-icon {
+  font-size: 48px;
+  margin-bottom: 8px;
+}
+
+.control-label {
+  font-size: 11px;
+  text-align: center;
+}
+
+/* About Dialog */
+.about-dialog {
+  padding: 16px;
+  text-align: center;
+}
+
+.about-header {
+  margin-bottom: 16px;
+}
+
+.about-logo {
+  font-size: 64px;
+  margin-bottom: 8px;
+}
+
+.about-info {
+  text-align: left;
+  margin-bottom: 16px;
+}
+
+.about-info p {
+  margin: 8px 0;
+}
+
+.about-description {
+  font-style: italic;
+  margin-top: 12px;
+}
+
+.about-tagline {
+  font-weight: bold;
+  text-align: center;
+  margin-top: 12px;
+}
+
+.about-footer {
+  text-align: center;
+}
+
+/* Error Dialog */
+.error-dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+.error-dialog-content {
+  background: var(--color-window-background, #c0c0c0);
+  padding: 24px;
+  border: 2px solid var(--color-window-border, #000);
+  min-width: 400px;
+  max-width: 600px;
+}
+
+.error-dialog-content h2 {
+  margin-bottom: 16px;
+  color: #c00;
+}
+
+.error-dialog-content ul {
+  margin: 16px 0;
+  padding-left: 20px;
+}
+
+.error-dialog-content button {
+  padding: 8px 24px;
+  margin-top: 16px;
+}

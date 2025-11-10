@@ -1,0 +1,191 @@
+---
+layout: layouts/base.njk
+title: "{{ osConfig.metadata.name }} - RetroOS Museum"
+---
+
+{# Generic OS Template - Works for any OS from JSON config #}
+
+<div class="os-page" data-os-id="{{ osId }}">
+  <!-- Desktop Container -->
+  <div class="desktop" id="desktop">
+    <!-- Desktop icons will be generated dynamically -->
+  </div>
+
+  <!-- Loading Screen -->
+  <div class="os-loading" id="os-loading">
+    <div class="loading-content">
+      <div class="loading-logo">💻</div>
+      <h2>Loading {{ osConfig.metadata.name }}...</h2>
+      <div class="loading-bar">
+        <div class="loading-progress"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Load Required Scripts -->
+<script src="/assets/js/config-validator.js"></script>
+<script src="/assets/js/theme-engine.js"></script>
+<script src="/assets/js/window-manager.js"></script>
+<script src="/assets/js/app-factory.js"></script>
+<script src="/assets/js/desktop-generator.js"></script>
+<script src="/assets/js/os-generator.js"></script>
+<script src="/assets/js/os-switcher.js"></script>
+
+<!-- Initialize OS -->
+<script>
+  (async function() {
+    // Get OS configuration
+    const osId = '{{ osId }}';
+    const configPath = '/assets/data/os/{{ osId }}.json';
+
+    try {
+      // Show loading screen
+      const loader = document.getElementById('os-loading');
+
+      // Initialize OS Generator
+      const osGenerator = OSGenerator.getInstance();
+
+      // Load and initialize OS
+      const success = await osGenerator.initialize(configPath);
+
+      if (success) {
+        // Hide loading screen with fade
+        setTimeout(() => {
+          loader.style.opacity = '0';
+          setTimeout(() => {
+            loader.style.display = 'none';
+          }, 500);
+        }, 1000);
+
+        console.log('OS initialized successfully:', osGenerator.getOSInfo());
+      } else {
+        // Show error
+        loader.innerHTML = `
+          <div class="loading-content error">
+            <div class="loading-logo">❌</div>
+            <h2>Failed to load OS</h2>
+            <p>Could not initialize {{ osConfig.metadata.name }}</p>
+            <button onclick="location.reload()">Retry</button>
+          </div>
+        `;
+      }
+    } catch (error) {
+      console.error('OS initialization error:', error);
+
+      // Show error screen
+      const loader = document.getElementById('os-loading');
+      loader.innerHTML = `
+        <div class="loading-content error">
+          <div class="loading-logo">❌</div>
+          <h2>Error</h2>
+          <p>${error.message}</p>
+          <button onclick="location.reload()">Retry</button>
+          <a href="/" class="back-link">← Back to Timeline</a>
+        </div>
+      `;
+    }
+  })();
+</script>
+
+<!-- OS-Specific Styles -->
+<style>
+  .os-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .desktop {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  .os-loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    transition: opacity 0.5s;
+  }
+
+  .loading-content {
+    text-align: center;
+    color: #fff;
+  }
+
+  .loading-logo {
+    font-size: 64px;
+    margin-bottom: 20px;
+    animation: pulse 2s infinite;
+  }
+
+  .loading-content h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .loading-bar {
+    width: 300px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
+  .loading-progress {
+    height: 100%;
+    background: #fff;
+    animation: loading 2s infinite;
+  }
+
+  .loading-content.error {
+    color: #ff6b6b;
+  }
+
+  .loading-content.error .loading-logo {
+    animation: none;
+  }
+
+  .loading-content button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+  .back-link {
+    display: block;
+    margin-top: 10px;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .back-link:hover {
+    text-decoration: underline;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+  }
+
+  @keyframes loading {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(400%); }
+  }
+</style>

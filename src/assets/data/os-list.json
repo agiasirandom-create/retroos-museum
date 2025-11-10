@@ -1,0 +1,30 @@
+[
+  {
+    "id": "windows-95",
+    "name": "Windows 95",
+    "category": "Windows",
+    "icon": "🪟",
+    "year": 1995
+  },
+  {
+    "id": "macos-system7",
+    "name": "Mac OS System 7",
+    "category": "macOS",
+    "icon": "🍎",
+    "year": 1991
+  },
+  {
+    "id": "linux-fvwm",
+    "name": "Linux FVWM",
+    "category": "Linux",
+    "icon": "🐧",
+    "year": 1995
+  },
+  {
+    "id": "amigaos-workbench",
+    "name": "AmigaOS Workbench 3.1",
+    "category": "Alternative",
+    "icon": "🔶",
+    "year": 1994
+  }
+]
