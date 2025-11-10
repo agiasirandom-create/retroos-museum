@@ -1,0 +1,17 @@
+{
+  "name": "retroos-museum",
+  "version": "1.0.0",
+  "description": "A modular OS builder system showcasing historical operating systems",
+  "main": "index.js",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy",
+    "debug": "DEBUG=Eleventy* eleventy"
+  },
+  "keywords": ["eleventy", "retro", "operating-systems", "museum"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2"
+  }
+}

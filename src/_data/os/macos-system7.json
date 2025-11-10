@@ -1,0 +1,689 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "macos-system7",
+
+  "metadata": {
+    "name": "System 7",
+    "fullName": "Macintosh System 7",
+    "version": "7.5.5",
+    "company": "Apple Computer",
+    "releaseYear": 1991,
+    "releaseDate": "1991-05-13",
+    "description": "Classic Mac OS with color support, virtual memory, personal file sharing, and the revolutionary global menu bar interface.",
+    "tagline": "The Power to Be Your Best",
+    "category": "desktop_mac",
+    "architecture": ["68k", "PowerPC"],
+
+    "historical": {
+      "significance": "First Mac OS with multitasking, virtual memory, and networking. Set the foundation for Mac interface design for decades.",
+      "marketShare": "Dominated creative professional market in 1990s",
+      "successor": "Mac OS 8",
+      "predecessor": "System 6",
+      "endOfLife": "1999-12-31"
+    },
+
+    "links": {
+      "wikipedia": "https://en.wikipedia.org/wiki/System_7"
+    }
+  },
+
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#CCCCCC",
+
+        "windowBackground": "#FFFFFF",
+        "windowBorder": "#000000",
+        "windowBorderWidth": 1,
+
+        "titleBarActive": "#FFFFFF",
+        "titleBarInactive": "#FFFFFF",
+        "titleBarText": "#000000",
+        "titleBarTextInactive": "#808080",
+
+        "buttonFace": "#DDDDDD",
+        "buttonText": "#000000",
+        "buttonHighlight": "#FFFFFF",
+        "buttonShadow": "#888888",
+        "buttonBorder": "#000000",
+
+        "highlight": "#0000CC",
+        "highlightText": "#FFFFFF",
+
+        "menuBackground": "#FFFFFF",
+        "menuText": "#000000",
+        "menuHighlight": "#0000CC",
+
+        "text": "#000000",
+        "textDisabled": "#888888",
+
+        "statusBar": "#DDDDDD",
+
+        "shadow": "#000000",
+
+        "custom": {
+          "menuBarBackground": "#EEEEEE",
+          "desktopPattern": "#CCCCCC",
+          "scrollbarGray": "#DDDDDD",
+          "windowStripes": "#CCCCCC"
+        }
+      },
+
+      "typography": {
+        "systemFont": {
+          "family": "Chicago",
+          "size": 12,
+          "weight": "normal",
+          "fallback": ["Geneva", "Helvetica", "sans-serif"]
+        },
+        "titleFont": {
+          "family": "Geneva",
+          "size": 9,
+          "weight": "bold",
+          "fallback": ["Helvetica", "sans-serif"]
+        },
+        "menuFont": {
+          "family": "Chicago",
+          "size": 12,
+          "weight": "normal"
+        },
+        "monospaceFont": {
+          "family": "Monaco",
+          "size": 9,
+          "weight": "normal"
+        },
+
+        "antialiasing": false,
+        "subpixelRendering": false,
+        "baseFontSize": 12,
+        "scaleFactor": 1.0
+      },
+
+      "style": {
+        "type": "classic",
+        "borderStyle": "single",
+        "cornerRadius": 0,
+
+        "shadows": true,
+        "shadowStyle": "simple",
+        "transparency": false,
+        "blur": false,
+
+        "bevels": false,
+        "gradients": false,
+        "textures": true,
+
+        "animationStyle": "instant"
+      },
+
+      "specialElements": {
+        "scrollbarStyle": "classic",
+        "focusIndicator": "solid_outline",
+        "dragVisual": "outline"
+      }
+    },
+
+    "cursor": {
+      "style": "mac_arrow",
+      "animated": true,
+      "shadows": false,
+      "customCursors": {
+        "default": "cursors/arrow.png",
+        "pointer": "cursors/hand.png",
+        "text": "cursors/ibeam.png",
+        "wait": "cursors/watch.png"
+      }
+    },
+
+    "icons": {
+      "style": "icon_32",
+      "size": {
+        "default": 32,
+        "sizes": [16, 32]
+      },
+      "rendering": "antialiased",
+      "shadow": false,
+      "labelStyle": {
+        "position": "below",
+        "background": "transparent",
+        "textColor": "#000000",
+        "font": {
+          "family": "Geneva",
+          "size": 9
+        }
+      }
+    },
+
+    "sounds": {
+      "enabled": true,
+      "sounds": {
+        "startup": "sounds/mac_startup.wav",
+        "error": "sounds/sosumi.wav",
+        "warning": "sounds/quack.wav",
+        "notification": "sounds/simple_beep.wav",
+        "trash": "sounds/drag_to_trash.wav"
+      },
+      "volume": 75
+    },
+
+    "wallpaper": {
+      "type": "pattern",
+      "value": "#CCCCCC",
+      "pattern": "dots",
+      "tiling": "tile",
+      "overlay": true
+    }
+  },
+
+  "paradigm": {
+    "windowSystem": {
+      "type": "stacking",
+
+      "behavior": {
+        "overlap": true,
+        "resize": true,
+        "minimize": false,
+        "maximize": false,
+        "close": true,
+
+        "modal": true,
+        "alwaysOnTop": false,
+        "transparency": false,
+
+        "multipleDocuments": false,
+        "tabbed": false,
+        "tiling": false
+      },
+
+      "chrome": {
+        "titleBar": "classic",
+        "controls": "icons",
+        "controlPosition": "left",
+
+        "buttons": {
+          "close": {
+            "style": "icon",
+            "content": "close_box",
+            "position": 1
+          }
+        },
+
+        "titleAlign": "center",
+        "showIcon": false,
+        "showPath": false
+      },
+
+      "effects": {
+        "openAnimation": "none",
+        "closeAnimation": "none",
+
+        "shadow": true,
+        "blur": false,
+        "wobbly": false
+      }
+    },
+
+    "menuSystem": {
+      "type": "global_menu",
+
+      "menuBar": {
+        "enabled": true,
+        "position": "top",
+        "sticky": true,
+        "autoHide": false,
+
+        "style": {
+          "background": "#EEEEEE",
+          "textColor": "#000000",
+          "height": 20
+        },
+
+        "items": {
+          "alwaysVisible": ["apple"],
+          "applicationMenu": true,
+          "systemMenu": false
+        }
+      },
+
+      "contextMenu": {
+        "enabled": true,
+        "trigger": "ctrl_click",
+        "style": {
+          "background": "#FFFFFF",
+          "borderStyle": "single"
+        }
+      },
+
+      "behavior": {
+        "clickToOpen": true,
+        "keyboardShortcuts": true,
+        "mnemonics": false,
+        "icons": true,
+        "cascading": true,
+        "tearOff": false
+      }
+    },
+
+    "taskManagement": {
+      "type": "none",
+
+      "switching": {
+        "method": ["window_list"],
+        "altTab": {
+          "enabled": false
+        }
+      },
+
+      "multitasking": {
+        "preemptive": false,
+        "virtual_desktops": false,
+        "snapAssist": false,
+        "splitScreen": false
+      }
+    },
+
+    "desktop": {
+      "type": "spatial",
+
+      "layout": {
+        "type": "free_form",
+        "direction": "vertical",
+        "alignment": "right",
+        "snapToGrid": true,
+        "autoArrange": false
+      },
+
+      "items": {
+        "icons": true,
+        "widgets": false,
+        "shortcuts": true,
+        "folders": true,
+
+        "defaultItems": [
+          "macintosh_hd",
+          "trash"
+        ]
+      },
+
+      "interaction": {
+        "click": "single",
+        "selection": "rubber_band",
+        "dragAndDrop": true,
+        "hoverPreview": false
+      },
+
+      "behavior": {
+        "showTrash": true,
+        "showComputer": true,
+        "showNetwork": true,
+        "showHome": false
+      }
+    },
+
+    "inputMethods": {
+      "keyboard": {
+        "shortcuts": true,
+        "function_keys": true,
+        "navigation": "arrows",
+        "accessibility": true
+      },
+
+      "mouse": {
+        "buttons": 1,
+        "scroll": "none",
+        "gestures": false,
+        "acceleration": true
+      },
+
+      "touch": {
+        "enabled": false
+      }
+    }
+  },
+
+  "components": {
+    "core": {
+      "windowManager": "system7-window-manager",
+      "fileManager": "finder",
+
+      "optional": {
+        "menuBar": "system7-menu-bar",
+        "textEditor": "teachtext",
+        "imageViewer": "simpletext"
+      }
+    },
+
+    "applications": [
+      {
+        "id": "macintosh_hd",
+        "name": "Macintosh HD",
+        "icon": "icons/hard_drive.png",
+        "type": "system",
+        "component": "Finder",
+
+        "window": {
+          "title": "Macintosh HD",
+          "width": 512,
+          "height": 342,
+          "resizable": true,
+          "minimizable": false,
+          "maximizable": false,
+          "position": "center"
+        },
+
+        "desktop": {
+          "icon": true,
+          "position": { "x": 550, "y": 20 }
+        },
+
+        "features": {
+          "saveState": true,
+          "multiInstance": true
+        }
+      },
+      {
+        "id": "trash",
+        "name": "Trash",
+        "icon": "icons/trash_empty.png",
+        "type": "system",
+        "component": "Trash",
+
+        "window": {
+          "title": "Trash",
+          "width": 512,
+          "height": 342,
+          "resizable": true,
+          "minimizable": false,
+          "maximizable": false,
+          "position": "center"
+        },
+
+        "desktop": {
+          "icon": true,
+          "position": { "x": 550, "y": 430 }
+        }
+      },
+      {
+        "id": "teachtext",
+        "name": "TeachText",
+        "icon": "icons/teachtext.png",
+        "type": "productivity",
+        "component": "TeachText",
+
+        "window": {
+          "title": "Untitled",
+          "width": 480,
+          "height": 320,
+          "minWidth": 200,
+          "minHeight": 150,
+          "resizable": true,
+          "minimizable": false,
+          "maximizable": false,
+          "position": "cascade"
+        },
+
+        "features": {
+          "multiInstance": true,
+          "fileAssociations": [".txt", ".text"]
+        }
+      },
+      {
+        "id": "stickies",
+        "name": "Stickies",
+        "icon": "icons/stickies.png",
+        "type": "utility",
+        "component": "Stickies",
+
+        "window": {
+          "title": "",
+          "width": 200,
+          "height": 150,
+          "resizable": true,
+          "minimizable": false,
+          "maximizable": false,
+          "position": "cascade"
+        },
+
+        "features": {
+          "multiInstance": true
+        }
+      },
+      {
+        "id": "puzzle",
+        "name": "Puzzle",
+        "icon": "icons/puzzle.png",
+        "type": "game",
+        "component": "Puzzle",
+
+        "window": {
+          "title": "Puzzle",
+          "width": 256,
+          "height": 256,
+          "resizable": false,
+          "minimizable": false,
+          "maximizable": false,
+          "position": "center"
+        },
+
+        "features": {
+          "multiInstance": false
+        }
+      },
+      {
+        "id": "calculator",
+        "name": "Calculator",
+        "icon": "icons/calculator.png",
+        "type": "utility",
+        "component": "Calculator",
+
+        "window": {
+          "title": "Calculator",
+          "width": 200,
+          "height": 180,
+          "resizable": false,
+          "minimizable": false,
+          "maximizable": false,
+          "position": "center"
+        },
+
+        "features": {
+          "multiInstance": false
+        }
+      },
+      {
+        "id": "control_panels",
+        "name": "Control Panels",
+        "icon": "icons/control_panels.png",
+        "type": "system",
+        "component": "ControlPanels",
+
+        "window": {
+          "title": "Control Panels",
+          "width": 400,
+          "height": 300,
+          "resizable": true,
+          "minimizable": false,
+          "maximizable": false,
+          "position": "center"
+        }
+      },
+      {
+        "id": "chooser",
+        "name": "Chooser",
+        "icon": "icons/chooser.png",
+        "type": "system",
+        "component": "Chooser",
+
+        "window": {
+          "title": "Chooser",
+          "width": 400,
+          "height": 250,
+          "resizable": false,
+          "minimizable": false,
+          "maximizable": false,
+          "position": "center"
+        }
+      },
+      {
+        "id": "key_caps",
+        "name": "Key Caps",
+        "icon": "icons/key_caps.png",
+        "type": "utility",
+        "component": "KeyCaps",
+
+        "window": {
+          "title": "Key Caps",
+          "width": 450,
+          "height": 200,
+          "resizable": false,
+          "minimizable": false,
+          "maximizable": false,
+          "position": "center"
+        }
+      }
+    ],
+
+    "utilities": [
+      {
+        "id": "apple_menu",
+        "name": "Apple Menu",
+        "type": "system_preference",
+        "icon": "icons/apple.png",
+        "component": "AppleMenu"
+      },
+      {
+        "id": "general_controls",
+        "name": "General Controls",
+        "type": "control_panel",
+        "icon": "icons/general_controls.png",
+        "component": "GeneralControls"
+      },
+      {
+        "id": "monitors",
+        "name": "Monitors",
+        "type": "control_panel",
+        "icon": "icons/monitors.png",
+        "component": "Monitors"
+      }
+    ]
+  },
+
+  "features": {
+    "interaction": {
+      "dragAndDrop": true,
+      "clipboard": true,
+      "undo": true,
+
+      "fileOperations": {
+        "copy": true,
+        "move": true,
+        "delete": true,
+        "rename": true,
+        "properties": true
+      },
+
+      "networking": {
+        "enabled": true,
+        "protocols": ["AppleTalk", "TCP/IP"]
+      },
+
+      "printing": true,
+      "scanning": false
+    },
+
+    "animations": {
+      "enabled": false,
+      "speed": "normal",
+
+      "effects": {
+        "windowOpen": false,
+        "windowClose": false,
+        "menuOpen": false,
+        "hover": false,
+        "transitions": false
+      }
+    },
+
+    "accessibility": {
+      "highContrast": false,
+      "screenReader": false,
+      "magnifier": false,
+      "keyboard_navigation": true
+    },
+
+    "easterEggs": {
+      "enabled": true,
+      "list": ["secret_about", "puzzle_cheat"]
+    },
+
+    "customization": {
+      "themes": false,
+      "wallpaper": true,
+      "colors": true,
+      "fonts": false,
+      "layout": true
+    }
+  },
+
+  "assets": {
+    "basePath": "/assets/os/system7",
+
+    "paths": {
+      "icons": "icons",
+      "cursors": "cursors",
+      "sounds": "sounds",
+      "fonts": "fonts",
+      "wallpapers": "patterns"
+    },
+
+    "iconSets": {
+      "default": {
+        "path": "icons",
+        "format": "png",
+        "sizes": [16, 32]
+      }
+    },
+
+    "cursorSets": {
+      "default": {
+        "path": "cursors",
+        "format": "png",
+        "animated": true
+      }
+    },
+
+    "soundSets": {
+      "default": {
+        "path": "sounds",
+        "format": "wav"
+      }
+    },
+
+    "fonts": {
+      "chicago": {
+        "path": "fonts/chicago.woff2",
+        "format": "woff2",
+        "weights": [400]
+      },
+      "geneva": {
+        "path": "fonts/geneva.woff2",
+        "format": "woff2",
+        "weights": [400, 700]
+      },
+      "monaco": {
+        "path": "fonts/monaco.woff2",
+        "format": "woff2",
+        "weights": [400]
+      }
+    },
+
+    "preload": [
+      "icons/hard_drive.png",
+      "icons/trash_empty.png",
+      "icons/folder.png",
+      "icons/apple.png",
+      "cursors/arrow.png",
+      "sounds/mac_startup.wav"
+    ]
+  }
+}

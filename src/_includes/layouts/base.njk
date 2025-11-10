@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>{{ title or "RetroOS Museum" }}</title>
+  <meta name="description" content="{{ description or 'A modular OS builder system showcasing historical operating systems' }}">
+
+  <!-- Preload critical assets -->
+  <link rel="preload" href="/assets/css/main.css" as="style">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <!-- Additional head content -->
+  {% block head %}{% endblock %}
+</head>
+<body class="{{ bodyClass or '' }}">
+
+  <!-- Skip to main content for accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Header -->
+  <header role="banner">
+    <nav role="navigation" aria-label="Main navigation">
+      <a href="/" aria-label="Home">RetroOS Museum</a>
+    </nav>
+  </header>
+
+  <!-- Main content -->
+  <main id="main-content" role="main">
+    {% block content %}
+      {{ content | safe }}
+    {% endblock %}
+  </main>
+
+  <!-- Footer -->
+  <footer role="contentinfo">
+    <p>&copy; 2025 RetroOS Museum</p>
+  </footer>
+
+  <!-- Scripts -->
+  {% block scripts %}{% endblock %}
+
+</body>
+</html>

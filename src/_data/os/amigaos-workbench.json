@@ -1,0 +1,465 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "amigaos-workbench",
+
+  "metadata": {
+    "name": "Workbench",
+    "fullName": "Amiga Workbench 3.1",
+    "version": "3.1",
+    "company": "Commodore International",
+    "releaseYear": 1994,
+    "releaseDate": "1994-07-01",
+    "description": "The innovative graphical shell for AmigaOS, featuring preemptive multitasking, advanced graphics, and a distinctive blue-and-orange color scheme.",
+    "tagline": "Only Amiga Makes It Possible",
+    "category": "desktop_alternative",
+    "architecture": ["68k"],
+
+    "historical": {
+      "significance": "Pioneered preemptive multitasking, custom chips for graphics/sound, and sophisticated GUI design years ahead of competitors.",
+      "marketShare": "Popular in creative and multimedia markets in late 1980s/early 1990s",
+      "successor": "AmigaOS 3.5",
+      "predecessor": "Workbench 2.0"
+    },
+
+    "links": {
+      "wikipedia": "https://en.wikipedia.org/wiki/Workbench_(AmigaOS)"
+    }
+  },
+
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#5555AA",
+
+        "windowBackground": "#AAAAAA",
+        "windowBorder": "#000000",
+        "windowBorderWidth": 1,
+
+        "titleBarActive": "#6688BB",
+        "titleBarInactive": "#888888",
+        "titleBarText": "#FFFFFF",
+        "titleBarTextInactive": "#000000",
+
+        "buttonFace": "#AAAAAA",
+        "buttonText": "#000000",
+        "buttonHighlight": "#FFFFFF",
+        "buttonShadow": "#555555",
+
+        "highlight": "#FF8800",
+        "highlightText": "#000000",
+
+        "menuBackground": "#AAAAAA",
+        "menuText": "#000000",
+        "menuHighlight": "#FF8800",
+
+        "text": "#000000",
+        "textDisabled": "#666666",
+
+        "custom": {
+          "dragBar": "#6688BB",
+          "screenBar": "#6688BB",
+          "gadgetOrange": "#FF8800",
+          "gadgetBlue": "#6688BB"
+        }
+      },
+
+      "typography": {
+        "systemFont": {
+          "family": "Topaz",
+          "size": 8,
+          "weight": "normal",
+          "fallback": ["Courier", "monospace"]
+        },
+        "titleFont": {
+          "family": "Topaz",
+          "size": 8,
+          "weight": "bold"
+        },
+        "menuFont": {
+          "family": "Topaz",
+          "size": 8,
+          "weight": "normal"
+        },
+        "monospaceFont": {
+          "family": "Topaz",
+          "size": 8,
+          "weight": "normal"
+        },
+
+        "antialiasing": false,
+        "baseFontSize": 8
+      },
+
+      "style": {
+        "type": "classic",
+        "borderStyle": "single",
+        "cornerRadius": 0,
+
+        "shadows": false,
+        "transparency": false,
+
+        "bevels": false,
+        "gradients": false,
+
+        "animationStyle": "instant"
+      }
+    },
+
+    "cursor": {
+      "style": "classic_arrow",
+      "animated": false,
+      "shadows": false
+    },
+
+    "icons": {
+      "style": "icon_48",
+      "size": {
+        "default": 48,
+        "sizes": [48]
+      },
+      "rendering": "aliased",
+      "shadow": false,
+      "labelStyle": {
+        "position": "below",
+        "background": "transparent",
+        "textColor": "#FFFFFF",
+        "font": {
+          "family": "Topaz",
+          "size": 8
+        }
+      }
+    },
+
+    "sounds": {
+      "enabled": true,
+      "sounds": {
+        "startup": "sounds/amiga_startup.wav",
+        "error": "sounds/beep.wav"
+      },
+      "volume": 70
+    },
+
+    "wallpaper": {
+      "type": "solid",
+      "value": "#5555AA",
+      "overlay": true
+    }
+  },
+
+  "paradigm": {
+    "windowSystem": {
+      "type": "stacking",
+
+      "behavior": {
+        "overlap": true,
+        "resize": true,
+        "minimize": false,
+        "maximize": false,
+        "close": true,
+
+        "modal": true,
+        "transparency": false
+      },
+
+      "chrome": {
+        "titleBar": "classic",
+        "controls": "buttons",
+        "controlPosition": "right",
+
+        "buttons": {
+          "close": {
+            "style": "icon",
+            "content": "close",
+            "position": 1
+          },
+          "minimize": {
+            "style": "icon",
+            "content": "depth",
+            "position": 2
+          },
+          "maximize": {
+            "style": "icon",
+            "content": "zoom",
+            "position": 3
+          }
+        },
+
+        "titleAlign": "left",
+        "showIcon": false
+      }
+    },
+
+    "menuSystem": {
+      "type": "menu_bar",
+
+      "menuBar": {
+        "enabled": true,
+        "position": "top",
+        "sticky": true,
+
+        "style": {
+          "background": "#6688BB",
+          "textColor": "#FFFFFF",
+          "height": 10
+        }
+      },
+
+      "contextMenu": {
+        "enabled": true,
+        "trigger": "right_click"
+      },
+
+      "behavior": {
+        "clickToOpen": true,
+        "icons": false,
+        "cascading": true
+      }
+    },
+
+    "taskManagement": {
+      "type": "none",
+
+      "switching": {
+        "method": ["window_list"]
+      },
+
+      "multitasking": {
+        "preemptive": true,
+        "virtual_desktops": false
+      }
+    },
+
+    "desktop": {
+      "type": "iconic",
+
+      "layout": {
+        "type": "grid",
+        "grid": {
+          "cellWidth": 80,
+          "cellHeight": 80,
+          "spacing": 16
+        },
+        "direction": "vertical",
+        "alignment": "left",
+        "snapToGrid": true
+      },
+
+      "items": {
+        "icons": true,
+        "shortcuts": true,
+        "folders": true,
+
+        "defaultItems": [
+          "workbench",
+          "ram_disk",
+          "trash"
+        ]
+      },
+
+      "interaction": {
+        "click": "double",
+        "selection": "rubber_band",
+        "dragAndDrop": true
+      },
+
+      "behavior": {
+        "showTrash": true,
+        "showComputer": true
+      }
+    },
+
+    "inputMethods": {
+      "keyboard": {
+        "shortcuts": true,
+        "function_keys": true,
+        "navigation": "arrows"
+      },
+
+      "mouse": {
+        "buttons": 2,
+        "scroll": "none",
+        "gestures": false
+      }
+    }
+  },
+
+  "components": {
+    "core": {
+      "windowManager": "intuition",
+      "fileManager": "workbench",
+
+      "optional": {
+        "terminal": "shell",
+        "textEditor": "ed"
+      }
+    },
+
+    "applications": [
+      {
+        "id": "workbench",
+        "name": "Workbench",
+        "icon": "icons/workbench.png",
+        "type": "system",
+        "component": "WorkbenchWindow",
+
+        "window": {
+          "title": "Workbench",
+          "width": 640,
+          "height": 400,
+          "resizable": true,
+          "minimizable": false,
+          "maximizable": false,
+          "position": "center"
+        },
+
+        "desktop": {
+          "icon": true,
+          "position": { "x": 20, "y": 20 }
+        }
+      },
+      {
+        "id": "ram_disk",
+        "name": "RAM Disk",
+        "icon": "icons/ram.png",
+        "type": "system",
+        "component": "RAMDisk",
+
+        "window": {
+          "title": "RAM Disk",
+          "width": 400,
+          "height": 300,
+          "resizable": true,
+          "minimizable": false,
+          "maximizable": false,
+          "position": "center"
+        },
+
+        "desktop": {
+          "icon": true,
+          "position": { "x": 20, "y": 100 }
+        }
+      },
+      {
+        "id": "trash",
+        "name": "Trashcan",
+        "icon": "icons/trashcan.png",
+        "type": "system",
+        "component": "Trashcan",
+
+        "window": {
+          "title": "Trashcan",
+          "width": 400,
+          "height": 300,
+          "resizable": true,
+          "minimizable": false,
+          "maximizable": false,
+          "position": "center"
+        },
+
+        "desktop": {
+          "icon": true,
+          "position": { "x": 20, "y": 180 }
+        }
+      },
+      {
+        "id": "shell",
+        "name": "Shell",
+        "icon": "icons/shell.png",
+        "type": "system",
+        "component": "Shell",
+
+        "window": {
+          "title": "Shell",
+          "width": 640,
+          "height": 200,
+          "resizable": true,
+          "minimizable": false,
+          "maximizable": false,
+          "position": "cascade"
+        },
+
+        "features": {
+          "multiInstance": true
+        }
+      },
+      {
+        "id": "notepad",
+        "name": "NotePad",
+        "icon": "icons/notepad.png",
+        "type": "productivity",
+        "component": "NotePad",
+
+        "window": {
+          "title": "NotePad",
+          "width": 500,
+          "height": 300,
+          "resizable": true,
+          "minimizable": false,
+          "maximizable": false,
+          "position": "cascade"
+        },
+
+        "features": {
+          "multiInstance": true,
+          "fileAssociations": [".txt"]
+        }
+      }
+    ]
+  },
+
+  "features": {
+    "interaction": {
+      "dragAndDrop": true,
+      "clipboard": true,
+
+      "fileOperations": {
+        "copy": true,
+        "move": true,
+        "delete": true,
+        "rename": true,
+        "properties": true
+      },
+
+      "networking": {
+        "enabled": false
+      }
+    },
+
+    "animations": {
+      "enabled": false
+    },
+
+    "customization": {
+      "themes": true,
+      "wallpaper": true,
+      "colors": true
+    }
+  },
+
+  "assets": {
+    "basePath": "/assets/os/amigaos",
+
+    "paths": {
+      "icons": "icons",
+      "cursors": "cursors",
+      "sounds": "sounds",
+      "fonts": "fonts"
+    },
+
+    "iconSets": {
+      "default": {
+        "path": "icons",
+        "format": "png",
+        "sizes": [48]
+      }
+    },
+
+    "fonts": {
+      "topaz": {
+        "path": "fonts/topaz.woff2",
+        "format": "woff2",
+        "weights": [400, 700]
+      }
+    }
+  }
+}

@@ -1,0 +1,34 @@
+---
+layout: layouts/base.njk
+title: "RetroOS Museum - Home"
+description: "Explore historical operating systems through an interactive modular builder"
+bodyClass: "home-page"
+---
+
+<section class="hero">
+  <h1>Welcome to RetroOS Museum</h1>
+  <p>Explore the evolution of operating systems through an interactive modular builder.</p>
+</section>
+
+<section class="features">
+  <h2>Features</h2>
+  <ul>
+    <li>Modular OS component system</li>
+    <li>Historical OS recreations</li>
+    <li>Interactive demonstrations</li>
+    <li>Educational resource</li>
+  </ul>
+</section>
+
+<section class="os-preview">
+  <h2>Operating Systems</h2>
+  {% if collections.operatingSystems.length > 0 %}
+    <ul>
+      {% for os in collections.operatingSystems %}
+        <li><a href="{{ os.url }}">{{ os.data.title }}</a></li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>OS collection coming soon...</p>
+  {% endif %}
+</section>
