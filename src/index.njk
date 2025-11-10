@@ -1,34 +1,450 @@
 ---
 layout: layouts/base.njk
-title: "RetroOS Museum - Home"
-description: "Explore historical operating systems through an interactive modular builder"
-bodyClass: "home-page"
+title: "RetroOS Museum - Interactive Timeline of 94 Operating Systems"
+description: "Explore the complete history of operating systems from 1980 to 2025. Interactive timeline featuring 94 OS from CP/M to visionOS."
+bodyClass: "timeline-page"
 ---
 
-<section class="hero">
-  <h1>Welcome to RetroOS Museum</h1>
-  <p>Explore the evolution of operating systems through an interactive modular builder.</p>
-</section>
+<div class="timeline-container">
+  <!-- Hero Section -->
+  <section class="hero-timeline">
+    <div class="hero-content">
+      <h1 class="hero-title">
+        <span class="retro-text">RetroOS</span>
+        <span class="museum-text">Museum</span>
+      </h1>
+      <p class="hero-tagline">Journey through 45 years of computing history</p>
+      <p class="hero-stats">
+        <span class="stat-item">
+          <strong>94</strong> Operating Systems
+        </span>
+        <span class="stat-divider">|</span>
+        <span class="stat-item">
+          <strong>5</strong> Decades
+        </span>
+        <span class="stat-divider">|</span>
+        <span class="stat-item">
+          <strong>1980-2025</strong>
+        </span>
+      </p>
+    </div>
 
-<section class="features">
-  <h2>Features</h2>
-  <ul>
-    <li>Modular OS component system</li>
-    <li>Historical OS recreations</li>
-    <li>Interactive demonstrations</li>
-    <li>Educational resource</li>
-  </ul>
-</section>
+    <!-- CRT Effect Toggle -->
+    <button id="crt-toggle" class="crt-toggle" aria-label="Toggle CRT effect">
+      <span class="toggle-icon">⚡</span> Retro Mode
+    </button>
+  </section>
 
-<section class="os-preview">
-  <h2>Operating Systems</h2>
-  {% if collections.operatingSystems.length > 0 %}
-    <ul>
-      {% for os in collections.operatingSystems %}
-        <li><a href="{{ os.url }}">{{ os.data.title }}</a></li>
-      {% endfor %}
-    </ul>
-  {% else %}
-    <p>OS collection coming soon...</p>
-  {% endif %}
-</section>
+  <!-- Decade Navigation -->
+  <nav class="decade-nav" aria-label="Navigate by decade">
+    <button class="decade-btn active" data-decade="all">
+      <span class="decade-label">All</span>
+      <span class="decade-count">94</span>
+    </button>
+    <button class="decade-btn" data-decade="1980s">
+      <span class="decade-label">1980s</span>
+      <span class="decade-count">17</span>
+    </button>
+    <button class="decade-btn" data-decade="1990s">
+      <span class="decade-label">1990s</span>
+      <span class="decade-count">24</span>
+    </button>
+    <button class="decade-btn" data-decade="2000s">
+      <span class="decade-label">2000s</span>
+      <span class="decade-count">18</span>
+    </button>
+    <button class="decade-btn" data-decade="2010s">
+      <span class="decade-label">2010s</span>
+      <span class="decade-count">15</span>
+    </button>
+    <button class="decade-btn" data-decade="2020s">
+      <span class="decade-label">2020s</span>
+      <span class="decade-count">27</span>
+    </button>
+  </nav>
+
+  <!-- Filter and Search Bar -->
+  <section class="filter-section">
+    <div class="search-container">
+      <label for="os-search" class="sr-only">Search operating systems</label>
+      <input
+        type="search"
+        id="os-search"
+        class="search-input"
+        placeholder="Search by name, company, or year..."
+        aria-label="Search operating systems"
+      />
+      <span class="search-icon">🔍</span>
+    </div>
+
+    <div class="filter-controls">
+      <div class="filter-group">
+        <label for="family-filter">Family:</label>
+        <select id="family-filter" class="filter-select">
+          <option value="all">All Families</option>
+          <option value="windows">Windows</option>
+          <option value="macos">macOS</option>
+          <option value="ios">iOS/iPadOS</option>
+          <option value="linux">Linux</option>
+          <option value="unix">Unix</option>
+          <option value="bsd">BSD</option>
+          <option value="dos">DOS</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="type-filter">Type:</label>
+        <select id="type-filter" class="filter-select">
+          <option value="all">All Types</option>
+          <option value="desktop">Desktop</option>
+          <option value="mobile">Mobile</option>
+          <option value="server">Server</option>
+          <option value="workstation">Workstation</option>
+          <option value="tablet">Tablet</option>
+          <option value="gaming">Gaming</option>
+        </select>
+      </div>
+
+      <button id="clear-filters" class="clear-btn">Clear All</button>
+    </div>
+
+    <div class="results-info">
+      Showing <span id="results-count">94</span> operating systems
+    </div>
+  </section>
+
+  <!-- Timeline Visualization -->
+  <div class="timeline-main">
+    <!-- 1980s Section -->
+    <section class="decade-section" data-decade="1980s" id="section-1980s">
+      <div class="decade-header">
+        <h2 class="decade-title">
+          <span class="decade-number">1980s</span>
+          <span class="era-name">The Early Personal Computer Era</span>
+        </h2>
+        <p class="decade-description">
+          Birth of personal computing with DOS, early Mac systems, and Unix variants.
+          The foundation era where command-line interfaces gave way to the first graphical user interfaces.
+        </p>
+        <div class="decade-stats">
+          <span class="stat">17 Operating Systems</span>
+          <span class="stat-divider">•</span>
+          <span class="stat">Key Innovation: GUI Revolution</span>
+        </div>
+      </div>
+
+      <div class="os-grid">
+        {% for os in os1980s.operating_systems %}
+        <article class="os-card"
+                 data-os-id="{{ os.id }}"
+                 data-decade="{{ os.decade }}"
+                 data-family="{{ os.family }}"
+                 data-type="{{ os.type }}"
+                 data-year="{{ os.year }}"
+                 data-company="{{ os.company | lower }}">
+          <div class="os-card-header">
+            <div class="os-icon" data-family="{{ os.family }}">
+              <span class="icon-placeholder">{{ os.name | truncate(2, true, "") | upper }}</span>
+            </div>
+            <div class="os-badges">
+              <span class="badge badge-family badge-{{ os.family }}">{{ os.family }}</span>
+              <span class="badge badge-type">{{ os.type }}</span>
+            </div>
+          </div>
+
+          <div class="os-card-body">
+            <h3 class="os-name">{{ os.name }}</h3>
+            <div class="os-meta">
+              <span class="os-year">{{ os.year }}</span>
+              <span class="meta-divider">•</span>
+              <span class="os-company">{{ os.company }}</span>
+            </div>
+            <p class="os-description">{{ os.description | truncate(120) }}</p>
+
+            <div class="os-features">
+              {% for feature in os.features | slice(0, 3) %}
+              <span class="feature-tag">{{ feature }}</span>
+              {% endfor %}
+            </div>
+          </div>
+
+          <div class="os-card-footer">
+            <button class="os-details-btn" data-os-id="{{ os.id }}">
+              View Details →
+            </button>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+
+    <!-- 1990s Section -->
+    <section class="decade-section" data-decade="1990s" id="section-1990s">
+      <div class="decade-header">
+        <h2 class="decade-title">
+          <span class="decade-number">1990s</span>
+          <span class="era-name">The GUI and Networking Revolution</span>
+        </h2>
+        <p class="decade-description">
+          Windows dominance, Mac evolution, Linux birth, and widespread internet adoption.
+          The decade that brought computing to the masses with user-friendly interfaces and networking capabilities.
+        </p>
+        <div class="decade-stats">
+          <span class="stat">24 Operating Systems</span>
+          <span class="stat-divider">•</span>
+          <span class="stat">Key Innovation: Internet Integration</span>
+        </div>
+      </div>
+
+      <div class="os-grid">
+        {% for os in os1990s.operating_systems %}
+        <article class="os-card"
+                 data-os-id="{{ os.id }}"
+                 data-decade="{{ os.decade }}"
+                 data-family="{{ os.family }}"
+                 data-type="{{ os.type }}"
+                 data-year="{{ os.year }}"
+                 data-company="{{ os.company | lower }}">
+          <div class="os-card-header">
+            <div class="os-icon" data-family="{{ os.family }}">
+              <span class="icon-placeholder">{{ os.name | truncate(2, true, "") | upper }}</span>
+            </div>
+            <div class="os-badges">
+              <span class="badge badge-family badge-{{ os.family }}">{{ os.family }}</span>
+              <span class="badge badge-type">{{ os.type }}</span>
+            </div>
+          </div>
+
+          <div class="os-card-body">
+            <h3 class="os-name">{{ os.name }}</h3>
+            <div class="os-meta">
+              <span class="os-year">{{ os.year }}</span>
+              <span class="meta-divider">•</span>
+              <span class="os-company">{{ os.company }}</span>
+            </div>
+            <p class="os-description">{{ os.description | truncate(120) }}</p>
+
+            <div class="os-features">
+              {% for feature in os.features | slice(0, 3) %}
+              <span class="feature-tag">{{ feature }}</span>
+              {% endfor %}
+            </div>
+          </div>
+
+          <div class="os-card-footer">
+            <button class="os-details-btn" data-os-id="{{ os.id }}">
+              View Details →
+            </button>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+
+    <!-- 2000s Section -->
+    <section class="decade-section" data-decade="2000s" id="section-2000s">
+      <div class="decade-header">
+        <h2 class="decade-title">
+          <span class="decade-number">2000s</span>
+          <span class="era-name">Internet, Mobile, and Open Source Expansion</span>
+        </h2>
+        <p class="decade-description">
+          Windows XP era, Mac OS X revolution, Linux mainstream adoption, and mobile OS emergence.
+          The internet became ubiquitous and mobile computing began its rise to dominance.
+        </p>
+        <div class="decade-stats">
+          <span class="stat">18 Operating Systems</span>
+          <span class="stat-divider">•</span>
+          <span class="stat">Key Innovation: Mobile Computing & Open Source</span>
+        </div>
+      </div>
+
+      <div class="os-grid">
+        {% for os in os2000s.operating_systems %}
+        <article class="os-card"
+                 data-os-id="{{ os.id }}"
+                 data-decade="{{ os.decade }}"
+                 data-family="{{ os.family }}"
+                 data-type="{{ os.type }}"
+                 data-year="{{ os.year }}"
+                 data-company="{{ os.company | lower }}">
+          <div class="os-card-header">
+            <div class="os-icon" data-family="{{ os.family }}">
+              <span class="icon-placeholder">{{ os.name | truncate(2, true, "") | upper }}</span>
+            </div>
+            <div class="os-badges">
+              <span class="badge badge-family badge-{{ os.family }}">{{ os.family }}</span>
+              <span class="badge badge-type">{{ os.type }}</span>
+            </div>
+          </div>
+
+          <div class="os-card-body">
+            <h3 class="os-name">{{ os.name }}</h3>
+            <div class="os-meta">
+              <span class="os-year">{{ os.year }}</span>
+              <span class="meta-divider">•</span>
+              <span class="os-company">{{ os.company }}</span>
+            </div>
+            <p class="os-description">{{ os.description | truncate(120) }}</p>
+
+            <div class="os-features">
+              {% for feature in os.features | slice(0, 3) %}
+              <span class="feature-tag">{{ feature }}</span>
+              {% endfor %}
+            </div>
+          </div>
+
+          <div class="os-card-footer">
+            <button class="os-details-btn" data-os-id="{{ os.id }}">
+              View Details →
+            </button>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+
+    <!-- 2010s Section -->
+    <section class="decade-section" data-decade="2010s" id="section-2010s">
+      <div class="decade-header">
+        <h2 class="decade-title">
+          <span class="decade-number">2010s</span>
+          <span class="era-name">Mobile Dominance and Cloud Era</span>
+        </h2>
+        <p class="decade-description">
+          iOS and Android revolution, cloud computing rise, and desktop OS maturation.
+          Mobile-first became the standard approach as smartphones overtook traditional PCs in usage.
+        </p>
+        <div class="decade-stats">
+          <span class="stat">15 Operating Systems</span>
+          <span class="stat-divider">•</span>
+          <span class="stat">Key Innovation: Mobile-First & Cloud Computing</span>
+        </div>
+      </div>
+
+      <div class="os-grid">
+        {% for os in os2010s.operating_systems %}
+        <article class="os-card"
+                 data-os-id="{{ os.id }}"
+                 data-decade="{{ os.decade }}"
+                 data-family="{{ os.family }}"
+                 data-type="{{ os.type }}"
+                 data-year="{{ os.year }}"
+                 data-company="{{ os.company | lower }}">
+          <div class="os-card-header">
+            <div class="os-icon" data-family="{{ os.family }}">
+              <span class="icon-placeholder">{{ os.name | truncate(2, true, "") | upper }}</span>
+            </div>
+            <div class="os-badges">
+              <span class="badge badge-family badge-{{ os.family }}">{{ os.family }}</span>
+              <span class="badge badge-type">{{ os.type }}</span>
+            </div>
+          </div>
+
+          <div class="os-card-body">
+            <h3 class="os-name">{{ os.name }}</h3>
+            <div class="os-meta">
+              <span class="os-year">{{ os.year }}</span>
+              <span class="meta-divider">•</span>
+              <span class="os-company">{{ os.company }}</span>
+            </div>
+            <p class="os-description">{{ os.description | truncate(120) }}</p>
+
+            <div class="os-features">
+              {% for feature in os.features | slice(0, 3) %}
+              <span class="feature-tag">{{ feature }}</span>
+              {% endfor %}
+            </div>
+          </div>
+
+          <div class="os-card-footer">
+            <button class="os-details-btn" data-os-id="{{ os.id }}">
+              View Details →
+            </button>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+
+    <!-- 2020s Section -->
+    <section class="decade-section" data-decade="2020s" id="section-2020s">
+      <div class="decade-header">
+        <h2 class="decade-title">
+          <span class="decade-number">2020s</span>
+          <span class="era-name">Cross-Platform, Cloud, and AI Integration</span>
+        </h2>
+        <p class="decade-description">
+          Modern operating systems with AI assistants, cloud integration, and cross-device continuity.
+          The era of seamless experiences across all devices with AI becoming a core OS feature.
+        </p>
+        <div class="decade-stats">
+          <span class="stat">27 Operating Systems</span>
+          <span class="stat-divider">•</span>
+          <span class="stat">Key Innovation: AI Integration & Spatial Computing</span>
+        </div>
+      </div>
+
+      <div class="os-grid">
+        {% for os in os2020s.operating_systems %}
+        <article class="os-card"
+                 data-os-id="{{ os.id }}"
+                 data-decade="{{ os.decade }}"
+                 data-family="{{ os.family }}"
+                 data-type="{{ os.type }}"
+                 data-year="{{ os.year }}"
+                 data-company="{{ os.company | lower }}">
+          <div class="os-card-header">
+            <div class="os-icon" data-family="{{ os.family }}">
+              <span class="icon-placeholder">{{ os.name | truncate(2, true, "") | upper }}</span>
+            </div>
+            <div class="os-badges">
+              <span class="badge badge-family badge-{{ os.family }}">{{ os.family }}</span>
+              <span class="badge badge-type">{{ os.type }}</span>
+            </div>
+          </div>
+
+          <div class="os-card-body">
+            <h3 class="os-name">{{ os.name }}</h3>
+            <div class="os-meta">
+              <span class="os-year">{{ os.year }}</span>
+              <span class="meta-divider">•</span>
+              <span class="os-company">{{ os.company }}</span>
+            </div>
+            <p class="os-description">{{ os.description | truncate(120) }}</p>
+
+            <div class="os-features">
+              {% for feature in os.features | slice(0, 3) %}
+              <span class="feature-tag">{{ feature }}</span>
+              {% endfor %}
+            </div>
+          </div>
+
+          <div class="os-card-footer">
+            <button class="os-details-btn" data-os-id="{{ os.id }}">
+              View Details →
+            </button>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+  </div>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+    ↑
+  </button>
+</div>
+
+<!-- OS Details Modal (placeholder for future) -->
+<div id="os-modal" class="modal" hidden>
+  <div class="modal-content">
+    <button class="modal-close" aria-label="Close modal">&times;</button>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<link rel="stylesheet" href="/assets/css/timeline.css">
+<script src="/assets/js/timeline.js"></script>

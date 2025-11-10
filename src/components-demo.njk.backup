@@ -1,0 +1,470 @@
+---
+layout: layouts/base.njk
+title: "RetroOS Component Library Demo"
+description: "Showcase of all RetroOS Museum UI components"
+---
+
+{% import "_includes/components/window.njk" as windowComponent %}
+{% import "_includes/components/button.njk" as buttonComponent %}
+{% import "_includes/components/menu.njk" as menuComponent %}
+{% import "_includes/components/icon.njk" as iconComponent %}
+{% import "_includes/components/scrollbar.njk" as scrollbarComponent %}
+
+<style>
+  body {
+    background: #008080; /* Teal desktop background */
+    padding: 20px;
+    min-height: 100vh;
+  }
+
+  .demo-section {
+    margin-bottom: 60px;
+    position: relative;
+  }
+
+  .demo-title {
+    background: white;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    border: 2px solid #000;
+    font-family: "Courier New", monospace;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .demo-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .demo-card {
+    background: white;
+    padding: 20px;
+    border: 2px solid #000;
+    min-width: 300px;
+  }
+
+  .demo-card h3 {
+    margin-bottom: 15px;
+    font-size: 14px;
+    font-family: monospace;
+    color: #000080;
+  }
+
+  .button-demo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .icon-demo-desktop {
+    background: #008080;
+    padding: 20px;
+    min-height: 200px;
+    border: 2px solid #000;
+  }
+
+  .scrollbar-demo {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+</style>
+
+<main role="main">
+  <h1 class="demo-title">RetroOS Museum - Component Library Showcase</h1>
+
+  <!-- Windows 95 Style Components -->
+  <section class="demo-section" aria-labelledby="windows-title">
+    <h2 class="demo-title" id="windows-title">Windows 95/98 Style Components</h2>
+
+    <!-- Windows -->
+    {% call windowComponent.window(
+      title="My Computer",
+      icon="💻",
+      width=450,
+      height=300,
+      x=50,
+      y=100,
+      osStyle="win95",
+      active=true,
+      id="win95-window-1"
+    ) %}
+      <p style="margin-bottom: 10px;">This is a Windows 95 style window component.</p>
+      <p style="margin-bottom: 10px;">Features:</p>
+      <ul style="padding-left: 20px;">
+        <li>3D beveled borders</li>
+        <li>Blue gradient title bar</li>
+        <li>Minimize, maximize, close buttons</li>
+        <li>Draggable title bar (with JS)</li>
+      </ul>
+
+      <div style="margin-top: 20px;">
+        {{ buttonComponent.button(text="OK", osStyle="win95", default=true) }}
+        {{ buttonComponent.button(text="Cancel", osStyle="win95") }}
+      </div>
+    {% endcall %}
+
+    {% call windowComponent.window(
+      title="Inactive Window",
+      width=400,
+      height=200,
+      x=520,
+      y=120,
+      osStyle="win95",
+      active=false,
+      id="win95-window-2"
+    ) %}
+      <p>This window is inactive (note the gray title bar).</p>
+    {% endcall %}
+
+    <!-- Buttons Demo -->
+    <div class="demo-card" style="position: absolute; top: 420px; left: 50px;">
+      <h3>Windows 95 Buttons</h3>
+      <div class="button-demo">
+        {{ buttonComponent.button(text="Normal Button", osStyle="win95") }}
+        {{ buttonComponent.button(text="Default Button", osStyle="win95", default=true) }}
+        {{ buttonComponent.button(text="Disabled Button", osStyle="win95", disabled=true) }}
+        {{ buttonComponent.iconButton(icon="📁", text="Open File", osStyle="win95") }}
+
+        {{ buttonComponent.buttonGroup(
+          buttons=[
+            {text: "Yes", default: true},
+            {text: "No"},
+            {text: "Cancel"}
+          ],
+          osStyle="win95",
+          align="center"
+        ) }}
+      </div>
+    </div>
+
+    <!-- Menu Demo -->
+    <div class="demo-card" style="position: absolute; top: 420px; left: 400px;">
+      <h3>Windows 95 Menu</h3>
+      {{ menuComponent.menu(
+        items=[
+          {text: "New", shortcut: "Ctrl+N"},
+          {text: "Open...", shortcut: "Ctrl+O"},
+          {text: "Save", shortcut: "Ctrl+S", checked: true},
+          {separator: true},
+          {text: "Print", shortcut: "Ctrl+P"},
+          {text: "Print Preview", disabled: true},
+          {separator: true},
+          {text: "Exit", shortcut: "Alt+F4"}
+        ],
+        osStyle="win95",
+        vertical=true,
+        id="win95-menu"
+      ) }}
+    </div>
+
+    <!-- Icons Demo -->
+    <div class="icon-demo-desktop" style="position: absolute; top: 420px; left: 750px; width: 300px;">
+      {{ iconComponent.iconGrid(
+        icons=[
+          {image: "💾", label: "Save File"},
+          {image: "📁", label: "My Documents", selected: true},
+          {image: "🗑️", label: "Recycle Bin"},
+          {image: "🖥️", label: "My Computer"},
+          {image: "🌐", label: "Network"},
+          {image: "📧", label: "Inbox"}
+        ],
+        osStyle="win95",
+        columns=3,
+        gap=12
+      ) }}
+    </div>
+  </section>
+
+  <!-- Mac OS Classic Style Components -->
+  <section class="demo-section" style="margin-top: 720px;" aria-labelledby="macos-title">
+    <h2 class="demo-title" id="macos-title">Mac OS Classic (System 7-9) Style Components</h2>
+
+    <!-- Mac Windows -->
+    {% call windowComponent.window(
+      title="About This Mac",
+      width=420,
+      height=280,
+      x=50,
+      y=50,
+      osStyle="macos",
+      active=true,
+      showMinimize=false,
+      id="macos-window-1"
+    ) %}
+      <div style="text-align: center; padding: 20px;">
+        <p style="font-family: 'Chicago', sans-serif; font-size: 14px; margin-bottom: 15px;">
+          <strong>Mac OS 9.2</strong>
+        </p>
+        <p style="margin-bottom: 10px;">RetroOS Museum Edition</p>
+        <p style="font-size: 11px; color: #666;">Memory: 128 MB</p>
+      </div>
+
+      <div style="margin-top: 20px; text-align: center;">
+        {{ buttonComponent.button(text="OK", osStyle="macos", default=true) }}
+      </div>
+    {% endcall %}
+
+    {% call windowComponent.window(
+      title="Untitled Document",
+      width=380,
+      height=250,
+      x=500,
+      y=70,
+      osStyle="macos",
+      active=false,
+      id="macos-window-2"
+    ) %}
+      <p style="font-family: 'Geneva', sans-serif; font-size: 12px;">
+        This is an inactive Mac OS window with the classic striped title bar pattern.
+      </p>
+    {% endcall %}
+
+    <!-- Mac Buttons -->
+    <div class="demo-card" style="position: absolute; top: 360px; left: 50px;">
+      <h3>Mac OS Classic Buttons</h3>
+      <div class="button-demo">
+        {{ buttonComponent.button(text="Standard", osStyle="macos") }}
+        {{ buttonComponent.button(text="Default", osStyle="macos", default=true) }}
+        {{ buttonComponent.button(text="Disabled", osStyle="macos", disabled=true) }}
+        {{ buttonComponent.iconButton(icon="💾", text="Save", osStyle="macos") }}
+      </div>
+    </div>
+
+    <!-- Mac Menu -->
+    <div class="demo-card" style="position: absolute; top: 360px; left: 400px;">
+      <h3>Mac OS Classic Menu</h3>
+      {{ menuComponent.menu(
+        items=[
+          {text: "About...", shortcut: "⌘A"},
+          {separator: true},
+          {text: "Preferences...", shortcut: "⌘,"},
+          {separator: true},
+          {text: "Hide", shortcut: "⌘H"},
+          {text: "Show All"},
+          {separator: true},
+          {text: "Quit", shortcut: "⌘Q"}
+        ],
+        osStyle="macos",
+        vertical=true,
+        id="macos-menu"
+      ) }}
+    </div>
+
+    <!-- Mac Icons -->
+    <div style="position: absolute; top: 360px; left: 750px; width: 280px; background: #ddd; padding: 15px; border: 1px solid #000;">
+      {{ iconComponent.iconGrid(
+        icons=[
+          {image: "📁", label: "System Folder"},
+          {image: "🖥️", label: "Macintosh HD", selected: true},
+          {image: "🗑️", label: "Trash"},
+          {image: "📄", label: "ReadMe"}
+        ],
+        osStyle="macos",
+        columns=2,
+        gap=16
+      ) }}
+    </div>
+  </section>
+
+  <!-- Unix/Linux Style Components -->
+  <section class="demo-section" style="margin-top: 1380px;" aria-labelledby="unix-title">
+    <h2 class="demo-title" id="unix-title">Unix/Linux X11 (Motif/CDE) Style Components</h2>
+
+    <!-- Unix Windows -->
+    {% call windowComponent.window(
+      title="Terminal Emulator",
+      icon="🖥️",
+      width=500,
+      height=300,
+      x=50,
+      y=50,
+      osStyle="unix",
+      active=true,
+      id="unix-window-1"
+    ) %}
+      <div style="background: #000; color: #0f0; font-family: monospace; padding: 10px; height: 100%;">
+        <p>$ ls -la</p>
+        <p>total 48</p>
+        <p>drwxr-xr-x  8 user group  4096 Nov 10 14:32 .</p>
+        <p>drwxr-xr-x 12 user group  4096 Nov 10 14:30 ..</p>
+        <p>-rw-r--r--  1 user group  1234 Nov 10 14:32 file.txt</p>
+        <p style="margin-top: 10px;">$ _</p>
+      </div>
+    {% endcall %}
+
+    {% call windowComponent.window(
+      title="Text Editor",
+      width=450,
+      height=280,
+      x=580,
+      y=70,
+      osStyle="unix",
+      active=false,
+      id="unix-window-2"
+    ) %}
+      <p style="font-family: monospace; font-size: 12px;">
+        This is an inactive Unix/X11 window with Motif-style 3D borders.
+      </p>
+    {% endcall %}
+
+    <!-- Unix Buttons -->
+    <div class="demo-card" style="position: absolute; top: 380px; left: 50px;">
+      <h3>Unix/Motif Buttons</h3>
+      <div class="button-demo">
+        {{ buttonComponent.button(text="OK", osStyle="unix") }}
+        {{ buttonComponent.button(text="Apply", osStyle="unix") }}
+        {{ buttonComponent.button(text="Cancel", osStyle="unix") }}
+        {{ buttonComponent.button(text="Disabled", osStyle="unix", disabled=true) }}
+        {{ buttonComponent.iconButton(icon="⚙️", text="Settings", osStyle="unix") }}
+      </div>
+    </div>
+
+    <!-- Unix Menu -->
+    <div class="demo-card" style="position: absolute; top: 380px; left: 400px;">
+      <h3>Unix/Motif Menu</h3>
+      {{ menuComponent.menu(
+        items=[
+          {text: "New Window", shortcut: "Ctrl+N"},
+          {text: "Open File...", shortcut: "Ctrl+O"},
+          {text: "Save", shortcut: "Ctrl+S"},
+          {separator: true},
+          {text: "Find...", shortcut: "Ctrl+F"},
+          {text: "Replace...", disabled: true},
+          {separator: true},
+          {text: "Close", shortcut: "Ctrl+W"}
+        ],
+        osStyle="unix",
+        vertical=true,
+        id="unix-menu"
+      ) }}
+    </div>
+
+    <!-- Unix Icons -->
+    <div style="position: absolute; top: 380px; left: 750px; width: 300px; background: #b8b8b8; padding: 15px; border: 2px solid #383838;">
+      {{ iconComponent.iconGrid(
+        icons=[
+          {image: "📂", label: "home"},
+          {image: "⚙️", label: "Settings", selected: true},
+          {image: "🖥️", label: "Display"},
+          {image: "🔧", label: "Tools"},
+          {image: "📝", label: "Editor"},
+          {image: "🌐", label: "Browser"}
+        ],
+        osStyle="unix",
+        columns=3,
+        gap=10
+      ) }}
+    </div>
+  </section>
+
+  <!-- Scrollbar Demos -->
+  <section class="demo-section" style="margin-top: 2050px;" aria-labelledby="scrollbar-title">
+    <h2 class="demo-title" id="scrollbar-title">Scrollbar Components (All Styles)</h2>
+
+    <div class="scrollbar-demo" style="margin-top: 20px;">
+      <div class="demo-card">
+        <h3>Windows 95 Scrollbars</h3>
+        <div style="display: flex; gap: 20px; margin-top: 15px;">
+          {{ scrollbarComponent.scrollbar(orientation="vertical", osStyle="win95", thumbPosition=30) }}
+          <div style="width: 150px;">
+            {{ scrollbarComponent.scrollbar(orientation="horizontal", osStyle="win95", thumbPosition=50) }}
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-card">
+        <h3>Mac OS Classic Scrollbars</h3>
+        <div style="display: flex; gap: 20px; margin-top: 15px;">
+          {{ scrollbarComponent.scrollbar(orientation="vertical", osStyle="macos", thumbPosition=50) }}
+          <div style="width: 150px;">
+            {{ scrollbarComponent.scrollbar(orientation="horizontal", osStyle="macos", thumbPosition=30) }}
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-card">
+        <h3>Unix/Motif Scrollbars</h3>
+        <div style="display: flex; gap: 20px; margin-top: 15px;">
+          {{ scrollbarComponent.scrollbar(orientation="vertical", osStyle="unix", thumbPosition=70) }}
+          <div style="width: 150px;">
+            {{ scrollbarComponent.scrollbar(orientation="horizontal", osStyle="unix", thumbPosition=20) }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- List View Icons Demo -->
+  <section class="demo-section" style="margin-top: 2350px;" aria-labelledby="listview-title">
+    <h2 class="demo-title" id="listview-title">List View Icons (File Explorer Style)</h2>
+
+    <div class="demo-card" style="width: 600px;">
+      <h3>Windows 95 List View</h3>
+      <div style="border: 2px inset #808080; background: white; padding: 4px;">
+        {{ iconComponent.listIcon(image="📁", label="Documents", details="File Folder", osStyle="win95") }}
+        {{ iconComponent.listIcon(image="📄", label="readme.txt", details="Text Document - 2 KB", osStyle="win95", selected=true) }}
+        {{ iconComponent.listIcon(image="🖼️", label="photo.jpg", details="JPEG Image - 145 KB", osStyle="win95") }}
+        {{ iconComponent.listIcon(image="💾", label="setup.exe", details="Application - 1.2 MB", osStyle="win95") }}
+      </div>
+    </div>
+  </section>
+
+  <!-- Usage Documentation -->
+  <section class="demo-section" style="margin-top: 2750px;" aria-labelledby="docs-title">
+    <h2 class="demo-title" id="docs-title">Component Usage Documentation</h2>
+
+    <div class="demo-card" style="max-width: 900px;">
+      <h3>How to Use These Components</h3>
+
+      <h4 style="margin-top: 20px; margin-bottom: 10px; font-size: 13px;">1. Import the component:</h4>
+      <pre style="background: #f5f5f5; padding: 10px; overflow-x: auto; font-size: 11px;">{% raw %}{% import "_includes/components/window.njk" as windowComponent %}{% endraw %}</pre>
+
+      <h4 style="margin-top: 20px; margin-bottom: 10px; font-size: 13px;">2. Use the component:</h4>
+      <pre style="background: #f5f5f5; padding: 10px; overflow-x: auto; font-size: 11px;">{% raw %}{{ windowComponent.simpleWindow(
+  title="My Window",
+  content="<p>Hello World</p>",
+  osStyle="win95"
+) }}{% endraw %}</pre>
+
+      <h4 style="margin-top: 20px; margin-bottom: 10px; font-size: 13px;">3. Or use call blocks for complex content:</h4>
+      <pre style="background: #f5f5f5; padding: 10px; overflow-x: auto; font-size: 11px;">{% raw %}{% call windowComponent.window(title="My Window", osStyle="macos") %}
+  <p>Complex content here</p>
+  <button>Click me</button>
+{% endcall %}{% endraw %}</pre>
+
+      <h4 style="margin-top: 20px; margin-bottom: 10px; font-size: 13px;">Available OS Styles:</h4>
+      <ul style="padding-left: 20px; font-size: 12px; line-height: 1.8;">
+        <li><code>win95</code> - Windows 95/98/NT style (3D beveled borders, blue title bars)</li>
+        <li><code>macos</code> - Mac OS Classic System 7-9 style (striped title bars, rounded buttons)</li>
+        <li><code>unix</code> - Unix/Linux X11 Motif/CDE style (3D borders, gradient title bars)</li>
+      </ul>
+
+      <h4 style="margin-top: 20px; margin-bottom: 10px; font-size: 13px;">Component Files:</h4>
+      <ul style="padding-left: 20px; font-size: 12px; line-height: 1.8;">
+        <li><code>/src/_includes/components/window.njk</code></li>
+        <li><code>/src/_includes/components/button.njk</code></li>
+        <li><code>/src/_includes/components/menu.njk</code></li>
+        <li><code>/src/_includes/components/icon.njk</code></li>
+        <li><code>/src/_includes/components/scrollbar.njk</code></li>
+      </ul>
+
+      <h4 style="margin-top: 20px; margin-bottom: 10px; font-size: 13px;">CSS Files:</h4>
+      <ul style="padding-left: 20px; font-size: 12px; line-height: 1.8;">
+        <li><code>/src/assets/css/components/base.css</code> - Shared base styles</li>
+        <li><code>/src/assets/css/components/windows.css</code> - Windows 95/98 styles</li>
+        <li><code>/src/assets/css/components/macos.css</code> - Mac OS Classic styles</li>
+        <li><code>/src/assets/css/components/unix.css</code> - Unix/Linux X11 styles</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div style="margin-top: 100px; text-align: center; color: white; text-shadow: 1px 1px 2px #000;">
+    <p>RetroOS Museum Component Library v1.0</p>
+    <p style="font-size: 12px; margin-top: 10px;">All components are fully accessible and responsive</p>
+  </div>
+</main>

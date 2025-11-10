@@ -1,0 +1,195 @@
+{#
+  Reusable Scrollbar Component
+
+  Parameters:
+  - orientation: 'vertical' or 'horizontal' (default: 'vertical')
+  - osStyle: OS style - 'win95', 'macos', 'unix' (default: 'win95')
+  - size: Scrollbar size/thickness in pixels (default: 16)
+  - thumbSize: Thumb size in pixels (default: 50 for vertical, 50 for horizontal)
+  - thumbPosition: Thumb position in pixels from start (default: 0)
+  - id: Scrollbar ID (optional)
+
+  Usage:
+  {{ scrollbar(orientation="vertical", osStyle="win95") }}
+  {{ scrollbar(orientation="horizontal", osStyle="macos", thumbPosition=100) }}
+#}
+
+{% macro scrollbar(
+  orientation="vertical",
+  osStyle="win95",
+  size=16,
+  thumbSize=50,
+  thumbPosition=0,
+  id=""
+) %}
+<div
+  class="retro-scrollbar retro-scrollbar--{{ osStyle }} retro-scrollbar--{{ orientation }}"
+  {% if id %}id="{{ id }}"{% endif %}
+  role="scrollbar"
+  aria-orientation="{{ orientation }}"
+  aria-valuenow="0"
+  aria-valuemin="0"
+  aria-valuemax="100"
+  {% if orientation == 'vertical' %}
+    style="width: {{ size }}px;"
+  {% else %}
+    style="height: {{ size }}px;"
+  {% endif %}
+>
+  {# Track background #}
+  <div class="retro-scrollbar__track"></div>
+
+  {# Up/Left arrow button #}
+  <button
+    class="retro-scrollbar__button retro-scrollbar__button--{{ 'up' if orientation == 'vertical' else 'left' }}"
+    aria-label="{{ 'Scroll up' if orientation == 'vertical' else 'Scroll left' }}"
+    style="
+      {% if orientation == 'vertical' %}
+        top: 0; left: 0; right: 0;
+      {% else %}
+        left: 0; top: 0; bottom: 0;
+      {% endif %}
+    "
+  ></button>
+
+  {# Thumb/handle #}
+  <div
+    class="retro-scrollbar__thumb"
+    role="presentation"
+    style="
+      {% if orientation == 'vertical' %}
+        width: {{ size - 4 }}px;
+        height: {{ thumbSize }}px;
+        top: {{ size + thumbPosition }}px;
+        left: 2px;
+      {% else %}
+        height: {{ size - 4 }}px;
+        width: {{ thumbSize }}px;
+        left: {{ size + thumbPosition }}px;
+        top: 2px;
+      {% endif %}
+    "
+  ></div>
+
+  {# Down/Right arrow button #}
+  <button
+    class="retro-scrollbar__button retro-scrollbar__button--{{ 'down' if orientation == 'vertical' else 'right' }}"
+    aria-label="{{ 'Scroll down' if orientation == 'vertical' else 'Scroll right' }}"
+    style="
+      {% if orientation == 'vertical' %}
+        bottom: 0; left: 0; right: 0;
+      {% else %}
+        right: 0; top: 0; bottom: 0;
+      {% endif %}
+    "
+  ></button>
+</div>
+{% endmacro %}
+
+{#
+  Scrollable Container Component - Container with custom scrollbars
+
+  Parameters:
+  - content: Content to be scrollable (required)
+  - width: Container width (default: 300)
+  - height: Container height (default: 200)
+  - osStyle: OS style (default: 'win95')
+  - showHorizontal: Show horizontal scrollbar (default: false)
+  - showVertical: Show vertical scrollbar (default: true)
+
+  Usage:
+  {% call scrollableContainer(width=400, height=300, osStyle="win95") %}
+    <p>Lots of content that needs scrolling...</p>
+    <p>More content...</p>
+  {% endcall %}
+#}
+{% macro scrollableContainer(
+  width=300,
+  height=200,
+  osStyle="win95",
+  showHorizontal=false,
+  showVertical=true,
+  id=""
+) %}
+<div
+  class="retro-scrollable-container"
+  {% if id %}id="{{ id }}"{% endif %}
+  style="
+    position: relative;
+    width: {{ width }}px;
+    height: {{ height }}px;
+    display: flex;
+  "
+>
+  {# Content area #}
+  <div
+    class="retro-scrollable-content"
+    style="
+      flex: 1;
+      overflow: hidden;
+      position: relative;
+    "
+    tabindex="0"
+    role="region"
+    aria-label="Scrollable content"
+  >
+    {{ caller() }}
+  </div>
+
+  {# Vertical scrollbar #}
+  {% if showVertical %}
+    <div style="flex-shrink: 0;">
+      {{ scrollbar(
+        orientation="vertical",
+        osStyle=osStyle,
+        id=(id + "-vscroll") if id else ""
+      ) }}
+    </div>
+  {% endif %}
+
+  {# Horizontal scrollbar #}
+  {% if showHorizontal %}
+    <div style="
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: {{ '16px' if showVertical else '0' };
+    ">
+      {{ scrollbar(
+        orientation="horizontal",
+        osStyle=osStyle,
+        id=(id + "-hscroll") if id else ""
+      ) }}
+    </div>
+  {% endif %}
+
+  {# Corner piece when both scrollbars present #}
+  {% if showHorizontal and showVertical %}
+    <div
+      class="retro-scrollbar-corner"
+      style="
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 16px;
+        height: 16px;
+        background: var({{ '--win-gray' if osStyle == 'win95' else '--mac-gray' if osStyle == 'macos' else '--unix-bg' }});
+        border: 1px solid var({{ '--win-black' if osStyle == 'win95' else '--mac-black' if osStyle == 'macos' else '--unix-darker' }});
+      "
+    ></div>
+  {% endif %}
+</div>
+{% endmacro %}
+
+{#
+  Simple styled scrollbar for native scrolling
+
+  Parameters:
+  - osStyle: OS style (default: 'win95')
+
+  Usage: Add class to element
+  <div class="retro-native-scroll retro-native-scroll--win95">
+    Content...
+  </div>
+#}
+{# Note: This would be used with CSS scrollbar styling, not a macro #}

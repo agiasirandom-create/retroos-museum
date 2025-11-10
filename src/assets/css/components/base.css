@@ -1,0 +1,229 @@
+/* Base Component Styles and CSS Variables */
+/* Shared utilities for all OS styles */
+
+:root {
+  /* Spacing */
+  --spacing-xs: 2px;
+  --spacing-sm: 4px;
+  --spacing-md: 8px;
+  --spacing-lg: 16px;
+  --spacing-xl: 24px;
+
+  /* Border widths */
+  --border-thin: 1px;
+  --border-medium: 2px;
+  --border-thick: 3px;
+
+  /* Shadow depths */
+  --shadow-inset: inset 1px 1px 0px rgba(0, 0, 0, 0.35), inset -1px -1px 0px rgba(255, 255, 255, 0.5);
+  --shadow-outset: 1px 1px 0px rgba(255, 255, 255, 0.8), -1px -1px 0px rgba(0, 0, 0, 0.3);
+
+  /* Z-index layers */
+  --z-base: 1;
+  --z-window: 100;
+  --z-menu: 200;
+  --z-modal: 300;
+  --z-tooltip: 400;
+
+  /* Transitions */
+  --transition-fast: 100ms ease;
+  --transition-medium: 200ms ease;
+}
+
+/* Component base classes */
+.retro-component {
+  box-sizing: border-box;
+  font-family: var(--font-system);
+  user-select: none;
+}
+
+/* Window base structure */
+.retro-window {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  min-height: 100px;
+  z-index: var(--z-window);
+}
+
+.retro-window__titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm);
+  cursor: move;
+  user-select: none;
+}
+
+.retro-window__title {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-weight: bold;
+  font-size: 11px;
+  flex: 1;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.retro-window__controls {
+  display: flex;
+  gap: var(--spacing-xs);
+  flex-shrink: 0;
+}
+
+.retro-window__content {
+  flex: 1;
+  overflow: auto;
+  padding: var(--spacing-md);
+}
+
+/* Button base structure */
+.retro-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-size: 11px;
+  font-weight: normal;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  white-space: nowrap;
+  min-width: 75px;
+  min-height: 23px;
+}
+
+.retro-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Menu base structure */
+.retro-menu {
+  display: flex;
+  flex-direction: row;
+  user-select: none;
+}
+
+.retro-menu--vertical {
+  flex-direction: column;
+  min-width: 150px;
+}
+
+.retro-menu__item {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: 11px;
+  cursor: pointer;
+  position: relative;
+}
+
+.retro-menu__item--disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.retro-menu__shortcut {
+  margin-left: auto;
+  padding-left: var(--spacing-lg);
+  font-size: 10px;
+}
+
+.retro-menu__separator {
+  height: 1px;
+  margin: var(--spacing-xs) 0;
+}
+
+/* Icon base structure */
+.retro-icon {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm);
+  cursor: pointer;
+  user-select: none;
+  max-width: 80px;
+}
+
+.retro-icon__image {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.retro-icon__label {
+  font-size: 11px;
+  text-align: center;
+  word-wrap: break-word;
+  max-width: 100%;
+}
+
+/* Scrollbar base structure */
+.retro-scrollbar {
+  position: relative;
+  background: var(--scrollbar-track);
+}
+
+.retro-scrollbar--vertical {
+  width: 16px;
+  height: 100%;
+}
+
+.retro-scrollbar--horizontal {
+  width: 100%;
+  height: 16px;
+}
+
+.retro-scrollbar__track {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.retro-scrollbar__thumb {
+  position: absolute;
+  cursor: pointer;
+}
+
+.retro-scrollbar__button {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 8px;
+}
+
+/* Utility classes */
+.retro-active {
+  /* Applied to active/focused windows */
+}
+
+.retro-inactive {
+  /* Applied to inactive/unfocused windows */
+  opacity: 0.95;
+}
+
+.retro-selected {
+  /* Applied to selected items */
+}
+
+/* Accessibility */
+.retro-component:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* Prevent text selection during drag */
+.retro-no-select {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}

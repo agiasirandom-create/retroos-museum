@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Window System Demo - RetroOS Museum</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'MS Sans Serif', Arial, sans-serif;
+      background: #008080;
+      overflow: hidden;
+    }
+
+    .demo-container {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    .taskbar {
+      background: #c0c0c0;
+      border-top: 2px solid #fff;
+      padding: 2px 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 28px;
+    }
+
+    .start-button {
+      padding: 2px 12px;
+      border: 2px solid;
+      border-color: #fff #000 #000 #fff;
+      background: #c0c0c0;
+      font-weight: bold;
+      font-size: 12px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .start-button:active {
+      border-color: #000 #fff #fff #000;
+    }
+
+    .taskbar-separator {
+      width: 2px;
+      height: 20px;
+      background: #808080;
+      border-left: 1px solid #fff;
+    }
+
+    .demo-info {
+      position: fixed;
+      top: 16px;
+      left: 16px;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 16px;
+      border: 2px solid;
+      border-color: #fff #000 #000 #fff;
+      max-width: 400px;
+      z-index: 999;
+      font-size: 12px;
+    }
+
+    .demo-info h1 {
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .demo-info ul {
+      margin: 8px 0;
+      padding-left: 20px;
+    }
+
+    .demo-info li {
+      margin: 4px 0;
+    }
+
+    .close-info {
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      width: 20px;
+      height: 20px;
+      border: 2px solid;
+      border-color: #fff #000 #000 #fff;
+      background: #c0c0c0;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+
+  <!-- Include window system CSS -->
+  <link rel="stylesheet" href="/home/ai/dev/active/ RetroOS Museum /src/assets/css/window-system.css">
+</head>
+<body>
+
+  <div class="demo-container">
+    <!-- Menu Bar -->
+    <div class="menu-bar">
+      <div data-menu="file">File</div>
+      <div data-menu="edit">Edit</div>
+      <div data-menu="view">View</div>
+      <div data-menu="help">Help</div>
+    </div>
+
+    <!-- Desktop Area -->
+    <div class="desktop-area" style="flex: 1;"></div>
+
+    <!-- Taskbar -->
+    <div class="taskbar">
+      <button class="start-button" onclick="showStartMenu()">
+        <span>🪟</span>
+        <span>Start</span>
+      </button>
+      <div class="taskbar-separator"></div>
+      <button class="btn" data-demo="create-window">Create Demo Window</button>
+    </div>
+  </div>
+
+  <!-- Demo Info Panel -->
+  <div class="demo-info" id="demo-info">
+    <button class="close-info" onclick="document.getElementById('demo-info').style.display='none'">×</button>
+    <h1>Window System Demo</h1>
+    <p>Welcome to the RetroOS Museum window management system!</p>
+
+    <h3>Features:</h3>
+    <ul>
+      <li>Drag windows by title bar</li>
+      <li>Resize using edges/corners</li>
+      <li>Minimize/Maximize/Close buttons</li>
+      <li>Double-click title to maximize</li>
+      <li>Multi-select desktop icons</li>
+      <li>Right-click context menus</li>
+      <li>Keyboard shortcuts</li>
+    </ul>
+
+    <h3>Keyboard Shortcuts:</h3>
+    <ul>
+      <li><kbd>Alt+F4</kbd> - Close window</li>
+      <li><kbd>Alt+Tab</kbd> - Switch windows</li>
+      <li><kbd>Ctrl+A</kbd> - Select all icons</li>
+      <li><kbd>Esc</kbd> - Close menus</li>
+    </ul>
+
+    <button class="btn btn-primary" onclick="document.getElementById('demo-info').style.display='none'">Got it!</button>
+  </div>
+
+  <!-- Include JavaScript files -->
+  <script src="/home/ai/dev/active/ RetroOS Museum /src/assets/js/window-manager.js"></script>
+  <script src="/home/ai/dev/active/ RetroOS Museum /src/assets/js/menu-system.js"></script>
+  <script src="/home/ai/dev/active/ RetroOS Museum /src/assets/js/desktop.js"></script>
+  <script src="/home/ai/dev/active/ RetroOS Museum /src/assets/js/main.js"></script>
+
+  <!-- Additional Demo Scripts -->
+  <script>
+    function showStartMenu() {
+      RetroOS.createWindow({
+        id: 'start-menu',
+        title: 'Start Menu',
+        content: `
+          <div style="padding: 8px;">
+            <h3>Programs</h3>
+            <ul style="list-style: none; padding: 0;">
+              <li><button class="btn" style="width: 100%; text-align: left; margin: 2px 0;" onclick="openCalculator()">📱 Calculator</button></li>
+              <li><button class="btn" style="width: 100%; text-align: left; margin: 2px 0;" onclick="openNotepad()">📝 Notepad</button></li>
+              <li><button class="btn" style="width: 100%; text-align: left; margin: 2px 0;" onclick="openPaint()">🎨 Paint</button></li>
+              <li><button class="btn" style="width: 100%; text-align: left; margin: 2px 0;" onclick="openAbout()">ℹ️ About</button></li>
+            </ul>
+          </div>
+        `,
+        width: 200,
+        height: 250,
+        x: 10,
+        y: window.innerHeight - 280,
+        resizable: false
+      });
+    }
+
+    function openCalculator() {
+      RetroOS.createWindow({
+        id: 'calculator',
+        title: 'Calculator',
+        content: `
+          <div style="text-align: center; padding: 8px;">
+            <div style="background: #f0f0f0; padding: 8px; margin-bottom: 8px; text-align: right; border: 2px inset;">
+              <span id="calc-display">0</span>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px;">
+              <button class="btn" onclick="calcClick('7')">7</button>
+              <button class="btn" onclick="calcClick('8')">8</button>
+              <button class="btn" onclick="calcClick('9')">9</button>
+              <button class="btn" onclick="calcClick('/')">/</button>
+              <button class="btn" onclick="calcClick('4')">4</button>
+              <button class="btn" onclick="calcClick('5')">5</button>
+              <button class="btn" onclick="calcClick('6')">6</button>
+              <button class="btn" onclick="calcClick('*')">*</button>
+              <button class="btn" onclick="calcClick('1')">1</button>
+              <button class="btn" onclick="calcClick('2')">2</button>
+              <button class="btn" onclick="calcClick('3')">3</button>
+              <button class="btn" onclick="calcClick('-')">-</button>
+              <button class="btn" onclick="calcClick('0')">0</button>
+              <button class="btn" onclick="calcClick('.')">.</button>
+              <button class="btn" onclick="calcClick('=')">=</button>
+              <button class="btn" onclick="calcClick('+')">+</button>
+            </div>
+            <button class="btn" style="width: 100%; margin-top: 4px;" onclick="calcClick('C')">Clear</button>
+          </div>
+        `,
+        width: 250,
+        height: 300,
+        resizable: false
+      });
+    }
+
+    let calcValue = '0';
+    function calcClick(val) {
+      const display = document.getElementById('calc-display');
+      if (!display) return;
+
+      if (val === 'C') {
+        calcValue = '0';
+      } else if (val === '=') {
+        try {
+          calcValue = eval(calcValue).toString();
+        } catch (e) {
+          calcValue = 'Error';
+        }
+      } else {
+        if (calcValue === '0') {
+          calcValue = val;
+        } else {
+          calcValue += val;
+        }
+      }
+      display.textContent = calcValue;
+    }
+
+    function openNotepad() {
+      RetroOS.createWindow({
+        id: 'notepad-' + Date.now(),
+        title: 'Untitled - Notepad',
+        content: `
+          <div style="height: 100%;">
+            <textarea style="width: 100%; height: calc(100% - 30px); border: none; padding: 4px; font-family: 'Courier New', monospace; resize: none;" placeholder="Start typing..."></textarea>
+            <div style="display: flex; gap: 4px; padding: 4px; background: #f0f0f0;">
+              <button class="btn" onclick="RetroOS.notify('Save', 'File saved!')">Save</button>
+              <button class="btn" onclick="RetroOS.notify('Save As', 'Save as dialog...')">Save As</button>
+              <button class="btn" onclick="RetroOS.notify('Print', 'Print dialog...')">Print</button>
+            </div>
+          </div>
+        `,
+        width: 500,
+        height: 400
+      });
+    }
+
+    function openPaint() {
+      RetroOS.createWindow({
+        id: 'paint',
+        title: 'Paint',
+        content: `
+          <div style="height: 100%; display: flex; flex-direction: column;">
+            <div style="background: #f0f0f0; padding: 4px; display: flex; gap: 4px;">
+              <button class="btn">Pencil</button>
+              <button class="btn">Brush</button>
+              <button class="btn">Eraser</button>
+              <button class="btn">Fill</button>
+            </div>
+            <canvas id="paint-canvas" style="flex: 1; border: 1px solid #000; background: white; cursor: crosshair;"></canvas>
+          </div>
+        `,
+        width: 600,
+        height: 450,
+        onOpen: () => {
+          setTimeout(() => {
+            const canvas = document.getElementById('paint-canvas');
+            if (canvas) {
+              canvas.width = canvas.offsetWidth;
+              canvas.height = canvas.offsetHeight;
+              const ctx = canvas.getContext('2d');
+              let drawing = false;
+
+              canvas.addEventListener('mousedown', () => drawing = true);
+              canvas.addEventListener('mouseup', () => drawing = false);
+              canvas.addEventListener('mousemove', (e) => {
+                if (!drawing) return;
+                const rect = canvas.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                ctx.fillStyle = '#000';
+                ctx.fillRect(x, y, 2, 2);
+              });
+            }
+          }, 100);
+        }
+      });
+    }
+
+    function openAbout() {
+      RetroOS.notify(
+        'About RetroOS Museum',
+        '<div style="text-align: center;"><h2>RetroOS Museum</h2><p>Version 1.0</p><p>Interactive OS Recreation System</p><p>&copy; 2025</p></div>',
+        { width: 300, height: 200 }
+      );
+    }
+
+    // Create welcome window on load
+    setTimeout(() => {
+      RetroOS.createWindow({
+        id: 'welcome',
+        title: 'Welcome to RetroOS Museum',
+        content: `
+          <div style="text-align: center;">
+            <h2>🖥️ Welcome!</h2>
+            <p>This is a fully functional window management system.</p>
+            <p>Try these actions:</p>
+            <ul style="text-align: left; max-width: 300px; margin: 16px auto;">
+              <li>Drag this window around</li>
+              <li>Resize from the corners</li>
+              <li>Click the Start button</li>
+              <li>Double-click desktop icons</li>
+              <li>Use the menu bar</li>
+            </ul>
+            <button class="btn btn-primary" onclick="this.closest('.os-window').querySelector('.window-btn-close').click()">Let's Go!</button>
+          </div>
+        `,
+        width: 400,
+        height: 350
+      });
+    }, 500);
+  </script>
+</body>
+</html>

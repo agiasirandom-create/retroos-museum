@@ -1,0 +1,307 @@
+/* Mac OS Classic (System 7-9) Component Styles */
+
+:root {
+  /* Mac OS color scheme */
+  --mac-white: #ffffff;
+  --mac-black: #000000;
+  --mac-gray: #dddddd;
+  --mac-dark-gray: #888888;
+  --mac-highlight: #000000;
+  --mac-window-stripe: #cccccc;
+  --mac-blue: #0000ff;
+  --mac-title-active: #000000;
+  --mac-title-inactive: #ffffff;
+
+  /* Mac OS fonts */
+  --font-chicago: "Chicago", "Charcoal", "Geneva", system-ui, sans-serif;
+  --font-geneva: "Geneva", "Helvetica", system-ui, sans-serif;
+}
+
+/* Window */
+.retro-window--macos {
+  background: var(--mac-white);
+  border: 1px solid var(--mac-black);
+  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.3);
+}
+
+.retro-window--macos .retro-window__titlebar {
+  background: repeating-linear-gradient(
+    90deg,
+    var(--mac-white) 0px,
+    var(--mac-white) 1px,
+    var(--mac-black) 1px,
+    var(--mac-black) 2px
+  );
+  color: var(--mac-white);
+  padding: 4px;
+  border-bottom: 1px solid var(--mac-black);
+  text-align: center;
+  position: relative;
+}
+
+.retro-window--macos.retro-inactive .retro-window__titlebar {
+  background: var(--mac-white);
+  color: var(--mac-black);
+  border-bottom: 1px solid var(--mac-black);
+}
+
+.retro-window--macos .retro-window__title {
+  font-family: var(--font-chicago);
+  font-size: 12px;
+  font-weight: bold;
+  justify-content: center;
+  text-shadow: none;
+}
+
+.retro-window--macos .retro-window__icon {
+  width: 16px;
+  height: 16px;
+}
+
+.retro-window--macos .retro-window__content {
+  background: var(--mac-white);
+  padding: 8px;
+  border: none;
+}
+
+/* Window controls - Mac classic close box */
+.retro-window__control--macos {
+  width: 11px;
+  height: 11px;
+  background: var(--mac-white);
+  border: 1px solid var(--mac-black);
+  position: absolute;
+  left: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.retro-window--macos .retro-window__controls {
+  /* Controls are positioned absolutely in titlebar */
+  position: static;
+}
+
+.retro-window__control--macos.close-box::after {
+  content: '';
+  width: 7px;
+  height: 7px;
+  background: var(--mac-white);
+  border: 1px solid var(--mac-black);
+}
+
+.retro-window__control--macos:active::after {
+  background: var(--mac-black);
+}
+
+.retro-window--macos.retro-inactive .retro-window__control--macos {
+  background: var(--mac-gray);
+}
+
+/* Zoom box (maximize) - top right */
+.retro-window__control--macos.zoom-box {
+  left: auto;
+  right: 6px;
+}
+
+.retro-window__control--macos.zoom-box::after {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border: 1px solid var(--mac-black);
+  background: var(--mac-white);
+}
+
+/* Button */
+.retro-button--macos {
+  background: var(--mac-white);
+  color: var(--mac-black);
+  border: 2px solid var(--mac-black);
+  border-radius: 8px;
+  font-family: var(--font-chicago);
+  font-size: 12px;
+  padding: 4px 16px;
+  box-shadow: none;
+  font-weight: bold;
+}
+
+.retro-button--macos:hover:not(:disabled) {
+  background: var(--mac-gray);
+}
+
+.retro-button--macos:active:not(:disabled) {
+  background: var(--mac-black);
+  color: var(--mac-white);
+}
+
+.retro-button--macos:disabled {
+  color: var(--mac-dark-gray);
+  border-color: var(--mac-dark-gray);
+}
+
+.retro-button--macos.default {
+  border: 3px solid var(--mac-black);
+  padding: 3px 15px;
+}
+
+.retro-button--macos:focus-visible {
+  outline: 2px solid var(--mac-black);
+  outline-offset: 2px;
+}
+
+/* Menu */
+.retro-menu--macos {
+  background: var(--mac-white);
+  border: 2px solid var(--mac-black);
+  font-family: var(--font-chicago);
+  font-size: 12px;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+  padding: 0;
+}
+
+.retro-menu--macos .retro-menu__item {
+  color: var(--mac-black);
+  padding: 4px 16px 4px 24px;
+  position: relative;
+}
+
+.retro-menu--macos .retro-menu__item:hover:not(.retro-menu__item--disabled) {
+  background: var(--mac-black);
+  color: var(--mac-white);
+}
+
+.retro-menu--macos .retro-menu__item--disabled {
+  color: var(--mac-dark-gray);
+}
+
+.retro-menu--macos .retro-menu__separator {
+  background: var(--mac-black);
+  height: 1px;
+  margin: 4px 8px;
+}
+
+.retro-menu--macos .retro-menu__shortcut {
+  font-family: var(--font-geneva);
+  font-size: 10px;
+}
+
+/* Menu item with checkmark */
+.retro-menu--macos .retro-menu__item.checked::before {
+  content: '✓';
+  position: absolute;
+  left: 8px;
+  font-weight: bold;
+}
+
+/* Apple menu style for menu bar */
+.retro-menu--macos.menu-bar {
+  background: var(--mac-white);
+  border: none;
+  border-bottom: 2px solid var(--mac-black);
+  box-shadow: none;
+}
+
+.retro-menu--macos.menu-bar .retro-menu__item {
+  padding: 4px 12px;
+}
+
+/* Icon */
+.retro-icon--macos {
+  padding: 8px;
+}
+
+.retro-icon--macos .retro-icon__label {
+  color: var(--mac-black);
+  font-family: var(--font-geneva);
+  font-size: 10px;
+  background: transparent;
+}
+
+.retro-icon--macos.retro-selected {
+  background: var(--mac-black);
+}
+
+.retro-icon--macos.retro-selected .retro-icon__label {
+  color: var(--mac-white);
+  background: var(--mac-black);
+  padding: 2px 4px;
+}
+
+.retro-icon--macos .retro-icon__image {
+  width: 32px;
+  height: 32px;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+/* Scrollbar */
+.retro-scrollbar--macos {
+  background: var(--mac-white);
+  border: 1px solid var(--mac-black);
+}
+
+.retro-scrollbar--macos .retro-scrollbar__track {
+  background: repeating-linear-gradient(
+    45deg,
+    var(--mac-gray) 0px,
+    var(--mac-gray) 2px,
+    var(--mac-white) 2px,
+    var(--mac-white) 4px
+  );
+}
+
+.retro-scrollbar--macos .retro-scrollbar__thumb {
+  background: var(--mac-white);
+  border: 1px solid var(--mac-black);
+}
+
+.retro-scrollbar--macos .retro-scrollbar__thumb:active {
+  background: var(--mac-gray);
+}
+
+.retro-scrollbar--macos .retro-scrollbar__button {
+  background: var(--mac-white);
+  border: 1px solid var(--mac-black);
+  color: var(--mac-black);
+  font-weight: bold;
+}
+
+.retro-scrollbar--macos .retro-scrollbar__button:active {
+  background: var(--mac-black);
+  color: var(--mac-white);
+}
+
+/* Scrollbar arrows */
+.retro-scrollbar--macos .retro-scrollbar__button--up::before {
+  content: '▲';
+  font-size: 8px;
+}
+
+.retro-scrollbar--macos .retro-scrollbar__button--down::before {
+  content: '▼';
+  font-size: 8px;
+}
+
+.retro-scrollbar--macos .retro-scrollbar__button--left::before {
+  content: '◀';
+  font-size: 8px;
+}
+
+.retro-scrollbar--macos .retro-scrollbar__button--right::before {
+  content: '▶';
+  font-size: 8px;
+}
+
+/* Mac OS striped pattern utility */
+.mac-stripes {
+  background: repeating-linear-gradient(
+    90deg,
+    var(--mac-white) 0px,
+    var(--mac-white) 1px,
+    var(--mac-black) 1px,
+    var(--mac-black) 2px
+  );
+}

@@ -1,0 +1,118 @@
+{#
+  Reusable Button Component
+
+  Parameters:
+  - text: Button label text (required)
+  - type: Button type - 'button', 'submit', 'reset' (default: 'button')
+  - osStyle: OS style - 'win95', 'macos', 'unix' (default: 'win95')
+  - disabled: Whether button is disabled (default: false)
+  - default: Whether button is default/primary (default: false)
+  - id: Button ID (optional)
+  - class: Additional CSS classes (optional)
+  - ariaLabel: Accessible label if different from text (optional)
+  - onClick: JavaScript click handler (optional)
+
+  Usage:
+  {{ button(text="OK", osStyle="win95", default=true) }}
+  {{ button(text="Cancel", osStyle="macos", disabled=true) }}
+#}
+
+{% macro button(
+  text="Button",
+  type="button",
+  osStyle="win95",
+  disabled=false,
+  default=false,
+  id="",
+  class="",
+  ariaLabel="",
+  onClick=""
+) %}
+<button
+  type="{{ type }}"
+  class="retro-button retro-button--{{ osStyle }} {{ 'default' if default else '' }} {{ class }}"
+  {% if id %}id="{{ id }}"{% endif %}
+  {% if disabled %}disabled{% endif %}
+  {% if ariaLabel %}aria-label="{{ ariaLabel }}"{% else %}aria-label="{{ text }}"{% endif %}
+  {% if onClick %}onclick="{{ onClick }}"{% endif %}
+>
+  {{ text }}
+</button>
+{% endmacro %}
+
+{#
+  Button group - for multiple buttons together
+
+  Parameters:
+  - buttons: Array of button objects with properties (text, type, osStyle, etc.)
+  - osStyle: Default OS style for all buttons (default: 'win95')
+  - align: Alignment - 'left', 'center', 'right' (default: 'right')
+
+  Usage:
+  {{ buttonGroup(
+    buttons=[
+      {text: "OK", default: true},
+      {text: "Cancel"},
+      {text: "Help"}
+    ],
+    osStyle="win95"
+  ) }}
+#}
+{% macro buttonGroup(buttons=[], osStyle="win95", align="right") %}
+<div class="retro-button-group" style="display: flex; gap: 8px; justify-content: {{ align }};">
+  {% for btn in buttons %}
+    {{ button(
+      text=btn.text or "Button",
+      type=btn.type or "button",
+      osStyle=btn.osStyle or osStyle,
+      disabled=btn.disabled or false,
+      default=btn.default or false,
+      id=btn.id or "",
+      class=btn.class or "",
+      ariaLabel=btn.ariaLabel or "",
+      onClick=btn.onClick or ""
+    ) }}
+  {% endfor %}
+</div>
+{% endmacro %}
+
+{#
+  Icon button - button with icon and optional text
+
+  Parameters:
+  - icon: Icon HTML or image path (required)
+  - text: Button text (optional)
+  - osStyle: OS style (default: 'win95')
+  - size: Icon size in pixels (default: 16)
+
+  Usage:
+  {{ iconButton(icon="📁", text="Open", osStyle="win95") }}
+  {{ iconButton(icon="/assets/icons/save.png") }}
+#}
+{% macro iconButton(
+  icon="",
+  text="",
+  type="button",
+  osStyle="win95",
+  disabled=false,
+  size=16,
+  id="",
+  class="",
+  ariaLabel=""
+) %}
+<button
+  type="{{ type }}"
+  class="retro-button retro-button--{{ osStyle }} retro-icon-button {{ class }}"
+  {% if id %}id="{{ id }}"{% endif %}
+  {% if disabled %}disabled{% endif %}
+  {% if ariaLabel %}aria-label="{{ ariaLabel }}"{% elif text %}aria-label="{{ text }}"{% else %}aria-label="Button"{% endif %}
+  style="display: flex; align-items: center; gap: 4px;"
+>
+  {% if icon.startsWith('/') or icon.startsWith('http') %}
+    <img src="{{ icon }}" alt="" width="{{ size }}" height="{{ size }}" aria-hidden="true">
+  {% else %}
+    <span aria-hidden="true">{{ icon }}</span>
+  {% endif %}
+  {% if text %}<span>{{ text }}</span>{% endif %}
+</button>
+{% endmacro %}

@@ -1,0 +1,162 @@
+{#
+  Reusable Window Component
+
+  Parameters:
+  - title: Window title text (required)
+  - icon: Icon path/image for title bar (optional)
+  - content: Window content (required)
+  - width: Window width in pixels (default: 400)
+  - height: Window height in pixels (default: 300)
+  - x: X position in pixels (default: 100)
+  - y: Y position in pixels (default: 100)
+  - osStyle: OS style - 'win95', 'macos', 'unix' (default: 'win95')
+  - active: Whether window is active/focused (default: true)
+  - showMinimize: Show minimize button (default: true)
+  - showMaximize: Show maximize button (default: true)
+  - showClose: Show close button (default: true)
+  - id: Window ID for JavaScript targeting (optional)
+
+  Usage:
+  {% call window(
+    title="My Window",
+    icon="/assets/icons/folder.png",
+    width=500,
+    height=400,
+    osStyle="win95"
+  ) %}
+    <p>Window content goes here</p>
+  {% endcall %}
+#}
+
+{% macro window(
+  title="Untitled Window",
+  icon="",
+  width=400,
+  height=300,
+  x=100,
+  y=100,
+  osStyle="win95",
+  active=true,
+  showMinimize=true,
+  showMaximize=true,
+  showClose=true,
+  id=""
+) %}
+<div
+  class="retro-window retro-window--{{ osStyle }} {{ 'retro-active' if active else 'retro-inactive' }}"
+  style="width: {{ width }}px; height: {{ height }}px; left: {{ x }}px; top: {{ y }}px;"
+  {% if id %}id="{{ id }}"{% endif %}
+  role="dialog"
+  aria-labelledby="{{ id }}-title"
+  aria-modal="false"
+>
+  <div class="retro-window__titlebar" role="banner">
+    <div class="retro-window__title" id="{{ id }}-title">
+      {% if icon %}
+        <img src="{{ icon }}" alt="" class="retro-window__icon" aria-hidden="true">
+      {% endif %}
+      <span>{{ title }}</span>
+    </div>
+
+    <div class="retro-window__controls" role="group" aria-label="Window controls">
+      {% if osStyle == 'win95' or osStyle == 'unix' %}
+        {# Windows/Unix style: Minimize, Maximize, Close #}
+        {% if showMinimize %}
+          <button
+            class="retro-window__control retro-window__control--{{ osStyle }} minimize"
+            aria-label="Minimize"
+            title="Minimize"
+          >
+            {% if osStyle == 'win95' %}_{% endif %}
+          </button>
+        {% endif %}
+
+        {% if showMaximize %}
+          <button
+            class="retro-window__control retro-window__control--{{ osStyle }} maximize"
+            aria-label="Maximize"
+            title="Maximize"
+          >
+            {% if osStyle == 'win95' %}□{% endif %}
+          </button>
+        {% endif %}
+
+        {% if showClose %}
+          <button
+            class="retro-window__control retro-window__control--{{ osStyle }} close"
+            aria-label="Close"
+            title="Close"
+          >
+            {% if osStyle == 'win95' %}×{% endif %}
+          </button>
+        {% endif %}
+
+      {% elif osStyle == 'macos' %}
+        {# Mac OS style: Close box (left) and Zoom box (right) in titlebar #}
+        {% if showClose %}
+          <button
+            class="retro-window__control retro-window__control--macos close-box"
+            aria-label="Close"
+            title="Close"
+          ></button>
+        {% endif %}
+
+        {% if showMaximize %}
+          <button
+            class="retro-window__control retro-window__control--macos zoom-box"
+            aria-label="Zoom"
+            title="Zoom"
+          ></button>
+        {% endif %}
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="retro-window__content" role="main">
+    {{ caller() if caller else content | safe }}
+  </div>
+</div>
+{% endmacro %}
+
+{#
+  Simple window without using call block
+
+  Usage:
+  {{ simpleWindow(
+    title="About",
+    content="<p>This is about text</p>",
+    osStyle="macos"
+  ) }}
+#}
+{% macro simpleWindow(
+  title="Untitled",
+  content="",
+  icon="",
+  width=400,
+  height=300,
+  x=100,
+  y=100,
+  osStyle="win95",
+  active=true,
+  showMinimize=true,
+  showMaximize=true,
+  showClose=true,
+  id=""
+) %}
+  {{ window(
+    title=title,
+    icon=icon,
+    width=width,
+    height=height,
+    x=x,
+    y=y,
+    osStyle=osStyle,
+    active=active,
+    showMinimize=showMinimize,
+    showMaximize=showMaximize,
+    showClose=showClose,
+    id=id
+  ) }}
+    {{ content | safe }}
+  {% endcall %}
+{% endmacro %}

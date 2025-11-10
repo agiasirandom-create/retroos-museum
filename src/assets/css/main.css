@@ -1,3 +1,9 @@
+/* Import RetroOS component styles */
+@import 'components/base.css';
+@import 'components/windows.css';
+@import 'components/macos.css';
+@import 'components/unix.css';
+
 /* Reset and base styles */
 * {
   margin: 0;

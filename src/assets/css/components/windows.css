@@ -1,0 +1,260 @@
+/* Windows 95/98/NT Component Styles */
+
+:root {
+  /* Windows color scheme */
+  --win-gray: #c0c0c0;
+  --win-dark-gray: #808080;
+  --win-black: #000000;
+  --win-white: #ffffff;
+  --win-blue: #000080;
+  --win-light-blue: #0997ff;
+  --win-highlight: #dfdfdf;
+  --win-shadow: #808080;
+  --win-dark-shadow: #000000;
+
+  /* Windows fonts */
+  --font-system: "MS Sans Serif", "Microsoft Sans Serif", sans-serif;
+  --font-win: "Tahoma", "MS Sans Serif", sans-serif;
+}
+
+/* Windows 3D Bevel Effect */
+.win95-bevel-out {
+  border-top: 2px solid var(--win-white);
+  border-left: 2px solid var(--win-white);
+  border-right: 2px solid var(--win-black);
+  border-bottom: 2px solid var(--win-black);
+  box-shadow: inset 1px 1px 0px var(--win-highlight),
+              inset -1px -1px 0px var(--win-shadow);
+}
+
+.win95-bevel-in {
+  border-top: 2px solid var(--win-shadow);
+  border-left: 2px solid var(--win-shadow);
+  border-right: 2px solid var(--win-white);
+  border-bottom: 2px solid var(--win-white);
+  box-shadow: inset 1px 1px 0px var(--win-dark-shadow),
+              inset -1px -1px 0px var(--win-highlight);
+}
+
+/* Window */
+.retro-window--win95 {
+  background: var(--win-gray);
+  border-top: 2px solid var(--win-highlight);
+  border-left: 2px solid var(--win-highlight);
+  border-right: 2px solid var(--win-black);
+  border-bottom: 2px solid var(--win-black);
+  box-shadow: inset 1px 1px 0px var(--win-white),
+              inset -1px -1px 0px var(--win-dark-gray),
+              2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.retro-window--win95 .retro-window__titlebar {
+  background: linear-gradient(90deg, var(--win-blue) 0%, var(--win-light-blue) 100%);
+  color: var(--win-white);
+  padding: 3px 4px;
+  margin: 2px 2px 0 2px;
+}
+
+.retro-window--win95.retro-inactive .retro-window__titlebar {
+  background: linear-gradient(90deg, var(--win-dark-gray) 0%, var(--win-gray) 100%);
+}
+
+.retro-window--win95 .retro-window__title {
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.retro-window--win95 .retro-window__icon {
+  width: 16px;
+  height: 16px;
+}
+
+.retro-window--win95 .retro-window__content {
+  background: var(--win-white);
+  border: 2px solid var(--win-gray);
+  margin: 2px;
+  padding: 8px;
+}
+
+/* Window controls */
+.retro-window__control--win95 {
+  width: 16px;
+  height: 14px;
+  background: var(--win-gray);
+  border-top: 1px solid var(--win-white);
+  border-left: 1px solid var(--win-white);
+  border-right: 1px solid var(--win-black);
+  border-bottom: 1px solid var(--win-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  font-weight: bold;
+  color: var(--win-black);
+  cursor: pointer;
+  padding: 0;
+}
+
+.retro-window__control--win95:active {
+  border-top: 1px solid var(--win-black);
+  border-left: 1px solid var(--win-black);
+  border-right: 1px solid var(--win-white);
+  border-bottom: 1px solid var(--win-white);
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Button */
+.retro-button--win95 {
+  background: var(--win-gray);
+  color: var(--win-black);
+  border-top: 2px solid var(--win-white);
+  border-left: 2px solid var(--win-white);
+  border-right: 2px solid var(--win-black);
+  border-bottom: 2px solid var(--win-black);
+  box-shadow: inset 1px 1px 0px var(--win-highlight),
+              inset -1px -1px 0px var(--win-shadow);
+  font-family: var(--font-system);
+  font-size: 11px;
+  padding: 4px 12px;
+}
+
+.retro-button--win95:hover:not(:disabled) {
+  background: var(--win-highlight);
+}
+
+.retro-button--win95:active:not(:disabled) {
+  border-top: 2px solid var(--win-black);
+  border-left: 2px solid var(--win-black);
+  border-right: 2px solid var(--win-white);
+  border-bottom: 2px solid var(--win-white);
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.3);
+  padding: 5px 11px 3px 13px; /* Offset for pressed effect */
+}
+
+.retro-button--win95:disabled {
+  color: var(--win-dark-gray);
+  text-shadow: 1px 1px 0px var(--win-white);
+}
+
+.retro-button--win95:focus-visible {
+  outline: 1px dotted var(--win-black);
+  outline-offset: -4px;
+}
+
+/* Menu */
+.retro-menu--win95 {
+  background: var(--win-gray);
+  border-top: 2px solid var(--win-white);
+  border-left: 2px solid var(--win-white);
+  border-right: 2px solid var(--win-black);
+  border-bottom: 2px solid var(--win-black);
+  font-family: var(--font-system);
+  font-size: 11px;
+  padding: 2px;
+}
+
+.retro-menu--win95 .retro-menu__item {
+  color: var(--win-black);
+  padding: 4px 8px;
+}
+
+.retro-menu--win95 .retro-menu__item:hover:not(.retro-menu__item--disabled) {
+  background: var(--win-blue);
+  color: var(--win-white);
+}
+
+.retro-menu--win95 .retro-menu__item--disabled {
+  color: var(--win-dark-gray);
+  text-shadow: 1px 1px 0px var(--win-white);
+}
+
+.retro-menu--win95 .retro-menu__separator {
+  background: linear-gradient(to bottom, var(--win-shadow) 0%, var(--win-white) 100%);
+  height: 2px;
+  margin: 2px 4px;
+}
+
+.retro-menu--win95.retro-menu--vertical {
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Icon */
+.retro-icon--win95 {
+  padding: 4px;
+}
+
+.retro-icon--win95 .retro-icon__label {
+  color: var(--win-white);
+  text-shadow: 1px 1px 2px var(--win-black);
+  font-size: 11px;
+  font-family: var(--font-system);
+}
+
+.retro-icon--win95.retro-selected {
+  background: var(--win-blue);
+}
+
+.retro-icon--win95.retro-selected .retro-icon__label {
+  background: var(--win-blue);
+  padding: 1px 2px;
+}
+
+/* Scrollbar */
+.retro-scrollbar--win95 {
+  background: var(--win-gray);
+}
+
+.retro-scrollbar--win95 .retro-scrollbar__track {
+  background: repeating-conic-gradient(
+    var(--win-white) 0% 25%,
+    var(--win-gray) 0% 50%
+  ) 50% / 2px 2px;
+}
+
+.retro-scrollbar--win95 .retro-scrollbar__thumb {
+  background: var(--win-gray);
+  border-top: 2px solid var(--win-white);
+  border-left: 2px solid var(--win-white);
+  border-right: 2px solid var(--win-black);
+  border-bottom: 2px solid var(--win-black);
+  box-shadow: inset 1px 1px 0px var(--win-highlight);
+}
+
+.retro-scrollbar--win95 .retro-scrollbar__button {
+  background: var(--win-gray);
+  border-top: 2px solid var(--win-white);
+  border-left: 2px solid var(--win-white);
+  border-right: 2px solid var(--win-black);
+  border-bottom: 2px solid var(--win-black);
+  color: var(--win-black);
+  font-weight: bold;
+}
+
+.retro-scrollbar--win95 .retro-scrollbar__button:active {
+  border-top: 2px solid var(--win-black);
+  border-left: 2px solid var(--win-black);
+  border-right: 2px solid var(--win-white);
+  border-bottom: 2px solid var(--win-white);
+}
+
+/* Scrollbar arrows */
+.retro-scrollbar--win95 .retro-scrollbar__button--up::before {
+  content: '▲';
+  font-size: 6px;
+}
+
+.retro-scrollbar--win95 .retro-scrollbar__button--down::before {
+  content: '▼';
+  font-size: 6px;
+}
+
+.retro-scrollbar--win95 .retro-scrollbar__button--left::before {
+  content: '◀';
+  font-size: 6px;
+}
+
+.retro-scrollbar--win95 .retro-scrollbar__button--right::before {
+  content: '▶';
+  font-size: 6px;
+}

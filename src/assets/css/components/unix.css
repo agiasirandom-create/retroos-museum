@@ -1,0 +1,315 @@
+/* Unix/Linux X11 (Motif/CDE) Component Styles */
+
+:root {
+  /* Unix/X11 color scheme - Motif/CDE inspired */
+  --unix-bg: #b8b8b8;
+  --unix-fg: #000000;
+  --unix-light: #e8e8e8;
+  --unix-dark: #686868;
+  --unix-darker: #383838;
+  --unix-highlight: #4a90d9;
+  --unix-active: #2a70b9;
+  --unix-text: #000000;
+  --unix-text-inactive: #808080;
+
+  /* Unix fonts */
+  --font-fixed: "Courier New", "Courier", "Lucida Console", monospace;
+  --font-helvetica: "Helvetica", "Liberation Sans", "Arial", sans-serif;
+}
+
+/* Window */
+.retro-window--unix {
+  background: var(--unix-bg);
+  border: 1px solid var(--unix-darker);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.retro-window--unix .retro-window__titlebar {
+  background: linear-gradient(180deg, var(--unix-highlight) 0%, var(--unix-active) 100%);
+  color: var(--unix-fg);
+  padding: 4px 8px;
+  border-bottom: 1px solid var(--unix-darker);
+  border-top: 1px solid var(--unix-light);
+  border-left: 1px solid var(--unix-light);
+  border-right: 1px solid var(--unix-dark);
+}
+
+.retro-window--unix.retro-inactive .retro-window__titlebar {
+  background: linear-gradient(180deg, var(--unix-bg) 0%, var(--unix-dark) 100%);
+  color: var(--unix-text-inactive);
+}
+
+.retro-window--unix .retro-window__title {
+  font-family: var(--font-helvetica);
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.retro-window--unix .retro-window__icon {
+  width: 16px;
+  height: 16px;
+}
+
+.retro-window--unix .retro-window__content {
+  background: var(--unix-light);
+  border-top: 2px solid var(--unix-dark);
+  border-left: 2px solid var(--unix-dark);
+  border-right: 2px solid var(--unix-light);
+  border-bottom: 2px solid var(--unix-light);
+  margin: 2px;
+  padding: 8px;
+}
+
+/* Window controls - Motif style */
+.retro-window__control--unix {
+  width: 18px;
+  height: 18px;
+  background: var(--unix-bg);
+  border-top: 1px solid var(--unix-light);
+  border-left: 1px solid var(--unix-light);
+  border-right: 1px solid var(--unix-darker);
+  border-bottom: 1px solid var(--unix-darker);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--unix-fg);
+  cursor: pointer;
+  font-size: 10px;
+  font-family: var(--font-helvetica);
+  font-weight: bold;
+}
+
+.retro-window__control--unix:active {
+  border-top: 1px solid var(--unix-darker);
+  border-left: 1px solid var(--unix-darker);
+  border-right: 1px solid var(--unix-light);
+  border-bottom: 1px solid var(--unix-light);
+  background: var(--unix-dark);
+}
+
+.retro-window__control--unix.minimize::before {
+  content: '_';
+  margin-top: -4px;
+}
+
+.retro-window__control--unix.maximize::before {
+  content: '□';
+  font-size: 12px;
+}
+
+.retro-window__control--unix.close::before {
+  content: '×';
+  font-size: 14px;
+}
+
+/* Button */
+.retro-button--unix {
+  background: var(--unix-bg);
+  color: var(--unix-fg);
+  border-top: 2px solid var(--unix-light);
+  border-left: 2px solid var(--unix-light);
+  border-right: 2px solid var(--unix-darker);
+  border-bottom: 2px solid var(--unix-darker);
+  font-family: var(--font-helvetica);
+  font-size: 12px;
+  padding: 6px 16px;
+  box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.5);
+}
+
+.retro-button--unix:hover:not(:disabled) {
+  background: var(--unix-light);
+}
+
+.retro-button--unix:active:not(:disabled) {
+  border-top: 2px solid var(--unix-darker);
+  border-left: 2px solid var(--unix-darker);
+  border-right: 2px solid var(--unix-light);
+  border-bottom: 2px solid var(--unix-light);
+  box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.3);
+  background: var(--unix-dark);
+}
+
+.retro-button--unix:disabled {
+  color: var(--unix-text-inactive);
+  background: var(--unix-bg);
+}
+
+.retro-button--unix:focus-visible {
+  outline: 1px dotted var(--unix-fg);
+  outline-offset: -4px;
+}
+
+/* Menu */
+.retro-menu--unix {
+  background: var(--unix-bg);
+  border-top: 2px solid var(--unix-light);
+  border-left: 2px solid var(--unix-light);
+  border-right: 2px solid var(--unix-darker);
+  border-bottom: 2px solid var(--unix-darker);
+  font-family: var(--font-helvetica);
+  font-size: 12px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  padding: 2px;
+}
+
+.retro-menu--unix .retro-menu__item {
+  color: var(--unix-fg);
+  padding: 6px 24px 6px 12px;
+  position: relative;
+}
+
+.retro-menu--unix .retro-menu__item:hover:not(.retro-menu__item--disabled) {
+  background: var(--unix-highlight);
+  color: var(--unix-fg);
+  border-top: 1px solid var(--unix-darker);
+  border-left: 1px solid var(--unix-darker);
+  border-right: 1px solid var(--unix-light);
+  border-bottom: 1px solid var(--unix-light);
+  margin: -1px;
+  padding: 5px 23px 5px 11px;
+}
+
+.retro-menu--unix .retro-menu__item--disabled {
+  color: var(--unix-text-inactive);
+}
+
+.retro-menu--unix .retro-menu__separator {
+  background: linear-gradient(
+    to bottom,
+    var(--unix-dark) 0%,
+    var(--unix-light) 50%,
+    var(--unix-dark) 100%
+  );
+  height: 2px;
+  margin: 4px 8px;
+}
+
+.retro-menu--unix .retro-menu__shortcut {
+  font-family: var(--font-fixed);
+  font-size: 11px;
+  color: var(--unix-text-inactive);
+}
+
+/* Menu bar style */
+.retro-menu--unix.menu-bar {
+  border: none;
+  border-bottom: 2px solid var(--unix-darker);
+  box-shadow: none;
+  background: var(--unix-bg);
+}
+
+.retro-menu--unix.menu-bar .retro-menu__item {
+  padding: 4px 12px;
+}
+
+/* Icon */
+.retro-icon--unix {
+  padding: 6px;
+}
+
+.retro-icon--unix .retro-icon__label {
+  color: var(--unix-fg);
+  font-family: var(--font-helvetica);
+  font-size: 11px;
+  background: transparent;
+}
+
+.retro-icon--unix.retro-selected {
+  background: var(--unix-highlight);
+  border: 1px dotted var(--unix-darker);
+}
+
+.retro-icon--unix.retro-selected .retro-icon__label {
+  color: var(--unix-fg);
+}
+
+.retro-icon--unix .retro-icon__image {
+  width: 32px;
+  height: 32px;
+  image-rendering: pixelated;
+}
+
+/* Scrollbar */
+.retro-scrollbar--unix {
+  background: var(--unix-bg);
+  border: 1px solid var(--unix-darker);
+}
+
+.retro-scrollbar--unix .retro-scrollbar__track {
+  background: repeating-linear-gradient(
+    45deg,
+    var(--unix-dark) 0px,
+    var(--unix-dark) 2px,
+    var(--unix-bg) 2px,
+    var(--unix-bg) 4px
+  );
+}
+
+.retro-scrollbar--unix .retro-scrollbar__thumb {
+  background: var(--unix-bg);
+  border-top: 2px solid var(--unix-light);
+  border-left: 2px solid var(--unix-light);
+  border-right: 2px solid var(--unix-darker);
+  border-bottom: 2px solid var(--unix-darker);
+  box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.5);
+}
+
+.retro-scrollbar--unix .retro-scrollbar__thumb:active {
+  background: var(--unix-dark);
+}
+
+.retro-scrollbar--unix .retro-scrollbar__button {
+  background: var(--unix-bg);
+  border-top: 2px solid var(--unix-light);
+  border-left: 2px solid var(--unix-light);
+  border-right: 2px solid var(--unix-darker);
+  border-bottom: 2px solid var(--unix-darker);
+  color: var(--unix-fg);
+  font-weight: bold;
+}
+
+.retro-scrollbar--unix .retro-scrollbar__button:active {
+  border-top: 2px solid var(--unix-darker);
+  border-left: 2px solid var(--unix-darker);
+  border-right: 2px solid var(--unix-light);
+  border-bottom: 2px solid var(--unix-light);
+  background: var(--unix-dark);
+}
+
+/* Scrollbar arrows */
+.retro-scrollbar--unix .retro-scrollbar__button--up::before {
+  content: '▲';
+  font-size: 8px;
+}
+
+.retro-scrollbar--unix .retro-scrollbar__button--down::before {
+  content: '▼';
+  font-size: 8px;
+}
+
+.retro-scrollbar--unix .retro-scrollbar__button--left::before {
+  content: '◀';
+  font-size: 8px;
+}
+
+.retro-scrollbar--unix .retro-scrollbar__button--right::before {
+  content: '▶';
+  font-size: 8px;
+}
+
+/* Additional Motif/CDE specific styles */
+.unix-3d-effect {
+  border-top: 2px solid var(--unix-light);
+  border-left: 2px solid var(--unix-light);
+  border-right: 2px solid var(--unix-darker);
+  border-bottom: 2px solid var(--unix-darker);
+  box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.5);
+}
+
+.unix-inset-effect {
+  border-top: 2px solid var(--unix-darker);
+  border-left: 2px solid var(--unix-darker);
+  border-right: 2px solid var(--unix-light);
+  border-bottom: 2px solid var(--unix-light);
+  box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.3);
+}

@@ -1,0 +1,169 @@
+{#
+  Reusable Desktop/File Icon Component
+
+  Parameters:
+  - image: Icon image path or emoji (required)
+  - label: Icon label text (required)
+  - size: Icon size - 'small' (16px), 'medium' (32px), 'large' (48px) (default: 'medium')
+  - osStyle: OS style - 'win95', 'macos', 'unix' (default: 'win95')
+  - selected: Whether icon is selected (default: false)
+  - id: Icon ID (optional)
+  - onClick: JavaScript click handler (optional)
+  - onDblClick: JavaScript double-click handler (optional)
+
+  Usage:
+  {{ icon(
+    image="/assets/icons/folder.png",
+    label="My Documents",
+    osStyle="win95"
+  ) }}
+  {{ icon(
+    image="📁",
+    label="Folder",
+    osStyle="macos",
+    size="large"
+  ) }}
+#}
+
+{% macro icon(
+  image="",
+  label="Untitled",
+  size="medium",
+  osStyle="win95",
+  selected=false,
+  id="",
+  onClick="",
+  onDblClick=""
+) %}
+{% set iconSize = 32 %}
+{% if size == "small" %}
+  {% set iconSize = 16 %}
+{% elif size == "large" %}
+  {% set iconSize = 48 %}
+{% endif %}
+
+<div
+  class="retro-icon retro-icon--{{ osStyle }} {{ 'retro-selected' if selected else '' }}"
+  {% if id %}id="{{ id }}"{% endif %}
+  role="button"
+  tabindex="0"
+  aria-label="{{ label }}"
+  {% if onClick %}onclick="{{ onClick }}"{% endif %}
+  {% if onDblClick %}ondblclick="{{ onDblClick }}"{% endif %}
+>
+  <div class="retro-icon__image">
+    {% if image.startsWith('/') or image.startsWith('http') %}
+      <img src="{{ image }}" alt="" width="{{ iconSize }}" height="{{ iconSize }}" aria-hidden="true">
+    {% else %}
+      {# Emoji or text icon #}
+      <span style="font-size: {{ iconSize }}px;" aria-hidden="true">{{ image }}</span>
+    {% endif %}
+  </div>
+  <div class="retro-icon__label">{{ label }}</div>
+</div>
+{% endmacro %}
+
+{#
+  Icon Grid Component - Grid of icons (like desktop or file browser)
+
+  Parameters:
+  - icons: Array of icon objects (required)
+    Each icon can have: image, label, size, selected, id, onClick, onDblClick
+  - osStyle: OS style (default: 'win95')
+  - columns: Number of columns (default: 'auto')
+  - gap: Gap between icons in pixels (default: 16)
+
+  Usage:
+  {{ iconGrid(
+    icons=[
+      {image: "📁", label: "Documents"},
+      {image: "💾", label: "Save"},
+      {image: "🖨️", label: "Printer", selected: true}
+    ],
+    osStyle="win95",
+    columns=4
+  ) }}
+#}
+{% macro iconGrid(
+  icons=[],
+  osStyle="win95",
+  columns="auto",
+  gap=16
+) %}
+<div
+  class="retro-icon-grid"
+  style="display: grid; grid-template-columns: repeat({{ columns if columns != 'auto' else 'auto-fill' }}, {{ 'minmax(80px, 1fr)' if columns == 'auto' else '1fr' }}); gap: {{ gap }}px; padding: {{ gap }}px;"
+  role="list"
+>
+  {% for iconItem in icons %}
+    <div role="listitem">
+      {{ icon(
+        image=iconItem.image or "",
+        label=iconItem.label or "Untitled",
+        size=iconItem.size or "medium",
+        osStyle=osStyle,
+        selected=iconItem.selected or false,
+        id=iconItem.id or "",
+        onClick=iconItem.onClick or "",
+        onDblClick=iconItem.onDblClick or ""
+      ) }}
+    </div>
+  {% endfor %}
+</div>
+{% endmacro %}
+
+{#
+  List View Icon Component - Icon for list/detail view (like file explorer)
+
+  Parameters:
+  - image: Icon image path or emoji (required)
+  - label: File/folder name (required)
+  - details: Additional details (e.g., size, date) (optional)
+  - osStyle: OS style (default: 'win95')
+  - selected: Whether item is selected (default: false)
+
+  Usage:
+  {{ listIcon(
+    image="📄",
+    label="document.txt",
+    details="2 KB - Modified 11/10/2025",
+    osStyle="win95"
+  ) }}
+#}
+{% macro listIcon(
+  image="",
+  label="Untitled",
+  details="",
+  osStyle="win95",
+  selected=false,
+  id="",
+  onClick=""
+) %}
+<div
+  class="retro-icon-list-item retro-icon--{{ osStyle }} {{ 'retro-selected' if selected else '' }}"
+  {% if id %}id="{{ id }}"{% endif %}
+  role="button"
+  tabindex="0"
+  aria-label="{{ label }}{% if details %}, {{ details }}{% endif %}"
+  {% if onClick %}onclick="{{ onClick }}"{% endif %}
+  style="display: flex; align-items: center; gap: 8px; padding: 4px 8px; width: 100%;"
+>
+  <div class="retro-icon__image" style="flex-shrink: 0;">
+    {% if image.startsWith('/') or image.startsWith('http') %}
+      <img src="{{ image }}" alt="" width="16" height="16" aria-hidden="true">
+    {% else %}
+      <span style="font-size: 16px;" aria-hidden="true">{{ image }}</span>
+    {% endif %}
+  </div>
+  <div style="flex: 1; overflow: hidden;">
+    <div class="retro-icon__label" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+      {{ label }}
+    </div>
+    {% if details %}
+      <div class="retro-icon__details" style="font-size: 10px; opacity: 0.7;">
+        {{ details }}
+      </div>
+    {% endif %}
+  </div>
+</div>
+{% endmacro %}

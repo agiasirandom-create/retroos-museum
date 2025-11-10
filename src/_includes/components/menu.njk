@@ -1,0 +1,185 @@
+{#
+  Reusable Menu Component
+
+  Parameters:
+  - items: Array of menu item objects (required)
+    Each item can have:
+    - text: Menu item text
+    - shortcut: Keyboard shortcut text (e.g., "Ctrl+S")
+    - disabled: Boolean
+    - checked: Boolean (shows checkmark)
+    - separator: Boolean (renders as separator line)
+    - onClick: JavaScript handler
+    - submenu: Array of submenu items
+  - osStyle: OS style - 'win95', 'macos', 'unix' (default: 'win95')
+  - vertical: Vertical dropdown menu (default: true)
+  - id: Menu ID (optional)
+
+  Usage:
+  {{ menu(
+    items=[
+      {text: "New", shortcut: "Ctrl+N"},
+      {text: "Open", shortcut: "Ctrl+O"},
+      {separator: true},
+      {text: "Save", shortcut: "Ctrl+S", disabled: true},
+      {text: "Exit"}
+    ],
+    osStyle="win95"
+  ) }}
+#}
+
+{% macro menu(
+  items=[],
+  osStyle="win95",
+  vertical=true,
+  id=""
+) %}
+<div
+  class="retro-menu retro-menu--{{ osStyle }} {{ 'retro-menu--vertical' if vertical else '' }}"
+  {% if id %}id="{{ id }}"{% endif %}
+  role="menu"
+  aria-orientation="{{ 'vertical' if vertical else 'horizontal' }}"
+>
+  {% for item in items %}
+    {% if item.separator %}
+      <div class="retro-menu__separator" role="separator"></div>
+    {% else %}
+      <div
+        class="retro-menu__item {{ 'retro-menu__item--disabled' if item.disabled else '' }} {{ 'checked' if item.checked else '' }}"
+        role="menuitem"
+        {% if item.disabled %}aria-disabled="true"{% endif %}
+        {% if item.onClick %}onclick="{{ item.onClick }}"{% endif %}
+        tabindex="{{ '0' if not item.disabled else '-1' }}"
+      >
+        <span class="retro-menu__text">{{ item.text }}</span>
+        {% if item.shortcut %}
+          <span class="retro-menu__shortcut" aria-label="Keyboard shortcut: {{ item.shortcut }}">
+            {{ item.shortcut }}
+          </span>
+        {% endif %}
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
+{% endmacro %}
+
+{#
+  Menu Bar Component - Horizontal menu bar with dropdowns
+
+  Parameters:
+  - menus: Array of menu objects (required)
+    Each menu can have:
+    - text: Menu label
+    - items: Array of menu items (same format as menu component)
+  - osStyle: OS style (default: 'win95')
+
+  Usage:
+  {{ menuBar(
+    menus=[
+      {
+        text: "File",
+        items: [
+          {text: "New", shortcut: "Ctrl+N"},
+          {text: "Open", shortcut: "Ctrl+O"},
+          {separator: true},
+          {text: "Exit"}
+        ]
+      },
+      {
+        text: "Edit",
+        items: [
+          {text: "Cut", shortcut: "Ctrl+X"},
+          {text: "Copy", shortcut: "Ctrl+C"},
+          {text: "Paste", shortcut: "Ctrl+V"}
+        ]
+      }
+    ],
+    osStyle="win95"
+  ) }}
+#}
+{% macro menuBar(menus=[], osStyle="win95", id="") %}
+<nav
+  class="retro-menu retro-menu--{{ osStyle }} menu-bar"
+  {% if id %}id="{{ id }}"{% endif %}
+  role="menubar"
+  aria-label="Main menu"
+>
+  {% for menu in menus %}
+    <div
+      class="retro-menu__item"
+      role="menuitem"
+      aria-haspopup="true"
+      tabindex="0"
+      data-menu="{{ loop.index }}"
+    >
+      {{ menu.text }}
+    </div>
+  {% endfor %}
+</nav>
+
+{# Hidden dropdown menus - would need JavaScript to show/hide #}
+{% for menu in menus %}
+  <div
+    class="retro-menu-dropdown"
+    id="dropdown-{{ loop.index }}"
+    style="display: none; position: absolute;"
+    data-menu-dropdown="{{ loop.index }}"
+  >
+    {{ menu(
+      items=menu.items,
+      osStyle=osStyle,
+      vertical=true
+    ) }}
+  </div>
+{% endfor %}
+{% endmacro %}
+
+{#
+  Context Menu Component - Right-click menu
+
+  Parameters:
+  - items: Array of menu items
+  - osStyle: OS style (default: 'win95')
+  - id: Menu ID (required for JavaScript targeting)
+
+  Usage:
+  {{ contextMenu(
+    items=[
+      {text: "Cut"},
+      {text: "Copy"},
+      {text: "Paste"},
+      {separator: true},
+      {text: "Properties"}
+    ],
+    osStyle="win95",
+    id="file-context-menu"
+  ) }}
+#}
+{% macro contextMenu(items=[], osStyle="win95", id="") %}
+<div
+  class="retro-menu retro-menu--{{ osStyle }} retro-menu--vertical retro-context-menu"
+  {% if id %}id="{{ id }}"{% endif %}
+  role="menu"
+  style="display: none; position: fixed; z-index: 1000;"
+  aria-orientation="vertical"
+>
+  {% for item in items %}
+    {% if item.separator %}
+      <div class="retro-menu__separator" role="separator"></div>
+    {% else %}
+      <div
+        class="retro-menu__item {{ 'retro-menu__item--disabled' if item.disabled else '' }}"
+        role="menuitem"
+        {% if item.disabled %}aria-disabled="true"{% endif %}
+        {% if item.onClick %}onclick="{{ item.onClick }}"{% endif %}
+        tabindex="{{ '0' if not item.disabled else '-1' }}"
+      >
+        <span class="retro-menu__text">{{ item.text }}</span>
+        {% if item.shortcut %}
+          <span class="retro-menu__shortcut">{{ item.shortcut }}</span>
+        {% endif %}
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
+{% endmacro %}
