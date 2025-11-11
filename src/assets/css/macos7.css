@@ -190,11 +190,11 @@
   top: 8px;
   right: 8px;
   bottom: 8px;
-  width: 90px;
+  width: 120px; /* Increased from 90px for better icon display */
   display: flex;
   flex-direction: column;
   gap: 16px;
-  pointer-events: none;
+  pointer-events: none; /* Allow clicking through to individual icons */
 }
 
 .desktop-icon {
