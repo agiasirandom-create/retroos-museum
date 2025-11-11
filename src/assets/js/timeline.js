@@ -355,7 +355,7 @@
     // Check if OS has a dedicated recreation page
     const osPages = {
       'windows-95': '/os/windows-95/',
-      'macos-system7': '/os/macos-system7/'
+      'system-7': '/os/macos-system7/'
     };
 
     // If OS page exists, navigate to it
