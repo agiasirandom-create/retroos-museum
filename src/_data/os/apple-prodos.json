@@ -1,0 +1,318 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "apple-prodos",
+
+  "metadata": {
+    "name": "Apple ProDOS",
+    "fullName": "Apple Professional Disk Operating System",
+    "version": "1.0",
+    "company": "Apple Computer",
+    "releaseYear": 1983,
+    "releaseDate": "1983-10-01",
+    "description": "Advanced DOS replacement for Apple II featuring hierarchical file system, support for multiple drives, and improved performance for professional applications.",
+    "tagline": "Professional Power for Apple II",
+    "category": "desktop_alternative",
+    "architecture": ["6502", "65C02"],
+
+    "historical": {
+      "significance": "First hierarchical file system for Apple II. Introduced subdirectories, improved disk management, and paved the way for AppleWorks productivity suite. Influenced Apple's future OS development.",
+      "marketShare": "Became standard OS for Apple II series through late 1980s",
+      "predecessor": "Apple DOS 3.3",
+      "endOfLife": "1993-09-01"
+    },
+
+    "links": {
+      "wikipedia": "https://en.wikipedia.org/wiki/Apple_ProDOS"
+    }
+  },
+
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#000000",
+
+        "windowBackground": "#000000",
+        "windowBorder": "#FFFFFF",
+        "windowBorderWidth": 1,
+
+        "text": "#FFFFFF",
+        "textDisabled": "#666666",
+
+        "highlight": "#FFFFFF",
+        "highlightText": "#000000",
+
+        "custom": {
+          "cursor": "#FFFFFF",
+          "promptColor": "#00FF00",
+          "inverseText": "#000000",
+          "inverseBackground": "#FFFFFF"
+        }
+      },
+
+      "typography": {
+        "systemFont": {
+          "family": "Print Char 21",
+          "size": 14,
+          "weight": "normal",
+          "fallback": ["Courier", "monospace"]
+        },
+        "monospaceFont": {
+          "family": "Print Char 21",
+          "size": 14,
+          "weight": "normal"
+        },
+
+        "antialiasing": false,
+        "baseFontSize": 14
+      },
+
+      "style": {
+        "type": "flat",
+        "borderStyle": "single",
+        "cornerRadius": 0,
+
+        "shadows": false,
+        "transparency": false,
+
+        "bevels": false,
+        "gradients": false,
+
+        "animationStyle": "instant"
+      }
+    },
+
+    "cursor": {
+      "style": "classic_arrow",
+      "animated": false,
+      "shadows": false
+    },
+
+    "icons": {
+      "style": "pixel_art",
+      "size": {
+        "default": 16,
+        "sizes": [16]
+      },
+      "rendering": "aliased",
+      "shadow": false,
+      "labelStyle": {
+        "position": "below",
+        "background": "transparent",
+        "textColor": "#FFFFFF"
+      }
+    },
+
+    "sounds": {
+      "enabled": true,
+      "sounds": {
+        "startup": "sounds/apple2_beep.wav",
+        "error": "sounds/beep.wav"
+      },
+      "volume": 100
+    },
+
+    "wallpaper": {
+      "type": "solid",
+      "value": "#000000",
+      "overlay": false
+    }
+  },
+
+  "paradigm": {
+    "windowSystem": {
+      "type": "none",
+
+      "behavior": {
+        "overlap": false,
+        "resize": false,
+        "minimize": false,
+        "maximize": false,
+        "close": false,
+
+        "modal": true,
+        "transparency": false
+      },
+
+      "chrome": {
+        "titleBar": "hidden",
+        "controls": "none",
+        "controlPosition": "right",
+        "buttons": {},
+        "titleAlign": "left"
+      },
+
+      "effects": {}
+    },
+
+    "menuSystem": {
+      "type": "menu_bar",
+
+      "menuBar": {
+        "enabled": true,
+        "position": "top",
+        "sticky": true,
+
+        "style": {
+          "background": "#000000",
+          "textColor": "#FFFFFF",
+          "height": 16
+        }
+      },
+
+      "contextMenu": {
+        "enabled": false,
+        "trigger": "right_click"
+      },
+
+      "behavior": {
+        "clickToOpen": true,
+        "keyboardShortcuts": true,
+        "icons": false,
+        "cascading": false
+      }
+    },
+
+    "taskManagement": {
+      "type": "none",
+
+      "switching": {
+        "method": []
+      },
+
+      "multitasking": {
+        "preemptive": false,
+        "virtual_desktops": false
+      }
+    },
+
+    "desktop": {
+      "type": "none",
+
+      "layout": {
+        "type": "list"
+      },
+
+      "items": {
+        "icons": false,
+        "shortcuts": false,
+        "folders": true
+      },
+
+      "interaction": {
+        "click": "single",
+        "selection": "single",
+        "dragAndDrop": false
+      },
+
+      "behavior": {}
+    },
+
+    "inputMethods": {
+      "keyboard": {
+        "shortcuts": true,
+        "function_keys": true,
+        "navigation": "arrows"
+      },
+
+      "mouse": {
+        "buttons": 1,
+        "scroll": "none",
+        "gestures": false
+      }
+    }
+  },
+
+  "components": {
+    "core": {
+      "windowManager": "none",
+      "fileManager": "prodos_filer",
+
+      "optional": {
+        "terminal": "basic_system"
+      }
+    },
+
+    "applications": [
+      {
+        "id": "filer",
+        "name": "Filer",
+        "icon": "",
+        "type": "system",
+        "component": "ProDOSFiler",
+
+        "window": {
+          "title": "ProDOS Filer",
+          "width": 560,
+          "height": 384,
+          "resizable": false,
+          "minimizable": false,
+          "maximizable": false,
+          "position": "center"
+        }
+      },
+      {
+        "id": "basic_system",
+        "name": "BASIC.SYSTEM",
+        "icon": "",
+        "type": "system",
+        "component": "BasicSystem",
+
+        "window": {
+          "title": "",
+          "width": 560,
+          "height": 384,
+          "resizable": false,
+          "minimizable": false,
+          "maximizable": false,
+          "position": "center"
+        }
+      }
+    ]
+  },
+
+  "features": {
+    "interaction": {
+      "dragAndDrop": false,
+      "clipboard": false,
+
+      "fileOperations": {
+        "copy": true,
+        "move": true,
+        "delete": true,
+        "rename": true,
+        "properties": true
+      },
+
+      "networking": {
+        "enabled": false
+      }
+    },
+
+    "animations": {
+      "enabled": false
+    },
+
+    "customization": {
+      "themes": false,
+      "wallpaper": false,
+      "colors": false
+    }
+  },
+
+  "assets": {
+    "basePath": "/assets/os/prodos",
+
+    "paths": {
+      "sounds": "sounds",
+      "fonts": "fonts"
+    },
+
+    "fonts": {
+      "printchar21": {
+        "path": "fonts/printchar21.woff2",
+        "format": "woff2",
+        "weights": [400]
+      }
+    }
+  }
+}

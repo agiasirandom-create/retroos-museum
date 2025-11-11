@@ -1,0 +1,110 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "windows-phone-8",
+  "metadata": {
+    "name": "Windows Phone 8",
+    "version": "8.0",
+    "company": "Microsoft Corporation",
+    "releaseYear": 2012,
+    "releaseDate": "2012-10-29",
+    "description": "Major update with Windows NT kernel, resizable tiles, NFC, better hardware support, and improved app ecosystem.",
+    "category": "mobile_modern",
+    "architecture": ["ARM"],
+    "historical": {
+      "significance": "Shared kernel with Windows 8, three tile sizes, Kids Corner feature, Nokia partnership",
+      "marketShare": "3.8% peak market share in 2013",
+      "successor": "Windows Phone 8.1",
+      "predecessor": "Windows Phone 7.8",
+      "endOfLife": "2017-07-11"
+    }
+  },
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#000000",
+        "windowBackground": "#000000",
+        "buttonFace": "#00ABA9",
+        "buttonText": "#FFFFFF",
+        "highlight": "#00ABA9",
+        "text": "#FFFFFF",
+        "custom": {
+          "accentColors": ["#1BA1E2", "#00ABA9", "#F09609", "#E671B8", "#A200FF", "#00A300"]
+        }
+      },
+      "typography": {
+        "systemFont": {
+          "family": "Segoe WP",
+          "size": 15,
+          "weight": "300"
+        },
+        "titleFont": {
+          "family": "Segoe WP",
+          "size": 42,
+          "weight": "200"
+        }
+      },
+      "style": {
+        "type": "metro",
+        "cornerRadius": 0,
+        "animationStyle": "ease"
+      }
+    },
+    "icons": {
+      "style": "flat_modern",
+      "size": {
+        "default": 150,
+        "sizes": [150, 300, 310]
+      },
+      "rendering": "vector"
+    },
+    "wallpaper": {
+      "type": "solid",
+      "value": "#000000"
+    }
+  },
+  "paradigm": {
+    "windowSystem": {
+      "type": "full_screen"
+    },
+    "taskManagement": {
+      "type": "cards"
+    },
+    "desktop": {
+      "type": "iconic",
+      "items": {
+        "icons": true,
+        "widgets": true
+      }
+    },
+    "inputMethods": {
+      "touch": {
+        "enabled": true,
+        "multitouch": true,
+        "gestures": ["tap", "swipe", "pinch"]
+      }
+    }
+  },
+  "components": {
+    "core": {
+      "windowManager": "metro-wm"
+    }
+  },
+  "features": {
+    "interaction": {
+      "networking": {
+        "enabled": true,
+        "protocols": ["WiFi", "LTE", "NFC", "Bluetooth"]
+      }
+    },
+    "customization": {
+      "colors": true,
+      "layout": true
+    }
+  },
+  "assets": {
+    "basePath": "/assets/os/windows-phone-8",
+    "paths": {
+      "icons": "icons"
+    }
+  }
+}

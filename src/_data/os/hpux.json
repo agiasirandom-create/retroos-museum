@@ -1,0 +1,148 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "hpux",
+  "metadata": {
+    "name": "HP-UX 10.20",
+    "fullName": "HP-UX 10.20 with CDE",
+    "version": "10.20",
+    "company": "Hewlett-Packard",
+    "releaseYear": 1996,
+    "releaseDate": "1996-05-01",
+    "description": "Hewlett-Packard's enterprise Unix system featuring CDE desktop, known for reliability and mission-critical computing.",
+    "tagline": "The Enterprise Unix",
+    "category": "desktop_unix",
+    "architecture": ["PA-RISC"],
+    "historical": {
+      "significance": "One of the original commercial Unix systems. Known for exceptional reliability and uptime in mission-critical environments.",
+      "marketShare": "Major player in enterprise Unix market, especially in financial and telecommunications sectors",
+      "successor": "HP-UX 11.x",
+      "predecessor": "HP-UX 9.x"
+    },
+    "links": {
+      "wikipedia": "https://en.wikipedia.org/wiki/HP-UX"
+    }
+  },
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#336699",
+        "windowBackground": "#C0C5CD",
+        "windowBorder": "#000000",
+        "windowBorderWidth": 1,
+        "titleBarActive": "#0073CF",
+        "titleBarInactive": "#9E9E9E",
+        "titleBarText": "#FFFFFF",
+        "titleBarTextInactive": "#000000",
+        "buttonFace": "#C0C5CD",
+        "buttonText": "#000000",
+        "buttonHighlight": "#E0E0E0",
+        "buttonShadow": "#5F5F5F",
+        "highlight": "#0073CF",
+        "highlightText": "#FFFFFF",
+        "menuBackground": "#C0C5CD",
+        "menuText": "#000000",
+        "menuHighlight": "#0073CF",
+        "text": "#000000",
+        "custom": {
+          "panelBackground": "#8090A0",
+          "hpBlue": "#0073CF"
+        }
+      },
+      "typography": {
+        "systemFont": {"family": "Helvetica", "size": 12, "weight": "normal", "fallback": ["Arial", "sans-serif"]},
+        "titleFont": {"family": "Helvetica", "size": 10, "weight": "bold"},
+        "menuFont": {"family": "Helvetica", "size": 12, "weight": "normal"},
+        "monospaceFont": {"family": "Courier", "size": 12, "weight": "normal"},
+        "antialiasing": false,
+        "baseFontSize": 12
+      },
+      "style": {
+        "type": "bevel_3d",
+        "borderStyle": "bevel_out",
+        "cornerRadius": 0,
+        "shadows": true,
+        "shadowStyle": "simple",
+        "transparency": false,
+        "bevels": true,
+        "gradients": false,
+        "animationStyle": "instant"
+      }
+    },
+    "cursor": {"style": "classic_arrow", "animated": false, "shadows": false},
+    "icons": {
+      "style": "icon_48",
+      "size": {"default": 48, "sizes": [32, 48]},
+      "rendering": "antialiased",
+      "shadow": false,
+      "labelStyle": {"position": "below", "background": "transparent", "textColor": "#000000", "font": {"family": "Helvetica", "size": 10}}
+    },
+    "wallpaper": {"type": "solid", "value": "#336699", "overlay": true}
+  },
+  "paradigm": {
+    "windowSystem": {
+      "type": "stacking",
+      "behavior": {"overlap": true, "resize": true, "minimize": true, "maximize": true, "close": true, "modal": true, "alwaysOnTop": false, "transparency": false},
+      "chrome": {
+        "titleBar": "classic",
+        "controls": "buttons",
+        "controlPosition": "right",
+        "buttons": {
+          "menu": {"style": "icon", "content": "menu", "position": 0},
+          "minimize": {"style": "icon", "content": "minimize", "position": 1},
+          "maximize": {"style": "icon", "content": "maximize", "position": 2}
+        },
+        "titleAlign": "left",
+        "showIcon": false
+      },
+      "effects": {"shadow": false}
+    },
+    "menuSystem": {
+      "type": "menu_bar",
+      "menuBar": {"enabled": false},
+      "contextMenu": {"enabled": true, "trigger": "right_click", "style": {"background": "#C0C5CD", "borderStyle": "bevel_out"}},
+      "behavior": {"clickToOpen": true, "icons": true, "cascading": true, "tearOff": false}
+    },
+    "taskManagement": {
+      "type": "panel",
+      "taskbar": {
+        "enabled": true,
+        "position": "bottom",
+        "autoHide": false,
+        "size": 50,
+        "style": {"background": "#8090A0", "transparency": false, "blur": false, "itemStyle": "icons", "grouping": false, "previews": false},
+        "sections": {"start": true, "quick_launch": false, "tasks": true, "system_tray": true, "clock": true}
+      },
+      "switching": {"method": ["alt_tab", "taskbar_click"]},
+      "multitasking": {"preemptive": true, "virtual_desktops": true}
+    },
+    "desktop": {
+      "type": "iconic",
+      "layout": {"type": "grid", "grid": {"cellWidth": 80, "cellHeight": 100, "spacing": 20}, "direction": "vertical", "alignment": "right", "snapToGrid": true},
+      "items": {"icons": true, "shortcuts": true, "folders": true},
+      "interaction": {"click": "double", "selection": "rubber_band", "dragAndDrop": true}
+    },
+    "inputMethods": {
+      "keyboard": {"shortcuts": true, "function_keys": true, "navigation": "arrows"},
+      "mouse": {"buttons": 3, "scroll": "none", "gestures": false}
+    }
+  },
+  "components": {
+    "core": {"windowManager": "dtwm", "fileManager": "dtfile", "optional": {"terminal": "hpterm", "textEditor": "dtpad"}},
+    "applications": [
+      {"id": "hpterm", "name": "HP Terminal", "icon": "icons/hpterm.png", "type": "system", "component": "XTerm", "window": {"title": "HP Terminal", "width": 640, "height": 400, "resizable": true, "minimizable": true, "maximizable": true, "position": "cascade"}, "features": {"multiInstance": true}},
+      {"id": "dtfile", "name": "File Manager", "icon": "icons/dtfile.png", "type": "system", "component": "XFM", "window": {"title": "File Manager", "width": 600, "height": 450, "resizable": true, "minimizable": true, "maximizable": true, "position": "center"}},
+      {"id": "sam", "name": "System Admin Manager", "icon": "icons/sam.png", "type": "system", "component": "SAM", "window": {"title": "SAM", "width": 700, "height": 500, "resizable": true, "minimizable": true, "maximizable": true, "position": "center"}},
+      {"id": "dtcalc", "name": "Calculator", "icon": "icons/dtcalc.png", "type": "utility", "component": "XCalc", "window": {"title": "Calculator", "width": 250, "height": 320, "resizable": false, "minimizable": true, "maximizable": false, "position": "center"}}
+    ]
+  },
+  "features": {
+    "interaction": {"dragAndDrop": true, "clipboard": true, "fileOperations": {"copy": true, "move": true, "delete": true, "rename": true, "properties": true}, "networking": {"enabled": true, "protocols": ["TCP/IP", "NFS"]}},
+    "animations": {"enabled": false, "speed": "normal"},
+    "customization": {"themes": true, "wallpaper": true, "colors": true, "layout": true}
+  },
+  "assets": {
+    "basePath": "/assets/os/hpux",
+    "paths": {"icons": "icons", "cursors": "cursors", "fonts": "fonts"},
+    "iconSets": {"default": {"path": "icons", "format": "png", "sizes": [32, 48]}}
+  }
+}

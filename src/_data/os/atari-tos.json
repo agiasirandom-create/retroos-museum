@@ -1,0 +1,257 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "atari-tos",
+
+  "metadata": {
+    "name": "Atari TOS",
+    "fullName": "Atari TOS 1.0 (The Operating System)",
+    "version": "1.0",
+    "company": "Atari Corporation",
+    "releaseYear": 1985,
+    "releaseDate": "1985-01-01",
+    "description": "ROM-based GUI operating system for Atari ST computers, featuring GEM Desktop and MIDI support for music production.",
+    "tagline": "Power Without the Price",
+    "category": "desktop_alternative",
+    "architecture": ["68000"],
+
+    "historical": {
+      "significance": "First affordable 16-bit computer with built-in MIDI ports. Dominated music production in late 1980s. GEM Desktop was an early alternative to Mac and Windows GUIs.",
+      "marketShare": "Popular in Europe, especially for music production and desktop publishing",
+      "successor": "TOS 2.0",
+      "endOfLife": "1993-01-01"
+    },
+
+    "links": {
+      "wikipedia": "https://en.wikipedia.org/wiki/Atari_TOS"
+    }
+  },
+
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#FFFFFF",
+        "windowBackground": "#FFFFFF",
+        "windowBorder": "#000000",
+        "windowBorderWidth": 1,
+        "titleBarActive": "#000000",
+        "titleBarInactive": "#FFFFFF",
+        "titleBarText": "#FFFFFF",
+        "titleBarTextInactive": "#000000",
+        "buttonFace": "#FFFFFF",
+        "buttonText": "#000000",
+        "buttonBorder": "#000000",
+        "highlight": "#000000",
+        "highlightText": "#FFFFFF",
+        "menuBackground": "#FFFFFF",
+        "menuText": "#000000",
+        "text": "#000000"
+      },
+
+      "typography": {
+        "systemFont": {
+          "family": "Atari ST",
+          "size": 8,
+          "weight": "normal",
+          "fallback": ["monospace"]
+        },
+        "antialiasing": false,
+        "baseFontSize": 8
+      },
+
+      "style": {
+        "type": "classic",
+        "borderStyle": "single",
+        "cornerRadius": 0,
+        "shadows": false,
+        "transparency": false,
+        "bevels": false,
+        "gradients": false,
+        "animationStyle": "instant"
+      }
+    },
+
+    "cursor": {
+      "style": "classic_arrow",
+      "animated": false,
+      "shadows": false
+    },
+
+    "icons": {
+      "style": "icon_32",
+      "size": {
+        "default": 32,
+        "sizes": [32]
+      },
+      "rendering": "aliased",
+      "shadow": false,
+      "labelStyle": {
+        "position": "below",
+        "background": "transparent",
+        "textColor": "#000000"
+      }
+    },
+
+    "sounds": {
+      "enabled": true,
+      "sounds": {
+        "error": "sounds/beep.wav"
+      },
+      "volume": 70
+    },
+
+    "wallpaper": {
+      "type": "pattern",
+      "value": "#FFFFFF",
+      "pattern": "dots",
+      "overlay": false
+    }
+  },
+
+  "paradigm": {
+    "windowSystem": {
+      "type": "stacking",
+      "behavior": {
+        "overlap": true,
+        "resize": true,
+        "minimize": false,
+        "maximize": true,
+        "close": true,
+        "modal": true
+      },
+      "chrome": {
+        "titleBar": "classic",
+        "controls": "buttons",
+        "controlPosition": "left",
+        "buttons": {
+          "close": {
+            "style": "icon",
+            "content": "close",
+            "position": 1
+          }
+        },
+        "titleAlign": "center",
+        "showIcon": false
+      }
+    },
+
+    "menuSystem": {
+      "type": "menu_bar",
+      "menuBar": {
+        "enabled": true,
+        "position": "top",
+        "sticky": true,
+        "style": {
+          "background": "#FFFFFF",
+          "textColor": "#000000",
+          "height": 16
+        }
+      },
+      "contextMenu": {
+        "enabled": false
+      },
+      "behavior": {
+        "clickToOpen": true,
+        "cascading": true
+      }
+    },
+
+    "taskManagement": {
+      "type": "none",
+      "switching": {
+        "method": []
+      },
+      "multitasking": {
+        "preemptive": false
+      }
+    },
+
+    "desktop": {
+      "type": "iconic",
+      "layout": {
+        "type": "grid",
+        "grid": {
+          "cellWidth": 80,
+          "cellHeight": 64,
+          "spacing": 8
+        },
+        "direction": "vertical",
+        "snapToGrid": true
+      },
+      "items": {
+        "icons": true,
+        "shortcuts": true,
+        "folders": true,
+        "defaultItems": ["disk_drives", "trash"]
+      },
+      "interaction": {
+        "click": "double",
+        "selection": "rubber_band",
+        "dragAndDrop": true
+      }
+    },
+
+    "inputMethods": {
+      "keyboard": {
+        "shortcuts": true,
+        "function_keys": true,
+        "navigation": "arrows"
+      },
+      "mouse": {
+        "buttons": 2,
+        "scroll": "none"
+      }
+    }
+  },
+
+  "components": {
+    "core": {
+      "windowManager": "gem_desktop",
+      "fileManager": "gem_desktop",
+      "optional": {
+        "textEditor": "1st_word"
+      }
+    },
+    "applications": [
+      {
+        "id": "gem_desktop",
+        "name": "GEM Desktop",
+        "icon": "icons/desktop.png",
+        "type": "system",
+        "component": "GEMDesktop",
+        "window": {
+          "title": "Desktop",
+          "width": 640,
+          "height": 400,
+          "resizable": false,
+          "position": "center"
+        }
+      }
+    ]
+  },
+
+  "features": {
+    "interaction": {
+      "dragAndDrop": true,
+      "clipboard": true,
+      "fileOperations": {
+        "copy": true,
+        "move": true,
+        "delete": true,
+        "rename": true,
+        "properties": true
+      }
+    },
+    "animations": {
+      "enabled": false
+    }
+  },
+
+  "assets": {
+    "basePath": "/assets/os/atarist",
+    "paths": {
+      "icons": "icons",
+      "sounds": "sounds",
+      "fonts": "fonts"
+    }
+  }
+}

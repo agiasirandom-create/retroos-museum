@@ -1,0 +1,211 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "cpm-2.2",
+
+  "metadata": {
+    "name": "CP/M",
+    "fullName": "CP/M 2.2 (Control Program for Microcomputers)",
+    "version": "2.2",
+    "company": "Digital Research",
+    "releaseYear": 1979,
+    "releaseDate": "1979-01-01",
+    "description": "The dominant operating system for 8-bit microcomputers in the late 1970s and early 1980s. Command-line interface with extensive software library.",
+    "tagline": "The Standard OS for Business Microcomputers",
+    "category": "desktop_alternative",
+    "architecture": ["8080", "Z80"],
+
+    "historical": {
+      "significance": "First widely-adopted microcomputer OS. Established conventions still used today (file extensions, command-line structure). Inspired MS-DOS. Ran on hundreds of different computers.",
+      "marketShare": "Dominant in business computing 1977-1983",
+      "successor": "CP/M-86, MS-DOS",
+      "endOfLife": "1985-01-01"
+    },
+
+    "links": {
+      "wikipedia": "https://en.wikipedia.org/wiki/CP/M"
+    }
+  },
+
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#000000",
+        "windowBackground": "#000000",
+        "text": "#00FF00",
+        "custom": {
+          "cursor": "#00FF00",
+          "promptColor": "#00FF00"
+        }
+      },
+
+      "typography": {
+        "systemFont": {
+          "family": "Glass TTY VT220",
+          "size": 14,
+          "weight": "normal",
+          "fallback": ["Courier", "monospace"]
+        },
+        "antialiasing": false,
+        "baseFontSize": 14
+      },
+
+      "style": {
+        "type": "flat",
+        "borderStyle": "none",
+        "cornerRadius": 0,
+        "shadows": false,
+        "transparency": false,
+        "bevels": false,
+        "gradients": false,
+        "animationStyle": "instant"
+      }
+    },
+
+    "cursor": {
+      "style": "classic_arrow",
+      "animated": false,
+      "shadows": false
+    },
+
+    "icons": {
+      "style": "pixel_art",
+      "size": {
+        "default": 0,
+        "sizes": []
+      },
+      "rendering": "aliased",
+      "shadow": false
+    },
+
+    "sounds": {
+      "enabled": true,
+      "sounds": {
+        "error": "sounds/beep.wav"
+      },
+      "volume": 100
+    },
+
+    "wallpaper": {
+      "type": "solid",
+      "value": "#000000",
+      "overlay": false
+    }
+  },
+
+  "paradigm": {
+    "windowSystem": {
+      "type": "none",
+      "behavior": {
+        "overlap": false,
+        "resize": false,
+        "minimize": false,
+        "maximize": false,
+        "close": false
+      },
+      "chrome": {
+        "titleBar": "hidden",
+        "controls": "none",
+        "controlPosition": "right",
+        "buttons": {}
+      }
+    },
+
+    "menuSystem": {
+      "type": "context_only",
+      "menuBar": {
+        "enabled": false
+      },
+      "contextMenu": {
+        "enabled": false
+      }
+    },
+
+    "taskManagement": {
+      "type": "none",
+      "switching": {
+        "method": []
+      },
+      "multitasking": {
+        "preemptive": false,
+        "virtual_desktops": false
+      }
+    },
+
+    "desktop": {
+      "type": "none",
+      "items": {
+        "icons": false
+      },
+      "interaction": {
+        "click": "single",
+        "selection": "single",
+        "dragAndDrop": false
+      }
+    },
+
+    "inputMethods": {
+      "keyboard": {
+        "shortcuts": false,
+        "function_keys": false,
+        "navigation": "custom"
+      },
+      "mouse": {
+        "buttons": 0,
+        "scroll": "none"
+      }
+    }
+  },
+
+  "components": {
+    "core": {
+      "windowManager": "none",
+      "fileManager": "ccp",
+      "optional": {
+        "terminal": "ccp"
+      }
+    },
+    "applications": [
+      {
+        "id": "ccp",
+        "name": "Console Command Processor",
+        "icon": "",
+        "type": "system",
+        "component": "CPMConsole",
+        "window": {
+          "title": "",
+          "width": 640,
+          "height": 400,
+          "resizable": false,
+          "minimizable": false,
+          "maximizable": false,
+          "position": "center"
+        }
+      }
+    ]
+  },
+
+  "features": {
+    "interaction": {
+      "dragAndDrop": false,
+      "clipboard": false,
+      "fileOperations": {
+        "copy": true,
+        "move": false,
+        "delete": true,
+        "rename": true,
+        "properties": false
+      }
+    },
+    "animations": {
+      "enabled": false
+    }
+  },
+
+  "assets": {
+    "basePath": "/assets/os/cpm",
+    "paths": {
+      "sounds": "sounds",
+      "fonts": "fonts"
+    }
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "macos-13-ventura",
+  "metadata": {
+    "name": "macOS Ventura",
+    "fullName": "macOS 13 Ventura",
+    "version": "13.7.1",
+    "company": "Apple Inc.",
+    "releaseYear": 2022,
+    "releaseDate": "2022-10-24",
+    "description": "Refined design with Stage Manager for advanced window organization, enhanced Continuity Camera, and systemwide design updates.",
+    "tagline": "The New Level",
+    "category": "desktop_mac",
+    "architecture": ["Intel", "Apple Silicon"],
+    "historical": {
+      "significance": "Introduced Stage Manager for advanced window management. System Settings app replaced System Preferences. Enhanced Continuity. Redesigned Spotlight. Freeform collaboration app.",
+      "marketShare": "Strong adoption on Apple Silicon Macs",
+      "successor": "macOS 14 Sonoma",
+      "predecessor": "macOS 12 Monterey",
+      "endOfLife": "2025-10-28"
+    },
+    "links": {
+      "wikipedia": "https://en.wikipedia.org/wiki/MacOS_Ventura"
+    }
+  },
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#2B5278",
+        "windowBackground": "#FFFFFF",
+        "windowBorder": "rgba(0,0,0,0.08)",
+        "titleBarActive": "rgba(250,250,250,0.78)",
+        "titleBarInactive": "rgba(252,252,252,0.78)",
+        "titleBarText": "#1C1C1E",
+        "buttonFace": "#FFFFFF",
+        "buttonText": "#007AFF",
+        "highlight": "#007AFF",
+        "highlightText": "#FFFFFF",
+        "menuBackground": "rgba(252,252,252,0.85)",
+        "menuText": "#1C1C1E",
+        "text": "#1C1C1E",
+        "textDisabled": "#D1D1D6",
+        "shadow": "rgba(0,0,0,0.15)",
+        "custom": {
+          "menuBarBackground": "rgba(250,250,250,0.85)",
+          "dockBackground": "rgba(255,255,255,0.35)",
+          "accentBlue": "#007AFF"
+        }
+      },
+      "typography": {
+        "systemFont": {"family": "SF Pro Text", "size": 13, "weight": "normal"},
+        "titleFont": {"family": "SF Pro Display", "size": 15, "weight": "600"},
+        "antialiasing": true,
+        "baseFontSize": 13
+      },
+      "style": {
+        "type": "flat",
+        "cornerRadius": 11,
+        "shadows": true,
+        "transparency": true,
+        "blur": true,
+        "gradients": false
+      }
+    },
+    "icons": {
+      "style": "flat_modern",
+      "size": {"default": 128, "sizes": [16, 32, 64, 128, 256, 512, 1024]},
+      "rendering": "vector",
+      "shadow": false
+    },
+    "wallpaper": {
+      "type": "image",
+      "value": "wallpapers/ventura.jpg",
+      "tiling": "fill"
+    }
+  },
+  "paradigm": {
+    "windowSystem": {
+      "type": "stacking",
+      "behavior": {"overlap": true, "resize": true, "transparency": true, "tiling": true},
+      "chrome": {
+        "titleBar": "unified",
+        "controls": "icons",
+        "controlPosition": "left"
+      }
+    },
+    "menuSystem": {
+      "type": "global_menu",
+      "menuBar": {
+        "enabled": true,
+        "position": "top",
+        "style": {"background": "rgba(250,250,250,0.85)", "height": 24}
+      }
+    },
+    "taskManagement": {
+      "type": "dock",
+      "multitasking": {"preemptive": true, "virtual_desktops": true, "splitScreen": true}
+    },
+    "desktop": {
+      "type": "clean",
+      "items": {"icons": true, "widgets": true}
+    }
+  },
+  "components": {
+    "core": {"windowManager": "ventura-window-manager", "fileManager": "finder"},
+    "applications": [
+      {"id": "finder", "name": "Finder", "icon": "icons/finder.png", "type": "system"},
+      {"id": "safari", "name": "Safari", "icon": "icons/safari.png", "type": "web"}
+    ]
+  },
+  "assets": {
+    "basePath": "/assets/os/macos-ventura",
+    "fonts": {"sf_pro": {"path": "fonts/sf_pro.woff2", "format": "woff2"}}
+  }
+}

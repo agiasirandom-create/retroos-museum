@@ -1,0 +1,432 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "palmos-5",
+
+  "metadata": {
+    "name": "Palm OS 5",
+    "fullName": "Palm OS Garnet 5.4",
+    "version": "5.4",
+    "company": "PalmSource",
+    "releaseYear": 2002,
+    "releaseDate": "2002-10-28",
+    "description": "Touch-based mobile OS featuring stylus input, Graffiti handwriting recognition, and efficient single-tasking design for PDAs and early smartphones.",
+    "tagline": "Life. Organized.",
+    "category": "mobile_classic",
+    "architecture": ["ARM"],
+
+    "historical": {
+      "significance": "Dominated PDA market in late 1990s/early 2000s. Pioneered touch-based mobile computing and stylus input. Graffiti handwriting system became iconic. Influenced iPhone design.",
+      "marketShare": "Over 80% of PDA market at peak (2000-2003)",
+      "predecessor": "Palm OS 4",
+      "successor": "webOS",
+      "endOfLife": "2007-01-01"
+    },
+
+    "links": {
+      "wikipedia": "https://en.wikipedia.org/wiki/Palm_OS"
+    }
+  },
+
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#FFFFFF",
+        "windowBackground": "#FFFFFF",
+        "windowBorder": "#000000",
+        "windowBorderWidth": 1,
+
+        "titleBarActive": "#9999FF",
+        "titleBarInactive": "#CCCCCC",
+        "titleBarText": "#000000",
+
+        "buttonFace": "#EEEEEE",
+        "buttonText": "#000000",
+        "buttonBorder": "#000000",
+
+        "highlight": "#9999FF",
+        "highlightText": "#000000",
+
+        "menuBackground": "#FFFFFF",
+        "menuText": "#000000",
+
+        "text": "#000000",
+        "statusBar": "#EEEEEE",
+
+        "custom": {
+          "launcher": "#9999FF",
+          "launcherText": "#000000",
+          "graffiti": "#CCCCCC",
+          "silkscreen": "#EEEEEE"
+        }
+      },
+
+      "typography": {
+        "systemFont": {
+          "family": "Palm OS Font",
+          "size": 11,
+          "weight": "normal",
+          "fallback": ["Verdana", "sans-serif"]
+        },
+        "titleFont": {
+          "family": "Palm OS Font",
+          "size": 11,
+          "weight": "bold"
+        },
+        "monospaceFont": {
+          "family": "Courier",
+          "size": 10,
+          "weight": "normal"
+        },
+
+        "antialiasing": false,
+        "baseFontSize": 11
+      },
+
+      "style": {
+        "type": "flat",
+        "borderStyle": "single",
+        "cornerRadius": 3,
+
+        "shadows": false,
+        "transparency": false,
+
+        "bevels": true,
+        "gradients": true,
+
+        "animationStyle": "linear"
+      }
+    },
+
+    "cursor": {
+      "style": "crosshair",
+      "animated": false,
+      "shadows": false
+    },
+
+    "icons": {
+      "style": "icon_32",
+      "size": {
+        "default": 32,
+        "sizes": [22, 32]
+      },
+      "rendering": "aliased",
+      "shadow": false,
+      "labelStyle": {
+        "position": "below",
+        "background": "transparent",
+        "textColor": "#000000",
+        "font": {
+          "family": "Palm OS Font",
+          "size": 9
+        }
+      }
+    },
+
+    "sounds": {
+      "enabled": true,
+      "sounds": {
+        "startup": "sounds/palm_startup.wav",
+        "notification": "sounds/beep.wav",
+        "click": "sounds/tap.wav"
+      },
+      "volume": 60
+    },
+
+    "wallpaper": {
+      "type": "solid",
+      "value": "#FFFFFF",
+      "overlay": false
+    }
+  },
+
+  "paradigm": {
+    "windowSystem": {
+      "type": "full_screen",
+
+      "behavior": {
+        "overlap": false,
+        "resize": false,
+        "minimize": false,
+        "maximize": false,
+        "close": true,
+
+        "modal": true,
+        "transparency": false
+      },
+
+      "chrome": {
+        "titleBar": "minimal",
+        "controls": "buttons",
+        "controlPosition": "right",
+
+        "buttons": {
+          "close": {
+            "style": "text",
+            "content": "Done",
+            "position": 1
+          },
+          "menu": {
+            "style": "icon",
+            "content": "menu",
+            "position": 2
+          }
+        },
+
+        "titleAlign": "left",
+        "showIcon": false
+      },
+
+      "effects": {
+        "openAnimation": "slide",
+        "closeAnimation": "slide"
+      }
+    },
+
+    "menuSystem": {
+      "type": "application_menu",
+
+      "menuBar": {
+        "enabled": true,
+        "position": "top",
+        "sticky": false,
+
+        "style": {
+          "background": "#FFFFFF",
+          "textColor": "#000000",
+          "height": 14
+        }
+      },
+
+      "contextMenu": {
+        "enabled": true,
+        "trigger": "long_press"
+      },
+
+      "behavior": {
+        "clickToOpen": true,
+        "icons": false,
+        "cascading": false
+      }
+    },
+
+    "taskManagement": {
+      "type": "cards",
+
+      "switching": {
+        "method": ["gesture"]
+      },
+
+      "multitasking": {
+        "preemptive": false,
+        "virtual_desktops": false
+      }
+    },
+
+    "desktop": {
+      "type": "dashboard",
+
+      "layout": {
+        "type": "grid",
+        "grid": {
+          "columns": 4,
+          "rows": 4,
+          "cellWidth": 40,
+          "cellHeight": 50,
+          "spacing": 4
+        },
+        "direction": "horizontal"
+      },
+
+      "items": {
+        "icons": true,
+        "shortcuts": true,
+
+        "defaultItems": [
+          "datebook",
+          "address",
+          "todo",
+          "memopad"
+        ]
+      },
+
+      "interaction": {
+        "click": "single",
+        "selection": "single",
+        "dragAndDrop": false
+      },
+
+      "behavior": {}
+    },
+
+    "inputMethods": {
+      "keyboard": {
+        "shortcuts": true,
+        "function_keys": false,
+        "navigation": "custom"
+      },
+
+      "touch": {
+        "enabled": true,
+        "multitouch": false,
+        "gestures": ["tap", "long_press"]
+      },
+
+      "pen": {
+        "enabled": true,
+        "pressureLevels": 256
+      }
+    }
+  },
+
+  "components": {
+    "core": {
+      "windowManager": "palm_ui",
+      "fileManager": "launcher",
+
+      "optional": {
+        "textEditor": "memopad"
+      }
+    },
+
+    "applications": [
+      {
+        "id": "launcher",
+        "name": "Launcher",
+        "icon": "icons/home.png",
+        "type": "system",
+        "component": "Launcher",
+
+        "window": {
+          "title": "",
+          "width": 160,
+          "height": 160,
+          "resizable": false,
+          "minimizable": false,
+          "maximizable": false,
+          "position": "center"
+        }
+      },
+      {
+        "id": "datebook",
+        "name": "Date Book",
+        "icon": "icons/datebook.png",
+        "type": "productivity",
+        "component": "DateBook",
+
+        "window": {
+          "title": "Date Book",
+          "width": 160,
+          "height": 160,
+          "resizable": false,
+          "minimizable": false,
+          "maximizable": false,
+          "position": "center"
+        }
+      },
+      {
+        "id": "address",
+        "name": "Address",
+        "icon": "icons/address.png",
+        "type": "productivity",
+        "component": "AddressBook",
+
+        "window": {
+          "title": "Address",
+          "width": 160,
+          "height": 160,
+          "resizable": false,
+          "minimizable": false,
+          "maximizable": false,
+          "position": "center"
+        }
+      },
+      {
+        "id": "todo",
+        "name": "To Do List",
+        "icon": "icons/todo.png",
+        "type": "productivity",
+        "component": "TodoList",
+
+        "window": {
+          "title": "To Do List",
+          "width": 160,
+          "height": 160,
+          "resizable": false,
+          "minimizable": false,
+          "maximizable": false,
+          "position": "center"
+        }
+      },
+      {
+        "id": "memopad",
+        "name": "Memo Pad",
+        "icon": "icons/memopad.png",
+        "type": "productivity",
+        "component": "MemoPad",
+
+        "window": {
+          "title": "Memo Pad",
+          "width": 160,
+          "height": 160,
+          "resizable": false,
+          "minimizable": false,
+          "maximizable": false,
+          "position": "center"
+        }
+      }
+    ]
+  },
+
+  "features": {
+    "interaction": {
+      "dragAndDrop": false,
+      "clipboard": true,
+
+      "fileOperations": {
+        "copy": true,
+        "move": false,
+        "delete": true,
+        "rename": false,
+        "properties": false
+      },
+
+      "networking": {
+        "enabled": true,
+        "protocols": ["TCP/IP", "IrDA"]
+      }
+    },
+
+    "animations": {
+      "enabled": true,
+      "speed": "fast",
+      "effects": {
+        "windowOpen": true,
+        "windowClose": true
+      }
+    },
+
+    "customization": {
+      "themes": false,
+      "wallpaper": false,
+      "colors": false
+    }
+  },
+
+  "assets": {
+    "basePath": "/assets/os/palmos",
+
+    "paths": {
+      "icons": "icons",
+      "sounds": "sounds",
+      "fonts": "fonts"
+    },
+
+    "iconSets": {
+      "default": {
+        "path": "icons",
+        "format": "png",
+        "sizes": [22, 32]
+      }
+    }
+  }
+}

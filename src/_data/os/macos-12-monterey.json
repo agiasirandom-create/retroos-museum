@@ -1,0 +1,271 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "macos-12-monterey",
+  "metadata": {
+    "name": "macOS Monterey",
+    "fullName": "macOS 12 Monterey",
+    "version": "12.7.6",
+    "company": "Apple Inc.",
+    "releaseYear": 2021,
+    "releaseDate": "2021-10-25",
+    "description": "Refined Big Sur design with Universal Control, Focus modes, and enhanced continuity features across Apple devices.",
+    "tagline": "Way Ahead",
+    "category": "desktop_mac",
+    "architecture": ["Intel", "Apple Silicon"],
+    "historical": {
+      "significance": "Introduced Universal Control for seamless multi-device workflow. Focus modes. Live Text. Shortcuts app. SharePlay. Refined design language from Big Sur.",
+      "marketShare": "Widespread adoption across M1 and Intel Macs",
+      "successor": "macOS 13 Ventura",
+      "predecessor": "macOS 11 Big Sur",
+      "endOfLife": "2024-09-16"
+    },
+    "links": {
+      "wikipedia": "https://en.wikipedia.org/wiki/MacOS_Monterey"
+    }
+  },
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#1E4D7B",
+        "windowBackground": "#FFFFFF",
+        "windowBorder": "rgba(0,0,0,0.1)",
+        "windowBorderWidth": 1,
+        "titleBarActive": "rgba(246,246,246,0.75)",
+        "titleBarInactive": "rgba(251,251,251,0.75)",
+        "titleBarText": "#1D1D1F",
+        "titleBarTextInactive": "#86868B",
+        "buttonFace": "#FFFFFF",
+        "buttonText": "#0071E3",
+        "highlight": "#0071E3",
+        "highlightText": "#FFFFFF",
+        "menuBackground": "rgba(255,255,255,0.82)",
+        "menuText": "#1D1D1F",
+        "text": "#1D1D1F",
+        "textDisabled": "#D1D1D6",
+        "shadow": "rgba(0,0,0,0.18)",
+        "custom": {
+          "menuBarBackground": "rgba(246,246,246,0.82)",
+          "dockBackground": "rgba(255,255,255,0.32)",
+          "accentBlue": "#0071E3"
+        }
+      },
+      "typography": {
+        "systemFont": {
+          "family": "SF Pro Text",
+          "size": 13,
+          "weight": "normal",
+          "fallback": ["Helvetica Neue", "sans-serif"]
+        },
+        "titleFont": {
+          "family": "SF Pro Display",
+          "size": 15,
+          "weight": "600"
+        },
+        "menuFont": {
+          "family": "SF Pro Text",
+          "size": 14,
+          "weight": "normal"
+        },
+        "monospaceFont": {
+          "family": "SF Mono",
+          "size": 12,
+          "weight": "normal"
+        },
+        "antialiasing": true,
+        "subpixelRendering": false,
+        "baseFontSize": 13,
+        "scaleFactor": 1.0
+      },
+      "style": {
+        "type": "neumorphic",
+        "borderStyle": "none",
+        "cornerRadius": 10,
+        "shadows": true,
+        "shadowStyle": "soft",
+        "transparency": true,
+        "blur": true,
+        "bevels": false,
+        "gradients": true,
+        "textures": true,
+        "animationStyle": "ease"
+      },
+      "specialElements": {
+        "scrollbarStyle": "overlay",
+        "focusIndicator": "glow",
+        "dragVisual": "full"
+      }
+    },
+    "cursor": {
+      "style": "modern_arrow",
+      "animated": true,
+      "shadows": false
+    },
+    "icons": {
+      "style": "skeuomorphic",
+      "size": {
+        "default": 128,
+        "sizes": [16, 32, 64, 128, 256, 512, 1024]
+      },
+      "rendering": "vector",
+      "shadow": true,
+      "labelStyle": {
+        "position": "below",
+        "background": "transparent",
+        "textColor": "#FFFFFF",
+        "font": {"family": "SF Pro Text", "size": 12}
+      }
+    },
+    "sounds": {
+      "enabled": true,
+      "sounds": {
+        "startup": "sounds/mac_startup_monterey.wav",
+        "notification": "sounds/pop.wav"
+      },
+      "volume": 75
+    },
+    "wallpaper": {
+      "type": "image",
+      "value": "wallpapers/monterey.jpg",
+      "tiling": "fill",
+      "overlay": true
+    }
+  },
+  "paradigm": {
+    "windowSystem": {
+      "type": "stacking",
+      "behavior": {
+        "overlap": true,
+        "resize": true,
+        "minimize": true,
+        "maximize": true,
+        "close": true,
+        "transparency": true,
+        "tabbed": false,
+        "tiling": false
+      },
+      "chrome": {
+        "titleBar": "unified",
+        "controls": "icons",
+        "controlPosition": "left",
+        "buttons": {
+          "close": {"style": "icon", "position": 1, "color": "#FF5F57"},
+          "minimize": {"style": "icon", "position": 2, "color": "#FFBD2E"},
+          "maximize": {"style": "icon", "position": 3, "color": "#28CA42"}
+        },
+        "titleAlign": "center"
+      },
+      "effects": {
+        "openAnimation": "scale",
+        "closeAnimation": "scale",
+        "minimizeAnimation": "scale",
+        "shadow": true,
+        "blur": true
+      }
+    },
+    "menuSystem": {
+      "type": "global_menu",
+      "menuBar": {
+        "enabled": true,
+        "position": "top",
+        "sticky": true,
+        "style": {
+          "background": "rgba(246,246,246,0.82)",
+          "textColor": "#1D1D1F",
+          "height": 24
+        },
+        "items": {
+          "alwaysVisible": ["apple", "control_center", "spotlight"]
+        }
+      },
+      "contextMenu": {
+        "enabled": true,
+        "trigger": "right_click"
+      }
+    },
+    "taskManagement": {
+      "type": "dock",
+      "taskbar": {
+        "enabled": true,
+        "position": "bottom",
+        "size": 64,
+        "style": {
+          "background": "rgba(255,255,255,0.32)",
+          "transparency": true,
+          "blur": true
+        }
+      },
+      "switching": {
+        "method": ["dock_click", "mission_control"]
+      },
+      "multitasking": {
+        "preemptive": true,
+        "virtual_desktops": true,
+        "splitScreen": true
+      }
+    },
+    "desktop": {
+      "type": "clean",
+      "layout": {
+        "type": "free_form",
+        "snapToGrid": true
+      },
+      "items": {
+        "icons": true,
+        "widgets": true,
+        "defaultItems": []
+      },
+      "interaction": {
+        "click": "single",
+        "dragAndDrop": true
+      }
+    },
+    "inputMethods": {
+      "keyboard": {"shortcuts": true, "accessibility": true},
+      "mouse": {"buttons": 2, "scroll": "wheel", "gestures": true},
+      "touch": {"enabled": true, "multitouch": true, "gestures": ["tap", "swipe", "pinch"]}
+    }
+  },
+  "components": {
+    "core": {
+      "windowManager": "monterey-window-manager",
+      "fileManager": "finder",
+      "optional": {"dock": "dock", "webBrowser": "safari"}
+    },
+    "applications": [
+      {
+        "id": "finder",
+        "name": "Finder",
+        "icon": "icons/finder.png",
+        "type": "system",
+        "window": {"title": "Macintosh HD", "width": 850, "height": 600}
+      },
+      {
+        "id": "safari",
+        "name": "Safari",
+        "icon": "icons/safari.png",
+        "type": "web",
+        "window": {"title": "Safari", "width": 1200, "height": 800}
+      }
+    ]
+  },
+  "features": {
+    "interaction": {
+      "dragAndDrop": true,
+      "clipboard": true,
+      "fileOperations": {"copy": true, "move": true, "delete": true, "rename": true}
+    },
+    "animations": {
+      "enabled": true,
+      "speed": "normal",
+      "effects": {"windowOpen": true, "transitions": true}
+    },
+    "customization": {"wallpaper": true, "colors": true}
+  },
+  "assets": {
+    "basePath": "/assets/os/macos-monterey",
+    "paths": {"icons": "icons", "sounds": "sounds", "fonts": "fonts", "wallpapers": "wallpapers"},
+    "fonts": {
+      "sf_pro": {"path": "fonts/sf_pro.woff2", "format": "woff2", "weights": [400, 600, 700]}
+    }
+  }
+}

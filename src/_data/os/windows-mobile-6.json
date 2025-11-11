@@ -1,0 +1,466 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "windows-mobile-6",
+
+  "metadata": {
+    "name": "Windows Mobile 6",
+    "fullName": "Windows Mobile 6.1 Professional",
+    "version": "6.1",
+    "company": "Microsoft Corporation",
+    "releaseYear": 2007,
+    "releaseDate": "2007-02-12",
+    "description": "Microsoft's mobile OS bringing Windows familiarity to PDAs and smartphones with stylus input, Microsoft Office Mobile, and Exchange integration.",
+    "tagline": "Your Life. On the Move.",
+    "category": "mobile_classic",
+    "architecture": ["ARM"],
+
+    "historical": {
+      "significance": "Brought Windows desktop paradigm to mobile devices. Strong in enterprise with Exchange integration. Dominated business smartphone market pre-iPhone. Influenced Windows Phone design.",
+      "marketShare": "~20% smartphone market share (2007-2008)",
+      "predecessor": "Windows Mobile 5",
+      "successor": "Windows Phone 7",
+      "endOfLife": "2010-10-12"
+    },
+
+    "links": {
+      "wikipedia": "https://en.wikipedia.org/wiki/Windows_Mobile"
+    }
+  },
+
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#FFFFFF",
+        "windowBackground": "#FFFFFF",
+        "windowBorder": "#808080",
+        "windowBorderWidth": 1,
+
+        "titleBarActive": "#4488FF",
+        "titleBarInactive": "#C0C0C0",
+        "titleBarText": "#FFFFFF",
+        "titleBarTextInactive": "#000000",
+
+        "buttonFace": "#ECE9D8",
+        "buttonText": "#000000",
+        "buttonBorder": "#0054E3",
+        "buttonHighlight": "#FFFFFF",
+        "buttonShadow": "#808080",
+
+        "highlight": "#316AC5",
+        "highlightText": "#FFFFFF",
+
+        "menuBackground": "#FFFFFF",
+        "menuText": "#000000",
+
+        "text": "#000000",
+        "statusBar": "#4488FF",
+        "taskbar": "#ECE9D8",
+
+        "custom": {
+          "softkey": "#ECE9D8",
+          "todayScreen": "#4488FF"
+        }
+      },
+
+      "typography": {
+        "systemFont": {
+          "family": "Tahoma",
+          "size": 9,
+          "weight": "normal",
+          "fallback": ["Arial", "sans-serif"]
+        },
+        "titleFont": {
+          "family": "Tahoma",
+          "size": 9,
+          "weight": "bold"
+        },
+        "menuFont": {
+          "family": "Tahoma",
+          "size": 9,
+          "weight": "normal"
+        },
+        "monospaceFont": {
+          "family": "Courier New",
+          "size": 8,
+          "weight": "normal"
+        },
+
+        "antialiasing": true,
+        "subpixelRendering": true,
+        "baseFontSize": 9
+      },
+
+      "style": {
+        "type": "bevel_3d",
+        "borderStyle": "bevel_out",
+        "cornerRadius": 0,
+
+        "shadows": false,
+        "transparency": false,
+
+        "bevels": true,
+        "gradients": true,
+
+        "animationStyle": "linear"
+      }
+    },
+
+    "cursor": {
+      "style": "classic_arrow",
+      "animated": false,
+      "shadows": false
+    },
+
+    "icons": {
+      "style": "photo_realistic",
+      "size": {
+        "default": 32,
+        "sizes": [16, 32, 48]
+      },
+      "rendering": "antialiased",
+      "shadow": true,
+      "labelStyle": {
+        "position": "below",
+        "background": "transparent",
+        "textColor": "#000000",
+        "font": {
+          "family": "Tahoma",
+          "size": 8
+        }
+      }
+    },
+
+    "sounds": {
+      "enabled": true,
+      "sounds": {
+        "startup": "sounds/wm_startup.wav",
+        "notification": "sounds/notify.wav",
+        "click": "sounds/tap.wav"
+      },
+      "volume": 70
+    },
+
+    "wallpaper": {
+      "type": "image",
+      "value": "wallpapers/today.jpg",
+      "tiling": "stretch",
+      "overlay": true
+    }
+  },
+
+  "paradigm": {
+    "windowSystem": {
+      "type": "stacking",
+
+      "behavior": {
+        "overlap": true,
+        "resize": false,
+        "minimize": true,
+        "maximize": true,
+        "close": true,
+
+        "modal": true,
+        "transparency": false
+      },
+
+      "chrome": {
+        "titleBar": "classic",
+        "controls": "buttons",
+        "controlPosition": "right",
+
+        "buttons": {
+          "close": {
+            "style": "icon",
+            "content": "x",
+            "position": 1
+          },
+          "minimize": {
+            "style": "icon",
+            "content": "ok",
+            "position": 2
+          }
+        },
+
+        "titleAlign": "left",
+        "showIcon": true
+      },
+
+      "effects": {
+        "openAnimation": "fade",
+        "closeAnimation": "fade"
+      }
+    },
+
+    "menuSystem": {
+      "type": "application_menu",
+
+      "menuBar": {
+        "enabled": true,
+        "position": "bottom",
+        "sticky": true,
+
+        "style": {
+          "background": "#ECE9D8",
+          "textColor": "#000000",
+          "height": 26
+        }
+      },
+
+      "contextMenu": {
+        "enabled": true,
+        "trigger": "long_press",
+        "style": {
+          "background": "#FFFFFF"
+        }
+      },
+
+      "behavior": {
+        "clickToOpen": true,
+        "keyboardShortcuts": false,
+        "icons": false,
+        "cascading": true
+      }
+    },
+
+    "taskManagement": {
+      "type": "taskbar",
+
+      "taskbar": {
+        "enabled": true,
+        "position": "bottom",
+        "autoHide": false,
+        "size": 26,
+
+        "style": {
+          "background": "#ECE9D8",
+          "transparency": false,
+          "blur": false,
+          "itemStyle": "icons",
+          "grouping": false,
+          "previews": false
+        },
+
+        "sections": {
+          "start": true,
+          "tasks": true,
+          "system_tray": true,
+          "clock": true
+        }
+      },
+
+      "switching": {
+        "method": ["taskbar_click", "window_list"]
+      },
+
+      "multitasking": {
+        "preemptive": true,
+        "virtual_desktops": false
+      }
+    },
+
+    "desktop": {
+      "type": "dashboard",
+
+      "layout": {
+        "type": "list",
+        "direction": "vertical"
+      },
+
+      "items": {
+        "icons": false,
+        "shortcuts": true,
+        "widgets": true,
+
+        "defaultItems": [
+          "today_screen"
+        ]
+      },
+
+      "interaction": {
+        "click": "single",
+        "selection": "single",
+        "dragAndDrop": false
+      },
+
+      "behavior": {}
+    },
+
+    "inputMethods": {
+      "keyboard": {
+        "shortcuts": true,
+        "function_keys": false,
+        "navigation": "arrows"
+      },
+
+      "touch": {
+        "enabled": true,
+        "multitouch": false,
+        "gestures": ["tap", "long_press"]
+      },
+
+      "pen": {
+        "enabled": true,
+        "pressureLevels": 256
+      }
+    }
+  },
+
+  "components": {
+    "core": {
+      "windowManager": "shell32",
+      "fileManager": "file_explorer",
+
+      "optional": {
+        "textEditor": "word_mobile",
+        "webBrowser": "internet_explorer_mobile"
+      }
+    },
+
+    "applications": [
+      {
+        "id": "today_screen",
+        "name": "Today",
+        "icon": "icons/home.png",
+        "type": "system",
+        "component": "TodayScreen",
+
+        "window": {
+          "title": "Today",
+          "width": 240,
+          "height": 320,
+          "resizable": false,
+          "minimizable": false,
+          "maximizable": false,
+          "position": "center"
+        }
+      },
+      {
+        "id": "file_explorer",
+        "name": "File Explorer",
+        "icon": "icons/fileexplorer.png",
+        "type": "system",
+        "component": "FileExplorer",
+
+        "window": {
+          "title": "File Explorer",
+          "width": 240,
+          "height": 320,
+          "resizable": false,
+          "minimizable": true,
+          "maximizable": true,
+          "position": "center"
+        }
+      },
+      {
+        "id": "outlook_mobile",
+        "name": "Outlook Mobile",
+        "icon": "icons/outlook.png",
+        "type": "communication",
+        "component": "OutlookMobile",
+
+        "window": {
+          "title": "Outlook Mobile",
+          "width": 240,
+          "height": 320,
+          "resizable": false,
+          "minimizable": true,
+          "maximizable": true,
+          "position": "center"
+        }
+      },
+      {
+        "id": "word_mobile",
+        "name": "Word Mobile",
+        "icon": "icons/word.png",
+        "type": "productivity",
+        "component": "WordMobile",
+
+        "window": {
+          "title": "Word Mobile",
+          "width": 240,
+          "height": 320,
+          "resizable": false,
+          "minimizable": true,
+          "maximizable": true,
+          "position": "center"
+        },
+
+        "features": {
+          "fileAssociations": [".doc", ".docx"]
+        }
+      },
+      {
+        "id": "internet_explorer_mobile",
+        "name": "Internet Explorer Mobile",
+        "icon": "icons/ie.png",
+        "type": "web",
+        "component": "IEMobile",
+
+        "window": {
+          "title": "Internet Explorer Mobile",
+          "width": 240,
+          "height": 320,
+          "resizable": false,
+          "minimizable": true,
+          "maximizable": true,
+          "position": "center"
+        }
+      }
+    ]
+  },
+
+  "features": {
+    "interaction": {
+      "dragAndDrop": true,
+      "clipboard": true,
+
+      "fileOperations": {
+        "copy": true,
+        "move": true,
+        "delete": true,
+        "rename": true,
+        "properties": true
+      },
+
+      "networking": {
+        "enabled": true,
+        "protocols": ["TCP/IP", "HTTP", "Exchange ActiveSync"]
+      }
+    },
+
+    "animations": {
+      "enabled": true,
+      "speed": "normal",
+      "effects": {
+        "windowOpen": true,
+        "windowClose": true,
+        "transitions": true
+      }
+    },
+
+    "customization": {
+      "themes": true,
+      "wallpaper": true,
+      "colors": false
+    }
+  },
+
+  "assets": {
+    "basePath": "/assets/os/winmobile",
+
+    "paths": {
+      "icons": "icons",
+      "sounds": "sounds",
+      "fonts": "fonts",
+      "wallpapers": "wallpapers"
+    },
+
+    "iconSets": {
+      "default": {
+        "path": "icons",
+        "format": "png",
+        "sizes": [16, 32, 48]
+      }
+    }
+  }
+}

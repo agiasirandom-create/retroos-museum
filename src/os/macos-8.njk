@@ -1,0 +1,88 @@
+---
+layout: layouts/base.njk
+title: Mac OS 8 - RetroOS Museum
+description: Experience the Mac OS 8 desktop environment with authentic design and interactive features.
+bodyClass: macos-8-body
+permalink: /os/macos-8/
+---
+
+{% block head %}
+<!-- Mac OS 8 CSS -->
+<link rel="stylesheet" href="/assets/css/macos-8.css">
+<style>
+  /* Hide default header and footer for full desktop experience */
+  body.macos-8-body header,
+  body.macos-8-body footer {
+    display: none;
+  }
+
+  body.macos-8-body main {
+    padding: 0;
+    max-width: none;
+    margin: 0;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Mac OS 8 Desktop Environment -->
+<div id="macos-8-desktop" class="macos-8-desktop" role="application" aria-label="Mac OS 8 Desktop">
+
+  <!-- Global Menu Bar (Mac paradigm) -->
+  <div id="macos-8-menubar" class="macos-8-menubar" role="menubar" aria-label="Menu Bar">
+    <!-- Menu items will be populated by JavaScript -->
+  </div>
+
+  <!-- Desktop Area -->
+  <div id="desktop-area" class="desktop-area">
+    <!-- Desktop Icons Container -->
+    <div id="desktop-icons" class="desktop-icons">
+      <!-- Icons will be added by JavaScript -->
+    </div>
+  </div>
+
+  <!-- Windows Container -->
+  <div id="windows-container" class="windows-container">
+    <!-- Windows will be added here by WindowManager -->
+  </div>
+
+  <!-- Dock (for OS X and later) -->
+  <div id="macos-8-dock" class="macos-8-dock">
+    <!-- Dock items will be populated by JavaScript -->
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<!-- Core Systems -->
+<script src="/assets/js/window-manager.js"></script>
+<script src="/assets/js/menu-system.js"></script>
+<script src="/assets/js/desktop.js"></script>
+
+<!-- Mac OS 8 Specific -->
+<script src="/assets/js/macos-8-window-adapter.js"></script>
+<script src="/assets/js/macos-8-menubar.js"></script>
+<script src="/assets/js/macos-8-desktop.js"></script>
+
+<!-- Applications -->
+<script src="/assets/js/apps/macos-8-finder.js"></script>
+<script src="/assets/js/apps/macos-8-apps.js"></script>
+
+<!-- Initialize Mac OS 8 -->
+<script>
+  // Wait for DOM to be ready
+  document.addEventListener('DOMContentLoaded', function() {
+    // Load OS configuration
+    fetch('/assets/data/os/macos-8.json')
+      .then(response => response.json())
+      .then(config => {
+        // Initialize Mac OS 8 desktop
+        window.osInstance = new OSInstance(config);
+        window.osInstance.init();
+      })
+      .catch(error => {
+        console.error('Failed to load OS configuration:', error);
+      });
+  });
+</script>
+{% endblock %}

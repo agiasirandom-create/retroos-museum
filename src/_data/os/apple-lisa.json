@@ -1,0 +1,379 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "apple-lisa",
+
+  "metadata": {
+    "name": "Lisa OS",
+    "fullName": "Apple Lisa Office System 3.1",
+    "version": "3.1",
+    "company": "Apple Computer",
+    "releaseYear": 1983,
+    "releaseDate": "1983-01-19",
+    "description": "Revolutionary GUI operating system featuring cooperative multitasking, protected memory, and integrated business applications. Direct predecessor to Mac OS.",
+    "tagline": "The Future of Business Computing",
+    "category": "desktop_alternative",
+    "architecture": ["68000"],
+
+    "historical": {
+      "significance": "First commercial personal computer with a GUI from Apple. Introduced desktop metaphor, pull-down menus, and integrated office suite. Influenced Macintosh design despite commercial failure.",
+      "marketShare": "Limited due to high price ($9,995)",
+      "successor": "Macintosh System Software",
+      "endOfLife": "1989-08-01"
+    },
+
+    "links": {
+      "wikipedia": "https://en.wikipedia.org/wiki/Apple_Lisa"
+    }
+  },
+
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#FFFFFF",
+
+        "windowBackground": "#FFFFFF",
+        "windowBorder": "#000000",
+        "windowBorderWidth": 2,
+
+        "titleBarActive": "#000000",
+        "titleBarInactive": "#FFFFFF",
+        "titleBarText": "#FFFFFF",
+        "titleBarTextInactive": "#000000",
+
+        "buttonFace": "#FFFFFF",
+        "buttonText": "#000000",
+        "buttonHighlight": "#FFFFFF",
+        "buttonShadow": "#000000",
+        "buttonBorder": "#000000",
+
+        "highlight": "#000000",
+        "highlightText": "#FFFFFF",
+
+        "menuBackground": "#FFFFFF",
+        "menuText": "#000000",
+        "menuHighlight": "#000000",
+
+        "text": "#000000",
+        "textDisabled": "#666666"
+      },
+
+      "typography": {
+        "systemFont": {
+          "family": "Geneva",
+          "size": 12,
+          "weight": "normal",
+          "fallback": ["Helvetica", "sans-serif"]
+        },
+        "titleFont": {
+          "family": "Geneva",
+          "size": 12,
+          "weight": "bold"
+        },
+        "menuFont": {
+          "family": "Geneva",
+          "size": 12,
+          "weight": "normal"
+        },
+        "monospaceFont": {
+          "family": "Monaco",
+          "size": 12,
+          "weight": "normal"
+        },
+
+        "antialiasing": false,
+        "baseFontSize": 12
+      },
+
+      "style": {
+        "type": "classic",
+        "borderStyle": "double",
+        "cornerRadius": 0,
+
+        "shadows": false,
+        "transparency": false,
+
+        "bevels": false,
+        "gradients": false,
+
+        "animationStyle": "instant"
+      }
+    },
+
+    "cursor": {
+      "style": "classic_arrow",
+      "animated": false,
+      "shadows": false
+    },
+
+    "icons": {
+      "style": "icon_32",
+      "size": {
+        "default": 32,
+        "sizes": [32]
+      },
+      "rendering": "aliased",
+      "shadow": false,
+      "labelStyle": {
+        "position": "below",
+        "background": "transparent",
+        "textColor": "#000000"
+      }
+    },
+
+    "sounds": {
+      "enabled": true,
+      "sounds": {
+        "error": "sounds/beep.wav"
+      },
+      "volume": 70
+    },
+
+    "wallpaper": {
+      "type": "pattern",
+      "value": "#FFFFFF",
+      "pattern": "grid",
+      "overlay": false
+    }
+  },
+
+  "paradigm": {
+    "windowSystem": {
+      "type": "stacking",
+
+      "behavior": {
+        "overlap": true,
+        "resize": true,
+        "minimize": false,
+        "maximize": true,
+        "close": true,
+
+        "modal": true,
+        "transparency": false
+      },
+
+      "chrome": {
+        "titleBar": "classic",
+        "controls": "buttons",
+        "controlPosition": "left",
+
+        "buttons": {
+          "close": {
+            "style": "icon",
+            "content": "close",
+            "position": 1
+          }
+        },
+
+        "titleAlign": "center",
+        "showIcon": false
+      },
+
+      "effects": {}
+    },
+
+    "menuSystem": {
+      "type": "menu_bar",
+
+      "menuBar": {
+        "enabled": true,
+        "position": "top",
+        "sticky": true,
+
+        "style": {
+          "background": "#FFFFFF",
+          "textColor": "#000000",
+          "height": 20
+        }
+      },
+
+      "contextMenu": {
+        "enabled": false,
+        "trigger": "right_click"
+      },
+
+      "behavior": {
+        "clickToOpen": true,
+        "keyboardShortcuts": false,
+        "icons": false,
+        "cascading": true
+      }
+    },
+
+    "taskManagement": {
+      "type": "none",
+
+      "switching": {
+        "method": ["window_list"]
+      },
+
+      "multitasking": {
+        "preemptive": false,
+        "virtual_desktops": false
+      }
+    },
+
+    "desktop": {
+      "type": "iconic",
+
+      "layout": {
+        "type": "grid",
+        "grid": {
+          "cellWidth": 80,
+          "cellHeight": 80,
+          "spacing": 16
+        },
+        "direction": "vertical",
+        "alignment": "right",
+        "snapToGrid": true
+      },
+
+      "items": {
+        "icons": true,
+        "shortcuts": true,
+        "folders": true,
+
+        "defaultItems": [
+          "profile_manager",
+          "wastebasket"
+        ]
+      },
+
+      "interaction": {
+        "click": "double",
+        "selection": "rubber_band",
+        "dragAndDrop": true
+      },
+
+      "behavior": {
+        "showTrash": true,
+        "showComputer": false
+      }
+    },
+
+    "inputMethods": {
+      "keyboard": {
+        "shortcuts": true,
+        "function_keys": false,
+        "navigation": "arrows"
+      },
+
+      "mouse": {
+        "buttons": 1,
+        "scroll": "none",
+        "gestures": false
+      }
+    }
+  },
+
+  "components": {
+    "core": {
+      "windowManager": "lisa_office_system",
+      "fileManager": "lisa_office_system",
+
+      "optional": {
+        "textEditor": "lisawrite"
+      }
+    },
+
+    "applications": [
+      {
+        "id": "lisawrite",
+        "name": "LisaWrite",
+        "icon": "icons/lisawrite.png",
+        "type": "productivity",
+        "component": "LisaWrite",
+
+        "window": {
+          "title": "LisaWrite",
+          "width": 600,
+          "height": 450,
+          "resizable": true,
+          "minimizable": false,
+          "maximizable": true,
+          "position": "center"
+        }
+      },
+      {
+        "id": "lisacalc",
+        "name": "LisaCalc",
+        "icon": "icons/lisacalc.png",
+        "type": "productivity",
+        "component": "LisaCalc",
+
+        "window": {
+          "title": "LisaCalc",
+          "width": 600,
+          "height": 450,
+          "resizable": true,
+          "minimizable": false,
+          "maximizable": true,
+          "position": "cascade"
+        }
+      },
+      {
+        "id": "lisadraw",
+        "name": "LisaDraw",
+        "icon": "icons/lisadraw.png",
+        "type": "creative",
+        "component": "LisaDraw",
+
+        "window": {
+          "title": "LisaDraw",
+          "width": 600,
+          "height": 450,
+          "resizable": true,
+          "minimizable": false,
+          "maximizable": true,
+          "position": "cascade"
+        }
+      }
+    ]
+  },
+
+  "features": {
+    "interaction": {
+      "dragAndDrop": true,
+      "clipboard": true,
+
+      "fileOperations": {
+        "copy": true,
+        "move": true,
+        "delete": true,
+        "rename": true,
+        "properties": true
+      },
+
+      "networking": {
+        "enabled": false
+      }
+    },
+
+    "animations": {
+      "enabled": false
+    },
+
+    "customization": {
+      "themes": false,
+      "wallpaper": false,
+      "colors": false
+    }
+  },
+
+  "assets": {
+    "basePath": "/assets/os/lisa",
+
+    "paths": {
+      "icons": "icons",
+      "sounds": "sounds",
+      "fonts": "fonts"
+    },
+
+    "iconSets": {
+      "default": {
+        "path": "icons",
+        "format": "png",
+        "sizes": [32]
+      }
+    }
+  }
+}

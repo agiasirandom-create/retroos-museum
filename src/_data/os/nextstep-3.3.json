@@ -1,0 +1,487 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "nextstep-3.3",
+
+  "metadata": {
+    "name": "NeXTSTEP",
+    "fullName": "NeXTSTEP 3.3",
+    "version": "3.3",
+    "company": "NeXT Computer Inc.",
+    "releaseYear": 1995,
+    "releaseDate": "1995-02-01",
+    "description": "The revolutionary object-oriented operating system featuring the elegant NeXTSTEP GUI, Display PostScript, and the Foundation that became macOS.",
+    "tagline": "The World Wide Web Was Built Here",
+    "category": "desktop_unix",
+    "architecture": ["68k", "x86", "SPARC", "PA-RISC"],
+
+    "historical": {
+      "significance": "Direct ancestor of macOS and iOS. Introduced revolutionary concepts like the Dock, Services menu, and object-oriented frameworks. Tim Berners-Lee created the World Wide Web on a NeXT computer.",
+      "marketShare": "Niche market in education, scientific research, and financial services",
+      "successor": "Mac OS X / macOS",
+      "predecessor": "NeXTSTEP 3.2",
+      "endOfLife": "1997-12-31"
+    },
+
+    "links": {
+      "wikipedia": "https://en.wikipedia.org/wiki/NeXTSTEP"
+    }
+  },
+
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#555555",
+
+        "windowBackground": "#BFBFBF",
+        "windowBorder": "#000000",
+        "windowBorderWidth": 2,
+
+        "titleBarActive": "#BFBFBF",
+        "titleBarInactive": "#999999",
+        "titleBarText": "#000000",
+        "titleBarTextInactive": "#666666",
+
+        "buttonFace": "#BFBFBF",
+        "buttonText": "#000000",
+        "buttonHighlight": "#FFFFFF",
+        "buttonShadow": "#000000",
+        "buttonBorder": "#000000",
+
+        "highlight": "#000000",
+        "highlightText": "#FFFFFF",
+
+        "menuBackground": "#BFBFBF",
+        "menuText": "#000000",
+        "menuHighlight": "#000000",
+
+        "text": "#000000",
+        "textDisabled": "#666666",
+
+        "statusBar": "#BFBFBF",
+
+        "custom": {
+          "dock": "#2A2A2A",
+          "dockIcon": "#BFBFBF",
+          "shelf": "#BFBFBF",
+          "inspectorPanel": "#BFBFBF"
+        }
+      },
+
+      "typography": {
+        "systemFont": {
+          "family": "Helvetica",
+          "size": 12,
+          "weight": "normal",
+          "fallback": ["Arial", "sans-serif"]
+        },
+        "titleFont": {
+          "family": "Helvetica",
+          "size": 12,
+          "weight": "bold"
+        },
+        "menuFont": {
+          "family": "Helvetica",
+          "size": 12,
+          "weight": "normal"
+        },
+        "monospaceFont": {
+          "family": "Courier",
+          "size": 12,
+          "weight": "normal"
+        },
+
+        "antialiasing": true,
+        "baseFontSize": 12
+      },
+
+      "style": {
+        "type": "classic",
+        "borderStyle": "bevel_out",
+        "cornerRadius": 0,
+
+        "shadows": true,
+        "shadowStyle": "simple",
+        "transparency": false,
+
+        "bevels": true,
+        "gradients": false,
+
+        "animationStyle": "ease"
+      }
+    },
+
+    "cursor": {
+      "style": "classic_arrow",
+      "animated": false,
+      "shadows": true
+    },
+
+    "icons": {
+      "style": "icon_48",
+      "size": {
+        "default": 48,
+        "sizes": [48, 64]
+      },
+      "rendering": "antialiased",
+      "shadow": true,
+      "labelStyle": {
+        "position": "below",
+        "background": "transparent",
+        "textColor": "#FFFFFF",
+        "font": {
+          "family": "Helvetica",
+          "size": 10
+        }
+      }
+    },
+
+    "sounds": {
+      "enabled": true,
+      "sounds": {
+        "startup": "sounds/next_startup.wav",
+        "error": "sounds/funk.wav",
+        "notification": "sounds/ping.wav"
+      },
+      "volume": 75
+    },
+
+    "wallpaper": {
+      "type": "solid",
+      "value": "#555555",
+      "overlay": false
+    }
+  },
+
+  "paradigm": {
+    "windowSystem": {
+      "type": "stacking",
+
+      "behavior": {
+        "overlap": true,
+        "resize": true,
+        "minimize": true,
+        "maximize": false,
+        "close": true,
+
+        "modal": true,
+        "transparency": false
+      },
+
+      "chrome": {
+        "titleBar": "classic",
+        "controls": "buttons",
+        "controlPosition": "left",
+
+        "buttons": {
+          "close": {
+            "style": "icon",
+            "content": "close",
+            "position": 1
+          },
+          "minimize": {
+            "style": "icon",
+            "content": "miniaturize",
+            "position": 2
+          }
+        },
+
+        "titleAlign": "center",
+        "showIcon": false
+      },
+
+      "effects": {
+        "openAnimation": "zoom",
+        "closeAnimation": "zoom",
+        "minimizeAnimation": "genie",
+        "shadow": true
+      }
+    },
+
+    "menuSystem": {
+      "type": "application_menu",
+
+      "menuBar": {
+        "enabled": true,
+        "position": "window",
+        "sticky": false,
+
+        "style": {
+          "background": "#BFBFBF",
+          "textColor": "#000000",
+          "height": 24
+        },
+
+        "items": {
+          "applicationMenu": true
+        }
+      },
+
+      "contextMenu": {
+        "enabled": true,
+        "trigger": "right_click"
+      },
+
+      "behavior": {
+        "clickToOpen": true,
+        "keyboardShortcuts": true,
+        "icons": false,
+        "cascading": true,
+        "tearOff": true
+      }
+    },
+
+    "taskManagement": {
+      "type": "dock",
+
+      "taskbar": {
+        "enabled": true,
+        "position": "right",
+        "autoHide": false,
+        "size": 64,
+
+        "style": {
+          "background": "#2A2A2A",
+          "transparency": false,
+          "blur": false,
+          "itemStyle": "icons",
+          "grouping": false,
+          "previews": false
+        },
+
+        "sections": {
+          "quick_launch": true,
+          "tasks": true
+        }
+      },
+
+      "switching": {
+        "method": ["dock_click", "alt_tab"],
+        "altTab": {
+          "enabled": true,
+          "visual": "icons",
+          "animation": true
+        }
+      },
+
+      "multitasking": {
+        "preemptive": true,
+        "virtual_desktops": false
+      }
+    },
+
+    "desktop": {
+      "type": "clean",
+
+      "layout": {
+        "type": "free_form",
+        "snapToGrid": false,
+        "autoArrange": false
+      },
+
+      "items": {
+        "icons": false,
+        "shortcuts": false,
+        "folders": false
+      },
+
+      "interaction": {
+        "click": "double",
+        "selection": "single",
+        "dragAndDrop": true
+      },
+
+      "behavior": {
+        "showTrash": false,
+        "showComputer": false
+      }
+    },
+
+    "inputMethods": {
+      "keyboard": {
+        "shortcuts": true,
+        "function_keys": true,
+        "navigation": "arrows"
+      },
+
+      "mouse": {
+        "buttons": 2,
+        "scroll": "wheel",
+        "gestures": false
+      }
+    }
+  },
+
+  "components": {
+    "core": {
+      "windowManager": "workspace_manager",
+      "fileManager": "workspace_manager",
+
+      "optional": {
+        "terminal": "terminal",
+        "textEditor": "edit",
+        "imageViewer": "preview",
+        "webBrowser": "worldwideweb"
+      }
+    },
+
+    "applications": [
+      {
+        "id": "workspace",
+        "name": "Workspace",
+        "icon": "icons/workspace.png",
+        "type": "system",
+        "component": "WorkspaceManager",
+
+        "window": {
+          "title": "Workspace Manager",
+          "width": 600,
+          "height": 450,
+          "resizable": true,
+          "minimizable": true,
+          "maximizable": false,
+          "position": "center"
+        }
+      },
+      {
+        "id": "terminal",
+        "name": "Terminal",
+        "icon": "icons/terminal.png",
+        "type": "system",
+        "component": "Terminal",
+
+        "window": {
+          "title": "Terminal",
+          "width": 640,
+          "height": 400,
+          "resizable": true,
+          "minimizable": true,
+          "maximizable": false,
+          "position": "cascade"
+        },
+
+        "features": {
+          "multiInstance": true
+        }
+      },
+      {
+        "id": "edit",
+        "name": "Edit",
+        "icon": "icons/edit.png",
+        "type": "productivity",
+        "component": "Edit",
+
+        "window": {
+          "title": "Edit",
+          "width": 600,
+          "height": 500,
+          "resizable": true,
+          "minimizable": true,
+          "maximizable": false,
+          "position": "cascade"
+        },
+
+        "features": {
+          "multiInstance": true,
+          "fileAssociations": [".txt", ".rtf"]
+        }
+      },
+      {
+        "id": "preview",
+        "name": "Preview",
+        "icon": "icons/preview.png",
+        "type": "media",
+        "component": "Preview",
+
+        "window": {
+          "title": "Preview",
+          "width": 500,
+          "height": 500,
+          "resizable": true,
+          "minimizable": true,
+          "maximizable": false,
+          "position": "center"
+        },
+
+        "features": {
+          "multiInstance": true,
+          "fileAssociations": [".tiff", ".eps", ".pdf"]
+        }
+      },
+      {
+        "id": "mail",
+        "name": "Mail",
+        "icon": "icons/mail.png",
+        "type": "communication",
+        "component": "Mail",
+
+        "window": {
+          "title": "Mail",
+          "width": 650,
+          "height": 500,
+          "resizable": true,
+          "minimizable": true,
+          "maximizable": false,
+          "position": "center"
+        }
+      }
+    ]
+  },
+
+  "features": {
+    "interaction": {
+      "dragAndDrop": true,
+      "clipboard": true,
+
+      "fileOperations": {
+        "copy": true,
+        "move": true,
+        "delete": true,
+        "rename": true,
+        "properties": true
+      },
+
+      "networking": {
+        "enabled": true,
+        "protocols": ["TCP/IP", "NFS", "NetInfo"]
+      }
+    },
+
+    "animations": {
+      "enabled": true,
+      "speed": "normal"
+    },
+
+    "customization": {
+      "themes": false,
+      "wallpaper": false,
+      "colors": false
+    }
+  },
+
+  "assets": {
+    "basePath": "/assets/os/nextstep",
+
+    "paths": {
+      "icons": "icons",
+      "cursors": "cursors",
+      "sounds": "sounds",
+      "fonts": "fonts"
+    },
+
+    "iconSets": {
+      "default": {
+        "path": "icons",
+        "format": "png",
+        "sizes": [48, 64]
+      }
+    },
+
+    "fonts": {
+      "helvetica": {
+        "path": "fonts/helvetica.woff2",
+        "format": "woff2",
+        "weights": [400, 700]
+      }
+    }
+  }
+}

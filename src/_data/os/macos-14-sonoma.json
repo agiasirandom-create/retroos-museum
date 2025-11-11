@@ -1,0 +1,111 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "macos-14-sonoma",
+  "metadata": {
+    "name": "macOS Sonoma",
+    "fullName": "macOS 14 Sonoma",
+    "version": "14.7.2",
+    "company": "Apple Inc.",
+    "releaseYear": 2023,
+    "releaseDate": "2023-09-26",
+    "description": "Latest macOS with interactive widgets, Game Mode, web apps, and video conferencing features. Refined flat design with enhanced materials.",
+    "tagline": "Today's Possibilities. Tomorrow's Ideas.",
+    "category": "desktop_mac",
+    "architecture": ["Apple Silicon", "Intel"],
+    "historical": {
+      "significance": "Interactive desktop widgets. Game Mode for gaming performance. Web Apps. Presenter Overlay for video calls. Enhanced Safari with Profiles. Latest evolution of flat macOS design.",
+      "marketShare": "Current macOS version (as of 2024)",
+      "successor": "macOS 15 Sequoia",
+      "predecessor": "macOS 13 Ventura",
+      "endOfLife": "Active"
+    },
+    "links": {
+      "wikipedia": "https://en.wikipedia.org/wiki/MacOS_Sonoma"
+    }
+  },
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#1A4265",
+        "windowBackground": "#FFFFFF",
+        "windowBorder": "rgba(0,0,0,0.06)",
+        "titleBarActive": "rgba(252,252,252,0.80)",
+        "titleBarInactive": "rgba(254,254,254,0.80)",
+        "titleBarText": "#1C1C1E",
+        "buttonFace": "#FFFFFF",
+        "buttonText": "#007AFF",
+        "highlight": "#007AFF",
+        "highlightText": "#FFFFFF",
+        "menuBackground": "rgba(254,254,254,0.88)",
+        "menuText": "#1C1C1E",
+        "text": "#1C1C1E",
+        "textDisabled": "#D1D1D6",
+        "shadow": "rgba(0,0,0,0.12)",
+        "custom": {
+          "menuBarBackground": "rgba(252,252,252,0.88)",
+          "dockBackground": "rgba(255,255,255,0.38)",
+          "widgetBackground": "rgba(255,255,255,0.65)",
+          "accentBlue": "#007AFF"
+        }
+      },
+      "typography": {
+        "systemFont": {"family": "SF Pro Text", "size": 13, "weight": "normal"},
+        "titleFont": {"family": "SF Pro Display", "size": 15, "weight": "600"},
+        "antialiasing": true,
+        "baseFontSize": 13
+      },
+      "style": {
+        "type": "flat",
+        "cornerRadius": 12,
+        "shadows": true,
+        "transparency": true,
+        "blur": true,
+        "animationStyle": "ease"
+      }
+    },
+    "icons": {
+      "style": "flat_modern",
+      "size": {"default": 128, "sizes": [16, 32, 64, 128, 256, 512, 1024]},
+      "rendering": "vector",
+      "shadow": false
+    },
+    "wallpaper": {
+      "type": "image",
+      "value": "wallpapers/sonoma.jpg",
+      "tiling": "fill"
+    }
+  },
+  "paradigm": {
+    "windowSystem": {
+      "type": "stacking",
+      "behavior": {"overlap": true, "resize": true, "transparency": true, "tiling": true}
+    },
+    "menuSystem": {
+      "type": "global_menu",
+      "menuBar": {"enabled": true, "position": "top"}
+    },
+    "taskManagement": {
+      "type": "dock",
+      "multitasking": {"preemptive": true, "virtual_desktops": true, "splitScreen": true}
+    },
+    "desktop": {
+      "type": "dashboard",
+      "items": {"icons": true, "widgets": true}
+    }
+  },
+  "components": {
+    "core": {"windowManager": "sonoma-window-manager", "fileManager": "finder"},
+    "applications": [
+      {"id": "finder", "name": "Finder", "icon": "icons/finder.png", "type": "system"},
+      {"id": "safari", "name": "Safari", "icon": "icons/safari.png", "type": "web"}
+    ]
+  },
+  "features": {
+    "interaction": {"dragAndDrop": true, "clipboard": true},
+    "animations": {"enabled": true, "effects": {"transitions": true}}
+  },
+  "assets": {
+    "basePath": "/assets/os/macos-sonoma",
+    "fonts": {"sf_pro": {"path": "fonts/sf_pro.woff2", "format": "woff2"}}
+  }
+}

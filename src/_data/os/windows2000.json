@@ -1,0 +1,585 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "windows-2000",
+
+  "metadata": {
+    "name": "Windows 2000",
+    "fullName": "Microsoft Windows 2000 Professional",
+    "version": "5.0.2195",
+    "company": "Microsoft Corporation",
+    "releaseYear": 2000,
+    "releaseDate": "2000-02-17",
+    "description": "Professional operating system built on Windows NT technology, bringing enterprise stability to the Windows interface.",
+    "tagline": "Built on NT Technology",
+    "category": "desktop_windows",
+    "architecture": ["x86"],
+
+    "historical": {
+      "significance": "Brought NT reliability to mainstream users, bridging consumer and enterprise Windows",
+      "marketShare": "Dominated corporate desktop market before Windows XP",
+      "successor": "Windows XP",
+      "predecessor": "Windows NT 4.0",
+      "endOfLife": "2010-07-13"
+    },
+
+    "links": {
+      "wikipedia": "https://en.wikipedia.org/wiki/Windows_2000"
+    }
+  },
+
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#3A6EA5",
+
+        "windowBackground": "#ECE9D8",
+        "windowBorder": "#000000",
+        "windowBorderWidth": 1,
+
+        "titleBarActive": "#0054E3",
+        "titleBarInactive": "#7A96DF",
+        "titleBarText": "#FFFFFF",
+        "titleBarTextInactive": "#D8E9EC",
+
+        "buttonFace": "#D4D0C8",
+        "buttonText": "#000000",
+        "buttonHighlight": "#FFFFFF",
+        "buttonShadow": "#808080",
+        "buttonBorder": "#000000",
+
+        "highlight": "#316AC5",
+        "highlightText": "#FFFFFF",
+
+        "menuBackground": "#D4D0C8",
+        "menuText": "#000000",
+        "menuHighlight": "#316AC5",
+
+        "text": "#000000",
+        "textDisabled": "#808080",
+
+        "statusBar": "#ECE9D8",
+        "taskbar": "#D4D0C8",
+
+        "shadow": "#000000"
+      },
+
+      "typography": {
+        "systemFont": {
+          "family": "Tahoma",
+          "size": 11,
+          "weight": "normal",
+          "fallback": ["Arial", "Helvetica", "sans-serif"]
+        },
+        "titleFont": {
+          "family": "Tahoma",
+          "size": 11,
+          "weight": "bold",
+          "fallback": ["Arial", "Helvetica", "sans-serif"]
+        },
+        "menuFont": {
+          "family": "Tahoma",
+          "size": 11,
+          "weight": "normal"
+        },
+        "monospaceFont": {
+          "family": "Courier New",
+          "size": 10,
+          "weight": "normal"
+        },
+
+        "antialiasing": false,
+        "subpixelRendering": false,
+        "baseFontSize": 11,
+        "scaleFactor": 1.0
+      },
+
+      "style": {
+        "type": "bevel_3d",
+        "borderStyle": "bevel_out",
+        "cornerRadius": 0,
+
+        "shadows": false,
+        "transparency": false,
+        "blur": false,
+
+        "bevels": true,
+        "gradients": true,
+        "textures": false,
+
+        "animationStyle": "linear"
+      },
+
+      "specialElements": {
+        "scrollbarStyle": "classic",
+        "focusIndicator": "dotted_outline",
+        "dragVisual": "outline"
+      }
+    },
+
+    "cursor": {
+      "style": "classic_arrow",
+      "animated": true,
+      "shadows": false
+    },
+
+    "icons": {
+      "style": "icon_32",
+      "size": {
+        "default": 32,
+        "sizes": [16, 32, 48]
+      },
+      "rendering": "aliased",
+      "shadow": true,
+      "labelStyle": {
+        "position": "below",
+        "background": "solid",
+        "backgroundColor": "#3A6EA5",
+        "textColor": "#FFFFFF",
+        "font": {
+          "family": "Tahoma",
+          "size": 8
+        }
+      }
+    },
+
+    "sounds": {
+      "enabled": true,
+      "sounds": {
+        "startup": "sounds/startup.wav",
+        "shutdown": "sounds/shutdown.wav",
+        "error": "sounds/chord.wav",
+        "warning": "sounds/chord.wav",
+        "notification": "sounds/notify.wav",
+        "click": "sounds/click.wav",
+        "windowOpen": "sounds/open.wav",
+        "windowClose": "sounds/close.wav",
+        "trash": "sounds/recycle.wav"
+      },
+      "volume": 80
+    },
+
+    "wallpaper": {
+      "type": "image",
+      "value": "wallpapers/bliss-beta.jpg",
+      "pattern": "none",
+      "tiling": "stretch",
+      "overlay": true
+    }
+  },
+
+  "paradigm": {
+    "windowSystem": {
+      "type": "stacking",
+
+      "behavior": {
+        "overlap": true,
+        "resize": true,
+        "minimize": true,
+        "maximize": true,
+        "close": true,
+
+        "modal": true,
+        "alwaysOnTop": true,
+        "transparency": false,
+
+        "multipleDocuments": false,
+        "tabbed": false,
+        "tiling": false
+      },
+
+      "chrome": {
+        "titleBar": "classic",
+        "controls": "buttons",
+        "controlPosition": "right",
+
+        "buttons": {
+          "minimize": {
+            "style": "icon",
+            "content": "minimize",
+            "position": 1
+          },
+          "maximize": {
+            "style": "icon",
+            "content": "maximize",
+            "position": 2
+          },
+          "close": {
+            "style": "icon",
+            "content": "close",
+            "position": 3
+          }
+        },
+
+        "titleAlign": "left",
+        "showIcon": true,
+        "showPath": false
+      },
+
+      "effects": {
+        "openAnimation": "none",
+        "closeAnimation": "none",
+        "minimizeAnimation": "none",
+        "maximizeAnimation": "none",
+
+        "shadow": false,
+        "blur": false,
+        "wobbly": false
+      }
+    },
+
+    "menuSystem": {
+      "type": "hybrid",
+
+      "menuBar": {
+        "enabled": true,
+        "position": "window",
+        "sticky": false,
+        "autoHide": false,
+
+        "style": {
+          "background": "#D4D0C8",
+          "textColor": "#000000",
+          "height": 20
+        },
+
+        "items": {
+          "applicationMenu": false,
+          "systemMenu": false
+        }
+      },
+
+      "contextMenu": {
+        "enabled": true,
+        "trigger": "right_click",
+        "style": {
+          "background": "#D4D0C8",
+          "borderStyle": "bevel_out"
+        }
+      },
+
+      "behavior": {
+        "clickToOpen": true,
+        "keyboardShortcuts": true,
+        "mnemonics": true,
+        "icons": true,
+        "cascading": true,
+        "tearOff": false
+      }
+    },
+
+    "taskManagement": {
+      "type": "taskbar",
+
+      "taskbar": {
+        "enabled": true,
+        "position": "bottom",
+        "autoHide": false,
+        "size": 28,
+
+        "style": {
+          "background": "#D4D0C8",
+          "transparency": false,
+          "blur": false,
+          "itemStyle": "icons_and_labels",
+          "grouping": false,
+          "previews": false
+        },
+
+        "sections": {
+          "start": true,
+          "quick_launch": true,
+          "tasks": true,
+          "system_tray": true,
+          "clock": true
+        }
+      },
+
+      "switching": {
+        "method": ["alt_tab", "taskbar_click"],
+        "altTab": {
+          "enabled": true,
+          "visual": "icons",
+          "animation": false
+        }
+      },
+
+      "multitasking": {
+        "preemptive": true,
+        "virtual_desktops": false,
+        "snapAssist": false,
+        "splitScreen": false
+      }
+    },
+
+    "desktop": {
+      "type": "iconic",
+
+      "layout": {
+        "type": "grid",
+        "grid": {
+          "cellWidth": 75,
+          "cellHeight": 75,
+          "spacing": 8
+        },
+        "direction": "vertical",
+        "alignment": "left",
+        "snapToGrid": true,
+        "autoArrange": false
+      },
+
+      "items": {
+        "icons": true,
+        "widgets": false,
+        "shortcuts": true,
+        "folders": true,
+
+        "defaultItems": [
+          "my_computer",
+          "my_documents",
+          "my_network_places",
+          "recycle_bin",
+          "internet_explorer"
+        ]
+      },
+
+      "interaction": {
+        "click": "double",
+        "selection": "rubber_band",
+        "dragAndDrop": true,
+        "hoverPreview": false
+      },
+
+      "behavior": {
+        "showTrash": true,
+        "showComputer": true,
+        "showNetwork": true,
+        "showHome": false
+      }
+    },
+
+    "inputMethods": {
+      "keyboard": {
+        "shortcuts": true,
+        "function_keys": true,
+        "navigation": "arrows",
+        "accessibility": true
+      },
+
+      "mouse": {
+        "buttons": 3,
+        "scroll": "wheel",
+        "gestures": false,
+        "acceleration": true
+      },
+
+      "touch": {
+        "enabled": false
+      }
+    }
+  },
+
+  "components": {
+    "core": {
+      "windowManager": "windows2000-window-manager",
+      "fileManager": "windows-explorer",
+
+      "optional": {
+        "taskbar": "windows2000-taskbar",
+        "terminal": "command-prompt",
+        "textEditor": "notepad",
+        "imageViewer": "paint",
+        "mediaPlayer": "windows-media-player",
+        "webBrowser": "internet-explorer-5"
+      }
+    },
+
+    "applications": [
+      {
+        "id": "my_computer",
+        "name": "My Computer",
+        "icon": "icons/my_computer.png",
+        "type": "system",
+        "component": "FileExplorer",
+        "window": {
+          "title": "My Computer",
+          "width": 640,
+          "height": 480,
+          "resizable": true,
+          "minimizable": true,
+          "maximizable": true,
+          "position": "center"
+        },
+        "desktop": {
+          "icon": true,
+          "position": { "x": 0, "y": 0 }
+        },
+        "features": {
+          "saveState": true,
+          "multiInstance": true
+        }
+      },
+      {
+        "id": "recycle_bin",
+        "name": "Recycle Bin",
+        "icon": "icons/recycle_bin_empty.png",
+        "type": "system",
+        "component": "RecycleBin",
+        "window": {
+          "title": "Recycle Bin",
+          "width": 640,
+          "height": 480,
+          "resizable": true,
+          "minimizable": true,
+          "maximizable": true,
+          "position": "center"
+        },
+        "desktop": {
+          "icon": true,
+          "position": { "x": 0, "y": 75 }
+        }
+      },
+      {
+        "id": "notepad",
+        "name": "Notepad",
+        "icon": "icons/notepad.png",
+        "type": "productivity",
+        "component": "Notepad",
+        "window": {
+          "title": "Untitled - Notepad",
+          "width": 500,
+          "height": 400,
+          "resizable": true,
+          "minimizable": true,
+          "maximizable": true,
+          "position": "cascade"
+        },
+        "menu": {
+          "path": "Accessories",
+          "category": "Accessories"
+        },
+        "features": {
+          "multiInstance": true,
+          "fileAssociations": [".txt", ".log", ".ini"]
+        }
+      },
+      {
+        "id": "internet_explorer",
+        "name": "Internet Explorer",
+        "icon": "icons/ie5.png",
+        "type": "web",
+        "component": "InternetExplorer5",
+        "window": {
+          "title": "Microsoft Internet Explorer",
+          "width": 800,
+          "height": 600,
+          "resizable": true,
+          "minimizable": true,
+          "maximizable": true,
+          "position": "center"
+        },
+        "features": {
+          "multiInstance": true,
+          "fileAssociations": [".html", ".htm"]
+        }
+      }
+    ],
+
+    "utilities": [
+      {
+        "id": "control_panel",
+        "name": "Control Panel",
+        "type": "control_panel",
+        "icon": "icons/control_panel.png",
+        "component": "ControlPanel"
+      }
+    ]
+  },
+
+  "features": {
+    "interaction": {
+      "dragAndDrop": true,
+      "clipboard": true,
+      "undo": true,
+      "fileOperations": {
+        "copy": true,
+        "move": true,
+        "delete": true,
+        "rename": true,
+        "properties": true
+      },
+      "networking": {
+        "enabled": true,
+        "protocols": ["TCP/IP", "NetBEUI", "IPX/SPX"]
+      },
+      "printing": true,
+      "scanning": true
+    },
+
+    "animations": {
+      "enabled": true,
+      "speed": "normal",
+      "effects": {
+        "windowOpen": true,
+        "windowClose": true,
+        "windowMinimize": true,
+        "minimize": true,
+        "maximize": true,
+        "menuOpen": true,
+        "hover": false,
+        "click": false,
+        "transitions": true,
+        "parallax": false
+      }
+    },
+
+    "accessibility": {
+      "highContrast": true,
+      "screenReader": false,
+      "magnifier": true,
+      "keyboard_navigation": true
+    },
+
+    "easterEggs": {
+      "enabled": false,
+      "list": []
+    },
+
+    "customization": {
+      "themes": true,
+      "wallpaper": true,
+      "colors": true,
+      "fonts": false,
+      "layout": true
+    }
+  },
+
+  "assets": {
+    "basePath": "/assets/os/windows2000",
+    "paths": {
+      "icons": "icons",
+      "cursors": "cursors",
+      "sounds": "sounds",
+      "fonts": "fonts",
+      "wallpapers": "wallpapers"
+    },
+    "iconSets": {
+      "default": {
+        "path": "icons",
+        "format": "png",
+        "sizes": [16, 32, 48]
+      }
+    },
+    "fonts": {
+      "tahoma": {
+        "path": "fonts/tahoma.woff2",
+        "format": "woff2",
+        "weights": [400, 700]
+      }
+    },
+    "preload": [
+      "icons/my_computer.png",
+      "icons/recycle_bin_empty.png",
+      "sounds/startup.wav"
+    ]
+  }
+}

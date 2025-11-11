@@ -1,0 +1,451 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "redhat-5",
+
+  "metadata": {
+    "name": "Red Hat Linux 5.0",
+    "fullName": "Red Hat Linux 5.0 (Hurricane) with FVWM95",
+    "version": "5.0 (Hurricane)",
+    "company": "Red Hat, Inc.",
+    "releaseYear": 1997,
+    "releaseDate": "1997-12-01",
+    "description": "Revolutionary release featuring the RPM package manager and first Linux distribution with a graphical installer, making Linux accessible to mainstream users.",
+    "tagline": "The World's Open Source Leader",
+    "category": "desktop_linux",
+    "architecture": ["x86", "Alpha", "SPARC"],
+
+    "historical": {
+      "significance": "First major commercial Linux distribution with enterprise support. Introduced RPM package format that became industry standard. Featured first graphical installer.",
+      "marketShare": "Dominated commercial Linux market in late 1990s",
+      "successor": "Red Hat Enterprise Linux, Fedora",
+      "predecessor": "Red Hat Linux 4.2"
+    },
+
+    "links": {
+      "wikipedia": "https://en.wikipedia.org/wiki/Red_Hat_Linux",
+      "officialSite": "https://www.redhat.com"
+    }
+  },
+
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#008787",
+
+        "windowBackground": "#C0C0C0",
+        "windowBorder": "#000000",
+        "windowBorderWidth": 1,
+
+        "titleBarActive": "#CC0000",
+        "titleBarInactive": "#808080",
+        "titleBarText": "#FFFFFF",
+        "titleBarTextInactive": "#C0C0C0",
+
+        "buttonFace": "#C0C0C0",
+        "buttonText": "#000000",
+        "buttonHighlight": "#FFFFFF",
+        "buttonShadow": "#808080",
+        "buttonBorder": "#000000",
+
+        "highlight": "#CC0000",
+        "highlightText": "#FFFFFF",
+
+        "menuBackground": "#C0C0C0",
+        "menuText": "#000000",
+        "menuHighlight": "#CC0000",
+
+        "text": "#000000",
+        "taskbar": "#C0C0C0",
+
+        "custom": {
+          "startButton": "#CC0000",
+          "taskbarBorder": "#FFFFFF"
+        }
+      },
+
+      "typography": {
+        "systemFont": {
+          "family": "Helvetica",
+          "size": 12,
+          "weight": "normal",
+          "fallback": ["Arial", "sans-serif"]
+        },
+        "titleFont": {
+          "family": "Helvetica",
+          "size": 10,
+          "weight": "bold"
+        },
+        "menuFont": {
+          "family": "Helvetica",
+          "size": 11,
+          "weight": "normal"
+        },
+        "monospaceFont": {
+          "family": "Fixed",
+          "size": 10,
+          "weight": "normal"
+        },
+
+        "antialiasing": false,
+        "baseFontSize": 12
+      },
+
+      "style": {
+        "type": "bevel_3d",
+        "borderStyle": "bevel_out",
+        "cornerRadius": 0,
+
+        "shadows": false,
+        "transparency": false,
+
+        "bevels": true,
+        "gradients": false,
+
+        "animationStyle": "instant"
+      }
+    },
+
+    "cursor": {
+      "style": "classic_arrow",
+      "animated": false,
+      "shadows": false
+    },
+
+    "icons": {
+      "style": "icon_48",
+      "size": {
+        "default": 48,
+        "sizes": [32, 48]
+      },
+      "rendering": "antialiased",
+      "shadow": false,
+      "labelStyle": {
+        "position": "below",
+        "background": "transparent",
+        "textColor": "#FFFFFF",
+        "font": {
+          "family": "Helvetica",
+          "size": 10
+        }
+      }
+    },
+
+    "wallpaper": {
+      "type": "solid",
+      "value": "#008787",
+      "overlay": true
+    }
+  },
+
+  "paradigm": {
+    "windowSystem": {
+      "type": "stacking",
+
+      "behavior": {
+        "overlap": true,
+        "resize": true,
+        "minimize": true,
+        "maximize": true,
+        "close": true,
+
+        "modal": true,
+        "alwaysOnTop": true,
+        "transparency": false
+      },
+
+      "chrome": {
+        "titleBar": "classic",
+        "controls": "buttons",
+        "controlPosition": "right",
+
+        "buttons": {
+          "minimize": {
+            "style": "icon",
+            "content": "minimize",
+            "position": 1
+          },
+          "maximize": {
+            "style": "icon",
+            "content": "maximize",
+            "position": 2
+          },
+          "close": {
+            "style": "icon",
+            "content": "close",
+            "position": 3
+          }
+        },
+
+        "titleAlign": "left",
+        "showIcon": true
+      },
+
+      "effects": {
+        "shadow": false
+      }
+    },
+
+    "menuSystem": {
+      "type": "hybrid",
+
+      "menuBar": {
+        "enabled": false
+      },
+
+      "contextMenu": {
+        "enabled": true,
+        "trigger": "right_click",
+        "style": {
+          "background": "#C0C0C0",
+          "borderStyle": "bevel_out"
+        }
+      },
+
+      "behavior": {
+        "clickToOpen": true,
+        "icons": true,
+        "cascading": true,
+        "tearOff": false
+      }
+    },
+
+    "taskManagement": {
+      "type": "taskbar",
+
+      "taskbar": {
+        "enabled": true,
+        "position": "bottom",
+        "autoHide": false,
+        "size": 32,
+
+        "style": {
+          "background": "#C0C0C0",
+          "transparency": false,
+          "blur": false,
+
+          "itemStyle": "icons_and_labels",
+          "grouping": false,
+          "previews": false
+        },
+
+        "sections": {
+          "start": true,
+          "quick_launch": false,
+          "tasks": true,
+          "system_tray": false,
+          "clock": true
+        }
+      },
+
+      "switching": {
+        "method": ["alt_tab", "taskbar_click"],
+        "altTab": {
+          "enabled": true,
+          "visual": "list",
+          "animation": false
+        }
+      },
+
+      "multitasking": {
+        "preemptive": true,
+        "virtual_desktops": true
+      }
+    },
+
+    "desktop": {
+      "type": "iconic",
+
+      "layout": {
+        "type": "grid",
+        "grid": {
+          "cellWidth": 80,
+          "cellHeight": 100,
+          "spacing": 20
+        },
+        "direction": "vertical",
+        "alignment": "left",
+        "snapToGrid": true
+      },
+
+      "items": {
+        "icons": true,
+        "shortcuts": true,
+        "folders": true
+      },
+
+      "interaction": {
+        "click": "double",
+        "selection": "rubber_band",
+        "dragAndDrop": true
+      }
+    },
+
+    "inputMethods": {
+      "keyboard": {
+        "shortcuts": true,
+        "function_keys": true,
+        "navigation": "arrows"
+      },
+
+      "mouse": {
+        "buttons": 3,
+        "scroll": "wheel",
+        "gestures": false
+      }
+    }
+  },
+
+  "components": {
+    "core": {
+      "windowManager": "fvwm95",
+      "fileManager": "gmc",
+
+      "optional": {
+        "terminal": "gnome-terminal",
+        "textEditor": "gedit"
+      }
+    },
+
+    "applications": [
+      {
+        "id": "gnome-terminal",
+        "name": "Terminal",
+        "icon": "icons/terminal.png",
+        "type": "system",
+        "component": "XTerm",
+
+        "window": {
+          "title": "Terminal",
+          "width": 640,
+          "height": 400,
+          "resizable": true,
+          "minimizable": true,
+          "maximizable": true,
+          "position": "cascade"
+        },
+
+        "features": {
+          "multiInstance": true
+        }
+      },
+      {
+        "id": "rpm",
+        "name": "RPM Package Manager",
+        "icon": "icons/package.png",
+        "type": "system",
+        "component": "XTerm",
+
+        "window": {
+          "title": "Red Hat Package Manager",
+          "width": 700,
+          "height": 500,
+          "resizable": true,
+          "minimizable": true,
+          "maximizable": true,
+          "position": "center"
+        }
+      },
+      {
+        "id": "gmc",
+        "name": "File Manager",
+        "icon": "icons/folder.png",
+        "type": "system",
+        "component": "XFM",
+
+        "window": {
+          "title": "Midnight Commander",
+          "width": 600,
+          "height": 450,
+          "resizable": true,
+          "minimizable": true,
+          "maximizable": true,
+          "position": "center"
+        }
+      },
+      {
+        "id": "xcalc",
+        "name": "Calculator",
+        "icon": "icons/xcalc.png",
+        "type": "utility",
+        "component": "XCalc",
+
+        "window": {
+          "title": "Calculator",
+          "width": 250,
+          "height": 320,
+          "resizable": false,
+          "minimizable": true,
+          "maximizable": false,
+          "position": "center"
+        }
+      },
+      {
+        "id": "netscape",
+        "name": "Netscape Navigator",
+        "icon": "icons/netscape.png",
+        "type": "web",
+        "component": "Browser",
+
+        "window": {
+          "title": "Netscape Navigator",
+          "width": 800,
+          "height": 600,
+          "resizable": true,
+          "minimizable": true,
+          "maximizable": true,
+          "position": "center"
+        }
+      }
+    ]
+  },
+
+  "features": {
+    "interaction": {
+      "dragAndDrop": true,
+      "clipboard": true,
+
+      "fileOperations": {
+        "copy": true,
+        "move": true,
+        "delete": true,
+        "rename": true,
+        "properties": true
+      },
+
+      "networking": {
+        "enabled": true,
+        "protocols": ["TCP/IP", "NFS", "SMB"]
+      }
+    },
+
+    "animations": {
+      "enabled": false,
+      "speed": "normal"
+    },
+
+    "customization": {
+      "themes": true,
+      "wallpaper": true,
+      "colors": true,
+      "layout": true
+    }
+  },
+
+  "assets": {
+    "basePath": "/assets/os/redhat-5",
+
+    "paths": {
+      "icons": "icons",
+      "cursors": "cursors",
+      "fonts": "fonts"
+    },
+
+    "iconSets": {
+      "default": {
+        "path": "icons",
+        "format": "png",
+        "sizes": [32, 48]
+      }
+    }
+  }
+}

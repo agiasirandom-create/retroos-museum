@@ -1,0 +1,674 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "windows-31",
+
+  "metadata": {
+    "name": "Windows 3.1",
+    "fullName": "Microsoft Windows 3.1",
+    "version": "3.1",
+    "company": "Microsoft Corporation",
+    "releaseYear": 1992,
+    "releaseDate": "1992-04-06",
+    "description": "The first truly popular version of Windows, bringing a graphical user interface to mainstream PC users with Program Manager and File Manager.",
+    "tagline": "Now You're Running Windows",
+    "category": "desktop_windows",
+    "architecture": ["x86"],
+
+    "historical": {
+      "significance": "First commercially successful version of Windows, established GUI as mainstream computing paradigm",
+      "marketShare": "Dominated with over 83% of GUI OS market by 1993",
+      "successor": "Windows 95",
+      "predecessor": "Windows 3.0",
+      "endOfLife": "2001-12-31"
+    },
+
+    "links": {
+      "wikipedia": "https://en.wikipedia.org/wiki/Windows_3.1x"
+    }
+  },
+
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#008080",
+
+        "windowBackground": "#FFFFFF",
+        "windowBorder": "#000000",
+        "windowBorderWidth": 1,
+
+        "titleBarActive": "#000080",
+        "titleBarInactive": "#808080",
+        "titleBarText": "#FFFFFF",
+        "titleBarTextInactive": "#C0C0C0",
+
+        "buttonFace": "#C0C0C0",
+        "buttonText": "#000000",
+        "buttonHighlight": "#FFFFFF",
+        "buttonShadow": "#808080",
+        "buttonBorder": "#000000",
+
+        "highlight": "#000080",
+        "highlightText": "#FFFFFF",
+
+        "menuBackground": "#FFFFFF",
+        "menuText": "#000000",
+        "menuHighlight": "#000080",
+
+        "text": "#000000",
+        "textDisabled": "#808080",
+
+        "statusBar": "#C0C0C0",
+        "taskbar": "#C0C0C0",
+
+        "shadow": "#000000"
+      },
+
+      "typography": {
+        "systemFont": {
+          "family": "MS Sans Serif",
+          "size": 10,
+          "weight": "normal",
+          "fallback": ["Arial", "Helvetica", "sans-serif"]
+        },
+        "titleFont": {
+          "family": "MS Sans Serif",
+          "size": 10,
+          "weight": "bold",
+          "fallback": ["Arial", "Helvetica", "sans-serif"]
+        },
+        "menuFont": {
+          "family": "MS Sans Serif",
+          "size": 10,
+          "weight": "normal"
+        },
+        "monospaceFont": {
+          "family": "Fixedsys",
+          "size": 9,
+          "weight": "normal"
+        },
+
+        "antialiasing": false,
+        "subpixelRendering": false,
+        "baseFontSize": 10,
+        "scaleFactor": 1.0
+      },
+
+      "style": {
+        "type": "classic",
+        "borderStyle": "single",
+        "cornerRadius": 0,
+
+        "shadows": false,
+        "transparency": false,
+        "blur": false,
+
+        "bevels": false,
+        "gradients": false,
+        "textures": false,
+
+        "animationStyle": "instant"
+      },
+
+      "specialElements": {
+        "scrollbarStyle": "classic",
+        "focusIndicator": "dotted_outline",
+        "dragVisual": "outline"
+      }
+    },
+
+    "cursor": {
+      "style": "classic_arrow",
+      "animated": false,
+      "shadows": false
+    },
+
+    "icons": {
+      "style": "icon_32",
+      "size": {
+        "default": 32,
+        "sizes": [32]
+      },
+      "rendering": "aliased",
+      "shadow": false,
+      "labelStyle": {
+        "position": "below",
+        "background": "transparent",
+        "textColor": "#000000",
+        "font": {
+          "family": "MS Sans Serif",
+          "size": 8
+        }
+      }
+    },
+
+    "sounds": {
+      "enabled": true,
+      "sounds": {
+        "startup": "sounds/startup.wav",
+        "shutdown": "sounds/shutdown.wav",
+        "error": "sounds/chord.wav",
+        "warning": "sounds/chord.wav",
+        "notification": "sounds/chimes.wav",
+        "click": "sounds/click.wav"
+      },
+      "volume": 80
+    },
+
+    "wallpaper": {
+      "type": "pattern",
+      "value": "#008080",
+      "pattern": "none",
+      "tiling": "tile",
+      "overlay": true
+    }
+  },
+
+  "paradigm": {
+    "windowSystem": {
+      "type": "stacking",
+
+      "behavior": {
+        "overlap": true,
+        "resize": true,
+        "minimize": true,
+        "maximize": true,
+        "close": true,
+
+        "modal": true,
+        "alwaysOnTop": false,
+        "transparency": false,
+
+        "multipleDocuments": false,
+        "tabbed": false,
+        "tiling": false
+      },
+
+      "chrome": {
+        "titleBar": "classic",
+        "controls": "buttons",
+        "controlPosition": "right",
+
+        "buttons": {
+          "minimize": {
+            "style": "icon",
+            "content": "minimize",
+            "position": 1
+          },
+          "maximize": {
+            "style": "icon",
+            "content": "maximize",
+            "position": 2
+          },
+          "close": {
+            "style": "text",
+            "content": "×",
+            "position": 0
+          }
+        },
+
+        "titleAlign": "left",
+        "showIcon": false,
+        "showPath": false
+      },
+
+      "effects": {
+        "openAnimation": "none",
+        "closeAnimation": "none",
+        "minimizeAnimation": "none",
+        "maximizeAnimation": "none",
+
+        "shadow": false,
+        "blur": false,
+        "wobbly": false
+      }
+    },
+
+    "menuSystem": {
+      "type": "menu_bar",
+
+      "menuBar": {
+        "enabled": true,
+        "position": "window",
+        "sticky": false,
+        "autoHide": false,
+
+        "style": {
+          "background": "#FFFFFF",
+          "textColor": "#000000",
+          "height": 18
+        },
+
+        "items": {
+          "applicationMenu": false,
+          "systemMenu": true
+        }
+      },
+
+      "contextMenu": {
+        "enabled": false,
+        "trigger": "right_click",
+        "style": {
+          "background": "#FFFFFF",
+          "borderStyle": "single"
+        }
+      },
+
+      "behavior": {
+        "clickToOpen": true,
+        "keyboardShortcuts": true,
+        "mnemonics": true,
+        "icons": false,
+        "cascading": true,
+        "tearOff": false
+      }
+    },
+
+    "taskManagement": {
+      "type": "none",
+
+      "switching": {
+        "method": ["alt_tab"],
+        "altTab": {
+          "enabled": true,
+          "visual": "list",
+          "animation": false
+        }
+      },
+
+      "multitasking": {
+        "preemptive": false,
+        "virtual_desktops": false,
+        "snapAssist": false,
+        "splitScreen": false
+      }
+    },
+
+    "desktop": {
+      "type": "iconic",
+
+      "layout": {
+        "type": "free_form",
+        "grid": {
+          "cellWidth": 80,
+          "cellHeight": 80,
+          "spacing": 8
+        },
+        "direction": "vertical",
+        "alignment": "left",
+        "snapToGrid": false,
+        "autoArrange": false
+      },
+
+      "items": {
+        "icons": true,
+        "widgets": false,
+        "shortcuts": true,
+        "folders": true,
+
+        "defaultItems": [
+          "program_manager",
+          "file_manager",
+          "control_panel"
+        ]
+      },
+
+      "interaction": {
+        "click": "double",
+        "selection": "single",
+        "dragAndDrop": true,
+        "hoverPreview": false
+      },
+
+      "behavior": {
+        "showTrash": false,
+        "showComputer": false,
+        "showNetwork": false,
+        "showHome": false
+      }
+    },
+
+    "inputMethods": {
+      "keyboard": {
+        "shortcuts": true,
+        "function_keys": true,
+        "navigation": "arrows",
+        "accessibility": false
+      },
+
+      "mouse": {
+        "buttons": 2,
+        "scroll": "none",
+        "gestures": false,
+        "acceleration": true
+      },
+
+      "touch": {
+        "enabled": false
+      }
+    }
+  },
+
+  "components": {
+    "core": {
+      "windowManager": "windows31-window-manager",
+      "fileManager": "file-manager",
+
+      "optional": {
+        "terminal": "ms-dos-prompt",
+        "textEditor": "notepad",
+        "imageViewer": "paintbrush",
+        "mediaPlayer": "media-player"
+      }
+    },
+
+    "applications": [
+      {
+        "id": "program_manager",
+        "name": "Program Manager",
+        "icon": "icons/program_manager.png",
+        "type": "system",
+        "component": "ProgramManager",
+
+        "window": {
+          "title": "Program Manager",
+          "width": 640,
+          "height": 480,
+          "resizable": true,
+          "minimizable": true,
+          "maximizable": true,
+          "position": "center"
+        },
+
+        "desktop": {
+          "icon": true,
+          "position": { "x": 20, "y": 20 }
+        },
+
+        "features": {
+          "saveState": true,
+          "multiInstance": false
+        }
+      },
+      {
+        "id": "file_manager",
+        "name": "File Manager",
+        "icon": "icons/file_manager.png",
+        "type": "system",
+        "component": "FileManager",
+
+        "window": {
+          "title": "File Manager",
+          "width": 640,
+          "height": 400,
+          "resizable": true,
+          "minimizable": true,
+          "maximizable": true,
+          "position": "cascade"
+        },
+
+        "desktop": {
+          "icon": true,
+          "position": { "x": 20, "y": 120 }
+        },
+
+        "features": {
+          "saveState": true,
+          "multiInstance": true
+        }
+      },
+      {
+        "id": "notepad",
+        "name": "Notepad",
+        "icon": "icons/notepad.png",
+        "type": "productivity",
+        "component": "Notepad",
+
+        "window": {
+          "title": "Untitled - Notepad",
+          "width": 480,
+          "height": 360,
+          "minWidth": 300,
+          "minHeight": 200,
+          "resizable": true,
+          "minimizable": true,
+          "maximizable": true,
+          "position": "cascade"
+        },
+
+        "menu": {
+          "path": "Accessories",
+          "category": "Accessories"
+        },
+
+        "features": {
+          "multiInstance": true,
+          "fileAssociations": [".txt", ".log", ".ini"]
+        }
+      },
+      {
+        "id": "paintbrush",
+        "name": "Paintbrush",
+        "icon": "icons/paintbrush.png",
+        "type": "creative",
+        "component": "Paintbrush",
+
+        "window": {
+          "title": "Untitled - Paintbrush",
+          "width": 640,
+          "height": 480,
+          "resizable": true,
+          "minimizable": true,
+          "maximizable": true,
+          "position": "cascade"
+        },
+
+        "menu": {
+          "path": "Accessories",
+          "category": "Accessories"
+        },
+
+        "features": {
+          "multiInstance": true,
+          "fileAssociations": [".bmp", ".pcx"]
+        }
+      },
+      {
+        "id": "calculator",
+        "name": "Calculator",
+        "icon": "icons/calculator.png",
+        "type": "utility",
+        "component": "Calculator",
+
+        "window": {
+          "title": "Calculator",
+          "width": 240,
+          "height": 280,
+          "resizable": false,
+          "minimizable": true,
+          "maximizable": false,
+          "position": "center"
+        },
+
+        "menu": {
+          "path": "Accessories",
+          "category": "Accessories"
+        },
+
+        "features": {
+          "multiInstance": false
+        }
+      },
+      {
+        "id": "solitaire",
+        "name": "Solitaire",
+        "icon": "icons/solitaire.png",
+        "type": "game",
+        "component": "Solitaire",
+
+        "window": {
+          "title": "Solitaire",
+          "width": 600,
+          "height": 450,
+          "resizable": false,
+          "minimizable": true,
+          "maximizable": false,
+          "position": "center"
+        },
+
+        "menu": {
+          "path": "Games",
+          "category": "Games"
+        }
+      },
+      {
+        "id": "minesweeper",
+        "name": "Minesweeper",
+        "icon": "icons/minesweeper.png",
+        "type": "game",
+        "component": "Minesweeper",
+
+        "window": {
+          "title": "Minesweeper",
+          "width": 300,
+          "height": 350,
+          "resizable": false,
+          "minimizable": true,
+          "maximizable": false,
+          "position": "center"
+        },
+
+        "menu": {
+          "path": "Games",
+          "category": "Games"
+        }
+      }
+    ],
+
+    "utilities": [
+      {
+        "id": "control_panel",
+        "name": "Control Panel",
+        "type": "control_panel",
+        "icon": "icons/control_panel.png",
+        "component": "ControlPanel"
+      }
+    ]
+  },
+
+  "features": {
+    "interaction": {
+      "dragAndDrop": true,
+      "clipboard": true,
+      "undo": false,
+
+      "fileOperations": {
+        "copy": true,
+        "move": true,
+        "delete": true,
+        "rename": true,
+        "properties": true
+      },
+
+      "networking": {
+        "enabled": true,
+        "protocols": ["NetBEUI", "IPX/SPX"]
+      },
+
+      "printing": true,
+      "scanning": false
+    },
+
+    "animations": {
+      "enabled": false,
+      "speed": "normal",
+
+      "effects": {
+        "windowOpen": false,
+        "windowClose": false,
+        "windowMinimize": false,
+        "minimize": false,
+        "maximize": false,
+        "menuOpen": false,
+        "hover": false,
+        "click": false,
+        "transitions": false,
+        "parallax": false
+      }
+    },
+
+    "accessibility": {
+      "highContrast": false,
+      "screenReader": false,
+      "magnifier": false,
+      "keyboard_navigation": true
+    },
+
+    "easterEggs": {
+      "enabled": true,
+      "list": ["credits_bear"]
+    },
+
+    "customization": {
+      "themes": false,
+      "wallpaper": true,
+      "colors": true,
+      "fonts": false,
+      "layout": true
+    }
+  },
+
+  "assets": {
+    "basePath": "/assets/os/windows31",
+
+    "paths": {
+      "icons": "icons",
+      "cursors": "cursors",
+      "sounds": "sounds",
+      "fonts": "fonts",
+      "wallpapers": "wallpapers"
+    },
+
+    "iconSets": {
+      "default": {
+        "path": "icons",
+        "format": "png",
+        "sizes": [32]
+      }
+    },
+
+    "cursorSets": {
+      "default": {
+        "path": "cursors",
+        "format": "cur",
+        "animated": false
+      }
+    },
+
+    "soundSets": {
+      "default": {
+        "path": "sounds",
+        "format": "wav"
+      }
+    },
+
+    "fonts": {
+      "ms_sans_serif": {
+        "path": "fonts/ms-sans-serif.woff2",
+        "format": "woff2",
+        "weights": [400, 700]
+      },
+      "fixedsys": {
+        "path": "fonts/fixedsys.woff2",
+        "format": "woff2",
+        "weights": [400]
+      }
+    },
+
+    "preload": [
+      "icons/program_manager.png",
+      "icons/file_manager.png",
+      "cursors/arrow.cur",
+      "sounds/startup.wav"
+    ]
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "irix",
+  "metadata": {
+    "name": "SGI IRIX 6.5",
+    "fullName": "Silicon Graphics IRIX 6.5 with 4Dwm",
+    "version": "6.5",
+    "company": "Silicon Graphics, Inc.",
+    "releaseYear": 1998,
+    "releaseDate": "1998-05-01",
+    "description": "SGI's Unix workstation OS featuring stunning 3D graphics, innovative Indigo Magic desktop, and unmatched visual computing power.",
+    "tagline": "The Workstation for Visual Computing",
+    "category": "desktop_unix",
+    "architecture": ["MIPS"],
+    "historical": {
+      "significance": "Pioneered 3D graphics workstations and visual computing. Used for CGI in movies (Jurassic Park, Terminator 2). Influenced modern desktop design.",
+      "marketShare": "Dominated high-end 3D graphics and scientific visualization markets",
+      "successor": "IRIX 6.5.x (final releases)",
+      "predecessor": "IRIX 5.x",
+      "endOfLife": "2006-12-31"
+    },
+    "links": {
+      "wikipedia": "https://en.wikipedia.org/wiki/IRIX"
+    }
+  },
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#5C3566",
+        "windowBackground": "#B8B8B8",
+        "windowBorder": "#000000",
+        "windowBorderWidth": 1,
+        "titleBarActive": "#6B4C7C",
+        "titleBarInactive": "#9E9E9E",
+        "titleBarText": "#FFFFFF",
+        "titleBarTextInactive": "#000000",
+        "buttonFace": "#B8B8B8",
+        "buttonText": "#000000",
+        "buttonHighlight": "#E0E0E0",
+        "buttonShadow": "#5F5F5F",
+        "highlight": "#6B4C7C",
+        "highlightText": "#FFFFFF",
+        "menuBackground": "#B8B8B8",
+        "menuText": "#000000",
+        "menuHighlight": "#6B4C7C",
+        "text": "#000000",
+        "custom": {
+          "panelBackground": "#9090A0",
+          "sgiPurple": "#6B4C7C",
+          "toolchestBackground": "#A0A0A0"
+        }
+      },
+      "typography": {
+        "systemFont": {"family": "Helvetica", "size": 12, "weight": "normal", "fallback": ["Arial", "sans-serif"]},
+        "titleFont": {"family": "Helvetica", "size": 11, "weight": "bold"},
+        "menuFont": {"family": "Helvetica", "size": 12, "weight": "normal"},
+        "monospaceFont": {"family": "Screen", "size": 12, "weight": "normal"},
+        "antialiasing": true,
+        "baseFontSize": 12
+      },
+      "style": {
+        "type": "bevel_3d",
+        "borderStyle": "bevel_out",
+        "cornerRadius": 0,
+        "shadows": true,
+        "shadowStyle": "soft",
+        "transparency": false,
+        "bevels": true,
+        "gradients": true,
+        "animationStyle": "linear"
+      }
+    },
+    "cursor": {"style": "classic_arrow", "animated": true, "shadows": true},
+    "icons": {
+      "style": "photo_realistic",
+      "size": {"default": 48, "sizes": [32, 48, 64]},
+      "rendering": "antialiased",
+      "shadow": true,
+      "labelStyle": {"position": "below", "background": "solid", "backgroundColor": "#808080", "textColor": "#FFFFFF", "font": {"family": "Helvetica", "size": 10}}
+    },
+    "wallpaper": {"type": "solid", "value": "#5C3566", "overlay": true}
+  },
+  "paradigm": {
+    "windowSystem": {
+      "type": "stacking",
+      "behavior": {"overlap": true, "resize": true, "minimize": true, "maximize": true, "close": true, "modal": true, "alwaysOnTop": true, "transparency": false},
+      "chrome": {
+        "titleBar": "classic",
+        "controls": "buttons",
+        "controlPosition": "left",
+        "buttons": {
+          "menu": {"style": "icon", "content": "menu", "position": 0},
+          "close": {"style": "icon", "content": "close", "position": 1}
+        },
+        "titleAlign": "center",
+        "showIcon": false
+      },
+      "effects": {"shadow": true}
+    },
+    "menuSystem": {
+      "type": "context_only",
+      "contextMenu": {"enabled": true, "trigger": "right_click", "style": {"background": "#A0A0A0", "borderStyle": "bevel_out"}},
+      "behavior": {"clickToOpen": true, "icons": true, "cascading": true, "tearOff": true}
+    },
+    "taskManagement": {
+      "type": "panel",
+      "taskbar": {
+        "enabled": true,
+        "position": "bottom",
+        "autoHide": false,
+        "size": 50,
+        "style": {"background": "#9090A0", "transparency": false, "blur": false, "itemStyle": "icons", "grouping": false, "previews": false},
+        "sections": {"start": true, "quick_launch": true, "tasks": true, "system_tray": false, "clock": true}
+      },
+      "switching": {"method": ["alt_tab", "window_list"]},
+      "multitasking": {"preemptive": true, "virtual_desktops": true}
+    },
+    "desktop": {
+      "type": "iconic",
+      "layout": {"type": "grid", "grid": {"cellWidth": 90, "cellHeight": 110, "spacing": 20}, "direction": "vertical", "alignment": "right", "snapToGrid": true},
+      "items": {"icons": true, "shortcuts": true, "folders": true},
+      "interaction": {"click": "single", "selection": "rubber_band", "dragAndDrop": true}
+    },
+    "inputMethods": {
+      "keyboard": {"shortcuts": true, "function_keys": true, "navigation": "arrows"},
+      "mouse": {"buttons": 3, "scroll": "none", "gestures": false}
+    }
+  },
+  "components": {
+    "core": {"windowManager": "4dwm", "fileManager": "fm", "optional": {"terminal": "xwsh", "textEditor": "jot"}},
+    "applications": [
+      {"id": "xwsh", "name": "Shell", "icon": "icons/xwsh.png", "type": "system", "component": "XTerm", "window": {"title": "Shell", "width": 640, "height": 400, "resizable": true, "minimizable": true, "maximizable": true, "position": "cascade"}, "features": {"multiInstance": true}},
+      {"id": "fm", "name": "File Manager", "icon": "icons/fm.png", "type": "system", "component": "XFM", "window": {"title": "Icon Catalog", "width": 600, "height": 450, "resizable": true, "minimizable": true, "maximizable": true, "position": "center"}},
+      {"id": "showcaseview", "name": "Showcase", "icon": "icons/showcase.png", "type": "creative", "component": "Showcase", "window": {"title": "Showcase", "width": 800, "height": 600, "resizable": true, "minimizable": true, "maximizable": true, "position": "center"}},
+      {"id": "xcalc", "name": "Calculator", "icon": "icons/xcalc.png", "type": "utility", "component": "XCalc", "window": {"title": "Calculator", "width": 250, "height": 320, "resizable": false, "minimizable": true, "maximizable": false, "position": "center"}},
+      {"id": "mediamail", "name": "MediaMail", "icon": "icons/mediamail.png", "type": "communication", "component": "Mail", "window": {"title": "MediaMail", "width": 700, "height": 500, "resizable": true, "minimizable": true, "maximizable": true, "position": "center"}}
+    ]
+  },
+  "features": {
+    "interaction": {"dragAndDrop": true, "clipboard": true, "fileOperations": {"copy": true, "move": true, "delete": true, "rename": true, "properties": true}, "networking": {"enabled": true, "protocols": ["TCP/IP", "NFS"]}},
+    "animations": {"enabled": true, "speed": "normal", "effects": {"windowOpen": true, "windowClose": true, "windowMinimize": true, "transitions": true}},
+    "customization": {"themes": true, "wallpaper": true, "colors": true, "fonts": true, "layout": true}
+  },
+  "assets": {
+    "basePath": "/assets/os/irix",
+    "paths": {"icons": "icons", "cursors": "cursors", "fonts": "fonts", "sounds": "sounds"},
+    "iconSets": {"default": {"path": "icons", "format": "png", "sizes": [32, 48, 64]}}
+  }
+}

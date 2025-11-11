@@ -1,0 +1,127 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "android-40-ics",
+  "metadata": {
+    "name": "Android 4.0 Ice Cream Sandwich",
+    "version": "4.0",
+    "company": "Google",
+    "releaseYear": 2011,
+    "releaseDate": "2011-10-18",
+    "description": "Major redesign with Holo theme, on-screen navigation buttons, improved multitasking, and unified tablet/phone UI.",
+    "category": "mobile_modern",
+    "architecture": ["ARM"],
+    "historical": {
+      "significance": "Unified phone/tablet UI, Roboto font, Holo design language, face unlock",
+      "successor": "Android 4.1 Jelly Bean",
+      "predecessor": "Android 3.2 Honeycomb"
+    }
+  },
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#000000",
+        "windowBackground": "#FFFFFF",
+        "titleBarActive": "#212121",
+        "titleBarText": "#FFFFFF",
+        "buttonFace": "#33B5E5",
+        "highlight": "#33B5E5",
+        "text": "#000000",
+        "statusBar": "rgba(0, 0, 0, 1.0)",
+        "custom": {
+          "holoBlue": "#33B5E5",
+          "navigationBar": "rgba(0, 0, 0, 1.0)"
+        }
+      },
+      "typography": {
+        "systemFont": {
+          "family": "Roboto",
+          "size": 14,
+          "weight": "normal"
+        },
+        "titleFont": {
+          "family": "Roboto",
+          "size": 18,
+          "weight": "300"
+        },
+        "antialiasing": true,
+        "baseFontSize": 14
+      },
+      "style": {
+        "type": "flat",
+        "cornerRadius": 0,
+        "animationStyle": "ease"
+      }
+    },
+    "icons": {
+      "style": "icon_48",
+      "size": {
+        "default": 48,
+        "sizes": [48, 72, 96]
+      },
+      "rendering": "antialiased"
+    },
+    "wallpaper": {
+      "type": "image",
+      "value": "wallpapers/ics-blue.jpg"
+    }
+  },
+  "paradigm": {
+    "windowSystem": {
+      "type": "full_screen",
+      "effects": {
+        "openAnimation": "zoom"
+      }
+    },
+    "taskManagement": {
+      "type": "cards",
+      "switching": {
+        "method": ["gesture"]
+      },
+      "multitasking": {
+        "preemptive": true
+      }
+    },
+    "desktop": {
+      "type": "iconic",
+      "items": {
+        "widgets": true,
+        "folders": true
+      }
+    },
+    "inputMethods": {
+      "touch": {
+        "enabled": true,
+        "multitouch": true,
+        "gestures": ["tap", "pinch", "swipe", "long_press"]
+      }
+    }
+  },
+  "components": {
+    "core": {
+      "windowManager": "android-wm",
+      "optional": {
+        "webBrowser": "browser"
+      }
+    }
+  },
+  "features": {
+    "interaction": {
+      "networking": {
+        "enabled": true,
+        "protocols": ["WiFi", "4G", "NFC", "Bluetooth"]
+      }
+    },
+    "animations": {
+      "enabled": true,
+      "effects": {
+        "transitions": true
+      }
+    }
+  },
+  "assets": {
+    "basePath": "/assets/os/android-ics",
+    "paths": {
+      "icons": "icons"
+    }
+  }
+}

@@ -1,0 +1,288 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "apple-dos-3.3",
+
+  "metadata": {
+    "name": "Apple DOS 3.3",
+    "fullName": "Apple Disk Operating System 3.3",
+    "version": "3.3",
+    "company": "Apple Computer",
+    "releaseYear": 1980,
+    "releaseDate": "1980-08-25",
+    "description": "Command-line operating system for Apple II computers, featuring BASIC integration and support for 5.25-inch floppy disk drives.",
+    "tagline": "The Foundation of Personal Computing",
+    "category": "desktop_alternative",
+    "architecture": ["6502"],
+
+    "historical": {
+      "significance": "One of the first widely-used microcomputer operating systems. Brought disk-based computing to mainstream users. Integrated with Applesoft BASIC for immediate programming capability.",
+      "marketShare": "Dominant on Apple II platform through early 1980s",
+      "successor": "ProDOS",
+      "endOfLife": "1983-09-01"
+    },
+
+    "links": {
+      "wikipedia": "https://en.wikipedia.org/wiki/Apple_DOS"
+    }
+  },
+
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#00AA00",
+
+        "windowBackground": "#00AA00",
+        "windowBorder": "#00AA00",
+        "windowBorderWidth": 0,
+
+        "text": "#00FF00",
+        "textDisabled": "#007700",
+
+        "custom": {
+          "cursor": "#00FF00",
+          "promptColor": "#00FF00"
+        }
+      },
+
+      "typography": {
+        "systemFont": {
+          "family": "Print Char 21",
+          "size": 16,
+          "weight": "normal",
+          "fallback": ["Courier", "monospace"]
+        },
+        "monospaceFont": {
+          "family": "Print Char 21",
+          "size": 16,
+          "weight": "normal"
+        },
+
+        "antialiasing": false,
+        "baseFontSize": 16
+      },
+
+      "style": {
+        "type": "flat",
+        "borderStyle": "none",
+        "cornerRadius": 0,
+
+        "shadows": false,
+        "transparency": false,
+
+        "bevels": false,
+        "gradients": false,
+
+        "animationStyle": "instant"
+      }
+    },
+
+    "cursor": {
+      "style": "classic_arrow",
+      "animated": false,
+      "shadows": false
+    },
+
+    "icons": {
+      "style": "pixel_art",
+      "size": {
+        "default": 0,
+        "sizes": []
+      },
+      "rendering": "aliased",
+      "shadow": false,
+      "labelStyle": {
+        "position": "none",
+        "background": "transparent"
+      }
+    },
+
+    "sounds": {
+      "enabled": true,
+      "sounds": {
+        "startup": "sounds/apple2_beep.wav",
+        "error": "sounds/beep.wav"
+      },
+      "volume": 100
+    },
+
+    "wallpaper": {
+      "type": "solid",
+      "value": "#00AA00",
+      "overlay": false
+    }
+  },
+
+  "paradigm": {
+    "windowSystem": {
+      "type": "none",
+
+      "behavior": {
+        "overlap": false,
+        "resize": false,
+        "minimize": false,
+        "maximize": false,
+        "close": false,
+
+        "modal": false,
+        "transparency": false
+      },
+
+      "chrome": {
+        "titleBar": "hidden",
+        "controls": "none",
+        "controlPosition": "right",
+        "buttons": {},
+        "titleAlign": "left",
+        "showIcon": false
+      },
+
+      "effects": {}
+    },
+
+    "menuSystem": {
+      "type": "context_only",
+
+      "menuBar": {
+        "enabled": false,
+        "position": "none"
+      },
+
+      "contextMenu": {
+        "enabled": false,
+        "trigger": "right_click"
+      },
+
+      "behavior": {
+        "clickToOpen": false,
+        "icons": false,
+        "cascading": false
+      }
+    },
+
+    "taskManagement": {
+      "type": "none",
+
+      "switching": {
+        "method": []
+      },
+
+      "multitasking": {
+        "preemptive": false,
+        "virtual_desktops": false
+      }
+    },
+
+    "desktop": {
+      "type": "none",
+
+      "layout": {
+        "type": "free_form"
+      },
+
+      "items": {
+        "icons": false,
+        "shortcuts": false,
+        "folders": false
+      },
+
+      "interaction": {
+        "click": "single",
+        "selection": "single",
+        "dragAndDrop": false
+      },
+
+      "behavior": {}
+    },
+
+    "inputMethods": {
+      "keyboard": {
+        "shortcuts": false,
+        "function_keys": false,
+        "navigation": "custom"
+      },
+
+      "mouse": {
+        "buttons": 0,
+        "scroll": "none",
+        "gestures": false
+      }
+    }
+  },
+
+  "components": {
+    "core": {
+      "windowManager": "none",
+      "fileManager": "dos",
+
+      "optional": {
+        "terminal": "applesoft_basic"
+      }
+    },
+
+    "applications": [
+      {
+        "id": "applesoft_basic",
+        "name": "Applesoft BASIC",
+        "icon": "",
+        "type": "system",
+        "component": "ApplesoftBasic",
+
+        "window": {
+          "title": "",
+          "width": 560,
+          "height": 384,
+          "resizable": false,
+          "minimizable": false,
+          "maximizable": false,
+          "position": "center"
+        }
+      }
+    ]
+  },
+
+  "features": {
+    "interaction": {
+      "dragAndDrop": false,
+      "clipboard": false,
+
+      "fileOperations": {
+        "copy": true,
+        "move": false,
+        "delete": true,
+        "rename": true,
+        "properties": false
+      },
+
+      "networking": {
+        "enabled": false
+      }
+    },
+
+    "animations": {
+      "enabled": false
+    },
+
+    "customization": {
+      "themes": false,
+      "wallpaper": false,
+      "colors": false
+    }
+  },
+
+  "assets": {
+    "basePath": "/assets/os/appledos",
+
+    "paths": {
+      "sounds": "sounds",
+      "fonts": "fonts"
+    },
+
+    "fonts": {
+      "printchar21": {
+        "path": "fonts/printchar21.woff2",
+        "format": "woff2",
+        "weights": [400]
+      }
+    }
+  }
+}

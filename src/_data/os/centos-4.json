@@ -1,0 +1,147 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "centos-4",
+  "metadata": {
+    "name": "CentOS 4",
+    "fullName": "CentOS 4.0 with GNOME",
+    "version": "4.0",
+    "company": "The CentOS Project",
+    "releaseYear": 2004,
+    "releaseDate": "2004-03-09",
+    "description": "Community Enterprise Operating System, a free rebuild of Red Hat Enterprise Linux, providing enterprise-grade stability.",
+    "tagline": "The Community Enterprise Operating System",
+    "category": "desktop_linux",
+    "architecture": ["x86", "x86_64", "ia64", "s390", "s390x"],
+    "historical": {
+      "significance": "First major community-driven enterprise Linux distribution. Provided free alternative to RHEL with identical binary compatibility.",
+      "marketShare": "Dominated web hosting and server markets",
+      "successor": "CentOS continues (later CentOS Stream)",
+      "predecessor": "CentOS 3"
+    },
+    "links": {
+      "wikipedia": "https://en.wikipedia.org/wiki/CentOS"
+    }
+  },
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#3C6EB4",
+        "windowBackground": "#EDECEB",
+        "windowBorder": "#000000",
+        "windowBorderWidth": 1,
+        "titleBarActive": "#8B735C",
+        "titleBarInactive": "#C0BEBF",
+        "titleBarText": "#FFFFFF",
+        "titleBarTextInactive": "#666666",
+        "buttonFace": "#EDECEB",
+        "buttonText": "#000000",
+        "buttonHighlight": "#FFFFFF",
+        "buttonShadow": "#808080",
+        "highlight": "#932279",
+        "highlightText": "#FFFFFF",
+        "menuBackground": "#EDECEB",
+        "menuText": "#000000",
+        "menuHighlight": "#932279",
+        "text": "#000000",
+        "taskbar": "#EDECEB",
+        "custom": {
+          "centosPurple": "#932279",
+          "centosGold": "#8B735C"
+        }
+      },
+      "typography": {
+        "systemFont": {"family": "Sans", "size": 10, "weight": "normal", "fallback": ["DejaVu Sans", "Arial", "sans-serif"]},
+        "titleFont": {"family": "Sans", "size": 10, "weight": "bold"},
+        "menuFont": {"family": "Sans", "size": 10, "weight": "normal"},
+        "monospaceFont": {"family": "Monospace", "size": 10, "weight": "normal"},
+        "antialiasing": true,
+        "baseFontSize": 10
+      },
+      "style": {
+        "type": "bevel_3d",
+        "borderStyle": "bevel_out",
+        "cornerRadius": 0,
+        "shadows": false,
+        "transparency": false,
+        "bevels": true,
+        "gradients": false,
+        "animationStyle": "linear"
+      }
+    },
+    "cursor": {"style": "classic_arrow", "animated": false, "shadows": true},
+    "icons": {
+      "style": "icon_48",
+      "size": {"default": 48, "sizes": [24, 32, 48]},
+      "rendering": "antialiased",
+      "shadow": false,
+      "labelStyle": {"position": "below", "background": "transparent", "textColor": "#FFFFFF", "font": {"family": "Sans", "size": 10}}
+    },
+    "wallpaper": {"type": "solid", "value": "#3C6EB4", "overlay": true}
+  },
+  "paradigm": {
+    "windowSystem": {
+      "type": "stacking",
+      "behavior": {"overlap": true, "resize": true, "minimize": true, "maximize": true, "close": true, "modal": true, "alwaysOnTop": true, "transparency": false},
+      "chrome": {
+        "titleBar": "classic",
+        "controls": "buttons",
+        "controlPosition": "right",
+        "buttons": {
+          "minimize": {"style": "icon", "content": "minimize", "position": 1},
+          "maximize": {"style": "icon", "content": "maximize", "position": 2},
+          "close": {"style": "icon", "content": "close", "position": 3}
+        },
+        "titleAlign": "left",
+        "showIcon": true
+      },
+      "effects": {"shadow": false}
+    },
+    "menuSystem": {
+      "type": "menu_bar",
+      "menuBar": {"enabled": true, "position": "top", "sticky": true, "autoHide": false, "style": {"background": "#E6E6E6", "textColor": "#000000", "height": 24}},
+      "contextMenu": {"enabled": true, "trigger": "right_click", "style": {"background": "#EDECEB", "borderStyle": "single"}},
+      "behavior": {"clickToOpen": true, "icons": true, "cascading": true, "tearOff": false}
+    },
+    "taskManagement": {
+      "type": "panel",
+      "taskbar": {
+        "enabled": true,
+        "position": "bottom",
+        "autoHide": false,
+        "size": 24,
+        "style": {"background": "#E6E6E6", "transparency": false, "blur": false, "itemStyle": "icons", "grouping": false, "previews": false},
+        "sections": {"start": false, "quick_launch": true, "tasks": true, "system_tray": true, "clock": false}
+      },
+      "switching": {"method": ["alt_tab", "taskbar_click"]},
+      "multitasking": {"preemptive": true, "virtual_desktops": true}
+    },
+    "desktop": {
+      "type": "iconic",
+      "layout": {"type": "grid", "grid": {"cellWidth": 80, "cellHeight": 80, "spacing": 10}, "direction": "vertical", "alignment": "left", "snapToGrid": true},
+      "items": {"icons": true, "shortcuts": true, "folders": true},
+      "interaction": {"click": "double", "selection": "rubber_band", "dragAndDrop": true}
+    },
+    "inputMethods": {
+      "keyboard": {"shortcuts": true, "function_keys": true, "navigation": "arrows"},
+      "mouse": {"buttons": 3, "scroll": "wheel", "gestures": false}
+    }
+  },
+  "components": {
+    "core": {"windowManager": "metacity", "fileManager": "nautilus", "optional": {"terminal": "gnome-terminal", "textEditor": "gedit"}},
+    "applications": [
+      {"id": "gnome-terminal", "name": "Terminal", "icon": "icons/terminal.png", "type": "system", "component": "XTerm", "window": {"title": "Terminal", "width": 640, "height": 400, "resizable": true, "minimizable": true, "maximizable": true, "position": "cascade"}, "features": {"multiInstance": true}},
+      {"id": "nautilus", "name": "Nautilus", "icon": "icons/nautilus.png", "type": "system", "component": "XFM", "window": {"title": "File Browser", "width": 700, "height": 500, "resizable": true, "minimizable": true, "maximizable": true, "position": "center"}},
+      {"id": "yum", "name": "Yum Package Manager", "icon": "icons/package.png", "type": "system", "component": "XTerm", "window": {"title": "Yum Extender", "width": 700, "height": 500, "resizable": true, "minimizable": true, "maximizable": true, "position": "center"}}
+    ]
+  },
+  "features": {
+    "interaction": {"dragAndDrop": true, "clipboard": true, "fileOperations": {"copy": true, "move": true, "delete": true, "rename": true, "properties": true}, "networking": {"enabled": true, "protocols": ["TCP/IP", "NFS", "SMB"]}},
+    "animations": {"enabled": true, "speed": "normal"},
+    "customization": {"themes": true, "wallpaper": true, "colors": true, "layout": true}
+  },
+  "assets": {
+    "basePath": "/assets/os/centos-4",
+    "paths": {"icons": "icons", "cursors": "cursors", "fonts": "fonts"},
+    "iconSets": {"default": {"path": "icons", "format": "png", "sizes": [24, 32, 48]}}
+  }
+}

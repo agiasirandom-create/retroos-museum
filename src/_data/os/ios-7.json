@@ -1,0 +1,538 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "ios-7",
+
+  "metadata": {
+    "name": "iOS 7",
+    "fullName": "Apple iOS 7",
+    "version": "7.0",
+    "company": "Apple Inc.",
+    "releaseYear": 2013,
+    "releaseDate": "2013-09-18",
+    "description": "Revolutionary redesign abandoning skeuomorphism for flat, minimalist design with translucent layers, new typography, and gesture-based navigation.",
+    "tagline": "Completely redesigned. Redefined.",
+    "category": "mobile_modern",
+    "architecture": ["ARM64", "ARM"],
+
+    "historical": {
+      "significance": "Massive design overhaul, influenced flat design movement across entire industry, introduced Control Center",
+      "marketShare": "41% smartphone market share in 2013",
+      "successor": "iOS 8",
+      "predecessor": "iOS 6",
+      "endOfLife": "2017-09-19"
+    },
+
+    "links": {
+      "wikipedia": "https://en.wikipedia.org/wiki/IOS_7"
+    }
+  },
+
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#FFFFFF",
+
+        "windowBackground": "rgba(255, 255, 255, 0.97)",
+        "windowBorder": "transparent",
+        "windowBorderWidth": 0,
+
+        "titleBarActive": "rgba(248, 248, 248, 0.8)",
+        "titleBarInactive": "rgba(248, 248, 248, 0.8)",
+        "titleBarText": "#000000",
+
+        "buttonFace": "#007AFF",
+        "buttonText": "#FFFFFF",
+        "buttonHighlight": "#0051D5",
+        "buttonShadow": "transparent",
+
+        "highlight": "#007AFF",
+        "highlightText": "#FFFFFF",
+
+        "menuBackground": "rgba(255, 255, 255, 0.97)",
+        "menuText": "#000000",
+
+        "text": "#000000",
+        "textDisabled": "#C7C7CC",
+
+        "statusBar": "transparent",
+        "taskbar": "rgba(255, 255, 255, 0.95)",
+
+        "custom": {
+          "controlCenter": "rgba(240, 240, 240, 0.95)",
+          "notificationCenter": "rgba(220, 220, 220, 0.95)",
+          "notificationBadge": "#FF3B30",
+          "tintColor": "#007AFF"
+        }
+      },
+
+      "typography": {
+        "systemFont": {
+          "family": "Helvetica Neue",
+          "size": 17,
+          "weight": "300",
+          "fallback": ["Helvetica", "Arial", "sans-serif"]
+        },
+        "titleFont": {
+          "family": "Helvetica Neue",
+          "size": 34,
+          "weight": "700"
+        },
+        "menuFont": {
+          "family": "Helvetica Neue",
+          "size": 17,
+          "weight": "400"
+        },
+
+        "antialiasing": true,
+        "subpixelRendering": true,
+        "baseFontSize": 17,
+        "scaleFactor": 2.0
+      },
+
+      "style": {
+        "type": "flat",
+        "borderStyle": "none",
+        "cornerRadius": 0,
+
+        "shadows": false,
+        "shadowStyle": "none",
+        "transparency": true,
+        "blur": true,
+
+        "bevels": false,
+        "gradients": false,
+        "textures": false,
+
+        "animationStyle": "ease"
+      },
+
+      "specialElements": {
+        "scrollbarStyle": "overlay",
+        "focusIndicator": "glow",
+        "dragVisual": "ghost"
+      }
+    },
+
+    "cursor": {
+      "style": "custom",
+      "animated": false,
+      "shadows": false
+    },
+
+    "icons": {
+      "style": "flat_modern",
+      "size": {
+        "default": 60,
+        "sizes": [60, 120, 180]
+      },
+      "rendering": "vector",
+      "shadow": false,
+      "labelStyle": {
+        "position": "below",
+        "background": "transparent",
+        "textColor": "#000000",
+        "font": {
+          "family": "Helvetica Neue",
+          "size": 11,
+          "weight": "400"
+        }
+      }
+    },
+
+    "sounds": {
+      "enabled": true,
+      "sounds": {
+        "notification": "sounds/tri-tone.caf",
+        "lock": "sounds/lock.caf",
+        "unlock": "sounds/unlock.caf",
+        "keyboard": "sounds/keyboard.caf",
+        "camera_shutter": "sounds/photoShutter.caf"
+      },
+      "volume": 80
+    },
+
+    "wallpaper": {
+      "type": "image",
+      "value": "wallpapers/ios7-default.jpg",
+      "tiling": "fill",
+      "overlay": true
+    }
+  },
+
+  "paradigm": {
+    "windowSystem": {
+      "type": "full_screen",
+
+      "behavior": {
+        "overlap": false,
+        "resize": false,
+        "minimize": false,
+        "maximize": false,
+        "close": false,
+
+        "modal": true,
+        "alwaysOnTop": false,
+        "transparency": true,
+
+        "multipleDocuments": false,
+        "tabbed": false,
+        "tiling": false
+      },
+
+      "chrome": {
+        "titleBar": "unified",
+        "controls": "icons",
+        "controlPosition": "left",
+
+        "buttons": {
+          "close": {
+            "style": "text",
+            "content": "Back",
+            "position": 1,
+            "color": "#007AFF"
+          }
+        },
+
+        "titleAlign": "center",
+        "showIcon": false,
+        "showPath": false
+      },
+
+      "effects": {
+        "openAnimation": "zoom",
+        "closeAnimation": "zoom",
+        "minimizeAnimation": "zoom",
+        "maximizeAnimation": "none",
+
+        "shadow": false,
+        "blur": true,
+        "wobbly": false
+      }
+    },
+
+    "menuSystem": {
+      "type": "context_only",
+
+      "menuBar": {
+        "enabled": false
+      },
+
+      "contextMenu": {
+        "enabled": true,
+        "trigger": "long_press",
+        "style": {
+          "background": "rgba(255, 255, 255, 0.97)",
+          "borderStyle": "none"
+        }
+      },
+
+      "behavior": {
+        "clickToOpen": false,
+        "keyboardShortcuts": false,
+        "mnemonics": false,
+        "icons": false,
+        "cascading": false,
+        "tearOff": false
+      }
+    },
+
+    "taskManagement": {
+      "type": "cards",
+
+      "taskbar": {
+        "enabled": true,
+        "position": "bottom",
+        "autoHide": true,
+        "size": 120,
+
+        "style": {
+          "background": "rgba(255, 255, 255, 0.97)",
+          "transparency": true,
+          "blur": true,
+          "itemStyle": "thumbnails",
+          "grouping": false,
+          "previews": true
+        }
+      },
+
+      "switching": {
+        "method": ["gesture"],
+        "altTab": {
+          "enabled": false
+        }
+      },
+
+      "multitasking": {
+        "preemptive": true,
+        "virtual_desktops": false,
+        "snapAssist": false,
+        "splitScreen": false
+      }
+    },
+
+    "desktop": {
+      "type": "iconic",
+
+      "layout": {
+        "type": "grid",
+        "grid": {
+          "cellWidth": 76,
+          "cellHeight": 90,
+          "spacing": 10
+        },
+        "direction": "vertical",
+        "alignment": "left",
+        "snapToGrid": true,
+        "autoArrange": true
+      },
+
+      "items": {
+        "icons": true,
+        "widgets": false,
+        "shortcuts": false,
+        "folders": true,
+
+        "defaultItems": [
+          "messages",
+          "calendar",
+          "photos",
+          "camera",
+          "weather",
+          "clock",
+          "maps",
+          "videos",
+          "notes",
+          "reminders",
+          "stocks",
+          "game_center",
+          "newsstand",
+          "passbook",
+          "settings",
+          "app_store",
+          "safari",
+          "mail",
+          "phone",
+          "music"
+        ]
+      },
+
+      "interaction": {
+        "click": "single",
+        "selection": "single",
+        "dragAndDrop": true,
+        "hoverPreview": false
+      },
+
+      "behavior": {
+        "showTrash": false,
+        "showComputer": false,
+        "showNetwork": false,
+        "showHome": true
+      }
+    },
+
+    "inputMethods": {
+      "keyboard": {
+        "shortcuts": false,
+        "function_keys": false,
+        "navigation": "custom",
+        "accessibility": true
+      },
+
+      "mouse": {
+        "buttons": 0,
+        "scroll": "none",
+        "gestures": false,
+        "acceleration": false
+      },
+
+      "touch": {
+        "enabled": true,
+        "multitouch": true,
+        "gestures": ["tap", "double_tap", "long_press", "swipe", "pinch", "multi_finger"],
+        "pressureSensitive": false
+      }
+    }
+  },
+
+  "components": {
+    "core": {
+      "windowManager": "springboard",
+      "fileManager": "none",
+
+      "optional": {
+        "textEditor": "notes",
+        "imageViewer": "photos",
+        "mediaPlayer": "music",
+        "webBrowser": "safari",
+        "emailClient": "mail"
+      }
+    },
+
+    "applications": [
+      {
+        "id": "safari",
+        "name": "Safari",
+        "icon": "icons/safari.png",
+        "type": "web",
+        "component": "Safari",
+        "window": {
+          "title": "Safari",
+          "width": 320,
+          "height": 568,
+          "resizable": false,
+          "position": "center"
+        },
+        "desktop": {
+          "icon": true
+        }
+      },
+      {
+        "id": "mail",
+        "name": "Mail",
+        "icon": "icons/mail.png",
+        "type": "communication",
+        "component": "Mail",
+        "window": {
+          "title": "Mail",
+          "width": 320,
+          "height": 568,
+          "resizable": false,
+          "position": "center"
+        },
+        "desktop": {
+          "icon": true
+        }
+      },
+      {
+        "id": "photos",
+        "name": "Photos",
+        "icon": "icons/photos.png",
+        "type": "media",
+        "component": "Photos",
+        "window": {
+          "title": "Photos",
+          "width": 320,
+          "height": 568,
+          "resizable": false,
+          "position": "center"
+        },
+        "desktop": {
+          "icon": true
+        }
+      },
+      {
+        "id": "messages",
+        "name": "Messages",
+        "icon": "icons/messages.png",
+        "type": "communication",
+        "component": "Messages",
+        "window": {
+          "title": "Messages",
+          "width": 320,
+          "height": 568,
+          "resizable": false,
+          "position": "center"
+        },
+        "desktop": {
+          "icon": true
+        }
+      }
+    ]
+  },
+
+  "features": {
+    "interaction": {
+      "dragAndDrop": true,
+      "clipboard": true,
+      "undo": true,
+
+      "fileOperations": {
+        "copy": true,
+        "move": true,
+        "delete": true,
+        "rename": false,
+        "properties": false
+      },
+
+      "networking": {
+        "enabled": true,
+        "protocols": ["WiFi", "LTE", "Bluetooth"]
+      },
+
+      "printing": true,
+      "scanning": false
+    },
+
+    "animations": {
+      "enabled": true,
+      "speed": "normal",
+
+      "effects": {
+        "windowOpen": true,
+        "windowClose": true,
+        "windowMinimize": true,
+        "menuOpen": true,
+        "hover": false,
+        "click": true,
+        "transitions": true,
+        "parallax": true
+      }
+    },
+
+    "accessibility": {
+      "highContrast": true,
+      "screenReader": true,
+      "magnifier": true,
+      "keyboard_navigation": true,
+      "colorblindModes": ["Grayscale", "Red/Green Filter", "Green/Red Filter", "Blue/Yellow Filter"]
+    },
+
+    "easterEggs": {
+      "enabled": false
+    },
+
+    "customization": {
+      "themes": false,
+      "wallpaper": true,
+      "colors": false,
+      "fonts": false,
+      "layout": true
+    }
+  },
+
+  "assets": {
+    "basePath": "/assets/os/ios-7",
+
+    "paths": {
+      "icons": "icons",
+      "sounds": "sounds",
+      "fonts": "fonts",
+      "wallpapers": "wallpapers"
+    },
+
+    "iconSets": {
+      "default": {
+        "path": "icons",
+        "format": "png",
+        "sizes": [60, 120, 180]
+      }
+    },
+
+    "soundSets": {
+      "default": {
+        "path": "sounds",
+        "format": "caf"
+      }
+    },
+
+    "preload": [
+      "icons/safari.png",
+      "icons/mail.png",
+      "icons/phone.png",
+      "icons/music.png",
+      "icons/messages.png",
+      "wallpapers/ios7-default.jpg"
+    ]
+  }
+}

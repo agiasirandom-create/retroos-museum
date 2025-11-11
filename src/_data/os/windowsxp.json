@@ -1,0 +1,178 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "windows-xp",
+  "metadata": {
+    "name": "Windows XP",
+    "fullName": "Microsoft Windows XP Professional",
+    "version": "5.1.2600",
+    "company": "Microsoft Corporation",
+    "releaseYear": 2001,
+    "releaseDate": "2001-10-25",
+    "description": "Revolutionary OS combining Windows 9x usability with NT stability, featuring the iconic Luna theme and unprecedented longevity.",
+    "tagline": "Yes You Can",
+    "category": "desktop_windows",
+    "architecture": ["x86", "x64"],
+    "historical": {
+      "significance": "Most successful Windows version, lasted 13 years, unified consumer and business Windows lines",
+      "marketShare": "Dominated desktop market for over a decade with 70%+ share at peak",
+      "successor": "Windows Vista",
+      "predecessor": "Windows 2000 / Windows ME",
+      "endOfLife": "2014-04-08"
+    },
+    "links": {"wikipedia": "https://en.wikipedia.org/wiki/Windows_XP"}
+  },
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#5A7EDC",
+        "windowBackground": "#ECE9D8",
+        "windowBorder": "#0054E3",
+        "windowBorderWidth": 3,
+        "titleBarActive": "#0054E3",
+        "titleBarInactive": "#7A96DF",
+        "titleBarText": "#FFFFFF",
+        "titleBarTextInactive": "#D8E9EC",
+        "buttonFace": "#ECE9D8",
+        "buttonText": "#000000",
+        "buttonHighlight": "#FFFFFF",
+        "buttonShadow": "#ACA899",
+        "buttonBorder": "#003C74",
+        "highlight": "#316AC5",
+        "highlightText": "#FFFFFF",
+        "menuBackground": "#FEFEF0",
+        "menuText": "#000000",
+        "menuHighlight": "#316AC5",
+        "text": "#000000",
+        "textDisabled": "#ACA899",
+        "statusBar": "#ECE9D8",
+        "taskbar": "#245EDC",
+        "shadow": "#000000"
+      },
+      "typography": {
+        "systemFont": {"family": "Tahoma", "size": 11, "weight": "normal", "fallback": ["Arial", "sans-serif"]},
+        "titleFont": {"family": "Tahoma", "size": 11, "weight": "bold"},
+        "menuFont": {"family": "Tahoma", "size": 11, "weight": "normal"},
+        "monospaceFont": {"family": "Lucida Console", "size": 10, "weight": "normal"},
+        "antialiasing": true,
+        "subpixelRendering": true,
+        "baseFontSize": 11,
+        "scaleFactor": 1.0
+      },
+      "style": {
+        "type": "skeuomorphic",
+        "borderStyle": "custom",
+        "cornerRadius": 8,
+        "shadows": true,
+        "shadowStyle": "soft",
+        "transparency": false,
+        "blur": false,
+        "bevels": false,
+        "gradients": true,
+        "textures": true,
+        "animationStyle": "ease"
+      },
+      "specialElements": {"scrollbarStyle": "classic", "focusIndicator": "solid_outline", "dragVisual": "ghost"}
+    },
+    "cursor": {"style": "modern_arrow", "animated": true, "shadows": true},
+    "icons": {
+      "style": "photo_realistic",
+      "size": {"default": 32, "sizes": [16, 32, 48, 64]},
+      "rendering": "antialiased",
+      "shadow": true,
+      "labelStyle": {"position": "below", "background": "gradient", "textColor": "#FFFFFF", "font": {"family": "Tahoma", "size": 8}}
+    },
+    "sounds": {
+      "enabled": true,
+      "sounds": {"startup": "sounds/startup.wav", "shutdown": "sounds/shutdown.wav", "error": "sounds/chord.wav", "notification": "sounds/notify.wav", "windowOpen": "sounds/pop.wav", "windowClose": "sounds/pop.wav"},
+      "volume": 80
+    },
+    "wallpaper": {"type": "image", "value": "wallpapers/bliss.jpg", "tiling": "stretch", "overlay": true}
+  },
+  "paradigm": {
+    "windowSystem": {
+      "type": "stacking",
+      "behavior": {"overlap": true, "resize": true, "minimize": true, "maximize": true, "close": true, "modal": true, "alwaysOnTop": true, "transparency": true, "multipleDocuments": false, "tabbed": false, "tiling": false},
+      "chrome": {
+        "titleBar": "classic",
+        "controls": "buttons",
+        "controlPosition": "right",
+        "buttons": {
+          "minimize": {"style": "icon", "content": "minimize", "position": 1},
+          "maximize": {"style": "icon", "content": "maximize", "position": 2},
+          "close": {"style": "icon", "content": "close", "position": 3, "color": "#FF0000"}
+        },
+        "titleAlign": "left",
+        "showIcon": true,
+        "showPath": false
+      },
+      "effects": {"openAnimation": "fade", "closeAnimation": "fade", "minimizeAnimation": "minimize_to_icon", "shadow": true, "blur": false}
+    },
+    "menuSystem": {
+      "type": "hybrid",
+      "menuBar": {"enabled": true, "position": "window", "style": {"background": "#FEFEF0", "textColor": "#000000", "height": 22}},
+      "contextMenu": {"enabled": true, "trigger": "right_click", "style": {"background": "#FEFEF0", "borderStyle": "shadow"}},
+      "behavior": {"clickToOpen": true, "keyboardShortcuts": true, "mnemonics": true, "icons": true, "cascading": true}
+    },
+    "taskManagement": {
+      "type": "taskbar",
+      "taskbar": {
+        "enabled": true,
+        "position": "bottom",
+        "autoHide": false,
+        "size": 30,
+        "style": {"background": "#245EDC", "transparency": false, "blur": false, "itemStyle": "icons_and_labels", "grouping": true, "previews": false},
+        "sections": {"start": true, "quick_launch": true, "tasks": true, "system_tray": true, "clock": true}
+      },
+      "switching": {"method": ["alt_tab", "taskbar_click"], "altTab": {"enabled": true, "visual": "thumbnails", "animation": true}},
+      "multitasking": {"preemptive": true, "virtual_desktops": false, "snapAssist": false}
+    },
+    "desktop": {
+      "type": "iconic",
+      "layout": {"type": "grid", "grid": {"cellWidth": 75, "cellHeight": 90, "spacing": 8}, "direction": "vertical", "alignment": "left", "snapToGrid": true, "autoArrange": false},
+      "items": {"icons": true, "widgets": false, "shortcuts": true, "folders": true, "defaultItems": ["my_computer", "my_documents", "my_network_places", "recycle_bin"]},
+      "interaction": {"click": "double", "selection": "rubber_band", "dragAndDrop": true, "hoverPreview": true},
+      "behavior": {"showTrash": true, "showComputer": true, "showNetwork": true, "showHome": false}
+    },
+    "inputMethods": {
+      "keyboard": {"shortcuts": true, "function_keys": true, "navigation": "arrows", "accessibility": true},
+      "mouse": {"buttons": 3, "scroll": "wheel", "gestures": false, "acceleration": true},
+      "touch": {"enabled": false}
+    }
+  },
+  "components": {
+    "core": {
+      "windowManager": "windowsxp-window-manager",
+      "fileManager": "windows-explorer-xp",
+      "optional": {"taskbar": "windowsxp-taskbar", "terminal": "command-prompt", "textEditor": "notepad", "imageViewer": "paint", "mediaPlayer": "windows-media-player-9", "webBrowser": "internet-explorer-6"}
+    },
+    "applications": [
+      {"id": "my_computer", "name": "My Computer", "icon": "icons/my_computer.png", "type": "system", "component": "FileExplorer", "window": {"title": "My Computer", "width": 700, "height": 500, "resizable": true, "minimizable": true, "maximizable": true, "position": "center"}, "desktop": {"icon": true, "position": {"x": 0, "y": 0}}, "features": {"saveState": true, "multiInstance": true}},
+      {"id": "recycle_bin", "name": "Recycle Bin", "icon": "icons/recycle_bin_empty.png", "type": "system", "component": "RecycleBin", "window": {"title": "Recycle Bin", "width": 700, "height": 500, "resizable": true, "minimizable": true, "maximizable": true, "position": "center"}, "desktop": {"icon": true, "position": {"x": 0, "y": 90}}},
+      {"id": "internet_explorer", "name": "Internet Explorer", "icon": "icons/ie6.png", "type": "web", "component": "InternetExplorer6", "window": {"title": "Microsoft Internet Explorer", "width": 900, "height": 650, "resizable": true, "minimizable": true, "maximizable": true, "position": "center"}, "features": {"multiInstance": true, "fileAssociations": [".html", ".htm"]}},
+      {"id": "notepad", "name": "Notepad", "icon": "icons/notepad.png", "type": "productivity", "component": "Notepad", "window": {"title": "Untitled - Notepad", "width": 600, "height": 450, "resizable": true, "minimizable": true, "maximizable": true, "position": "cascade"}, "menu": {"path": "Accessories"}, "features": {"multiInstance": true, "fileAssociations": [".txt"]}},
+      {"id": "paint", "name": "Paint", "icon": "icons/paint.png", "type": "creative", "component": "Paint", "window": {"title": "Untitled - Paint", "width": 700, "height": 550, "resizable": true, "minimizable": true, "maximizable": true, "position": "cascade"}, "menu": {"path": "Accessories"}},
+      {"id": "calculator", "name": "Calculator", "icon": "icons/calculator.png", "type": "utility", "component": "Calculator", "window": {"title": "Calculator", "width": 300, "height": 350, "resizable": false, "minimizable": true, "maximizable": false, "position": "center"}, "menu": {"path": "Accessories"}},
+      {"id": "minesweeper", "name": "Minesweeper", "icon": "icons/minesweeper.png", "type": "game", "component": "Minesweeper", "window": {"title": "Minesweeper", "width": 350, "height": 400, "resizable": false, "minimizable": true, "maximizable": false, "position": "center"}, "menu": {"path": "Games"}},
+      {"id": "solitaire", "name": "Solitaire", "icon": "icons/solitaire.png", "type": "game", "component": "Solitaire", "window": {"title": "Solitaire", "width": 700, "height": 520, "resizable": true, "minimizable": true, "maximizable": true, "position": "center"}, "menu": {"path": "Games"}},
+      {"id": "pinball", "name": "3D Pinball", "icon": "icons/pinball.png", "type": "game", "component": "Pinball", "window": {"title": "3D Pinball - Space Cadet", "width": 600, "height": 450, "resizable": false, "minimizable": true, "maximizable": false, "position": "center"}, "menu": {"path": "Games"}}
+    ],
+    "utilities": [
+      {"id": "control_panel", "name": "Control Panel", "type": "control_panel", "icon": "icons/control_panel.png", "component": "ControlPanel"},
+      {"id": "system_restore", "name": "System Restore", "type": "system_preference", "icon": "icons/system_restore.png"}
+    ]
+  },
+  "features": {
+    "interaction": {"dragAndDrop": true, "clipboard": true, "undo": true, "fileOperations": {"copy": true, "move": true, "delete": true, "rename": true, "properties": true}, "networking": {"enabled": true, "protocols": ["TCP/IP", "NetBEUI"]}, "printing": true, "scanning": true},
+    "animations": {"enabled": true, "speed": "normal", "effects": {"windowOpen": true, "windowClose": true, "windowMinimize": true, "minimize": true, "maximize": true, "menuOpen": true, "hover": true, "click": true, "transitions": true}},
+    "accessibility": {"highContrast": true, "screenReader": true, "magnifier": true, "keyboard_navigation": true},
+    "easterEggs": {"enabled": true, "list": ["pinball", "credits"]},
+    "customization": {"themes": true, "wallpaper": true, "colors": true, "fonts": true, "layout": true}
+  },
+  "assets": {
+    "basePath": "/assets/os/windowsxp",
+    "paths": {"icons": "icons", "cursors": "cursors", "sounds": "sounds", "fonts": "fonts", "wallpapers": "wallpapers"},
+    "iconSets": {"default": {"path": "icons", "format": "png", "sizes": [16, 32, 48, 64]}},
+    "fonts": {"tahoma": {"path": "fonts/tahoma.woff2", "format": "woff2", "weights": [400, 700]}, "lucida_console": {"path": "fonts/lucida-console.woff2", "format": "woff2", "weights": [400]}},
+    "preload": ["icons/my_computer.png", "icons/recycle_bin_empty.png", "sounds/startup.wav", "wallpapers/bliss.jpg"]
+  }
+}

@@ -1,0 +1,497 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "haiku",
+
+  "metadata": {
+    "name": "Haiku",
+    "fullName": "Haiku R1/Beta",
+    "version": "R1/Beta",
+    "company": "Haiku Project",
+    "releaseYear": 2018,
+    "releaseDate": "2018-09-28",
+    "description": "Open-source recreation of BeOS featuring the iconic yellow tabs, modern hardware support, and a responsive, lightweight desktop designed for personal computing.",
+    "tagline": "Fast, Simple, and Free BeOS",
+    "category": "desktop_alternative",
+    "architecture": ["x86", "x86_64"],
+
+    "historical": {
+      "significance": "Successful open-source continuation of BeOS, preserving the unique design philosophy while modernizing for contemporary hardware. Demonstrates viability of alternative desktop paradigms.",
+      "marketShare": "Enthusiast and legacy system users",
+      "predecessor": "BeOS R5"
+    },
+
+    "links": {
+      "wikipedia": "https://en.wikipedia.org/wiki/Haiku_(operating_system)"
+    }
+  },
+
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#336699",
+
+        "windowBackground": "#E8E8E8",
+        "windowBorder": "#000000",
+        "windowBorderWidth": 1,
+
+        "titleBarActive": "#FFCC00",
+        "titleBarInactive": "#E0E0E0",
+        "titleBarText": "#000000",
+        "titleBarTextInactive": "#808080",
+
+        "buttonFace": "#E8E8E8",
+        "buttonText": "#000000",
+        "buttonHighlight": "#FFFFFF",
+        "buttonShadow": "#909090",
+        "buttonBorder": "#000000",
+
+        "highlight": "#0C5A9E",
+        "highlightText": "#FFFFFF",
+
+        "menuBackground": "#E8E8E8",
+        "menuText": "#000000",
+        "menuHighlight": "#0C5A9E",
+
+        "text": "#000000",
+        "textDisabled": "#909090",
+
+        "statusBar": "#E8E8E8",
+        "taskbar": "#E8E8E8",
+
+        "custom": {
+          "yellowTab": "#FFCC00",
+          "deskbar": "#E8E8E8",
+          "replicant": "#336699"
+        }
+      },
+
+      "typography": {
+        "systemFont": {
+          "family": "Noto Sans",
+          "size": 11,
+          "weight": "normal",
+          "fallback": ["DejaVu Sans", "sans-serif"]
+        },
+        "titleFont": {
+          "family": "Noto Sans",
+          "size": 11,
+          "weight": "bold"
+        },
+        "menuFont": {
+          "family": "Noto Sans",
+          "size": 11,
+          "weight": "normal"
+        },
+        "monospaceFont": {
+          "family": "Noto Mono",
+          "size": 11,
+          "weight": "normal"
+        },
+
+        "antialiasing": true,
+        "subpixelRendering": true,
+        "baseFontSize": 11
+      },
+
+      "style": {
+        "type": "classic",
+        "borderStyle": "single",
+        "cornerRadius": 0,
+
+        "shadows": true,
+        "shadowStyle": "soft",
+        "transparency": true,
+
+        "bevels": true,
+        "gradients": true,
+
+        "animationStyle": "ease"
+      }
+    },
+
+    "cursor": {
+      "style": "modern_arrow",
+      "animated": true,
+      "shadows": true
+    },
+
+    "icons": {
+      "style": "icon_32",
+      "size": {
+        "default": 32,
+        "sizes": [16, 32, 48, 64]
+      },
+      "rendering": "vector",
+      "shadow": true,
+      "labelStyle": {
+        "position": "below",
+        "background": "transparent",
+        "textColor": "#000000",
+        "font": {
+          "family": "Noto Sans",
+          "size": 10
+        }
+      }
+    },
+
+    "sounds": {
+      "enabled": true,
+      "sounds": {
+        "startup": "sounds/haiku_startup.wav",
+        "error": "sounds/beep.wav",
+        "notification": "sounds/notification.wav"
+      },
+      "volume": 75
+    },
+
+    "wallpaper": {
+      "type": "image",
+      "value": "wallpapers/haiku_leaf.png",
+      "tiling": "center",
+      "overlay": true
+    }
+  },
+
+  "paradigm": {
+    "windowSystem": {
+      "type": "stacking",
+
+      "behavior": {
+        "overlap": true,
+        "resize": true,
+        "minimize": true,
+        "maximize": true,
+        "close": true,
+
+        "modal": true,
+        "transparency": true,
+        "tabbed": true
+      },
+
+      "chrome": {
+        "titleBar": "classic",
+        "controls": "buttons",
+        "controlPosition": "right",
+
+        "buttons": {
+          "close": {
+            "style": "icon",
+            "content": "close",
+            "position": 1
+          },
+          "minimize": {
+            "style": "icon",
+            "content": "minimize",
+            "position": 2
+          },
+          "maximize": {
+            "style": "icon",
+            "content": "zoom",
+            "position": 3
+          }
+        },
+
+        "titleAlign": "left",
+        "showIcon": false
+      },
+
+      "effects": {
+        "openAnimation": "fade",
+        "closeAnimation": "fade",
+        "minimizeAnimation": "minimize_to_icon",
+        "shadow": true
+      }
+    },
+
+    "menuSystem": {
+      "type": "menu_bar",
+
+      "menuBar": {
+        "enabled": true,
+        "position": "window",
+        "sticky": false,
+
+        "style": {
+          "background": "#E8E8E8",
+          "textColor": "#000000",
+          "height": 22
+        }
+      },
+
+      "contextMenu": {
+        "enabled": true,
+        "trigger": "right_click"
+      },
+
+      "behavior": {
+        "clickToOpen": true,
+        "icons": true,
+        "cascading": true,
+        "keyboardShortcuts": true
+      }
+    },
+
+    "taskManagement": {
+      "type": "taskbar",
+
+      "taskbar": {
+        "enabled": true,
+        "position": "top",
+        "autoHide": false,
+        "size": 20,
+
+        "style": {
+          "background": "#E8E8E8",
+          "transparency": false,
+          "blur": false,
+          "itemStyle": "icons",
+          "grouping": false,
+          "previews": false
+        },
+
+        "sections": {
+          "start": true,
+          "quick_launch": true,
+          "tasks": true,
+          "system_tray": true,
+          "clock": true
+        }
+      },
+
+      "switching": {
+        "method": ["taskbar_click", "alt_tab"],
+        "altTab": {
+          "enabled": true,
+          "visual": "thumbnails",
+          "animation": true
+        }
+      },
+
+      "multitasking": {
+        "preemptive": true,
+        "virtual_desktops": true,
+        "snapAssist": true
+      }
+    },
+
+    "desktop": {
+      "type": "iconic",
+
+      "layout": {
+        "type": "free_form",
+        "snapToGrid": false,
+        "autoArrange": false
+      },
+
+      "items": {
+        "icons": true,
+        "shortcuts": true,
+        "folders": true,
+
+        "defaultItems": [
+          "home",
+          "disks",
+          "trash"
+        ]
+      },
+
+      "interaction": {
+        "click": "single",
+        "selection": "rubber_band",
+        "dragAndDrop": true,
+        "hoverPreview": true
+      },
+
+      "behavior": {
+        "showTrash": true,
+        "showComputer": true,
+        "showHome": true
+      }
+    },
+
+    "inputMethods": {
+      "keyboard": {
+        "shortcuts": true,
+        "function_keys": true,
+        "navigation": "arrows",
+        "accessibility": true
+      },
+
+      "mouse": {
+        "buttons": 3,
+        "scroll": "wheel",
+        "gestures": false,
+        "acceleration": true
+      }
+    }
+  },
+
+  "components": {
+    "core": {
+      "windowManager": "app_server",
+      "fileManager": "tracker",
+
+      "optional": {
+        "taskbar": "deskbar",
+        "terminal": "terminal",
+        "textEditor": "stylededit",
+        "imageViewer": "showimage",
+        "mediaPlayer": "mediaplayer",
+        "webBrowser": "webpositive"
+      }
+    },
+
+    "applications": [
+      {
+        "id": "tracker",
+        "name": "Tracker",
+        "icon": "icons/tracker.png",
+        "type": "system",
+        "component": "Tracker",
+
+        "window": {
+          "title": "Tracker",
+          "width": 650,
+          "height": 450,
+          "resizable": true,
+          "minimizable": true,
+          "maximizable": true,
+          "position": "center"
+        },
+
+        "desktop": {
+          "icon": true,
+          "position": { "x": 50, "y": 50 }
+        }
+      },
+      {
+        "id": "terminal",
+        "name": "Terminal",
+        "icon": "icons/terminal.png",
+        "type": "system",
+        "component": "Terminal",
+
+        "window": {
+          "title": "Terminal",
+          "width": 640,
+          "height": 400,
+          "resizable": true,
+          "minimizable": true,
+          "maximizable": true,
+          "position": "cascade"
+        },
+
+        "features": {
+          "multiInstance": true
+        }
+      },
+      {
+        "id": "stylededit",
+        "name": "StyledEdit",
+        "icon": "icons/stylededit.png",
+        "type": "productivity",
+        "component": "StyledEdit",
+
+        "window": {
+          "title": "StyledEdit",
+          "width": 550,
+          "height": 450,
+          "resizable": true,
+          "minimizable": true,
+          "maximizable": true,
+          "position": "cascade"
+        },
+
+        "features": {
+          "multiInstance": true,
+          "fileAssociations": [".txt", ".rtf"]
+        }
+      },
+      {
+        "id": "webpositive",
+        "name": "WebPositive",
+        "icon": "icons/webpositive.png",
+        "type": "web",
+        "component": "WebPositive",
+
+        "window": {
+          "title": "WebPositive",
+          "width": 900,
+          "height": 600,
+          "resizable": true,
+          "minimizable": true,
+          "maximizable": true,
+          "position": "center"
+        }
+      }
+    ]
+  },
+
+  "features": {
+    "interaction": {
+      "dragAndDrop": true,
+      "clipboard": true,
+      "undo": true,
+
+      "fileOperations": {
+        "copy": true,
+        "move": true,
+        "delete": true,
+        "rename": true,
+        "properties": true
+      },
+
+      "networking": {
+        "enabled": true,
+        "protocols": ["TCP/IP", "HTTP", "FTP", "SSH"]
+      }
+    },
+
+    "animations": {
+      "enabled": true,
+      "speed": "fast",
+      "effects": {
+        "windowOpen": true,
+        "windowClose": true,
+        "windowMinimize": true,
+        "menuOpen": true,
+        "hover": true
+      }
+    },
+
+    "customization": {
+      "themes": true,
+      "wallpaper": true,
+      "colors": true,
+      "fonts": true
+    }
+  },
+
+  "assets": {
+    "basePath": "/assets/os/haiku",
+
+    "paths": {
+      "icons": "icons",
+      "cursors": "cursors",
+      "sounds": "sounds",
+      "fonts": "fonts",
+      "wallpapers": "wallpapers"
+    },
+
+    "iconSets": {
+      "default": {
+        "path": "icons",
+        "format": "svg",
+        "sizes": [16, 32, 48, 64]
+      }
+    },
+
+    "fonts": {
+      "noto": {
+        "path": "fonts/noto.woff2",
+        "format": "woff2",
+        "weights": [400, 700]
+      }
+    }
+  }
+}

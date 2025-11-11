@@ -1,0 +1,487 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "riscos-3",
+
+  "metadata": {
+    "name": "RISC OS",
+    "fullName": "RISC OS 3.11",
+    "version": "3.11",
+    "company": "Acorn Computers",
+    "releaseYear": 1987,
+    "releaseDate": "1987-06-01",
+    "description": "The efficient ARM-based operating system featuring a unique three-button mouse interface, icon bar, and desktop saved in RAM for instant boot times.",
+    "tagline": "The Original ARM Operating System",
+    "category": "desktop_alternative",
+    "architecture": ["ARM"],
+
+    "historical": {
+      "significance": "First commercial OS designed for ARM processors. Pioneered cooperative multitasking on ARM, unique three-button mouse paradigm, and innovative module-based architecture. Used in Acorn Archimedes computers.",
+      "marketShare": "Dominant in UK education market in the 1990s",
+      "successor": "RISC OS 4",
+      "endOfLife": "Still maintained by RISC OS Open"
+    },
+
+    "links": {
+      "wikipedia": "https://en.wikipedia.org/wiki/RISC_OS"
+    }
+  },
+
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#BBBBBB",
+
+        "windowBackground": "#DDDDDD",
+        "windowBorder": "#000000",
+        "windowBorderWidth": 2,
+
+        "titleBarActive": "#DDDDDD",
+        "titleBarInactive": "#BBBBBB",
+        "titleBarText": "#000000",
+        "titleBarTextInactive": "#666666",
+
+        "buttonFace": "#DDDDDD",
+        "buttonText": "#000000",
+        "buttonHighlight": "#FFFFFF",
+        "buttonShadow": "#888888",
+        "buttonBorder": "#000000",
+
+        "highlight": "#FFDD00",
+        "highlightText": "#000000",
+
+        "menuBackground": "#DDDDDD",
+        "menuText": "#000000",
+        "menuHighlight": "#FFDD00",
+
+        "text": "#000000",
+        "textDisabled": "#888888",
+
+        "custom": {
+          "iconBar": "#BBBBBB",
+          "iconBarBorder": "#000000",
+          "pinboard": "#BBBBBB",
+          "action": "#00DD00"
+        }
+      },
+
+      "typography": {
+        "systemFont": {
+          "family": "Trinity",
+          "size": 12,
+          "weight": "normal",
+          "fallback": ["Homerton", "sans-serif"]
+        },
+        "titleFont": {
+          "family": "Trinity",
+          "size": 12,
+          "weight": "bold"
+        },
+        "menuFont": {
+          "family": "Trinity",
+          "size": 12,
+          "weight": "normal"
+        },
+        "monospaceFont": {
+          "family": "Corpus",
+          "size": 12,
+          "weight": "normal"
+        },
+
+        "antialiasing": false,
+        "baseFontSize": 12
+      },
+
+      "style": {
+        "type": "classic",
+        "borderStyle": "bevel_out",
+        "cornerRadius": 0,
+
+        "shadows": false,
+        "transparency": false,
+
+        "bevels": true,
+        "gradients": false,
+
+        "animationStyle": "instant"
+      }
+    },
+
+    "cursor": {
+      "style": "classic_arrow",
+      "animated": false,
+      "shadows": false
+    },
+
+    "icons": {
+      "style": "icon_32",
+      "size": {
+        "default": 32,
+        "sizes": [16, 32, 64]
+      },
+      "rendering": "aliased",
+      "shadow": false,
+      "labelStyle": {
+        "position": "below",
+        "background": "transparent",
+        "textColor": "#000000",
+        "font": {
+          "family": "Trinity",
+          "size": 10
+        }
+      }
+    },
+
+    "sounds": {
+      "enabled": true,
+      "sounds": {
+        "startup": "sounds/riscos_startup.wav",
+        "error": "sounds/beep.wav"
+      },
+      "volume": 70
+    },
+
+    "wallpaper": {
+      "type": "solid",
+      "value": "#BBBBBB",
+      "overlay": false
+    }
+  },
+
+  "paradigm": {
+    "windowSystem": {
+      "type": "stacking",
+
+      "behavior": {
+        "overlap": true,
+        "resize": true,
+        "minimize": false,
+        "maximize": true,
+        "close": true,
+
+        "modal": true,
+        "transparency": false
+      },
+
+      "chrome": {
+        "titleBar": "classic",
+        "controls": "buttons",
+        "controlPosition": "left",
+
+        "buttons": {
+          "close": {
+            "style": "icon",
+            "content": "close",
+            "position": 1
+          },
+          "maximize": {
+            "style": "icon",
+            "content": "toggle_size",
+            "position": 2
+          },
+          "menu": {
+            "style": "icon",
+            "content": "back",
+            "position": 3
+          }
+        },
+
+        "titleAlign": "center",
+        "showIcon": true
+      },
+
+      "effects": {
+        "openAnimation": "none",
+        "closeAnimation": "none"
+      }
+    },
+
+    "menuSystem": {
+      "type": "hybrid",
+
+      "menuBar": {
+        "enabled": true,
+        "position": "window",
+        "sticky": false,
+
+        "style": {
+          "background": "#DDDDDD",
+          "textColor": "#000000",
+          "height": 40
+        }
+      },
+
+      "contextMenu": {
+        "enabled": true,
+        "trigger": "ctrl_click",
+        "style": {
+          "background": "#DDDDDD"
+        }
+      },
+
+      "behavior": {
+        "clickToOpen": true,
+        "icons": true,
+        "cascading": true
+      }
+    },
+
+    "taskManagement": {
+      "type": "panel",
+
+      "taskbar": {
+        "enabled": true,
+        "position": "bottom",
+        "autoHide": false,
+        "size": 64,
+
+        "style": {
+          "background": "#BBBBBB",
+          "transparency": false,
+          "blur": false,
+          "itemStyle": "icons",
+          "grouping": false,
+          "previews": false
+        },
+
+        "sections": {
+          "quick_launch": true,
+          "tasks": true
+        }
+      },
+
+      "switching": {
+        "method": ["taskbar_click"]
+      },
+
+      "multitasking": {
+        "preemptive": false,
+        "virtual_desktops": false
+      }
+    },
+
+    "desktop": {
+      "type": "iconic",
+
+      "layout": {
+        "type": "grid",
+        "grid": {
+          "cellWidth": 72,
+          "cellHeight": 96,
+          "spacing": 8
+        },
+        "direction": "vertical",
+        "alignment": "left",
+        "snapToGrid": true,
+        "autoArrange": false
+      },
+
+      "items": {
+        "icons": true,
+        "shortcuts": true,
+        "folders": true,
+
+        "defaultItems": [
+          "harddisc",
+          "apps",
+          "trash"
+        ]
+      },
+
+      "interaction": {
+        "click": "double",
+        "selection": "single",
+        "dragAndDrop": true
+      },
+
+      "behavior": {
+        "showTrash": true,
+        "showComputer": true
+      }
+    },
+
+    "inputMethods": {
+      "keyboard": {
+        "shortcuts": true,
+        "function_keys": true,
+        "navigation": "arrows"
+      },
+
+      "mouse": {
+        "buttons": 3,
+        "scroll": "none",
+        "gestures": false
+      }
+    }
+  },
+
+  "components": {
+    "core": {
+      "windowManager": "wimp",
+      "fileManager": "filer",
+
+      "optional": {
+        "taskbar": "iconbar",
+        "terminal": "taskwindow",
+        "textEditor": "edit"
+      }
+    },
+
+    "applications": [
+      {
+        "id": "filer",
+        "name": "Filer",
+        "icon": "icons/filer.png",
+        "type": "system",
+        "component": "Filer",
+
+        "window": {
+          "title": "Root",
+          "width": 600,
+          "height": 400,
+          "resizable": true,
+          "minimizable": false,
+          "maximizable": true,
+          "position": "center"
+        },
+
+        "desktop": {
+          "icon": true,
+          "position": { "x": 30, "y": 30 }
+        }
+      },
+      {
+        "id": "edit",
+        "name": "Edit",
+        "icon": "icons/edit.png",
+        "type": "productivity",
+        "component": "Edit",
+
+        "window": {
+          "title": "Edit",
+          "width": 640,
+          "height": 480,
+          "resizable": true,
+          "minimizable": false,
+          "maximizable": true,
+          "position": "cascade"
+        },
+
+        "features": {
+          "multiInstance": true,
+          "fileAssociations": [".txt"]
+        }
+      },
+      {
+        "id": "draw",
+        "name": "Draw",
+        "icon": "icons/draw.png",
+        "type": "creative",
+        "component": "Draw",
+
+        "window": {
+          "title": "Draw",
+          "width": 700,
+          "height": 500,
+          "resizable": true,
+          "minimizable": false,
+          "maximizable": true,
+          "position": "center"
+        }
+      },
+      {
+        "id": "paint",
+        "name": "Paint",
+        "icon": "icons/paint.png",
+        "type": "creative",
+        "component": "Paint",
+
+        "window": {
+          "title": "Paint",
+          "width": 640,
+          "height": 480,
+          "resizable": true,
+          "minimizable": false,
+          "maximizable": true,
+          "position": "center"
+        }
+      },
+      {
+        "id": "taskwindow",
+        "name": "Task window",
+        "icon": "icons/taskwindow.png",
+        "type": "system",
+        "component": "TaskWindow",
+
+        "window": {
+          "title": "Task window",
+          "width": 640,
+          "height": 300,
+          "resizable": true,
+          "minimizable": false,
+          "maximizable": true,
+          "position": "cascade"
+        },
+
+        "features": {
+          "multiInstance": true
+        }
+      }
+    ]
+  },
+
+  "features": {
+    "interaction": {
+      "dragAndDrop": true,
+      "clipboard": true,
+
+      "fileOperations": {
+        "copy": true,
+        "move": true,
+        "delete": true,
+        "rename": true,
+        "properties": true
+      },
+
+      "networking": {
+        "enabled": false
+      }
+    },
+
+    "animations": {
+      "enabled": false
+    },
+
+    "customization": {
+      "themes": false,
+      "wallpaper": false,
+      "colors": false
+    }
+  },
+
+  "assets": {
+    "basePath": "/assets/os/riscos",
+
+    "paths": {
+      "icons": "icons",
+      "cursors": "cursors",
+      "sounds": "sounds",
+      "fonts": "fonts"
+    },
+
+    "iconSets": {
+      "default": {
+        "path": "icons",
+        "format": "png",
+        "sizes": [16, 32, 64]
+      }
+    },
+
+    "fonts": {
+      "trinity": {
+        "path": "fonts/trinity.woff2",
+        "format": "woff2",
+        "weights": [400, 700]
+      }
+    }
+  }
+}

@@ -1,0 +1,88 @@
+---
+layout: layouts/base.njk
+title: macOS Sonoma - RetroOS Museum
+description: Experience the macOS Sonoma desktop environment with authentic design and interactive features.
+bodyClass: macos-14-sonoma-body
+permalink: /os/macos-14-sonoma/
+---
+
+{% block head %}
+<!-- macOS Sonoma CSS -->
+<link rel="stylesheet" href="/assets/css/macos-14-sonoma.css">
+<style>
+  /* Hide default header and footer for full desktop experience */
+  body.macos-14-sonoma-body header,
+  body.macos-14-sonoma-body footer {
+    display: none;
+  }
+
+  body.macos-14-sonoma-body main {
+    padding: 0;
+    max-width: none;
+    margin: 0;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- macOS Sonoma Desktop Environment -->
+<div id="macos-14-sonoma-desktop" class="macos-14-sonoma-desktop" role="application" aria-label="macOS Sonoma Desktop">
+
+  <!-- Global Menu Bar (Mac paradigm) -->
+  <div id="macos-14-sonoma-menubar" class="macos-14-sonoma-menubar" role="menubar" aria-label="Menu Bar">
+    <!-- Menu items will be populated by JavaScript -->
+  </div>
+
+  <!-- Desktop Area -->
+  <div id="desktop-area" class="desktop-area">
+    <!-- Desktop Icons Container -->
+    <div id="desktop-icons" class="desktop-icons">
+      <!-- Icons will be added by JavaScript -->
+    </div>
+  </div>
+
+  <!-- Windows Container -->
+  <div id="windows-container" class="windows-container">
+    <!-- Windows will be added here by WindowManager -->
+  </div>
+
+  <!-- Dock (for OS X and later) -->
+  <div id="macos-14-sonoma-dock" class="macos-14-sonoma-dock">
+    <!-- Dock items will be populated by JavaScript -->
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<!-- Core Systems -->
+<script src="/assets/js/window-manager.js"></script>
+<script src="/assets/js/menu-system.js"></script>
+<script src="/assets/js/desktop.js"></script>
+
+<!-- macOS Sonoma Specific -->
+<script src="/assets/js/macos-14-sonoma-window-adapter.js"></script>
+<script src="/assets/js/macos-14-sonoma-menubar.js"></script>
+<script src="/assets/js/macos-14-sonoma-desktop.js"></script>
+
+<!-- Applications -->
+<script src="/assets/js/apps/macos-14-sonoma-finder.js"></script>
+<script src="/assets/js/apps/macos-14-sonoma-apps.js"></script>
+
+<!-- Initialize macOS Sonoma -->
+<script>
+  // Wait for DOM to be ready
+  document.addEventListener('DOMContentLoaded', function() {
+    // Load OS configuration
+    fetch('/assets/data/os/macos-14-sonoma.json')
+      .then(response => response.json())
+      .then(config => {
+        // Initialize macOS Sonoma desktop
+        window.osInstance = new OSInstance(config);
+        window.osInstance.init();
+      })
+      .catch(error => {
+        console.error('Failed to load OS configuration:', error);
+      });
+  });
+</script>
+{% endblock %}

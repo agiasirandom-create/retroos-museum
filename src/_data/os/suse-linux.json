@@ -1,0 +1,457 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "suse-linux",
+
+  "metadata": {
+    "name": "SUSE Linux 5.3",
+    "fullName": "SUSE Linux 5.3 with KDE",
+    "version": "5.3",
+    "company": "SUSE GmbH",
+    "releaseYear": 1998,
+    "releaseDate": "1998-03-15",
+    "description": "German-engineered Linux distribution featuring the KDE desktop environment, YaST system management, and exceptional stability.",
+    "tagline": "The Linux Experts",
+    "category": "desktop_linux",
+    "architecture": ["x86", "Alpha", "SPARC"],
+
+    "historical": {
+      "significance": "First major Linux distribution to ship with KDE as default desktop. Pioneered YaST configuration tool. Became leading European Linux distribution.",
+      "marketShare": "Dominant in European enterprise and government sectors",
+      "successor": "openSUSE, SUSE Linux Enterprise",
+      "predecessor": "S.u.S.E. Linux 4.2"
+    },
+
+    "links": {
+      "wikipedia": "https://en.wikipedia.org/wiki/SUSE_Linux",
+      "officialSite": "https://www.suse.com"
+    }
+  },
+
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#004080",
+
+        "windowBackground": "#D4D0C8",
+        "windowBorder": "#000000",
+        "windowBorderWidth": 1,
+
+        "titleBarActive": "#4080C0",
+        "titleBarInactive": "#808080",
+        "titleBarText": "#FFFFFF",
+        "titleBarTextInactive": "#C0C0C0",
+
+        "buttonFace": "#D4D0C8",
+        "buttonText": "#000000",
+        "buttonHighlight": "#FFFFFF",
+        "buttonShadow": "#808080",
+        "buttonBorder": "#000000",
+
+        "highlight": "#4080C0",
+        "highlightText": "#FFFFFF",
+
+        "menuBackground": "#D4D0C8",
+        "menuText": "#000000",
+        "menuHighlight": "#4080C0",
+
+        "text": "#000000",
+        "taskbar": "#D4D0C8",
+
+        "custom": {
+          "panelBackground": "#C0C0C0",
+          "panelBorder": "#808080",
+          "kdeGreen": "#73D216"
+        }
+      },
+
+      "typography": {
+        "systemFont": {
+          "family": "Helvetica",
+          "size": 12,
+          "weight": "normal",
+          "fallback": ["Arial", "sans-serif"]
+        },
+        "titleFont": {
+          "family": "Helvetica",
+          "size": 11,
+          "weight": "bold"
+        },
+        "menuFont": {
+          "family": "Helvetica",
+          "size": 11,
+          "weight": "normal"
+        },
+        "monospaceFont": {
+          "family": "Fixed",
+          "size": 10,
+          "weight": "normal"
+        },
+
+        "antialiasing": false,
+        "baseFontSize": 12
+      },
+
+      "style": {
+        "type": "bevel_3d",
+        "borderStyle": "bevel_out",
+        "cornerRadius": 0,
+
+        "shadows": false,
+        "transparency": false,
+
+        "bevels": true,
+        "gradients": false,
+
+        "animationStyle": "instant"
+      }
+    },
+
+    "cursor": {
+      "style": "classic_arrow",
+      "animated": false,
+      "shadows": false
+    },
+
+    "icons": {
+      "style": "icon_48",
+      "size": {
+        "default": 48,
+        "sizes": [32, 48]
+      },
+      "rendering": "antialiased",
+      "shadow": false,
+      "labelStyle": {
+        "position": "below",
+        "background": "transparent",
+        "textColor": "#FFFFFF",
+        "font": {
+          "family": "Helvetica",
+          "size": 10
+        }
+      }
+    },
+
+    "wallpaper": {
+      "type": "solid",
+      "value": "#004080",
+      "overlay": true
+    }
+  },
+
+  "paradigm": {
+    "windowSystem": {
+      "type": "stacking",
+
+      "behavior": {
+        "overlap": true,
+        "resize": true,
+        "minimize": true,
+        "maximize": true,
+        "close": true,
+
+        "modal": true,
+        "alwaysOnTop": true,
+        "transparency": false
+      },
+
+      "chrome": {
+        "titleBar": "classic",
+        "controls": "buttons",
+        "controlPosition": "right",
+
+        "buttons": {
+          "menu": {
+            "style": "icon",
+            "content": "menu",
+            "position": 0
+          },
+          "minimize": {
+            "style": "icon",
+            "content": "minimize",
+            "position": 1
+          },
+          "maximize": {
+            "style": "icon",
+            "content": "maximize",
+            "position": 2
+          },
+          "close": {
+            "style": "icon",
+            "content": "close",
+            "position": 3
+          }
+        },
+
+        "titleAlign": "left",
+        "showIcon": true
+      },
+
+      "effects": {
+        "shadow": false
+      }
+    },
+
+    "menuSystem": {
+      "type": "start_menu",
+
+      "menuBar": {
+        "enabled": false
+      },
+
+      "contextMenu": {
+        "enabled": true,
+        "trigger": "right_click",
+        "style": {
+          "background": "#D4D0C8",
+          "borderStyle": "bevel_out"
+        }
+      },
+
+      "behavior": {
+        "clickToOpen": true,
+        "icons": true,
+        "cascading": true,
+        "tearOff": false
+      }
+    },
+
+    "taskManagement": {
+      "type": "panel",
+
+      "taskbar": {
+        "enabled": true,
+        "position": "bottom",
+        "autoHide": false,
+        "size": 48,
+
+        "style": {
+          "background": "#C0C0C0",
+          "transparency": false,
+          "blur": false,
+
+          "itemStyle": "icons",
+          "grouping": false,
+          "previews": false
+        },
+
+        "sections": {
+          "start": true,
+          "quick_launch": true,
+          "tasks": true,
+          "system_tray": true,
+          "clock": true
+        }
+      },
+
+      "switching": {
+        "method": ["alt_tab", "taskbar_click"],
+        "altTab": {
+          "enabled": true,
+          "visual": "icons",
+          "animation": false
+        }
+      },
+
+      "multitasking": {
+        "preemptive": true,
+        "virtual_desktops": true
+      }
+    },
+
+    "desktop": {
+      "type": "iconic",
+
+      "layout": {
+        "type": "grid",
+        "grid": {
+          "cellWidth": 80,
+          "cellHeight": 100,
+          "spacing": 20
+        },
+        "direction": "vertical",
+        "alignment": "left",
+        "snapToGrid": true
+      },
+
+      "items": {
+        "icons": true,
+        "shortcuts": true,
+        "folders": true
+      },
+
+      "interaction": {
+        "click": "double",
+        "selection": "rubber_band",
+        "dragAndDrop": true
+      }
+    },
+
+    "inputMethods": {
+      "keyboard": {
+        "shortcuts": true,
+        "function_keys": true,
+        "navigation": "arrows"
+      },
+
+      "mouse": {
+        "buttons": 3,
+        "scroll": "wheel",
+        "gestures": false
+      }
+    }
+  },
+
+  "components": {
+    "core": {
+      "windowManager": "kde",
+      "fileManager": "kfm",
+
+      "optional": {
+        "terminal": "konsole",
+        "textEditor": "kedit"
+      }
+    },
+
+    "applications": [
+      {
+        "id": "konsole",
+        "name": "Konsole",
+        "icon": "icons/konsole.png",
+        "type": "system",
+        "component": "XTerm",
+
+        "window": {
+          "title": "Konsole",
+          "width": 640,
+          "height": 400,
+          "resizable": true,
+          "minimizable": true,
+          "maximizable": true,
+          "position": "cascade"
+        },
+
+        "features": {
+          "multiInstance": true
+        }
+      },
+      {
+        "id": "yast",
+        "name": "YaST Control Center",
+        "icon": "icons/yast.png",
+        "type": "system",
+        "component": "YaST",
+
+        "window": {
+          "title": "YaST - Yet another Setup Tool",
+          "width": 700,
+          "height": 500,
+          "resizable": true,
+          "minimizable": true,
+          "maximizable": true,
+          "position": "center"
+        }
+      },
+      {
+        "id": "kfm",
+        "name": "File Manager",
+        "icon": "icons/folder.png",
+        "type": "system",
+        "component": "XFM",
+
+        "window": {
+          "title": "KFM - File Manager",
+          "width": 600,
+          "height": 450,
+          "resizable": true,
+          "minimizable": true,
+          "maximizable": true,
+          "position": "center"
+        }
+      },
+      {
+        "id": "kcalc",
+        "name": "Calculator",
+        "icon": "icons/kcalc.png",
+        "type": "utility",
+        "component": "XCalc",
+
+        "window": {
+          "title": "KCalc",
+          "width": 250,
+          "height": 320,
+          "resizable": false,
+          "minimizable": true,
+          "maximizable": false,
+          "position": "center"
+        }
+      },
+      {
+        "id": "kpaint",
+        "name": "KPaint",
+        "icon": "icons/kpaint.png",
+        "type": "creative",
+        "component": "Paint",
+
+        "window": {
+          "title": "KPaint",
+          "width": 640,
+          "height": 480,
+          "resizable": true,
+          "minimizable": true,
+          "maximizable": true,
+          "position": "center"
+        }
+      }
+    ]
+  },
+
+  "features": {
+    "interaction": {
+      "dragAndDrop": true,
+      "clipboard": true,
+
+      "fileOperations": {
+        "copy": true,
+        "move": true,
+        "delete": true,
+        "rename": true,
+        "properties": true
+      },
+
+      "networking": {
+        "enabled": true,
+        "protocols": ["TCP/IP", "NFS", "SMB"]
+      }
+    },
+
+    "animations": {
+      "enabled": false,
+      "speed": "normal"
+    },
+
+    "customization": {
+      "themes": true,
+      "wallpaper": true,
+      "colors": true,
+      "layout": true
+    }
+  },
+
+  "assets": {
+    "basePath": "/assets/os/suse-linux",
+
+    "paths": {
+      "icons": "icons",
+      "cursors": "cursors",
+      "fonts": "fonts"
+    },
+
+    "iconSets": {
+      "default": {
+        "path": "icons",
+        "format": "png",
+        "sizes": [32, 48]
+      }
+    }
+  }
+}

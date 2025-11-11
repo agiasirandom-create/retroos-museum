@@ -1,0 +1,120 @@
+---
+layout: layouts/base.njk
+title: "Mandrake Linux 5.1 - RetroOS Museum"
+description: "Interactive recreation of Mandrake Linux 5.1 from the 1990s-2000s"
+---
+
+<div class="os-page" data-os-id="mandrake-linux">
+  <div class="desktop" id="desktop"></div>
+
+  <div class="os-loading" id="os-loading">
+    <div class="loading-content">
+      <div class="loading-logo">⭐</div>
+      <h2>Loading Mandrake Linux 5.1...</h2>
+      <div class="loading-bar">
+        <div class="loading-progress"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/js/config-validator.js"></script>
+<script src="/assets/js/theme-engine.js"></script>
+<script src="/assets/js/window-manager.js"></script>
+<script src="/assets/js/app-factory.js"></script>
+<script src="/assets/js/desktop-generator.js"></script>
+<script src="/assets/js/os-generator.js"></script>
+<script src="/assets/js/os-switcher.js"></script>
+
+<script>
+  (async function() {
+    const configPath = '/assets/data/os/mandrake-linux.json';
+
+    try {
+      const loader = document.getElementById('os-loading');
+      const osGenerator = OSGenerator.getInstance();
+      const success = await osGenerator.initialize(configPath);
+
+      if (success) {
+        setTimeout(() => {
+          loader.style.opacity = '0';
+          setTimeout(() => loader.style.display = 'none', 500);
+        }, 1000);
+      }
+    } catch (error) {
+      console.error('Failed to initialize OS:', error);
+    }
+  })();
+</script>
+
+<style>
+  .os-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .desktop {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  .os-loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    transition: opacity 0.5s;
+  }
+
+  .loading-content {
+    text-align: center;
+    color: #fff;
+  }
+
+  .loading-logo {
+    font-size: 64px;
+    margin-bottom: 20px;
+    animation: pulse 2s infinite;
+  }
+
+  .loading-content h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .loading-bar {
+    width: 300px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
+  .loading-progress {
+    height: 100%;
+    background: #fff;
+    animation: loading 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+  }
+
+  @keyframes loading {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(400%); }
+  }
+</style>

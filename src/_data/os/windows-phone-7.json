@@ -1,0 +1,175 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "windows-phone-7",
+  "metadata": {
+    "name": "Windows Phone 7",
+    "fullName": "Microsoft Windows Phone 7",
+    "version": "7.0",
+    "company": "Microsoft Corporation",
+    "releaseYear": 2010,
+    "releaseDate": "2010-10-21",
+    "description": "Completely redesigned mobile OS with Metro design language, live tiles, hubs, and deep social integration.",
+    "tagline": "A phone that truly reflects your life",
+    "category": "mobile_modern",
+    "architecture": ["ARM"],
+    "historical": {
+      "significance": "Introduced Metro/Modern UI design, live tiles, influenced Windows 8 design direction",
+      "marketShare": "3.6% peak smartphone market share in 2013",
+      "successor": "Windows Phone 8",
+      "predecessor": "Windows Mobile 6.5",
+      "endOfLife": "2014-10-14"
+    },
+    "links": {
+      "wikipedia": "https://en.wikipedia.org/wiki/Windows_Phone_7"
+    }
+  },
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#000000",
+        "windowBackground": "#000000",
+        "titleBarActive": "transparent",
+        "titleBarText": "#FFFFFF",
+        "buttonFace": "#1BA1E2",
+        "buttonText": "#FFFFFF",
+        "highlight": "#1BA1E2",
+        "highlightText": "#FFFFFF",
+        "text": "#FFFFFF",
+        "statusBar": "#000000",
+        "custom": {
+          "accentColor": "#1BA1E2",
+          "tileBackground": "#1BA1E2",
+          "liveTile": "#1BA1E2"
+        }
+      },
+      "typography": {
+        "systemFont": {
+          "family": "Segoe WP",
+          "size": 15,
+          "weight": "300"
+        },
+        "titleFont": {
+          "family": "Segoe WP",
+          "size": 42,
+          "weight": "200"
+        },
+        "antialiasing": true,
+        "baseFontSize": 15
+      },
+      "style": {
+        "type": "metro",
+        "borderStyle": "none",
+        "cornerRadius": 0,
+        "shadows": false,
+        "transparency": false,
+        "bevels": false,
+        "gradients": false,
+        "animationStyle": "ease"
+      }
+    },
+    "icons": {
+      "style": "flat_modern",
+      "size": {
+        "default": 173,
+        "sizes": [173, 336]
+      },
+      "rendering": "vector",
+      "labelStyle": {
+        "position": "none"
+      }
+    },
+    "wallpaper": {
+      "type": "solid",
+      "value": "#000000"
+    }
+  },
+  "paradigm": {
+    "windowSystem": {
+      "type": "full_screen",
+      "behavior": {
+        "overlap": false
+      },
+      "effects": {
+        "openAnimation": "slide"
+      }
+    },
+    "menuSystem": {
+      "type": "context_only"
+    },
+    "taskManagement": {
+      "type": "cards",
+      "switching": {
+        "method": ["gesture"]
+      }
+    },
+    "desktop": {
+      "type": "iconic",
+      "layout": {
+        "type": "list",
+        "direction": "vertical"
+      },
+      "items": {
+        "icons": true,
+        "widgets": true,
+        "defaultItems": ["phone", "people", "messaging", "outlook", "internet_explorer"]
+      },
+      "interaction": {
+        "click": "single",
+        "dragAndDrop": true
+      }
+    },
+    "inputMethods": {
+      "touch": {
+        "enabled": true,
+        "multitouch": true,
+        "gestures": ["tap", "swipe", "pinch", "long_press"]
+      }
+    }
+  },
+  "components": {
+    "core": {
+      "windowManager": "metro-wm",
+      "optional": {
+        "webBrowser": "internet_explorer",
+        "emailClient": "outlook"
+      }
+    },
+    "applications": [
+      {
+        "id": "people",
+        "name": "People",
+        "icon": "icons/people.png",
+        "type": "communication",
+        "window": {
+          "title": "People",
+          "width": 480,
+          "height": 800
+        }
+      }
+    ]
+  },
+  "features": {
+    "interaction": {
+      "networking": {
+        "enabled": true,
+        "protocols": ["WiFi", "3G", "Bluetooth"]
+      }
+    },
+    "animations": {
+      "enabled": true,
+      "effects": {
+        "transitions": true
+      }
+    },
+    "customization": {
+      "colors": true,
+      "layout": true
+    }
+  },
+  "assets": {
+    "basePath": "/assets/os/windows-phone-7",
+    "paths": {
+      "icons": "icons"
+    }
+  }
+}

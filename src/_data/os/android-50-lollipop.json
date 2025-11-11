@@ -1,0 +1,144 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "android-50-lollipop",
+  "metadata": {
+    "name": "Android 5.0 Lollipop",
+    "version": "5.0",
+    "company": "Google",
+    "releaseYear": 2014,
+    "releaseDate": "2014-11-12",
+    "description": "Material Design introduction with bold colors, card-based UI, elevation shadows, and smooth animations.",
+    "tagline": "Material is the metaphor",
+    "category": "mobile_modern",
+    "architecture": ["ARM64", "ARM"],
+    "historical": {
+      "significance": "Introduced Material Design, revolutionized Android UI, ART runtime, notification cards",
+      "marketShare": "34% Android devices by 2016",
+      "successor": "Android 6.0 Marshmallow",
+      "predecessor": "Android 4.4 KitKat"
+    }
+  },
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#FAFAFA",
+        "windowBackground": "#FFFFFF",
+        "titleBarActive": "#3F51B5",
+        "titleBarText": "#FFFFFF",
+        "buttonFace": "#4CAF50",
+        "buttonText": "#FFFFFF",
+        "highlight": "#2196F3",
+        "text": "#212121",
+        "statusBar": "#303F9F",
+        "custom": {
+          "primaryColor": "#3F51B5",
+          "accentColor": "#FF4081",
+          "cardBackground": "#FFFFFF"
+        }
+      },
+      "typography": {
+        "systemFont": {
+          "family": "Roboto",
+          "size": 14,
+          "weight": "400"
+        },
+        "titleFont": {
+          "family": "Roboto",
+          "size": 20,
+          "weight": "500"
+        },
+        "antialiasing": true,
+        "baseFontSize": 14
+      },
+      "style": {
+        "type": "material",
+        "cornerRadius": 2,
+        "shadows": true,
+        "shadowStyle": "soft",
+        "transparency": false,
+        "animationStyle": "ease"
+      },
+      "specialElements": {
+        "scrollbarStyle": "overlay"
+      }
+    },
+    "icons": {
+      "style": "material",
+      "size": {
+        "default": 48,
+        "sizes": [48, 72, 96, 144]
+      },
+      "rendering": "vector"
+    },
+    "wallpaper": {
+      "type": "image",
+      "value": "wallpapers/material-default.jpg"
+    }
+  },
+  "paradigm": {
+    "windowSystem": {
+      "type": "full_screen",
+      "effects": {
+        "openAnimation": "zoom",
+        "closeAnimation": "fade"
+      }
+    },
+    "taskManagement": {
+      "type": "cards",
+      "taskbar": {
+        "style": {
+          "itemStyle": "thumbnails"
+        }
+      },
+      "multitasking": {
+        "preemptive": true
+      }
+    },
+    "desktop": {
+      "type": "iconic",
+      "items": {
+        "widgets": true,
+        "folders": true
+      }
+    },
+    "inputMethods": {
+      "touch": {
+        "enabled": true,
+        "multitouch": true,
+        "gestures": ["tap", "pinch", "swipe", "long_press", "double_tap"]
+      }
+    }
+  },
+  "components": {
+    "core": {
+      "windowManager": "android-wm",
+      "optional": {
+        "webBrowser": "chrome"
+      }
+    }
+  },
+  "features": {
+    "interaction": {
+      "networking": {
+        "enabled": true,
+        "protocols": ["WiFi", "LTE", "Bluetooth 4.1"]
+      }
+    },
+    "animations": {
+      "enabled": true,
+      "effects": {
+        "transitions": true,
+        "parallax": true
+      }
+    },
+    "accessibility": {
+      "screenReader": true
+    }
+  },
+  "assets": {
+    "basePath": "/assets/os/android-lollipop",
+    "paths": {
+      "icons": "icons"
+    }
+  }
+}

@@ -1,0 +1,427 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "symbian-s60",
+
+  "metadata": {
+    "name": "Symbian S60",
+    "fullName": "Symbian OS 6.1 with Series 60 UI",
+    "version": "6.1",
+    "company": "Nokia / Symbian Ltd",
+    "releaseYear": 2001,
+    "releaseDate": "2001-09-04",
+    "description": "Dominant smartphone OS of the 2000s featuring efficient multitasking, extensive customization, and powerful messaging capabilities. Powered Nokia's smartphone dominance.",
+    "tagline": "Connecting People",
+    "category": "mobile_classic",
+    "architecture": ["ARM"],
+
+    "historical": {
+      "significance": "Dominated global smartphone market 2000-2010 with 50%+ share at peak. First true smartphone OS with robust multitasking. Powered Nokia's N-Series and E-Series devices.",
+      "marketShare": "Over 60% of smartphone market at peak (2006-2007)",
+      "predecessor": "EPOC",
+      "successor": "Windows Phone (for Nokia)",
+      "endOfLife": "2013-01-01"
+    },
+
+    "links": {
+      "wikipedia": "https://en.wikipedia.org/wiki/Symbian"
+    }
+  },
+
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#FFFFFF",
+        "windowBackground": "#FFFFFF",
+        "windowBorder": "#CCCCCC",
+        "windowBorderWidth": 1,
+
+        "titleBarActive": "#0066CC",
+        "titleBarInactive": "#999999",
+        "titleBarText": "#FFFFFF",
+
+        "buttonFace": "#E6E6E6",
+        "buttonText": "#000000",
+        "buttonBorder": "#999999",
+
+        "highlight": "#0066CC",
+        "highlightText": "#FFFFFF",
+
+        "menuBackground": "#FFFFFF",
+        "menuText": "#000000",
+
+        "text": "#000000",
+        "statusBar": "#0066CC",
+
+        "custom": {
+          "activeStandby": "#0066CC",
+          "softkey": "#E6E6E6",
+          "softkeyText": "#000000"
+        }
+      },
+
+      "typography": {
+        "systemFont": {
+          "family": "Nokia Sans",
+          "size": 12,
+          "weight": "normal",
+          "fallback": ["Arial", "sans-serif"]
+        },
+        "titleFont": {
+          "family": "Nokia Sans",
+          "size": 12,
+          "weight": "bold"
+        },
+        "monospaceFont": {
+          "family": "Courier",
+          "size": 11,
+          "weight": "normal"
+        },
+
+        "antialiasing": true,
+        "baseFontSize": 12
+      },
+
+      "style": {
+        "type": "flat",
+        "borderStyle": "single",
+        "cornerRadius": 0,
+
+        "shadows": false,
+        "transparency": false,
+
+        "bevels": false,
+        "gradients": true,
+
+        "animationStyle": "ease"
+      }
+    },
+
+    "cursor": {
+      "style": "classic_arrow",
+      "animated": false,
+      "shadows": false
+    },
+
+    "icons": {
+      "style": "icon_48",
+      "size": {
+        "default": 48,
+        "sizes": [24, 48]
+      },
+      "rendering": "antialiased",
+      "shadow": false,
+      "labelStyle": {
+        "position": "below",
+        "background": "transparent",
+        "textColor": "#000000",
+        "font": {
+          "family": "Nokia Sans",
+          "size": 10
+        }
+      }
+    },
+
+    "sounds": {
+      "enabled": true,
+      "sounds": {
+        "startup": "sounds/nokia_tune.wav",
+        "notification": "sounds/message.wav",
+        "click": "sounds/keypress.wav"
+      },
+      "volume": 70
+    },
+
+    "wallpaper": {
+      "type": "image",
+      "value": "wallpapers/default.jpg",
+      "tiling": "stretch",
+      "overlay": true
+    }
+  },
+
+  "paradigm": {
+    "windowSystem": {
+      "type": "full_screen",
+
+      "behavior": {
+        "overlap": false,
+        "resize": false,
+        "minimize": true,
+        "maximize": false,
+        "close": true,
+
+        "modal": true,
+        "transparency": false
+      },
+
+      "chrome": {
+        "titleBar": "minimal",
+        "controls": "text",
+        "controlPosition": "both",
+
+        "buttons": {
+          "close": {
+            "style": "text",
+            "content": "Exit",
+            "position": 1
+          },
+          "menu": {
+            "style": "text",
+            "content": "Options",
+            "position": 2
+          }
+        },
+
+        "titleAlign": "left",
+        "showIcon": true
+      },
+
+      "effects": {
+        "openAnimation": "fade",
+        "closeAnimation": "fade"
+      }
+    },
+
+    "menuSystem": {
+      "type": "application_menu",
+
+      "menuBar": {
+        "enabled": false,
+        "position": "bottom"
+      },
+
+      "contextMenu": {
+        "enabled": true,
+        "trigger": "long_press",
+        "style": {
+          "background": "#FFFFFF"
+        }
+      },
+
+      "behavior": {
+        "clickToOpen": true,
+        "keyboardShortcuts": true,
+        "icons": true,
+        "cascading": true
+      }
+    },
+
+    "taskManagement": {
+      "type": "cards",
+
+      "switching": {
+        "method": ["window_list"]
+      },
+
+      "multitasking": {
+        "preemptive": true,
+        "virtual_desktops": false
+      }
+    },
+
+    "desktop": {
+      "type": "dashboard",
+
+      "layout": {
+        "type": "grid",
+        "grid": {
+          "columns": 3,
+          "rows": 4,
+          "cellWidth": 60,
+          "cellHeight": 70,
+          "spacing": 8
+        },
+        "direction": "horizontal"
+      },
+
+      "items": {
+        "icons": true,
+        "shortcuts": true,
+        "widgets": true,
+
+        "defaultItems": [
+          "phone",
+          "messages",
+          "contacts",
+          "calendar"
+        ]
+      },
+
+      "interaction": {
+        "click": "single",
+        "selection": "single",
+        "dragAndDrop": false
+      },
+
+      "behavior": {}
+    },
+
+    "inputMethods": {
+      "keyboard": {
+        "shortcuts": true,
+        "function_keys": true,
+        "navigation": "arrows"
+      },
+
+      "touch": {
+        "enabled": false
+      }
+    }
+  },
+
+  "components": {
+    "core": {
+      "windowManager": "series60_ui",
+      "fileManager": "file_manager",
+
+      "optional": {
+        "terminal": "console",
+        "textEditor": "notepad",
+        "webBrowser": "web"
+      }
+    },
+
+    "applications": [
+      {
+        "id": "menu",
+        "name": "Menu",
+        "icon": "icons/menu.png",
+        "type": "system",
+        "component": "MainMenu",
+
+        "window": {
+          "title": "Menu",
+          "width": 176,
+          "height": 208,
+          "resizable": false,
+          "minimizable": false,
+          "maximizable": false,
+          "position": "center"
+        }
+      },
+      {
+        "id": "phone",
+        "name": "Phone",
+        "icon": "icons/phone.png",
+        "type": "communication",
+        "component": "Phone",
+
+        "window": {
+          "title": "Phone",
+          "width": 176,
+          "height": 208,
+          "resizable": false,
+          "minimizable": false,
+          "maximizable": false,
+          "position": "center"
+        }
+      },
+      {
+        "id": "messages",
+        "name": "Messages",
+        "icon": "icons/messages.png",
+        "type": "communication",
+        "component": "Messages",
+
+        "window": {
+          "title": "Messages",
+          "width": 176,
+          "height": 208,
+          "resizable": false,
+          "minimizable": false,
+          "maximizable": false,
+          "position": "center"
+        }
+      },
+      {
+        "id": "contacts",
+        "name": "Contacts",
+        "icon": "icons/contacts.png",
+        "type": "productivity",
+        "component": "Contacts",
+
+        "window": {
+          "title": "Contacts",
+          "width": 176,
+          "height": 208,
+          "resizable": false,
+          "minimizable": false,
+          "maximizable": false,
+          "position": "center"
+        }
+      },
+      {
+        "id": "calendar",
+        "name": "Calendar",
+        "icon": "icons/calendar.png",
+        "type": "productivity",
+        "component": "Calendar",
+
+        "window": {
+          "title": "Calendar",
+          "width": 176,
+          "height": 208,
+          "resizable": false,
+          "minimizable": false,
+          "maximizable": false,
+          "position": "center"
+        }
+      }
+    ]
+  },
+
+  "features": {
+    "interaction": {
+      "dragAndDrop": false,
+      "clipboard": true,
+
+      "fileOperations": {
+        "copy": true,
+        "move": true,
+        "delete": true,
+        "rename": true,
+        "properties": true
+      },
+
+      "networking": {
+        "enabled": true,
+        "protocols": ["TCP/IP", "WAP", "GPRS"]
+      }
+    },
+
+    "animations": {
+      "enabled": true,
+      "speed": "normal",
+      "effects": {
+        "windowOpen": true,
+        "windowClose": true,
+        "transitions": true
+      }
+    },
+
+    "customization": {
+      "themes": true,
+      "wallpaper": true,
+      "colors": true
+    }
+  },
+
+  "assets": {
+    "basePath": "/assets/os/symbian",
+
+    "paths": {
+      "icons": "icons",
+      "sounds": "sounds",
+      "fonts": "fonts",
+      "wallpapers": "wallpapers"
+    },
+
+    "iconSets": {
+      "default": {
+        "path": "icons",
+        "format": "png",
+        "sizes": [24, 48]
+      }
+    }
+  }
+}

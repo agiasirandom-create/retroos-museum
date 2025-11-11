@@ -1,0 +1,105 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "android-9-pie",
+  "metadata": {
+    "name": "Android 9 Pie",
+    "version": "9.0",
+    "company": "Google",
+    "releaseYear": 2018,
+    "releaseDate": "2018-08-06",
+    "description": "Gesture navigation, adaptive battery, digital wellbeing, notch support, and machine learning throughout the OS.",
+    "category": "mobile_modern",
+    "architecture": ["ARM64"],
+    "historical": {
+      "significance": "Gesture navigation introduced, AI-powered features, adaptive UI, notch display support",
+      "successor": "Android 10",
+      "predecessor": "Android 8.1 Oreo"
+    }
+  },
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#FFFFFF",
+        "windowBackground": "#FFFFFF",
+        "titleBarActive": "#FFFFFF",
+        "titleBarText": "#000000",
+        "buttonFace": "#1A73E8",
+        "highlight": "#1A73E8",
+        "text": "#000000",
+        "statusBar": "#FFFFFF",
+        "custom": {
+          "accentColor": "#1A73E8",
+          "navigationGesture": "rgba(0, 0, 0, 0.1)"
+        }
+      },
+      "typography": {
+        "systemFont": {
+          "family": "Roboto",
+          "size": 14
+        },
+        "antialiasing": true
+      },
+      "style": {
+        "type": "material",
+        "cornerRadius": 8,
+        "shadows": true,
+        "animationStyle": "ease"
+      }
+    },
+    "icons": {
+      "style": "material",
+      "size": {
+        "default": 48,
+        "sizes": [48, 96, 192]
+      },
+      "rendering": "vector"
+    },
+    "wallpaper": {
+      "type": "image",
+      "value": "wallpapers/pie-default.jpg"
+    }
+  },
+  "paradigm": {
+    "windowSystem": {
+      "type": "full_screen"
+    },
+    "taskManagement": {
+      "type": "cards",
+      "switching": {
+        "method": ["gesture"]
+      }
+    },
+    "desktop": {
+      "type": "iconic"
+    },
+    "inputMethods": {
+      "touch": {
+        "enabled": true,
+        "multitouch": true,
+        "gestures": ["tap", "swipe", "pinch", "long_press"]
+      }
+    }
+  },
+  "components": {
+    "core": {
+      "windowManager": "android-wm"
+    }
+  },
+  "features": {
+    "interaction": {
+      "networking": {
+        "enabled": true,
+        "protocols": ["WiFi", "LTE", "Bluetooth 5.0"]
+      }
+    },
+    "animations": {
+      "enabled": true
+    }
+  },
+  "assets": {
+    "basePath": "/assets/os/android-pie",
+    "paths": {
+      "icons": "icons"
+    }
+  }
+}

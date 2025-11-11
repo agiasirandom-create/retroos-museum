@@ -1,0 +1,186 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "windows-me",
+
+  "metadata": {
+    "name": "Windows ME",
+    "fullName": "Microsoft Windows Millennium Edition",
+    "version": "4.90.3000",
+    "company": "Microsoft Corporation",
+    "releaseYear": 2000,
+    "releaseDate": "2000-09-14",
+    "description": "Consumer-focused Windows update with enhanced multimedia, System Restore, and Movie Maker, though infamous for stability issues.",
+    "tagline": "Experience More",
+    "category": "desktop_windows",
+    "architecture": ["x86"],
+
+    "historical": {
+      "significance": "Last Windows based on MS-DOS/Windows 95 codebase, introduced System Restore and Movie Maker",
+      "marketShare": "Quickly overshadowed by Windows XP, known for reliability issues",
+      "successor": "Windows XP",
+      "predecessor": "Windows 98 SE",
+      "endOfLife": "2006-07-11"
+    },
+
+    "links": {
+      "wikipedia": "https://en.wikipedia.org/wiki/Windows_ME"
+    }
+  },
+
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#3A6EA5",
+        "windowBackground": "#C0C0C0",
+        "windowBorder": "#000000",
+        "windowBorderWidth": 1,
+        "titleBarActive": "#0A246A",
+        "titleBarInactive": "#808080",
+        "titleBarText": "#FFFFFF",
+        "titleBarTextInactive": "#C0C0C0",
+        "buttonFace": "#C0C0C0",
+        "buttonText": "#000000",
+        "buttonHighlight": "#FFFFFF",
+        "buttonShadow": "#808080",
+        "buttonBorder": "#000000",
+        "highlight": "#0A246A",
+        "highlightText": "#FFFFFF",
+        "menuBackground": "#C0C0C0",
+        "menuText": "#000000",
+        "menuHighlight": "#0A246A",
+        "text": "#000000",
+        "textDisabled": "#808080",
+        "statusBar": "#C0C0C0",
+        "taskbar": "#C0C0C0",
+        "shadow": "#000000"
+      },
+      "typography": {
+        "systemFont": {"family": "MS Sans Serif", "size": 11, "weight": "normal", "fallback": ["Arial", "Helvetica", "sans-serif"]},
+        "titleFont": {"family": "MS Sans Serif", "size": 11, "weight": "bold", "fallback": ["Arial", "Helvetica", "sans-serif"]},
+        "menuFont": {"family": "MS Sans Serif", "size": 11, "weight": "normal"},
+        "monospaceFont": {"family": "Courier New", "size": 10, "weight": "normal"},
+        "antialiasing": false,
+        "subpixelRendering": false,
+        "baseFontSize": 11,
+        "scaleFactor": 1.0
+      },
+      "style": {
+        "type": "bevel_3d",
+        "borderStyle": "bevel_out",
+        "cornerRadius": 0,
+        "shadows": false,
+        "transparency": false,
+        "blur": false,
+        "bevels": true,
+        "gradients": false,
+        "textures": false,
+        "animationStyle": "instant"
+      },
+      "specialElements": {
+        "scrollbarStyle": "classic",
+        "focusIndicator": "dotted_outline",
+        "dragVisual": "outline"
+      }
+    },
+    "cursor": {"style": "classic_arrow", "animated": true, "shadows": false},
+    "icons": {
+      "style": "icon_32",
+      "size": {"default": 32, "sizes": [16, 32, 48]},
+      "rendering": "aliased",
+      "shadow": false,
+      "labelStyle": {"position": "below", "background": "transparent", "textColor": "#FFFFFF", "font": {"family": "MS Sans Serif", "size": 8}}
+    },
+    "sounds": {
+      "enabled": true,
+      "sounds": {
+        "startup": "sounds/startup.wav",
+        "shutdown": "sounds/shutdown.wav",
+        "error": "sounds/chord.wav"
+      },
+      "volume": 80
+    },
+    "wallpaper": {"type": "image", "value": "wallpapers/home.jpg", "tiling": "stretch", "overlay": true}
+  },
+
+  "paradigm": {
+    "windowSystem": {
+      "type": "stacking",
+      "behavior": {"overlap": true, "resize": true, "minimize": true, "maximize": true, "close": true, "modal": true, "alwaysOnTop": true, "transparency": false, "multipleDocuments": false, "tabbed": false, "tiling": false},
+      "chrome": {
+        "titleBar": "classic",
+        "controls": "buttons",
+        "controlPosition": "right",
+        "buttons": {
+          "minimize": {"style": "icon", "content": "minimize", "position": 1},
+          "maximize": {"style": "icon", "content": "maximize", "position": 2},
+          "close": {"style": "icon", "content": "close", "position": 3}
+        },
+        "titleAlign": "left",
+        "showIcon": true,
+        "showPath": false
+      },
+      "effects": {"openAnimation": "none", "closeAnimation": "none", "shadow": false, "blur": false}
+    },
+    "menuSystem": {
+      "type": "hybrid",
+      "menuBar": {"enabled": true, "position": "window", "sticky": false, "autoHide": false, "style": {"background": "#C0C0C0", "textColor": "#000000", "height": 20}},
+      "contextMenu": {"enabled": true, "trigger": "right_click", "style": {"background": "#C0C0C0"}},
+      "behavior": {"clickToOpen": true, "keyboardShortcuts": true, "mnemonics": true, "icons": false, "cascading": true}
+    },
+    "taskManagement": {
+      "type": "taskbar",
+      "taskbar": {
+        "enabled": true,
+        "position": "bottom",
+        "autoHide": false,
+        "size": 28,
+        "style": {"background": "#C0C0C0", "transparency": false, "blur": false, "itemStyle": "icons_and_labels", "grouping": false},
+        "sections": {"start": true, "quick_launch": true, "tasks": true, "system_tray": true, "clock": true}
+      },
+      "switching": {"method": ["alt_tab", "taskbar_click"], "altTab": {"enabled": true, "visual": "icons", "animation": false}},
+      "multitasking": {"preemptive": true, "virtual_desktops": false, "snapAssist": false}
+    },
+    "desktop": {
+      "type": "iconic",
+      "layout": {"type": "grid", "grid": {"cellWidth": 80, "cellHeight": 80, "spacing": 8}, "direction": "vertical", "alignment": "left", "snapToGrid": true, "autoArrange": false},
+      "items": {"icons": true, "shortcuts": true, "folders": true, "defaultItems": ["my_computer", "my_documents", "my_network_places", "recycle_bin"]},
+      "interaction": {"click": "double", "selection": "rubber_band", "dragAndDrop": true},
+      "behavior": {"showTrash": true, "showComputer": true, "showNetwork": true}
+    },
+    "inputMethods": {
+      "keyboard": {"shortcuts": true, "function_keys": true, "navigation": "arrows", "accessibility": true},
+      "mouse": {"buttons": 2, "scroll": "wheel", "gestures": false, "acceleration": true},
+      "touch": {"enabled": false}
+    }
+  },
+
+  "components": {
+    "core": {
+      "windowManager": "windowsme-window-manager",
+      "fileManager": "windows-explorer",
+      "optional": {"taskbar": "windowsme-taskbar", "terminal": "command-prompt", "textEditor": "notepad", "mediaPlayer": "windows-media-player-7", "webBrowser": "internet-explorer-55"}
+    },
+    "applications": [
+      {"id": "my_computer", "name": "My Computer", "icon": "icons/my_computer.png", "type": "system", "component": "FileExplorer", "window": {"title": "My Computer", "width": 640, "height": 480, "resizable": true, "minimizable": true, "maximizable": true, "position": "center"}, "desktop": {"icon": true, "position": {"x": 0, "y": 0}}},
+      {"id": "movie_maker", "name": "Windows Movie Maker", "icon": "icons/moviemaker.png", "type": "creative", "component": "MovieMaker", "window": {"title": "Windows Movie Maker", "width": 800, "height": 600, "resizable": true, "minimizable": true, "maximizable": true, "position": "center"}, "menu": {"path": "Accessories", "category": "Multimedia"}},
+      {"id": "notepad", "name": "Notepad", "icon": "icons/notepad.png", "type": "productivity", "component": "Notepad", "window": {"title": "Untitled - Notepad", "width": 500, "height": 400, "resizable": true, "minimizable": true, "maximizable": true, "position": "cascade"}, "menu": {"path": "Accessories"}}
+    ],
+    "utilities": [{"id": "system_restore", "name": "System Restore", "type": "system_preference", "icon": "icons/system_restore.png"}]
+  },
+
+  "features": {
+    "interaction": {"dragAndDrop": true, "clipboard": true, "undo": true, "fileOperations": {"copy": true, "move": true, "delete": true, "rename": true, "properties": true}, "networking": {"enabled": true, "protocols": ["TCP/IP"]}, "printing": true},
+    "animations": {"enabled": true, "speed": "normal", "effects": {"windowOpen": true, "windowClose": true, "menuOpen": true}},
+    "accessibility": {"highContrast": true, "magnifier": true, "keyboard_navigation": true},
+    "easterEggs": {"enabled": true, "list": ["pinball"]},
+    "customization": {"themes": true, "wallpaper": true, "colors": true, "layout": true}
+  },
+
+  "assets": {
+    "basePath": "/assets/os/windowsme",
+    "paths": {"icons": "icons", "cursors": "cursors", "sounds": "sounds", "fonts": "fonts", "wallpapers": "wallpapers"},
+    "iconSets": {"default": {"path": "icons", "format": "png", "sizes": [16, 32, 48]}},
+    "fonts": {"ms_sans_serif": {"path": "fonts/ms-sans-serif.woff2", "format": "woff2", "weights": [400, 700]}},
+    "preload": ["icons/my_computer.png", "sounds/startup.wav"]
+  }
+}

@@ -1,0 +1,511 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "macos-11-big-sur",
+
+  "metadata": {
+    "name": "macOS Big Sur",
+    "fullName": "macOS 11 Big Sur",
+    "version": "11.7.10",
+    "company": "Apple Inc.",
+    "releaseYear": 2020,
+    "releaseDate": "2020-11-12",
+    "description": "The biggest design update since Mac OS X. iOS-inspired rounded corners, translucent materials, refined icons with depth, and SF Pro system font.",
+    "tagline": "A Major Upgrade",
+    "category": "desktop_mac",
+    "architecture": ["Intel", "Apple Silicon"],
+
+    "historical": {
+      "significance": "First macOS to support Apple Silicon (M1 chip). Major version number jump to 11. Complete icon redesign with depth and 3D effects. Control Center introduced. Redesigned dock with rounded rectangles.",
+      "marketShare": "Universal adoption across Intel and Apple Silicon Macs",
+      "successor": "macOS 12 Monterey",
+      "predecessor": "macOS 10.15 Catalina",
+      "endOfLife": "2024-09-16"
+    },
+
+    "links": {
+      "wikipedia": "https://en.wikipedia.org/wiki/MacOS_Big_Sur"
+    }
+  },
+
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#2D5E8F",
+
+        "windowBackground": "#FFFFFF",
+        "windowBorder": "rgba(0,0,0,0.1)",
+        "windowBorderWidth": 1,
+
+        "titleBarActive": "rgba(246,246,246,0.7)",
+        "titleBarInactive": "rgba(251,251,251,0.7)",
+        "titleBarText": "#1D1D1F",
+        "titleBarTextInactive": "#86868B",
+
+        "buttonFace": "#FFFFFF",
+        "buttonText": "#007AFF",
+        "buttonHighlight": "#F5F5F7",
+        "buttonShadow": "rgba(0,0,0,0.08)",
+        "buttonBorder": "rgba(0,0,0,0.12)",
+
+        "highlight": "#007AFF",
+        "highlightText": "#FFFFFF",
+
+        "menuBackground": "rgba(255,255,255,0.8)",
+        "menuText": "#1D1D1F",
+        "menuHighlight": "#007AFF",
+
+        "text": "#1D1D1F",
+        "textDisabled": "#D1D1D6",
+
+        "statusBar": "rgba(255,255,255,0.8)",
+
+        "shadow": "rgba(0,0,0,0.2)",
+
+        "custom": {
+          "menuBarBackground": "rgba(246,246,246,0.8)",
+          "dockBackground": "rgba(255,255,255,0.3)",
+          "accentBlue": "#007AFF",
+          "sidebarBackground": "#F5F5F7",
+          "controlCenterBackground": "rgba(255,255,255,0.7)"
+        }
+      },
+
+      "typography": {
+        "systemFont": {
+          "family": "SF Pro Text",
+          "size": 13,
+          "weight": "normal",
+          "fallback": ["Helvetica Neue", "Helvetica", "sans-serif"]
+        },
+        "titleFont": {
+          "family": "SF Pro Display",
+          "size": 15,
+          "weight": "600",
+          "fallback": ["Helvetica", "sans-serif"]
+        },
+        "menuFont": {
+          "family": "SF Pro Text",
+          "size": 14,
+          "weight": "normal"
+        },
+        "monospaceFont": {
+          "family": "SF Mono",
+          "size": 12,
+          "weight": "normal"
+        },
+
+        "antialiasing": true,
+        "subpixelRendering": false,
+        "baseFontSize": 13,
+        "scaleFactor": 1.0
+      },
+
+      "style": {
+        "type": "neumorphic",
+        "borderStyle": "none",
+        "cornerRadius": 10,
+
+        "shadows": true,
+        "shadowStyle": "soft",
+        "transparency": true,
+        "blur": true,
+
+        "bevels": false,
+        "gradients": true,
+        "textures": true,
+
+        "animationStyle": "ease"
+      },
+
+      "specialElements": {
+        "scrollbarStyle": "overlay",
+        "focusIndicator": "glow",
+        "dragVisual": "full"
+      }
+    },
+
+    "cursor": {
+      "style": "modern_arrow",
+      "animated": true,
+      "shadows": false
+    },
+
+    "icons": {
+      "style": "skeuomorphic",
+      "size": {
+        "default": 128,
+        "sizes": [16, 32, 64, 128, 256, 512, 1024]
+      },
+      "rendering": "vector",
+      "shadow": true,
+      "labelStyle": {
+        "position": "below",
+        "background": "transparent",
+        "textColor": "#FFFFFF",
+        "font": {
+          "family": "SF Pro Text",
+          "size": 12
+        }
+      }
+    },
+
+    "sounds": {
+      "enabled": true,
+      "sounds": {
+        "startup": "sounds/mac_startup_big_sur.wav",
+        "error": "sounds/funk.wav",
+        "notification": "sounds/pop.wav"
+      },
+      "volume": 75
+    },
+
+    "wallpaper": {
+      "type": "image",
+      "value": "wallpapers/big_sur.jpg",
+      "pattern": "none",
+      "tiling": "fill",
+      "overlay": true
+    }
+  },
+
+  "paradigm": {
+    "windowSystem": {
+      "type": "stacking",
+      "behavior": {
+        "overlap": true,
+        "resize": true,
+        "minimize": true,
+        "maximize": true,
+        "close": true,
+        "modal": true,
+        "alwaysOnTop": true,
+        "transparency": true,
+        "multipleDocuments": false,
+        "tabbed": false,
+        "tiling": false
+      },
+      "chrome": {
+        "titleBar": "unified",
+        "controls": "icons",
+        "controlPosition": "left",
+        "buttons": {
+          "close": {
+            "style": "icon",
+            "content": "rounded_close",
+            "position": 1,
+            "color": "#FF5F57"
+          },
+          "minimize": {
+            "style": "icon",
+            "content": "rounded_minimize",
+            "position": 2,
+            "color": "#FFBD2E"
+          },
+          "maximize": {
+            "style": "icon",
+            "content": "rounded_maximize",
+            "position": 3,
+            "color": "#28CA42"
+          }
+        },
+        "titleAlign": "center",
+        "showIcon": false,
+        "showPath": false
+      },
+      "effects": {
+        "openAnimation": "scale",
+        "closeAnimation": "scale",
+        "minimizeAnimation": "scale",
+        "shadow": true,
+        "blur": true,
+        "wobbly": false
+      }
+    },
+
+    "menuSystem": {
+      "type": "global_menu",
+      "menuBar": {
+        "enabled": true,
+        "position": "top",
+        "sticky": true,
+        "autoHide": false,
+        "style": {
+          "background": "rgba(246,246,246,0.8)",
+          "textColor": "#1D1D1F",
+          "height": 24
+        },
+        "items": {
+          "alwaysVisible": ["apple", "control_center", "spotlight"],
+          "applicationMenu": true,
+          "systemMenu": false
+        }
+      },
+      "contextMenu": {
+        "enabled": true,
+        "trigger": "right_click",
+        "style": {
+          "background": "rgba(255,255,255,0.8)",
+          "borderStyle": "none"
+        }
+      },
+      "behavior": {
+        "clickToOpen": true,
+        "keyboardShortcuts": true,
+        "mnemonics": false,
+        "icons": false,
+        "cascading": true,
+        "tearOff": false
+      }
+    },
+
+    "taskManagement": {
+      "type": "dock",
+      "taskbar": {
+        "enabled": true,
+        "position": "bottom",
+        "autoHide": false,
+        "size": 64,
+        "style": {
+          "background": "rgba(255,255,255,0.3)",
+          "transparency": true,
+          "blur": true,
+          "itemStyle": "icons",
+          "grouping": false,
+          "previews": false
+        }
+      },
+      "switching": {
+        "method": ["dock_click", "mission_control"],
+        "altTab": {
+          "enabled": true,
+          "visual": "icons",
+          "animation": true
+        }
+      },
+      "multitasking": {
+        "preemptive": true,
+        "virtual_desktops": true,
+        "snapAssist": false,
+        "splitScreen": true
+      }
+    },
+
+    "desktop": {
+      "type": "clean",
+      "layout": {
+        "type": "free_form",
+        "direction": "vertical",
+        "alignment": "right",
+        "snapToGrid": true,
+        "autoArrange": false
+      },
+      "items": {
+        "icons": true,
+        "widgets": true,
+        "shortcuts": true,
+        "folders": true,
+        "defaultItems": []
+      },
+      "interaction": {
+        "click": "single",
+        "selection": "rubber_band",
+        "dragAndDrop": true,
+        "hoverPreview": true
+      },
+      "behavior": {
+        "showTrash": false,
+        "showComputer": false,
+        "showNetwork": false,
+        "showHome": false
+      }
+    },
+
+    "inputMethods": {
+      "keyboard": {
+        "shortcuts": true,
+        "function_keys": true,
+        "navigation": "arrows",
+        "accessibility": true
+      },
+      "mouse": {
+        "buttons": 2,
+        "scroll": "wheel",
+        "gestures": true,
+        "acceleration": true
+      },
+      "touch": {
+        "enabled": true,
+        "multitouch": true,
+        "gestures": ["tap", "swipe", "pinch", "rotate", "multi_finger"]
+      }
+    }
+  },
+
+  "components": {
+    "core": {
+      "windowManager": "big-sur-window-manager",
+      "fileManager": "finder",
+      "optional": {
+        "dock": "dock",
+        "menuBar": "big-sur-menu-bar",
+        "textEditor": "textedit",
+        "imageViewer": "preview",
+        "webBrowser": "safari"
+      }
+    },
+    "applications": [
+      {
+        "id": "finder",
+        "name": "Finder",
+        "icon": "icons/finder.png",
+        "type": "system",
+        "component": "Finder",
+        "window": {
+          "title": "Macintosh HD",
+          "width": 850,
+          "height": 600,
+          "resizable": true,
+          "minimizable": true,
+          "maximizable": true,
+          "position": "center"
+        },
+        "features": {
+          "saveState": true,
+          "multiInstance": true
+        }
+      },
+      {
+        "id": "safari",
+        "name": "Safari",
+        "icon": "icons/safari.png",
+        "type": "web",
+        "component": "Safari",
+        "window": {
+          "title": "Safari",
+          "width": 1200,
+          "height": 800,
+          "resizable": true,
+          "minimizable": true,
+          "maximizable": true,
+          "position": "center"
+        }
+      },
+      {
+        "id": "messages",
+        "name": "Messages",
+        "icon": "icons/messages.png",
+        "type": "communication",
+        "component": "Messages",
+        "window": {
+          "title": "Messages",
+          "width": 450,
+          "height": 650,
+          "resizable": true,
+          "minimizable": true,
+          "maximizable": true,
+          "position": "center"
+        }
+      }
+    ],
+    "utilities": [
+      {
+        "id": "system_preferences",
+        "name": "System Preferences",
+        "type": "system_preference",
+        "icon": "icons/system_preferences.png",
+        "component": "SystemPreferences"
+      },
+      {
+        "id": "control_center",
+        "name": "Control Center",
+        "type": "system_preference",
+        "icon": "icons/control_center.png",
+        "component": "ControlCenter"
+      }
+    ]
+  },
+
+  "features": {
+    "interaction": {
+      "dragAndDrop": true,
+      "clipboard": true,
+      "undo": true,
+      "fileOperations": {
+        "copy": true,
+        "move": true,
+        "delete": true,
+        "rename": true,
+        "properties": true
+      },
+      "networking": {
+        "enabled": true,
+        "protocols": ["TCP/IP", "SMB"]
+      },
+      "printing": true,
+      "scanning": true
+    },
+    "animations": {
+      "enabled": true,
+      "speed": "normal",
+      "effects": {
+        "windowOpen": true,
+        "windowClose": true,
+        "windowMinimize": true,
+        "menuOpen": true,
+        "hover": true,
+        "transitions": true
+      }
+    },
+    "accessibility": {
+      "highContrast": true,
+      "screenReader": true,
+      "magnifier": true,
+      "keyboard_navigation": true
+    },
+    "easterEggs": {
+      "enabled": false
+    },
+    "customization": {
+      "themes": true,
+      "wallpaper": true,
+      "colors": true,
+      "fonts": true,
+      "layout": true
+    }
+  },
+
+  "assets": {
+    "basePath": "/assets/os/macos-big-sur",
+    "paths": {
+      "icons": "icons",
+      "cursors": "cursors",
+      "sounds": "sounds",
+      "fonts": "fonts",
+      "wallpapers": "wallpapers"
+    },
+    "iconSets": {
+      "default": {
+        "path": "icons",
+        "format": "png",
+        "sizes": [16, 32, 64, 128, 256, 512, 1024]
+      }
+    },
+    "fonts": {
+      "sf_pro": {
+        "path": "fonts/sf_pro.woff2",
+        "format": "woff2",
+        "weights": [300, 400, 500, 600, 700]
+      },
+      "sf_mono": {
+        "path": "fonts/sf_mono.woff2",
+        "format": "woff2",
+        "weights": [400, 700]
+      }
+    },
+    "preload": [
+      "icons/finder.png",
+      "icons/safari.png",
+      "sounds/mac_startup_big_sur.wav"
+    ]
+  }
+}

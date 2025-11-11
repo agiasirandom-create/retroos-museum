@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "android-14",
+  "metadata": {
+    "name": "Android 14",
+    "version": "14.0",
+    "company": "Google",
+    "releaseYear": 2023,
+    "releaseDate": "2023-10-04",
+    "description": "Latest Android with refined Material You, improved accessibility, enhanced privacy, and AI features.",
+    "category": "mobile_modern",
+    "architecture": ["ARM64"],
+    "historical": {
+      "significance": "Enhanced customization, privacy improvements, better battery life, ultra HDR support",
+      "predecessor": "Android 13"
+    }
+  },
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#F5F5F5",
+        "windowBackground": "#FFFFFF",
+        "titleBarActive": "#FFFFFF",
+        "buttonFace": "#6750A4",
+        "highlight": "#6750A4",
+        "text": "#1C1B1F",
+        "custom": {
+          "dynamicColor": true
+        }
+      },
+      "typography": {
+        "systemFont": {
+          "family": "Roboto",
+          "size": 14
+        }
+      },
+      "style": {
+        "type": "material",
+        "cornerRadius": 28,
+        "shadows": true
+      }
+    },
+    "icons": {
+      "style": "material",
+      "size": {
+        "default": 48,
+        "sizes": [48, 96, 192]
+      },
+      "rendering": "vector"
+    }
+  },
+  "paradigm": {
+    "windowSystem": {
+      "type": "full_screen"
+    },
+    "taskManagement": {
+      "type": "cards"
+    },
+    "desktop": {
+      "type": "iconic"
+    },
+    "inputMethods": {
+      "touch": {
+        "enabled": true,
+        "multitouch": true
+      }
+    }
+  },
+  "components": {
+    "core": {
+      "windowManager": "android-wm"
+    }
+  },
+  "features": {
+    "interaction": {
+      "networking": {
+        "enabled": true,
+        "protocols": ["WiFi 7", "5G", "Bluetooth 5.3"]
+      }
+    },
+    "customization": {
+      "themes": true,
+      "colors": true
+    }
+  },
+  "assets": {
+    "basePath": "/assets/os/android-14",
+    "paths": {
+      "icons": "icons"
+    }
+  }
+}

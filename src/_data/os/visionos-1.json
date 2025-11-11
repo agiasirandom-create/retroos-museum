@@ -1,0 +1,171 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "visionos-1",
+  "metadata": {
+    "name": "visionOS 1.0",
+    "fullName": "Apple visionOS 1.0",
+    "version": "1.0",
+    "company": "Apple Inc.",
+    "releaseYear": 2024,
+    "releaseDate": "2024-02-02",
+    "description": "Revolutionary spatial computing OS for Apple Vision Pro, blending digital content with physical space using AR/VR.",
+    "tagline": "Welcome to spatial computing",
+    "category": "mobile_modern",
+    "architecture": ["ARM64"],
+    "historical": {
+      "significance": "First mainstream spatial computing OS, eye and hand tracking, seamless 2D/3D app support, passthrough AR",
+      "predecessor": "None (first release)"
+    },
+    "links": {
+      "wikipedia": "https://en.wikipedia.org/wiki/VisionOS"
+    }
+  },
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "transparent",
+        "windowBackground": "rgba(242, 242, 247, 0.7)",
+        "titleBarActive": "rgba(242, 242, 247, 0.8)",
+        "titleBarText": "#000000",
+        "buttonFace": "#007AFF",
+        "buttonText": "#FFFFFF",
+        "highlight": "#007AFF",
+        "text": "#000000",
+        "custom": {
+          "glassMorphism": "rgba(255, 255, 255, 0.7)",
+          "spatial3D": true,
+          "depthEffect": true
+        }
+      },
+      "typography": {
+        "systemFont": {
+          "family": "San Francisco",
+          "size": 17,
+          "weight": "400"
+        },
+        "titleFont": {
+          "family": "San Francisco",
+          "size": 34,
+          "weight": "700"
+        },
+        "antialiasing": true,
+        "baseFontSize": 17,
+        "scaleFactor": 2.0
+      },
+      "style": {
+        "type": "flat",
+        "cornerRadius": 24,
+        "shadows": true,
+        "shadowStyle": "realistic",
+        "transparency": true,
+        "blur": true,
+        "animationStyle": "ease"
+      }
+    },
+    "icons": {
+      "style": "flat_modern",
+      "size": {
+        "default": 60,
+        "sizes": [60, 120, 180]
+      },
+      "rendering": "vector",
+      "shadow": true
+    },
+    "wallpaper": {
+      "type": "solid",
+      "value": "transparent"
+    }
+  },
+  "paradigm": {
+    "windowSystem": {
+      "type": "stacking",
+      "behavior": {
+        "overlap": true,
+        "resize": true,
+        "minimize": false,
+        "maximize": true,
+        "close": true,
+        "modal": true
+      },
+      "chrome": {
+        "titleBar": "unified",
+        "controls": "icons",
+        "controlPosition": "left"
+      },
+      "effects": {
+        "shadow": true,
+        "blur": true
+      }
+    },
+    "menuSystem": {
+      "type": "context_only"
+    },
+    "taskManagement": {
+      "type": "none",
+      "multitasking": {
+        "preemptive": true,
+        "virtual_desktops": true
+      }
+    },
+    "desktop": {
+      "type": "spatial",
+      "items": {
+        "icons": true
+      },
+      "interaction": {
+        "click": "single",
+        "dragAndDrop": true
+      }
+    },
+    "inputMethods": {
+      "keyboard": {
+        "shortcuts": true
+      },
+      "mouse": {
+        "buttons": 0
+      },
+      "touch": {
+        "enabled": false
+      },
+      "voice": {
+        "enabled": true,
+        "commands": ["Siri"]
+      }
+    }
+  },
+  "components": {
+    "core": {
+      "windowManager": "visionos-wm",
+      "optional": {
+        "webBrowser": "safari"
+      }
+    }
+  },
+  "features": {
+    "interaction": {
+      "dragAndDrop": true,
+      "clipboard": true,
+      "networking": {
+        "enabled": true,
+        "protocols": ["WiFi 6E", "Bluetooth 5.3"]
+      }
+    },
+    "animations": {
+      "enabled": true,
+      "speed": "normal",
+      "effects": {
+        "transitions": true,
+        "parallax": true
+      }
+    },
+    "customization": {
+      "layout": true
+    }
+  },
+  "assets": {
+    "basePath": "/assets/os/visionos-1",
+    "paths": {
+      "icons": "icons"
+    }
+  }
+}

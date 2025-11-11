@@ -1,0 +1,399 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "debian-1",
+
+  "metadata": {
+    "name": "Debian 1.1 Buzz",
+    "fullName": "Debian GNU/Linux 1.1 (Buzz) with FVWM",
+    "version": "1.1 (Buzz)",
+    "company": "Debian Project",
+    "releaseYear": 1996,
+    "releaseDate": "1996-06-17",
+    "description": "First stable release of Debian, featuring the revolutionary dpkg package management system and commitment to free software principles.",
+    "tagline": "The Universal Operating System",
+    "category": "desktop_linux",
+    "architecture": ["x86"],
+
+    "historical": {
+      "significance": "Introduced the .deb package format and dpkg, revolutionizing Linux package management. Foundation for Ubuntu and numerous derivatives.",
+      "marketShare": "Became the largest community-driven Linux distribution",
+      "successor": "Debian 2.0 (Hamm)",
+      "predecessor": "Debian 0.93R6"
+    },
+
+    "links": {
+      "wikipedia": "https://en.wikipedia.org/wiki/Debian",
+      "officialSite": "https://www.debian.org"
+    }
+  },
+
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#A50026",
+
+        "windowBackground": "#C0C0C0",
+        "windowBorder": "#000000",
+        "windowBorderWidth": 2,
+
+        "titleBarActive": "#000080",
+        "titleBarInactive": "#808080",
+        "titleBarText": "#FFFFFF",
+        "titleBarTextInactive": "#C0C0C0",
+
+        "buttonFace": "#B0B0B0",
+        "buttonText": "#000000",
+        "buttonHighlight": "#E0E0E0",
+        "buttonShadow": "#404040",
+
+        "highlight": "#A50026",
+        "highlightText": "#FFFFFF",
+
+        "menuBackground": "#B0B0B0",
+        "menuText": "#000000",
+        "menuHighlight": "#A50026",
+
+        "text": "#000000",
+
+        "custom": {
+          "pagerBackground": "#606060",
+          "pagerActive": "#A50026",
+          "rootMenuBackground": "#A0A0A0"
+        }
+      },
+
+      "typography": {
+        "systemFont": {
+          "family": "Helvetica",
+          "size": 12,
+          "weight": "normal",
+          "fallback": ["Arial", "sans-serif"]
+        },
+        "titleFont": {
+          "family": "Helvetica",
+          "size": 10,
+          "weight": "bold"
+        },
+        "menuFont": {
+          "family": "Helvetica",
+          "size": 10,
+          "weight": "normal"
+        },
+        "monospaceFont": {
+          "family": "Fixed",
+          "size": 10,
+          "weight": "normal"
+        },
+
+        "antialiasing": false,
+        "baseFontSize": 12
+      },
+
+      "style": {
+        "type": "bevel_3d",
+        "borderStyle": "bevel_out",
+        "cornerRadius": 0,
+
+        "shadows": false,
+        "transparency": false,
+
+        "bevels": true,
+        "gradients": false,
+
+        "animationStyle": "instant"
+      }
+    },
+
+    "cursor": {
+      "style": "classic_arrow",
+      "animated": false,
+      "shadows": false
+    },
+
+    "icons": {
+      "style": "icon_48",
+      "size": {
+        "default": 48,
+        "sizes": [32, 48]
+      },
+      "rendering": "antialiased",
+      "shadow": false,
+      "labelStyle": {
+        "position": "below",
+        "background": "transparent",
+        "textColor": "#FFFFFF",
+        "font": {
+          "family": "Helvetica",
+          "size": 10
+        }
+      }
+    },
+
+    "wallpaper": {
+      "type": "solid",
+      "value": "#A50026",
+      "overlay": true
+    }
+  },
+
+  "paradigm": {
+    "windowSystem": {
+      "type": "stacking",
+
+      "behavior": {
+        "overlap": true,
+        "resize": true,
+        "minimize": true,
+        "maximize": true,
+        "close": true,
+
+        "modal": true,
+        "alwaysOnTop": true,
+        "transparency": false
+      },
+
+      "chrome": {
+        "titleBar": "classic",
+        "controls": "buttons",
+        "controlPosition": "right",
+
+        "buttons": {
+          "minimize": {
+            "style": "icon",
+            "content": "minimize",
+            "position": 1
+          },
+          "maximize": {
+            "style": "icon",
+            "content": "maximize",
+            "position": 2
+          },
+          "close": {
+            "style": "icon",
+            "content": "close",
+            "position": 3
+          }
+        },
+
+        "titleAlign": "left",
+        "showIcon": false
+      },
+
+      "effects": {
+        "shadow": false
+      }
+    },
+
+    "menuSystem": {
+      "type": "context_only",
+
+      "contextMenu": {
+        "enabled": true,
+        "trigger": "right_click",
+        "style": {
+          "background": "#A0A0A0",
+          "borderStyle": "bevel_out"
+        }
+      },
+
+      "behavior": {
+        "clickToOpen": true,
+        "icons": true,
+        "cascading": true,
+        "tearOff": true
+      }
+    },
+
+    "taskManagement": {
+      "type": "panel",
+
+      "switching": {
+        "method": ["alt_tab", "window_list"]
+      },
+
+      "multitasking": {
+        "preemptive": true,
+        "virtual_desktops": true
+      }
+    },
+
+    "desktop": {
+      "type": "iconic",
+
+      "layout": {
+        "type": "grid",
+        "grid": {
+          "cellWidth": 80,
+          "cellHeight": 100,
+          "spacing": 20
+        },
+        "direction": "vertical",
+        "alignment": "left",
+        "snapToGrid": true
+      },
+
+      "items": {
+        "icons": true,
+        "shortcuts": true,
+        "folders": true
+      },
+
+      "interaction": {
+        "click": "double",
+        "selection": "rubber_band",
+        "dragAndDrop": true
+      }
+    },
+
+    "inputMethods": {
+      "keyboard": {
+        "shortcuts": true,
+        "function_keys": true,
+        "navigation": "arrows"
+      },
+
+      "mouse": {
+        "buttons": 3,
+        "scroll": "none",
+        "gestures": false
+      }
+    }
+  },
+
+  "components": {
+    "core": {
+      "windowManager": "fvwm",
+      "fileManager": "xfm",
+
+      "optional": {
+        "terminal": "xterm",
+        "textEditor": "emacs"
+      }
+    },
+
+    "applications": [
+      {
+        "id": "xterm",
+        "name": "Terminal",
+        "icon": "icons/xterm.png",
+        "type": "system",
+        "component": "XTerm",
+
+        "window": {
+          "title": "xterm",
+          "width": 640,
+          "height": 400,
+          "resizable": true,
+          "minimizable": true,
+          "maximizable": true,
+          "position": "cascade"
+        },
+
+        "features": {
+          "multiInstance": true
+        }
+      },
+      {
+        "id": "dselect",
+        "name": "Package Manager",
+        "icon": "icons/package.png",
+        "type": "system",
+        "component": "XTerm",
+
+        "window": {
+          "title": "dselect - Debian Package Manager",
+          "width": 700,
+          "height": 500,
+          "resizable": true,
+          "minimizable": true,
+          "maximizable": true,
+          "position": "center"
+        }
+      },
+      {
+        "id": "xfm",
+        "name": "File Manager",
+        "icon": "icons/folder.png",
+        "type": "system",
+        "component": "XFM",
+
+        "window": {
+          "title": "File Manager",
+          "width": 600,
+          "height": 450,
+          "resizable": true,
+          "minimizable": true,
+          "maximizable": true,
+          "position": "center"
+        }
+      },
+      {
+        "id": "xcalc",
+        "name": "Calculator",
+        "icon": "icons/xcalc.png",
+        "type": "utility",
+        "component": "XCalc",
+
+        "window": {
+          "title": "xcalc",
+          "width": 250,
+          "height": 320,
+          "resizable": false,
+          "minimizable": true,
+          "maximizable": false,
+          "position": "center"
+        }
+      }
+    ]
+  },
+
+  "features": {
+    "interaction": {
+      "dragAndDrop": true,
+      "clipboard": true,
+
+      "fileOperations": {
+        "copy": true,
+        "move": true,
+        "delete": true,
+        "rename": true,
+        "properties": true
+      },
+
+      "networking": {
+        "enabled": true,
+        "protocols": ["TCP/IP", "NFS"]
+      }
+    },
+
+    "animations": {
+      "enabled": false,
+      "speed": "normal"
+    },
+
+    "customization": {
+      "themes": true,
+      "wallpaper": true,
+      "colors": true,
+      "layout": true
+    }
+  },
+
+  "assets": {
+    "basePath": "/assets/os/debian-1",
+
+    "paths": {
+      "icons": "icons",
+      "cursors": "cursors",
+      "fonts": "fonts"
+    },
+
+    "iconSets": {
+      "default": {
+        "path": "icons",
+        "format": "png",
+        "sizes": [32, 48]
+      }
+    }
+  }
+}

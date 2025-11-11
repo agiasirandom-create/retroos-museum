@@ -1,0 +1,204 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "android-15-cupcake",
+  "metadata": {
+    "name": "Android 1.5 Cupcake",
+    "fullName": "Google Android 1.5 Cupcake",
+    "version": "1.5",
+    "company": "Google",
+    "releaseYear": 2009,
+    "releaseDate": "2009-04-27",
+    "description": "Early Android with on-screen keyboard, video recording, widgets, and third-party virtual keyboards. First Android with codename.",
+    "tagline": "Sweet taste of Android",
+    "category": "mobile_modern",
+    "architecture": ["ARM"],
+    "historical": {
+      "significance": "First Android with on-screen keyboard and widgets, video recording, copy/paste functionality",
+      "marketShare": "2.8% smartphone market in 2009",
+      "successor": "Android 1.6 Donut",
+      "predecessor": "Android 1.1",
+      "endOfLife": "2012-02-03"
+    },
+    "links": {
+      "wikipedia": "https://en.wikipedia.org/wiki/Android_Cupcake"
+    }
+  },
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#000000",
+        "windowBackground": "#FFFFFF",
+        "titleBarActive": "#000000",
+        "titleBarText": "#FFFFFF",
+        "buttonFace": "#3E3E3E",
+        "buttonText": "#FFFFFF",
+        "highlight": "#FF8800",
+        "highlightText": "#000000",
+        "text": "#000000",
+        "statusBar": "rgba(0, 0, 0, 0.9)",
+        "custom": {
+          "appDrawer": "#1A1A1A",
+          "notificationShade": "rgba(0, 0, 0, 0.95)"
+        }
+      },
+      "typography": {
+        "systemFont": {
+          "family": "Droid Sans",
+          "size": 14,
+          "weight": "normal"
+        },
+        "titleFont": {
+          "family": "Droid Sans",
+          "size": 18,
+          "weight": "bold"
+        },
+        "antialiasing": true,
+        "baseFontSize": 14
+      },
+      "style": {
+        "type": "flat",
+        "borderStyle": "single",
+        "cornerRadius": 0,
+        "shadows": false,
+        "transparency": false,
+        "animationStyle": "linear"
+      }
+    },
+    "icons": {
+      "style": "icon_48",
+      "size": {
+        "default": 48,
+        "sizes": [48]
+      },
+      "rendering": "antialiased",
+      "shadow": true,
+      "labelStyle": {
+        "position": "below",
+        "textColor": "#FFFFFF"
+      }
+    },
+    "wallpaper": {
+      "type": "image",
+      "value": "wallpapers/cupcake-default.jpg"
+    }
+  },
+  "paradigm": {
+    "windowSystem": {
+      "type": "full_screen",
+      "behavior": {
+        "overlap": false,
+        "resize": false
+      },
+      "effects": {
+        "openAnimation": "slide"
+      }
+    },
+    "menuSystem": {
+      "type": "context_only",
+      "contextMenu": {
+        "enabled": true,
+        "trigger": "long_press"
+      }
+    },
+    "taskManagement": {
+      "type": "none",
+      "switching": {
+        "method": ["dock_click"]
+      },
+      "multitasking": {
+        "preemptive": true
+      }
+    },
+    "desktop": {
+      "type": "iconic",
+      "layout": {
+        "type": "grid",
+        "grid": {
+          "cellWidth": 80,
+          "cellHeight": 100,
+          "spacing": 8
+        },
+        "autoArrange": false
+      },
+      "items": {
+        "icons": true,
+        "widgets": true,
+        "shortcuts": true,
+        "defaultItems": ["app_drawer", "phone", "contacts", "browser", "maps"]
+      },
+      "interaction": {
+        "click": "single",
+        "dragAndDrop": true
+      }
+    },
+    "inputMethods": {
+      "keyboard": {
+        "shortcuts": true
+      },
+      "touch": {
+        "enabled": true,
+        "multitouch": false,
+        "gestures": ["tap", "long_press", "swipe"]
+      }
+    }
+  },
+  "components": {
+    "core": {
+      "windowManager": "android-wm",
+      "fileManager": "none",
+      "optional": {
+        "webBrowser": "browser",
+        "emailClient": "gmail"
+      }
+    },
+    "applications": [
+      {
+        "id": "browser",
+        "name": "Browser",
+        "icon": "icons/browser.png",
+        "type": "web",
+        "window": {
+          "title": "Browser",
+          "width": 320,
+          "height": 480
+        }
+      },
+      {
+        "id": "phone",
+        "name": "Phone",
+        "icon": "icons/phone.png",
+        "type": "communication",
+        "window": {
+          "title": "Phone",
+          "width": 320,
+          "height": 480
+        }
+      }
+    ]
+  },
+  "features": {
+    "interaction": {
+      "dragAndDrop": true,
+      "clipboard": true,
+      "networking": {
+        "enabled": true,
+        "protocols": ["WiFi", "3G", "Bluetooth"]
+      }
+    },
+    "animations": {
+      "enabled": true,
+      "speed": "normal"
+    },
+    "customization": {
+      "wallpaper": true,
+      "layout": true
+    }
+  },
+  "assets": {
+    "basePath": "/assets/os/android-cupcake",
+    "paths": {
+      "icons": "icons",
+      "wallpapers": "wallpapers"
+    }
+  }
+}

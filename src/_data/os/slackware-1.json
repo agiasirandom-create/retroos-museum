@@ -1,0 +1,380 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "slackware-1",
+
+  "metadata": {
+    "name": "Slackware Linux 1.0",
+    "fullName": "Slackware Linux 1.0 with TWM",
+    "version": "1.0",
+    "company": "Patrick Volkerding",
+    "releaseYear": 1993,
+    "releaseDate": "1993-07-16",
+    "description": "The oldest surviving Linux distribution, emphasizing simplicity and stability with a BSD-style init system and no dependency resolution.",
+    "tagline": "The Unix-Like Linux Distribution",
+    "category": "desktop_linux",
+    "architecture": ["x86"],
+
+    "historical": {
+      "significance": "Oldest surviving Linux distribution still actively maintained. Known for simplicity and adherence to Unix principles.",
+      "marketShare": "Popular among advanced users and system administrators in the 1990s",
+      "successor": "Slackware continues development",
+      "predecessor": "SLS (Softlanding Linux System)"
+    },
+
+    "links": {
+      "wikipedia": "https://en.wikipedia.org/wiki/Slackware",
+      "officialSite": "http://www.slackware.com"
+    }
+  },
+
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#2F4F4F",
+
+        "windowBackground": "#BEBEBE",
+        "windowBorder": "#000000",
+        "windowBorderWidth": 1,
+
+        "titleBarActive": "#4682B4",
+        "titleBarInactive": "#7F7F7F",
+        "titleBarText": "#FFFFFF",
+        "titleBarTextInactive": "#D3D3D3",
+
+        "buttonFace": "#A0A0A0",
+        "buttonText": "#000000",
+        "buttonHighlight": "#FFFFFF",
+        "buttonShadow": "#000000",
+
+        "highlight": "#4682B4",
+        "highlightText": "#FFFFFF",
+
+        "menuBackground": "#A0A0A0",
+        "menuText": "#000000",
+        "menuHighlight": "#4682B4",
+
+        "text": "#000000",
+
+        "custom": {
+          "rootMenuBackground": "#8B8B8B"
+        }
+      },
+
+      "typography": {
+        "systemFont": {
+          "family": "Helvetica",
+          "size": 12,
+          "weight": "normal",
+          "fallback": ["Arial", "sans-serif"]
+        },
+        "titleFont": {
+          "family": "Helvetica",
+          "size": 10,
+          "weight": "bold"
+        },
+        "menuFont": {
+          "family": "Helvetica",
+          "size": 10,
+          "weight": "normal"
+        },
+        "monospaceFont": {
+          "family": "Fixed",
+          "size": 10,
+          "weight": "normal"
+        },
+
+        "antialiasing": false,
+        "baseFontSize": 12
+      },
+
+      "style": {
+        "type": "classic",
+        "borderStyle": "single",
+        "cornerRadius": 0,
+
+        "shadows": false,
+        "transparency": false,
+
+        "bevels": false,
+        "gradients": false,
+
+        "animationStyle": "instant"
+      }
+    },
+
+    "cursor": {
+      "style": "classic_arrow",
+      "animated": false,
+      "shadows": false
+    },
+
+    "icons": {
+      "style": "icon_32",
+      "size": {
+        "default": 32,
+        "sizes": [32]
+      },
+      "rendering": "aliased",
+      "shadow": false,
+      "labelStyle": {
+        "position": "below",
+        "background": "transparent",
+        "textColor": "#FFFFFF",
+        "font": {
+          "family": "Helvetica",
+          "size": 10
+        }
+      }
+    },
+
+    "wallpaper": {
+      "type": "solid",
+      "value": "#2F4F4F",
+      "overlay": true
+    }
+  },
+
+  "paradigm": {
+    "windowSystem": {
+      "type": "stacking",
+
+      "behavior": {
+        "overlap": true,
+        "resize": true,
+        "minimize": true,
+        "maximize": true,
+        "close": true,
+
+        "modal": true,
+        "alwaysOnTop": false,
+        "transparency": false
+      },
+
+      "chrome": {
+        "titleBar": "classic",
+        "controls": "buttons",
+        "controlPosition": "right",
+
+        "buttons": {
+          "minimize": {
+            "style": "icon",
+            "content": "minimize",
+            "position": 1
+          },
+          "maximize": {
+            "style": "icon",
+            "content": "maximize",
+            "position": 2
+          },
+          "close": {
+            "style": "icon",
+            "content": "close",
+            "position": 3
+          }
+        },
+
+        "titleAlign": "left",
+        "showIcon": false
+      },
+
+      "effects": {
+        "shadow": false
+      }
+    },
+
+    "menuSystem": {
+      "type": "context_only",
+
+      "contextMenu": {
+        "enabled": true,
+        "trigger": "right_click",
+        "style": {
+          "background": "#8B8B8B",
+          "borderStyle": "single"
+        }
+      },
+
+      "behavior": {
+        "clickToOpen": true,
+        "icons": false,
+        "cascading": true,
+        "tearOff": false
+      }
+    },
+
+    "taskManagement": {
+      "type": "panel",
+
+      "switching": {
+        "method": ["alt_tab", "window_list"]
+      },
+
+      "multitasking": {
+        "preemptive": true,
+        "virtual_desktops": false
+      }
+    },
+
+    "desktop": {
+      "type": "iconic",
+
+      "layout": {
+        "type": "grid",
+        "grid": {
+          "cellWidth": 80,
+          "cellHeight": 100,
+          "spacing": 20
+        },
+        "direction": "vertical",
+        "alignment": "left",
+        "snapToGrid": true
+      },
+
+      "items": {
+        "icons": true,
+        "shortcuts": true,
+        "folders": true
+      },
+
+      "interaction": {
+        "click": "double",
+        "selection": "rubber_band",
+        "dragAndDrop": true
+      }
+    },
+
+    "inputMethods": {
+      "keyboard": {
+        "shortcuts": true,
+        "function_keys": true,
+        "navigation": "arrows"
+      },
+
+      "mouse": {
+        "buttons": 3,
+        "scroll": "none",
+        "gestures": false
+      }
+    }
+  },
+
+  "components": {
+    "core": {
+      "windowManager": "twm",
+      "fileManager": "xfm",
+
+      "optional": {
+        "terminal": "rxvt",
+        "textEditor": "vi"
+      }
+    },
+
+    "applications": [
+      {
+        "id": "rxvt",
+        "name": "Terminal",
+        "icon": "icons/terminal.png",
+        "type": "system",
+        "component": "XTerm",
+
+        "window": {
+          "title": "rxvt",
+          "width": 640,
+          "height": 400,
+          "resizable": true,
+          "minimizable": true,
+          "maximizable": true,
+          "position": "cascade"
+        },
+
+        "features": {
+          "multiInstance": true
+        }
+      },
+      {
+        "id": "xfm",
+        "name": "File Manager",
+        "icon": "icons/folder.png",
+        "type": "system",
+        "component": "XFM",
+
+        "window": {
+          "title": "File Manager",
+          "width": 600,
+          "height": 450,
+          "resizable": true,
+          "minimizable": true,
+          "maximizable": true,
+          "position": "center"
+        }
+      },
+      {
+        "id": "xclock",
+        "name": "Clock",
+        "icon": "icons/clock.png",
+        "type": "utility",
+        "component": "XClock",
+
+        "window": {
+          "title": "xclock",
+          "width": 150,
+          "height": 150,
+          "resizable": false,
+          "minimizable": true,
+          "maximizable": false,
+          "position": "center"
+        }
+      }
+    ]
+  },
+
+  "features": {
+    "interaction": {
+      "dragAndDrop": true,
+      "clipboard": true,
+
+      "fileOperations": {
+        "copy": true,
+        "move": true,
+        "delete": true,
+        "rename": true,
+        "properties": true
+      },
+
+      "networking": {
+        "enabled": true,
+        "protocols": ["TCP/IP", "NFS"]
+      }
+    },
+
+    "animations": {
+      "enabled": false,
+      "speed": "normal"
+    },
+
+    "customization": {
+      "themes": false,
+      "wallpaper": true,
+      "colors": true,
+      "layout": true
+    }
+  },
+
+  "assets": {
+    "basePath": "/assets/os/slackware-1",
+
+    "paths": {
+      "icons": "icons",
+      "cursors": "cursors",
+      "fonts": "fonts"
+    },
+
+    "iconSets": {
+      "default": {
+        "path": "icons",
+        "format": "png",
+        "sizes": [32]
+      }
+    }
+  }
+}

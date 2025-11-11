@@ -1,0 +1,236 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "ios-11",
+  "metadata": {
+    "name": "iOS 11",
+    "fullName": "Apple iOS 11",
+    "version": "11.0",
+    "company": "Apple Inc.",
+    "releaseYear": 2017,
+    "releaseDate": "2017-09-19",
+    "description": "Refined flat design with bold typography, redesigned Control Center, Files app, and ARKit for augmented reality experiences.",
+    "tagline": "The most powerful iOS yet",
+    "category": "mobile_modern",
+    "architecture": ["ARM64"],
+    "historical": {
+      "significance": "Dropped 32-bit support, introduced ARKit for AR, Files app for file management",
+      "marketShare": "86% iOS device adoption by end of 2017",
+      "successor": "iOS 12",
+      "predecessor": "iOS 10",
+      "endOfLife": "2020-09-16"
+    },
+    "links": {
+      "wikipedia": "https://en.wikipedia.org/wiki/IOS_11"
+    }
+  },
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#FFFFFF",
+        "windowBackground": "rgba(255, 255, 255, 0.98)",
+        "titleBarActive": "rgba(247, 247, 247, 0.85)",
+        "titleBarText": "#000000",
+        "buttonFace": "#007AFF",
+        "buttonText": "#FFFFFF",
+        "highlight": "#007AFF",
+        "highlightText": "#FFFFFF",
+        "text": "#000000",
+        "statusBar": "transparent",
+        "custom": {
+          "controlCenter": "rgba(240, 240, 240, 0.98)",
+          "notificationBadge": "#FF3B30",
+          "tintColor": "#007AFF"
+        }
+      },
+      "typography": {
+        "systemFont": {
+          "family": "San Francisco",
+          "size": 17,
+          "weight": "400",
+          "fallback": ["Helvetica Neue", "sans-serif"]
+        },
+        "titleFont": {
+          "family": "San Francisco",
+          "size": 34,
+          "weight": "700"
+        },
+        "antialiasing": true,
+        "subpixelRendering": true,
+        "baseFontSize": 17,
+        "scaleFactor": 3.0
+      },
+      "style": {
+        "type": "flat",
+        "borderStyle": "none",
+        "cornerRadius": 0,
+        "shadows": false,
+        "transparency": true,
+        "blur": true,
+        "bevels": false,
+        "gradients": false,
+        "animationStyle": "ease"
+      },
+      "specialElements": {
+        "scrollbarStyle": "overlay",
+        "focusIndicator": "glow"
+      }
+    },
+    "cursor": {
+      "style": "custom",
+      "animated": false
+    },
+    "icons": {
+      "style": "flat_modern",
+      "size": {
+        "default": 60,
+        "sizes": [60, 120, 180]
+      },
+      "rendering": "vector",
+      "shadow": false,
+      "labelStyle": {
+        "position": "below",
+        "background": "transparent",
+        "textColor": "#000000"
+      }
+    },
+    "wallpaper": {
+      "type": "gradient",
+      "value": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+    }
+  },
+  "paradigm": {
+    "windowSystem": {
+      "type": "full_screen",
+      "behavior": {
+        "overlap": false,
+        "resize": false,
+        "modal": true
+      },
+      "chrome": {
+        "titleBar": "unified",
+        "controls": "icons",
+        "controlPosition": "left",
+        "titleAlign": "center"
+      },
+      "effects": {
+        "openAnimation": "zoom",
+        "closeAnimation": "zoom",
+        "blur": true
+      }
+    },
+    "menuSystem": {
+      "type": "context_only",
+      "contextMenu": {
+        "enabled": true,
+        "trigger": "long_press"
+      }
+    },
+    "taskManagement": {
+      "type": "cards",
+      "switching": {
+        "method": ["gesture"]
+      },
+      "multitasking": {
+        "preemptive": true,
+        "splitScreen": true
+      }
+    },
+    "desktop": {
+      "type": "iconic",
+      "layout": {
+        "type": "grid",
+        "grid": {
+          "cellWidth": 76,
+          "cellHeight": 90,
+          "spacing": 10
+        },
+        "snapToGrid": true,
+        "autoArrange": true
+      },
+      "items": {
+        "icons": true,
+        "folders": true
+      },
+      "interaction": {
+        "click": "single",
+        "dragAndDrop": true
+      }
+    },
+    "inputMethods": {
+      "touch": {
+        "enabled": true,
+        "multitouch": true,
+        "gestures": ["tap", "swipe", "pinch", "rotate", "long_press"]
+      }
+    }
+  },
+  "components": {
+    "core": {
+      "windowManager": "springboard",
+      "fileManager": "files",
+      "optional": {
+        "textEditor": "notes",
+        "imageViewer": "photos",
+        "webBrowser": "safari"
+      }
+    },
+    "applications": [
+      {
+        "id": "files",
+        "name": "Files",
+        "icon": "icons/files.png",
+        "type": "system",
+        "window": {
+          "title": "Files",
+          "width": 375,
+          "height": 812,
+          "resizable": false
+        },
+        "desktop": {
+          "icon": true
+        }
+      }
+    ]
+  },
+  "features": {
+    "interaction": {
+      "dragAndDrop": true,
+      "clipboard": true,
+      "undo": true,
+      "fileOperations": {
+        "copy": true,
+        "move": true,
+        "delete": true
+      },
+      "networking": {
+        "enabled": true,
+        "protocols": ["WiFi", "LTE", "Bluetooth 5.0"]
+      }
+    },
+    "animations": {
+      "enabled": true,
+      "speed": "normal",
+      "effects": {
+        "transitions": true,
+        "parallax": true
+      }
+    },
+    "accessibility": {
+      "screenReader": true,
+      "magnifier": true,
+      "colorblindModes": ["Grayscale", "Red/Green", "Blue/Yellow"]
+    },
+    "customization": {
+      "wallpaper": true,
+      "layout": true
+    }
+  },
+  "assets": {
+    "basePath": "/assets/os/ios-11",
+    "paths": {
+      "icons": "icons",
+      "sounds": "sounds",
+      "wallpapers": "wallpapers"
+    }
+  }
+}

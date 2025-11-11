@@ -1,0 +1,148 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "aix",
+  "metadata": {
+    "name": "IBM AIX 4.3",
+    "fullName": "IBM AIX 4.3 with CDE",
+    "version": "4.3",
+    "company": "IBM",
+    "releaseYear": 1998,
+    "releaseDate": "1998-09-18",
+    "description": "IBM's enterprise Unix for RS/6000 systems, featuring CDE desktop and legendary reliability for mission-critical workloads.",
+    "tagline": "The Unix for Business",
+    "category": "desktop_unix",
+    "architecture": ["PowerPC", "POWER"],
+    "historical": {
+      "significance": "IBM's flagship Unix system. Known for exceptional reliability and advanced features like journaled file system (JFS) and logical volume management.",
+      "marketShare": "Dominated enterprise computing and mainframe environments",
+      "successor": "AIX 5L, AIX 7",
+      "predecessor": "AIX 3.x"
+    },
+    "links": {
+      "wikipedia": "https://en.wikipedia.org/wiki/IBM_AIX"
+    }
+  },
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#003D73",
+        "windowBackground": "#C0C0C0",
+        "windowBorder": "#000000",
+        "windowBorderWidth": 1,
+        "titleBarActive": "#0F62A8",
+        "titleBarInactive": "#9E9E9E",
+        "titleBarText": "#FFFFFF",
+        "titleBarTextInactive": "#000000",
+        "buttonFace": "#C0C0C0",
+        "buttonText": "#000000",
+        "buttonHighlight": "#E0E0E0",
+        "buttonShadow": "#5F5F5F",
+        "highlight": "#0F62A8",
+        "highlightText": "#FFFFFF",
+        "menuBackground": "#C0C0C0",
+        "menuText": "#000000",
+        "menuHighlight": "#0F62A8",
+        "text": "#000000",
+        "custom": {
+          "panelBackground": "#7090B0",
+          "ibmBlue": "#0F62A8"
+        }
+      },
+      "typography": {
+        "systemFont": {"family": "Helvetica", "size": 12, "weight": "normal", "fallback": ["Arial", "sans-serif"]},
+        "titleFont": {"family": "Helvetica", "size": 10, "weight": "bold"},
+        "menuFont": {"family": "Helvetica", "size": 12, "weight": "normal"},
+        "monospaceFont": {"family": "Courier", "size": 12, "weight": "normal"},
+        "antialiasing": false,
+        "baseFontSize": 12
+      },
+      "style": {
+        "type": "bevel_3d",
+        "borderStyle": "bevel_out",
+        "cornerRadius": 0,
+        "shadows": true,
+        "shadowStyle": "simple",
+        "transparency": false,
+        "bevels": true,
+        "gradients": false,
+        "animationStyle": "instant"
+      }
+    },
+    "cursor": {"style": "classic_arrow", "animated": false, "shadows": false},
+    "icons": {
+      "style": "icon_48",
+      "size": {"default": 48, "sizes": [32, 48]},
+      "rendering": "antialiased",
+      "shadow": false,
+      "labelStyle": {"position": "below", "background": "transparent", "textColor": "#000000", "font": {"family": "Helvetica", "size": 10}}
+    },
+    "wallpaper": {"type": "solid", "value": "#003D73", "overlay": true}
+  },
+  "paradigm": {
+    "windowSystem": {
+      "type": "stacking",
+      "behavior": {"overlap": true, "resize": true, "minimize": true, "maximize": true, "close": true, "modal": true, "alwaysOnTop": false, "transparency": false},
+      "chrome": {
+        "titleBar": "classic",
+        "controls": "buttons",
+        "controlPosition": "right",
+        "buttons": {
+          "menu": {"style": "icon", "content": "menu", "position": 0},
+          "minimize": {"style": "icon", "content": "minimize", "position": 1},
+          "maximize": {"style": "icon", "content": "maximize", "position": 2}
+        },
+        "titleAlign": "left",
+        "showIcon": false
+      },
+      "effects": {"shadow": false}
+    },
+    "menuSystem": {
+      "type": "menu_bar",
+      "menuBar": {"enabled": false},
+      "contextMenu": {"enabled": true, "trigger": "right_click", "style": {"background": "#C0C0C0", "borderStyle": "bevel_out"}},
+      "behavior": {"clickToOpen": true, "icons": true, "cascading": true, "tearOff": false}
+    },
+    "taskManagement": {
+      "type": "panel",
+      "taskbar": {
+        "enabled": true,
+        "position": "bottom",
+        "autoHide": false,
+        "size": 50,
+        "style": {"background": "#7090B0", "transparency": false, "blur": false, "itemStyle": "icons", "grouping": false, "previews": false},
+        "sections": {"start": true, "quick_launch": false, "tasks": true, "system_tray": true, "clock": true}
+      },
+      "switching": {"method": ["alt_tab", "taskbar_click"]},
+      "multitasking": {"preemptive": true, "virtual_desktops": true}
+    },
+    "desktop": {
+      "type": "iconic",
+      "layout": {"type": "grid", "grid": {"cellWidth": 80, "cellHeight": 100, "spacing": 20}, "direction": "vertical", "alignment": "right", "snapToGrid": true},
+      "items": {"icons": true, "shortcuts": true, "folders": true},
+      "interaction": {"click": "double", "selection": "rubber_band", "dragAndDrop": true}
+    },
+    "inputMethods": {
+      "keyboard": {"shortcuts": true, "function_keys": true, "navigation": "arrows"},
+      "mouse": {"buttons": 3, "scroll": "none", "gestures": false}
+    }
+  },
+  "components": {
+    "core": {"windowManager": "dtwm", "fileManager": "dtfile", "optional": {"terminal": "aixterm", "textEditor": "dtpad"}},
+    "applications": [
+      {"id": "aixterm", "name": "AIX Terminal", "icon": "icons/aixterm.png", "type": "system", "component": "XTerm", "window": {"title": "AIXterm", "width": 640, "height": 400, "resizable": true, "minimizable": true, "maximizable": true, "position": "cascade"}, "features": {"multiInstance": true}},
+      {"id": "dtfile", "name": "File Manager", "icon": "icons/dtfile.png", "type": "system", "component": "XFM", "window": {"title": "File Manager", "width": 600, "height": 450, "resizable": true, "minimizable": true, "maximizable": true, "position": "center"}},
+      {"id": "smit", "name": "System Management Interface Tool", "icon": "icons/smit.png", "type": "system", "component": "SMIT", "window": {"title": "SMIT", "width": 700, "height": 500, "resizable": true, "minimizable": true, "maximizable": true, "position": "center"}},
+      {"id": "dtcalc", "name": "Calculator", "icon": "icons/dtcalc.png", "type": "utility", "component": "XCalc", "window": {"title": "Calculator", "width": 250, "height": 320, "resizable": false, "minimizable": true, "maximizable": false, "position": "center"}}
+    ]
+  },
+  "features": {
+    "interaction": {"dragAndDrop": true, "clipboard": true, "fileOperations": {"copy": true, "move": true, "delete": true, "rename": true, "properties": true}, "networking": {"enabled": true, "protocols": ["TCP/IP", "NFS"]}},
+    "animations": {"enabled": false, "speed": "normal"},
+    "customization": {"themes": true, "wallpaper": true, "colors": true, "layout": true}
+  },
+  "assets": {
+    "basePath": "/assets/os/aix",
+    "paths": {"icons": "icons", "cursors": "cursors", "fonts": "fonts"},
+    "iconSets": {"default": {"path": "icons", "format": "png", "sizes": [32, 48]}}
+  }
+}

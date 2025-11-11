@@ -1,0 +1,109 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "android-12",
+  "metadata": {
+    "name": "Android 12",
+    "version": "12.0",
+    "company": "Google",
+    "releaseYear": 2021,
+    "releaseDate": "2021-10-04",
+    "description": "Material You with dynamic theming, redesigned widgets, privacy dashboard, and personalized color extraction from wallpaper.",
+    "tagline": "Designed for you",
+    "category": "mobile_modern",
+    "architecture": ["ARM64"],
+    "historical": {
+      "significance": "Material You design, dynamic theming based on wallpaper, enhanced privacy controls",
+      "successor": "Android 13",
+      "predecessor": "Android 11"
+    }
+  },
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#F3F0FF",
+        "windowBackground": "#FFFFFF",
+        "titleBarActive": "#FFFFFF",
+        "titleBarText": "#1C1B1F",
+        "buttonFace": "#6750A4",
+        "buttonText": "#FFFFFF",
+        "highlight": "#6750A4",
+        "text": "#1C1B1F",
+        "custom": {
+          "primary": "#6750A4",
+          "secondary": "#625B71",
+          "tertiary": "#7D5260",
+          "surface": "#FFFBFE"
+        }
+      },
+      "typography": {
+        "systemFont": {
+          "family": "Roboto",
+          "size": 14
+        },
+        "antialiasing": true
+      },
+      "style": {
+        "type": "material",
+        "cornerRadius": 28,
+        "shadows": true,
+        "animationStyle": "ease"
+      }
+    },
+    "icons": {
+      "style": "material",
+      "size": {
+        "default": 48,
+        "sizes": [48, 96, 192]
+      },
+      "rendering": "vector"
+    },
+    "wallpaper": {
+      "type": "image",
+      "value": "wallpapers/android12-default.jpg"
+    }
+  },
+  "paradigm": {
+    "windowSystem": {
+      "type": "full_screen"
+    },
+    "taskManagement": {
+      "type": "cards"
+    },
+    "desktop": {
+      "type": "iconic",
+      "items": {
+        "widgets": true
+      }
+    },
+    "inputMethods": {
+      "touch": {
+        "enabled": true,
+        "multitouch": true,
+        "gestures": ["tap", "swipe", "pinch"]
+      }
+    }
+  },
+  "components": {
+    "core": {
+      "windowManager": "android-wm"
+    }
+  },
+  "features": {
+    "interaction": {
+      "networking": {
+        "enabled": true,
+        "protocols": ["WiFi 6", "5G", "Bluetooth 5.2"]
+      }
+    },
+    "customization": {
+      "themes": true,
+      "colors": true
+    }
+  },
+  "assets": {
+    "basePath": "/assets/os/android-12",
+    "paths": {
+      "icons": "icons"
+    }
+  }
+}

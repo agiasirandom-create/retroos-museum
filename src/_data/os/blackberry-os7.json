@@ -1,0 +1,499 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "blackberry-os7",
+
+  "metadata": {
+    "name": "BlackBerry OS 7",
+    "fullName": "BlackBerry OS 7.1",
+    "version": "7.1",
+    "company": "Research In Motion (RIM)",
+    "releaseYear": 2011,
+    "releaseDate": "2011-08-03",
+    "description": "The iconic business-focused smartphone OS featuring physical QWERTY keyboard, BBM messaging, and legendary email integration with unmatched efficiency.",
+    "tagline": "Move. Work. Play. Do it all in Style.",
+    "category": "mobile_classic",
+    "architecture": ["ARM"],
+
+    "historical": {
+      "significance": "Defined business smartphone category. Legendary physical keyboard and email integration. BBM created social messaging category. Dominated enterprise market. Cultural phenomenon among professionals and teens.",
+      "marketShare": "~20% global smartphone share at peak (2009-2010), 40%+ in North America",
+      "predecessor": "BlackBerry OS 6",
+      "successor": "BlackBerry 10",
+      "endOfLife": "2013-01-01"
+    },
+
+    "links": {
+      "wikipedia": "https://en.wikipedia.org/wiki/BlackBerry_OS"
+    }
+  },
+
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#000000",
+        "windowBackground": "#FFFFFF",
+        "windowBorder": "#333333",
+        "windowBorderWidth": 1,
+
+        "titleBarActive": "#000000",
+        "titleBarInactive": "#333333",
+        "titleBarText": "#FFFFFF",
+
+        "buttonFace": "#333333",
+        "buttonText": "#FFFFFF",
+        "buttonBorder": "#555555",
+        "buttonHighlight": "#666666",
+
+        "highlight": "#006699",
+        "highlightText": "#FFFFFF",
+
+        "menuBackground": "#000000",
+        "menuText": "#FFFFFF",
+        "menuHighlight": "#006699",
+
+        "text": "#000000",
+        "textDisabled": "#999999",
+
+        "statusBar": "#000000",
+
+        "custom": {
+          "homeScreen": "#000000",
+          "iconGlow": "#006699",
+          "notificationRed": "#CC0000",
+          "bbmGreen": "#00CC00"
+        }
+      },
+
+      "typography": {
+        "systemFont": {
+          "family": "BBAlpha Sans",
+          "size": 10,
+          "weight": "normal",
+          "fallback": ["Arial", "sans-serif"]
+        },
+        "titleFont": {
+          "family": "BBAlpha Sans",
+          "size": 10,
+          "weight": "bold"
+        },
+        "menuFont": {
+          "family": "BBAlpha Sans",
+          "size": 9,
+          "weight": "normal"
+        },
+        "monospaceFont": {
+          "family": "BBAlpha Mono",
+          "size": 9,
+          "weight": "normal"
+        },
+
+        "antialiasing": true,
+        "subpixelRendering": true,
+        "baseFontSize": 10
+      },
+
+      "style": {
+        "type": "flat",
+        "borderStyle": "single",
+        "cornerRadius": 4,
+
+        "shadows": true,
+        "shadowStyle": "soft",
+        "transparency": true,
+
+        "bevels": false,
+        "gradients": true,
+
+        "animationStyle": "ease"
+      }
+    },
+
+    "cursor": {
+      "style": "classic_arrow",
+      "animated": false,
+      "shadows": false
+    },
+
+    "icons": {
+      "style": "photo_realistic",
+      "size": {
+        "default": 80,
+        "sizes": [48, 80]
+      },
+      "rendering": "antialiased",
+      "shadow": true,
+      "labelStyle": {
+        "position": "below",
+        "background": "transparent",
+        "textColor": "#FFFFFF",
+        "font": {
+          "family": "BBAlpha Sans",
+          "size": 8
+        }
+      }
+    },
+
+    "sounds": {
+      "enabled": true,
+      "sounds": {
+        "startup": "sounds/bb_startup.wav",
+        "notification": "sounds/bb_notification.wav",
+        "click": "sounds/keypress.wav",
+        "bbm": "sounds/bbm_message.wav"
+      },
+      "volume": 75
+    },
+
+    "wallpaper": {
+      "type": "image",
+      "value": "wallpapers/blackberry.jpg",
+      "tiling": "stretch",
+      "overlay": true
+    }
+  },
+
+  "paradigm": {
+    "windowSystem": {
+      "type": "full_screen",
+
+      "behavior": {
+        "overlap": false,
+        "resize": false,
+        "minimize": true,
+        "maximize": false,
+        "close": true,
+
+        "modal": true,
+        "transparency": true
+      },
+
+      "chrome": {
+        "titleBar": "minimal",
+        "controls": "buttons",
+        "controlPosition": "right",
+
+        "buttons": {
+          "close": {
+            "style": "icon",
+            "content": "close",
+            "position": 1
+          },
+          "menu": {
+            "style": "icon",
+            "content": "menu",
+            "position": 2
+          }
+        },
+
+        "titleAlign": "left",
+        "showIcon": true
+      },
+
+      "effects": {
+        "openAnimation": "slide",
+        "closeAnimation": "slide",
+        "shadow": true
+      }
+    },
+
+    "menuSystem": {
+      "type": "context_only",
+
+      "menuBar": {
+        "enabled": false
+      },
+
+      "contextMenu": {
+        "enabled": true,
+        "trigger": "ctrl_click",
+        "style": {
+          "background": "#000000",
+          "borderStyle": "single"
+        }
+      },
+
+      "behavior": {
+        "clickToOpen": true,
+        "keyboardShortcuts": true,
+        "mnemonics": true,
+        "icons": true,
+        "cascading": true
+      }
+    },
+
+    "taskManagement": {
+      "type": "cards",
+
+      "switching": {
+        "method": ["alt_tab", "gesture"],
+        "altTab": {
+          "enabled": true,
+          "visual": "thumbnails",
+          "animation": true
+        }
+      },
+
+      "multitasking": {
+        "preemptive": true,
+        "virtual_desktops": false
+      }
+    },
+
+    "desktop": {
+      "type": "iconic",
+
+      "layout": {
+        "type": "grid",
+        "grid": {
+          "columns": 4,
+          "rows": 4,
+          "cellWidth": 100,
+          "cellHeight": 100,
+          "spacing": 8
+        },
+        "direction": "horizontal",
+        "snapToGrid": true
+      },
+
+      "items": {
+        "icons": true,
+        "shortcuts": true,
+        "folders": true,
+        "widgets": false,
+
+        "defaultItems": [
+          "messages",
+          "bbm",
+          "phone",
+          "browser",
+          "calendar"
+        ]
+      },
+
+      "interaction": {
+        "click": "single",
+        "selection": "single",
+        "dragAndDrop": true
+      },
+
+      "behavior": {}
+    },
+
+    "inputMethods": {
+      "keyboard": {
+        "shortcuts": true,
+        "function_keys": true,
+        "navigation": "custom",
+        "accessibility": true
+      },
+
+      "touch": {
+        "enabled": true,
+        "multitouch": true,
+        "gestures": ["tap", "long_press", "swipe"],
+        "pressureSensitive": false
+      }
+    }
+  },
+
+  "components": {
+    "core": {
+      "windowManager": "blackberry_ui",
+      "fileManager": "file_manager",
+
+      "optional": {
+        "terminal": "console",
+        "textEditor": "memopad",
+        "webBrowser": "browser"
+      }
+    },
+
+    "applications": [
+      {
+        "id": "home",
+        "name": "Home",
+        "icon": "icons/home.png",
+        "type": "system",
+        "component": "HomeScreen",
+
+        "window": {
+          "title": "",
+          "width": 480,
+          "height": 640,
+          "resizable": false,
+          "minimizable": false,
+          "maximizable": false,
+          "position": "center"
+        }
+      },
+      {
+        "id": "messages",
+        "name": "Messages",
+        "icon": "icons/messages.png",
+        "type": "communication",
+        "component": "Messages",
+
+        "window": {
+          "title": "Messages",
+          "width": 480,
+          "height": 640,
+          "resizable": false,
+          "minimizable": true,
+          "maximizable": false,
+          "position": "center"
+        }
+      },
+      {
+        "id": "bbm",
+        "name": "BlackBerry Messenger",
+        "icon": "icons/bbm.png",
+        "type": "communication",
+        "component": "BBM",
+
+        "window": {
+          "title": "BlackBerry Messenger",
+          "width": 480,
+          "height": 640,
+          "resizable": false,
+          "minimizable": true,
+          "maximizable": false,
+          "position": "center"
+        }
+      },
+      {
+        "id": "phone",
+        "name": "Phone",
+        "icon": "icons/phone.png",
+        "type": "communication",
+        "component": "Phone",
+
+        "window": {
+          "title": "Phone",
+          "width": 480,
+          "height": 640,
+          "resizable": false,
+          "minimizable": true,
+          "maximizable": false,
+          "position": "center"
+        }
+      },
+      {
+        "id": "browser",
+        "name": "Browser",
+        "icon": "icons/browser.png",
+        "type": "web",
+        "component": "Browser",
+
+        "window": {
+          "title": "Browser",
+          "width": 480,
+          "height": 640,
+          "resizable": false,
+          "minimizable": true,
+          "maximizable": false,
+          "position": "center"
+        }
+      },
+      {
+        "id": "calendar",
+        "name": "Calendar",
+        "icon": "icons/calendar.png",
+        "type": "productivity",
+        "component": "Calendar",
+
+        "window": {
+          "title": "Calendar",
+          "width": 480,
+          "height": 640,
+          "resizable": false,
+          "minimizable": true,
+          "maximizable": false,
+          "position": "center"
+        }
+      },
+      {
+        "id": "contacts",
+        "name": "Contacts",
+        "icon": "icons/contacts.png",
+        "type": "productivity",
+        "component": "Contacts",
+
+        "window": {
+          "title": "Contacts",
+          "width": 480,
+          "height": 640,
+          "resizable": false,
+          "minimizable": true,
+          "maximizable": false,
+          "position": "center"
+        }
+      }
+    ]
+  },
+
+  "features": {
+    "interaction": {
+      "dragAndDrop": true,
+      "clipboard": true,
+
+      "fileOperations": {
+        "copy": true,
+        "move": true,
+        "delete": true,
+        "rename": true,
+        "properties": true
+      },
+
+      "networking": {
+        "enabled": true,
+        "protocols": ["TCP/IP", "HTTP", "BIS/BES", "BBM"]
+      }
+    },
+
+    "animations": {
+      "enabled": true,
+      "speed": "fast",
+      "effects": {
+        "windowOpen": true,
+        "windowClose": true,
+        "windowMinimize": true,
+        "transitions": true,
+        "hover": true
+      }
+    },
+
+    "customization": {
+      "themes": true,
+      "wallpaper": true,
+      "colors": false,
+      "fonts": false
+    }
+  },
+
+  "assets": {
+    "basePath": "/assets/os/blackberry",
+
+    "paths": {
+      "icons": "icons",
+      "sounds": "sounds",
+      "fonts": "fonts",
+      "wallpapers": "wallpapers"
+    },
+
+    "iconSets": {
+      "default": {
+        "path": "icons",
+        "format": "png",
+        "sizes": [48, 80]
+      }
+    },
+
+    "fonts": {
+      "bbalpha": {
+        "path": "fonts/bbalpha.woff2",
+        "format": "woff2",
+        "weights": [400, 700]
+      }
+    }
+  }
+}

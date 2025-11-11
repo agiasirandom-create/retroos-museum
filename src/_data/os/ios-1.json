@@ -1,0 +1,520 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "ios-1",
+
+  "metadata": {
+    "name": "iPhone OS 1.0",
+    "fullName": "Apple iPhone OS 1.0",
+    "version": "1.0",
+    "company": "Apple Inc.",
+    "releaseYear": 2007,
+    "releaseDate": "2007-06-29",
+    "description": "Revolutionary touch-first mobile OS that redefined smartphones with multi-touch gestures, visual voicemail, and a rich HTML browser.",
+    "tagline": "This changes everything",
+    "category": "mobile_modern",
+    "architecture": ["ARM"],
+
+    "historical": {
+      "significance": "First truly modern touch-first smartphone OS, eliminated physical keyboard and stylus, established iPhone platform",
+      "marketShare": "Initial 3% smartphone market share in 2007",
+      "successor": "iPhone OS 2.0",
+      "predecessor": "None (first release)",
+      "endOfLife": "2010-07-15"
+    },
+
+    "links": {
+      "wikipedia": "https://en.wikipedia.org/wiki/IOS_version_history#iPhone_OS_1"
+    }
+  },
+
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#000000",
+
+        "windowBackground": "#FFFFFF",
+        "windowBorder": "transparent",
+        "windowBorderWidth": 0,
+
+        "titleBarActive": "#4C4C4C",
+        "titleBarInactive": "#4C4C4C",
+        "titleBarText": "#FFFFFF",
+
+        "buttonFace": "linear-gradient(180deg, #6195ED 0%, #4176D7 50%, #2F5FBE 100%)",
+        "buttonText": "#FFFFFF",
+        "buttonHighlight": "#7BA3F0",
+        "buttonShadow": "#1E3E7A",
+
+        "highlight": "#3366CC",
+        "highlightText": "#FFFFFF",
+
+        "menuBackground": "#000000",
+        "menuText": "#FFFFFF",
+
+        "text": "#000000",
+        "textDisabled": "#999999",
+
+        "statusBar": "rgba(0, 0, 0, 0.8)",
+        "taskbar": "rgba(0, 0, 0, 0.3)",
+
+        "custom": {
+          "iconGlow": "#FFFFFF",
+          "dockBackground": "rgba(255, 255, 255, 0.3)",
+          "notificationBadge": "#FF3B30"
+        }
+      },
+
+      "typography": {
+        "systemFont": {
+          "family": "Helvetica",
+          "size": 14,
+          "weight": "normal",
+          "fallback": ["Arial", "sans-serif"]
+        },
+        "titleFont": {
+          "family": "Helvetica",
+          "size": 20,
+          "weight": "bold"
+        },
+        "menuFont": {
+          "family": "Helvetica",
+          "size": 16,
+          "weight": "normal"
+        },
+
+        "antialiasing": true,
+        "subpixelRendering": true,
+        "baseFontSize": 14,
+        "scaleFactor": 1.0
+      },
+
+      "style": {
+        "type": "skeuomorphic",
+        "borderStyle": "none",
+        "cornerRadius": 10,
+
+        "shadows": true,
+        "shadowStyle": "soft",
+        "transparency": true,
+        "blur": false,
+
+        "bevels": false,
+        "gradients": true,
+        "textures": true,
+
+        "animationStyle": "ease"
+      },
+
+      "specialElements": {
+        "scrollbarStyle": "thin",
+        "focusIndicator": "glow",
+        "dragVisual": "full"
+      }
+    },
+
+    "cursor": {
+      "style": "custom",
+      "animated": false,
+      "shadows": false
+    },
+
+    "icons": {
+      "style": "skeuomorphic",
+      "size": {
+        "default": 57,
+        "sizes": [57, 114]
+      },
+      "rendering": "antialiased",
+      "shadow": true,
+      "labelStyle": {
+        "position": "below",
+        "background": "transparent",
+        "textColor": "#FFFFFF",
+        "font": {
+          "family": "Helvetica",
+          "size": 11,
+          "weight": "bold"
+        }
+      }
+    },
+
+    "sounds": {
+      "enabled": true,
+      "sounds": {
+        "notification": "sounds/tri-tone.caf",
+        "error": "sounds/tock.caf",
+        "lock": "sounds/lock.caf",
+        "unlock": "sounds/unlock.caf",
+        "click": "sounds/tock.caf",
+        "keyboard": "sounds/keyboard.caf",
+        "mail_sent": "sounds/mail-sent.caf"
+      },
+      "volume": 80
+    },
+
+    "wallpaper": {
+      "type": "image",
+      "value": "wallpapers/earth.jpg",
+      "tiling": "fill",
+      "overlay": true
+    }
+  },
+
+  "paradigm": {
+    "windowSystem": {
+      "type": "full_screen",
+
+      "behavior": {
+        "overlap": false,
+        "resize": false,
+        "minimize": false,
+        "maximize": false,
+        "close": false,
+
+        "modal": true,
+        "alwaysOnTop": false,
+        "transparency": false,
+
+        "multipleDocuments": false,
+        "tabbed": false,
+        "tiling": false
+      },
+
+      "chrome": {
+        "titleBar": "minimal",
+        "controls": "icons",
+        "controlPosition": "left",
+
+        "buttons": {
+          "close": {
+            "style": "text",
+            "content": "Back",
+            "position": 1
+          }
+        },
+
+        "titleAlign": "center",
+        "showIcon": false,
+        "showPath": false
+      },
+
+      "effects": {
+        "openAnimation": "slide",
+        "closeAnimation": "slide",
+        "minimizeAnimation": "none",
+        "maximizeAnimation": "none",
+
+        "shadow": false,
+        "blur": false,
+        "wobbly": false
+      }
+    },
+
+    "menuSystem": {
+      "type": "context_only",
+
+      "menuBar": {
+        "enabled": false
+      },
+
+      "contextMenu": {
+        "enabled": true,
+        "trigger": "long_press",
+        "style": {
+          "background": "#FFFFFF",
+          "borderStyle": "custom"
+        }
+      },
+
+      "behavior": {
+        "clickToOpen": false,
+        "keyboardShortcuts": false,
+        "mnemonics": false,
+        "icons": false,
+        "cascading": false,
+        "tearOff": false
+      }
+    },
+
+    "taskManagement": {
+      "type": "none",
+
+      "switching": {
+        "method": ["dock_click"],
+        "altTab": {
+          "enabled": false
+        }
+      },
+
+      "multitasking": {
+        "preemptive": false,
+        "virtual_desktops": false,
+        "snapAssist": false,
+        "splitScreen": false
+      }
+    },
+
+    "desktop": {
+      "type": "iconic",
+
+      "layout": {
+        "type": "grid",
+        "grid": {
+          "cellWidth": 74,
+          "cellHeight": 88,
+          "spacing": 8
+        },
+        "direction": "vertical",
+        "alignment": "left",
+        "snapToGrid": true,
+        "autoArrange": true
+      },
+
+      "items": {
+        "icons": true,
+        "widgets": false,
+        "shortcuts": false,
+        "folders": false,
+
+        "defaultItems": [
+          "safari",
+          "mail",
+          "phone",
+          "ipod",
+          "messages",
+          "calendar",
+          "photos",
+          "camera",
+          "youtube",
+          "stocks",
+          "maps",
+          "weather",
+          "clock",
+          "calculator",
+          "notes",
+          "settings"
+        ]
+      },
+
+      "interaction": {
+        "click": "single",
+        "selection": "single",
+        "dragAndDrop": false,
+        "hoverPreview": false
+      },
+
+      "behavior": {
+        "showTrash": false,
+        "showComputer": false,
+        "showNetwork": false,
+        "showHome": true
+      }
+    },
+
+    "inputMethods": {
+      "keyboard": {
+        "shortcuts": false,
+        "function_keys": false,
+        "navigation": "custom",
+        "accessibility": false
+      },
+
+      "mouse": {
+        "buttons": 0,
+        "scroll": "none",
+        "gestures": false,
+        "acceleration": false
+      },
+
+      "touch": {
+        "enabled": true,
+        "multitouch": true,
+        "gestures": ["tap", "double_tap", "swipe", "pinch"],
+        "pressureSensitive": false
+      }
+    }
+  },
+
+  "components": {
+    "core": {
+      "windowManager": "springboard",
+      "fileManager": "none",
+
+      "optional": {
+        "textEditor": "notes",
+        "imageViewer": "photos",
+        "mediaPlayer": "ipod",
+        "webBrowser": "safari",
+        "emailClient": "mail"
+      }
+    },
+
+    "applications": [
+      {
+        "id": "safari",
+        "name": "Safari",
+        "icon": "icons/safari.png",
+        "type": "web",
+        "component": "Safari",
+        "window": {
+          "title": "Safari",
+          "width": 320,
+          "height": 480,
+          "resizable": false,
+          "position": "center"
+        },
+        "desktop": {
+          "icon": true,
+          "position": { "x": 0, "y": 0 }
+        }
+      },
+      {
+        "id": "mail",
+        "name": "Mail",
+        "icon": "icons/mail.png",
+        "type": "communication",
+        "component": "Mail",
+        "window": {
+          "title": "Mail",
+          "width": 320,
+          "height": 480,
+          "resizable": false,
+          "position": "center"
+        },
+        "desktop": {
+          "icon": true,
+          "position": { "x": 74, "y": 0 }
+        }
+      },
+      {
+        "id": "phone",
+        "name": "Phone",
+        "icon": "icons/phone.png",
+        "type": "communication",
+        "component": "Phone",
+        "window": {
+          "title": "Phone",
+          "width": 320,
+          "height": 480,
+          "resizable": false,
+          "position": "center"
+        },
+        "desktop": {
+          "icon": true,
+          "position": { "x": 148, "y": 0 }
+        }
+      },
+      {
+        "id": "ipod",
+        "name": "iPod",
+        "icon": "icons/ipod.png",
+        "type": "media",
+        "component": "iPod",
+        "window": {
+          "title": "iPod",
+          "width": 320,
+          "height": 480,
+          "resizable": false,
+          "position": "center"
+        },
+        "desktop": {
+          "icon": true,
+          "position": { "x": 222, "y": 0 }
+        }
+      }
+    ]
+  },
+
+  "features": {
+    "interaction": {
+      "dragAndDrop": false,
+      "clipboard": true,
+      "undo": false,
+
+      "fileOperations": {
+        "copy": false,
+        "move": false,
+        "delete": false,
+        "rename": false,
+        "properties": false
+      },
+
+      "networking": {
+        "enabled": true,
+        "protocols": ["WiFi", "EDGE"]
+      },
+
+      "printing": false,
+      "scanning": false
+    },
+
+    "animations": {
+      "enabled": true,
+      "speed": "normal",
+
+      "effects": {
+        "windowOpen": true,
+        "windowClose": true,
+        "windowMinimize": false,
+        "menuOpen": true,
+        "hover": false,
+        "click": true,
+        "transitions": true,
+        "parallax": false
+      }
+    },
+
+    "accessibility": {
+      "highContrast": false,
+      "screenReader": false,
+      "magnifier": false,
+      "keyboard_navigation": false
+    },
+
+    "easterEggs": {
+      "enabled": false
+    },
+
+    "customization": {
+      "themes": false,
+      "wallpaper": true,
+      "colors": false,
+      "fonts": false,
+      "layout": false
+    }
+  },
+
+  "assets": {
+    "basePath": "/assets/os/ios-1",
+
+    "paths": {
+      "icons": "icons",
+      "sounds": "sounds",
+      "fonts": "fonts",
+      "wallpapers": "wallpapers"
+    },
+
+    "iconSets": {
+      "default": {
+        "path": "icons",
+        "format": "png",
+        "sizes": [57, 114]
+      }
+    },
+
+    "soundSets": {
+      "default": {
+        "path": "sounds",
+        "format": "caf"
+      }
+    },
+
+    "preload": [
+      "icons/safari.png",
+      "icons/mail.png",
+      "icons/phone.png",
+      "icons/ipod.png",
+      "wallpapers/earth.jpg"
+    ]
+  }
+}

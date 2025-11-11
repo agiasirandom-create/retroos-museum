@@ -1,0 +1,226 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "zxspectrum",
+
+  "metadata": {
+    "name": "ZX Spectrum",
+    "fullName": "Sinclair ZX Spectrum 48K BASIC",
+    "version": "1.0",
+    "company": "Sinclair Research",
+    "releaseYear": 1982,
+    "releaseDate": "1982-04-23",
+    "description": "Iconic British home computer featuring rubber keyboard, distinctive color attributes, and Sinclair BASIC. Launched the UK gaming industry.",
+    "tagline": "The Computer That Started the UK Gaming Industry",
+    "category": "desktop_alternative",
+    "architecture": ["Z80"],
+
+    "historical": {
+      "significance": "Defined British home computing in 1980s. Distinctive color clash graphics became iconic. Spawned massive gaming industry. Over 5 million units sold. Cultural phenomenon in UK.",
+      "marketShare": "Dominant in UK home computing 1982-1987",
+      "successor": "ZX Spectrum 128K",
+      "endOfLife": "1992-01-01"
+    },
+
+    "links": {
+      "wikipedia": "https://en.wikipedia.org/wiki/ZX_Spectrum"
+    }
+  },
+
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#000000",
+        "windowBackground": "#FFFFFF",
+        "text": "#000000",
+        "custom": {
+          "cursor": "#000000",
+          "promptColor": "#D80000",
+          "border": "#D80000",
+          "cyan": "#00D8FF",
+          "yellow": "#FFD800",
+          "green": "#00D800",
+          "magenta": "#D800D8",
+          "red": "#D80000",
+          "blue": "#0000D8",
+          "white": "#FFFFFF"
+        }
+      },
+
+      "typography": {
+        "systemFont": {
+          "family": "ZX Spectrum",
+          "size": 16,
+          "weight": "normal",
+          "fallback": ["monospace"]
+        },
+        "antialiasing": false,
+        "baseFontSize": 16
+      },
+
+      "style": {
+        "type": "flat",
+        "borderStyle": "single",
+        "cornerRadius": 0,
+        "shadows": false,
+        "transparency": false,
+        "bevels": false,
+        "gradients": false,
+        "animationStyle": "instant"
+      }
+    },
+
+    "cursor": {
+      "style": "classic_arrow",
+      "animated": true,
+      "shadows": false
+    },
+
+    "icons": {
+      "style": "pixel_art",
+      "size": {
+        "default": 8,
+        "sizes": [8]
+      },
+      "rendering": "aliased",
+      "shadow": false
+    },
+
+    "sounds": {
+      "enabled": true,
+      "sounds": {
+        "startup": "sounds/spectrum_beep.wav",
+        "error": "sounds/beep.wav"
+      },
+      "volume": 100
+    },
+
+    "wallpaper": {
+      "type": "solid",
+      "value": "#FFFFFF",
+      "overlay": false
+    }
+  },
+
+  "paradigm": {
+    "windowSystem": {
+      "type": "none",
+      "behavior": {
+        "overlap": false,
+        "resize": false,
+        "minimize": false,
+        "maximize": false,
+        "close": false
+      },
+      "chrome": {
+        "titleBar": "hidden",
+        "controls": "none",
+        "controlPosition": "right",
+        "buttons": {}
+      }
+    },
+
+    "menuSystem": {
+      "type": "context_only",
+      "menuBar": {
+        "enabled": false
+      },
+      "contextMenu": {
+        "enabled": false
+      }
+    },
+
+    "taskManagement": {
+      "type": "none",
+      "switching": {
+        "method": []
+      },
+      "multitasking": {
+        "preemptive": false
+      }
+    },
+
+    "desktop": {
+      "type": "none",
+      "items": {
+        "icons": false
+      },
+      "interaction": {
+        "click": "single",
+        "selection": "single",
+        "dragAndDrop": false
+      }
+    },
+
+    "inputMethods": {
+      "keyboard": {
+        "shortcuts": false,
+        "function_keys": false,
+        "navigation": "custom"
+      },
+      "mouse": {
+        "buttons": 0,
+        "scroll": "none"
+      }
+    }
+  },
+
+  "components": {
+    "core": {
+      "windowManager": "none",
+      "fileManager": "basic",
+      "optional": {
+        "terminal": "sinclair_basic"
+      }
+    },
+    "applications": [
+      {
+        "id": "sinclair_basic",
+        "name": "Sinclair BASIC",
+        "icon": "",
+        "type": "system",
+        "component": "SpectrumBasic",
+        "window": {
+          "title": "",
+          "width": 256,
+          "height": 192,
+          "resizable": false,
+          "minimizable": false,
+          "maximizable": false,
+          "position": "center"
+        }
+      }
+    ]
+  },
+
+  "features": {
+    "interaction": {
+      "dragAndDrop": false,
+      "clipboard": false,
+      "fileOperations": {
+        "copy": false,
+        "move": false,
+        "delete": false,
+        "rename": false,
+        "properties": false
+      }
+    },
+    "animations": {
+      "enabled": false
+    }
+  },
+
+  "assets": {
+    "basePath": "/assets/os/zxspectrum",
+    "paths": {
+      "sounds": "sounds",
+      "fonts": "fonts"
+    },
+    "fonts": {
+      "zxspectrum": {
+        "path": "fonts/zxspectrum.woff2",
+        "format": "woff2",
+        "weights": [400]
+      }
+    }
+  }
+}

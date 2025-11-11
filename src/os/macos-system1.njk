@@ -1,0 +1,88 @@
+---
+layout: layouts/base.njk
+title: System 1 - RetroOS Museum
+description: Experience the System 1 desktop environment with authentic design and interactive features.
+bodyClass: macos-system1-body
+permalink: /os/macos-system1/
+---
+
+{% block head %}
+<!-- System 1 CSS -->
+<link rel="stylesheet" href="/assets/css/macos-system1.css">
+<style>
+  /* Hide default header and footer for full desktop experience */
+  body.macos-system1-body header,
+  body.macos-system1-body footer {
+    display: none;
+  }
+
+  body.macos-system1-body main {
+    padding: 0;
+    max-width: none;
+    margin: 0;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- System 1 Desktop Environment -->
+<div id="macos-system1-desktop" class="macos-system1-desktop" role="application" aria-label="System 1 Desktop">
+
+  <!-- Global Menu Bar (Mac paradigm) -->
+  <div id="macos-system1-menubar" class="macos-system1-menubar" role="menubar" aria-label="Menu Bar">
+    <!-- Menu items will be populated by JavaScript -->
+  </div>
+
+  <!-- Desktop Area -->
+  <div id="desktop-area" class="desktop-area">
+    <!-- Desktop Icons Container -->
+    <div id="desktop-icons" class="desktop-icons">
+      <!-- Icons will be added by JavaScript -->
+    </div>
+  </div>
+
+  <!-- Windows Container -->
+  <div id="windows-container" class="windows-container">
+    <!-- Windows will be added here by WindowManager -->
+  </div>
+
+  <!-- Dock (for OS X and later) -->
+  <div id="macos-system1-dock" class="macos-system1-dock">
+    <!-- Dock items will be populated by JavaScript -->
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<!-- Core Systems -->
+<script src="/assets/js/window-manager.js"></script>
+<script src="/assets/js/menu-system.js"></script>
+<script src="/assets/js/desktop.js"></script>
+
+<!-- System 1 Specific -->
+<script src="/assets/js/macos-system1-window-adapter.js"></script>
+<script src="/assets/js/macos-system1-menubar.js"></script>
+<script src="/assets/js/macos-system1-desktop.js"></script>
+
+<!-- Applications -->
+<script src="/assets/js/apps/macos-system1-finder.js"></script>
+<script src="/assets/js/apps/macos-system1-apps.js"></script>
+
+<!-- Initialize System 1 -->
+<script>
+  // Wait for DOM to be ready
+  document.addEventListener('DOMContentLoaded', function() {
+    // Load OS configuration
+    fetch('/assets/data/os/macos-system1.json')
+      .then(response => response.json())
+      .then(config => {
+        // Initialize System 1 desktop
+        window.osInstance = new OSInstance(config);
+        window.osInstance.init();
+      })
+      .catch(error => {
+        console.error('Failed to load OS configuration:', error);
+      });
+  });
+</script>
+{% endblock %}

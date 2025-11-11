@@ -1,0 +1,569 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "macos-system1",
+
+  "metadata": {
+    "name": "System 1",
+    "fullName": "Macintosh System Software 1.0",
+    "version": "1.0",
+    "company": "Apple Computer",
+    "releaseYear": 1984,
+    "releaseDate": "1984-01-24",
+    "description": "The original Macintosh operating system that introduced the world to graphical user interfaces with its revolutionary point-and-click desktop metaphor.",
+    "tagline": "The Computer for the Rest of Us",
+    "category": "desktop_mac",
+    "architecture": ["68k"],
+
+    "historical": {
+      "significance": "First consumer operating system with a graphical user interface. Shipped with the original Macintosh 128K, revolutionizing personal computing with the WIMP paradigm (Windows, Icons, Menus, Pointer).",
+      "marketShare": "Launched the modern GUI era",
+      "successor": "System 2",
+      "predecessor": "None (first Mac OS)",
+      "endOfLife": "1985-04-29"
+    },
+
+    "links": {
+      "wikipedia": "https://en.wikipedia.org/wiki/System_1"
+    }
+  },
+
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#FFFFFF",
+
+        "windowBackground": "#FFFFFF",
+        "windowBorder": "#000000",
+        "windowBorderWidth": 1,
+
+        "titleBarActive": "#FFFFFF",
+        "titleBarInactive": "#FFFFFF",
+        "titleBarText": "#000000",
+        "titleBarTextInactive": "#808080",
+
+        "buttonFace": "#FFFFFF",
+        "buttonText": "#000000",
+        "buttonHighlight": "#000000",
+        "buttonShadow": "#000000",
+        "buttonBorder": "#000000",
+
+        "highlight": "#000000",
+        "highlightText": "#FFFFFF",
+
+        "menuBackground": "#FFFFFF",
+        "menuText": "#000000",
+        "menuHighlight": "#000000",
+
+        "text": "#000000",
+        "textDisabled": "#808080",
+
+        "statusBar": "#FFFFFF",
+
+        "shadow": "#000000",
+
+        "custom": {
+          "menuBarBackground": "#FFFFFF",
+          "desktopPattern": "#FFFFFF",
+          "scrollbarGray": "#FFFFFF",
+          "windowStripes": "#FFFFFF"
+        }
+      },
+
+      "typography": {
+        "systemFont": {
+          "family": "Chicago",
+          "size": 12,
+          "weight": "normal",
+          "fallback": ["Geneva", "Helvetica", "sans-serif"]
+        },
+        "titleFont": {
+          "family": "Chicago",
+          "size": 12,
+          "weight": "bold",
+          "fallback": ["Helvetica", "sans-serif"]
+        },
+        "menuFont": {
+          "family": "Chicago",
+          "size": 12,
+          "weight": "normal"
+        },
+        "monospaceFont": {
+          "family": "Monaco",
+          "size": 9,
+          "weight": "normal"
+        },
+
+        "antialiasing": false,
+        "subpixelRendering": false,
+        "baseFontSize": 12,
+        "scaleFactor": 1.0
+      },
+
+      "style": {
+        "type": "classic",
+        "borderStyle": "single",
+        "cornerRadius": 0,
+
+        "shadows": false,
+        "shadowStyle": "none",
+        "transparency": false,
+        "blur": false,
+
+        "bevels": false,
+        "gradients": false,
+        "textures": false,
+
+        "animationStyle": "instant"
+      },
+
+      "specialElements": {
+        "scrollbarStyle": "classic",
+        "focusIndicator": "solid_outline",
+        "dragVisual": "outline"
+      }
+    },
+
+    "cursor": {
+      "style": "mac_arrow",
+      "animated": false,
+      "shadows": false,
+      "customCursors": {
+        "default": "cursors/arrow.png",
+        "pointer": "cursors/hand.png",
+        "text": "cursors/ibeam.png",
+        "wait": "cursors/watch.png"
+      }
+    },
+
+    "icons": {
+      "style": "icon_32",
+      "size": {
+        "default": 32,
+        "sizes": [32]
+      },
+      "rendering": "aliased",
+      "shadow": false,
+      "labelStyle": {
+        "position": "below",
+        "background": "transparent",
+        "textColor": "#000000",
+        "font": {
+          "family": "Chicago",
+          "size": 9
+        }
+      }
+    },
+
+    "sounds": {
+      "enabled": true,
+      "sounds": {
+        "startup": "sounds/mac_startup_original.wav",
+        "error": "sounds/simple_beep.wav",
+        "warning": "sounds/simple_beep.wav",
+        "notification": "sounds/simple_beep.wav"
+      },
+      "volume": 75
+    },
+
+    "wallpaper": {
+      "type": "solid",
+      "value": "#FFFFFF",
+      "pattern": "none",
+      "tiling": "tile",
+      "overlay": false
+    }
+  },
+
+  "paradigm": {
+    "windowSystem": {
+      "type": "stacking",
+
+      "behavior": {
+        "overlap": true,
+        "resize": true,
+        "minimize": false,
+        "maximize": false,
+        "close": true,
+
+        "modal": true,
+        "alwaysOnTop": false,
+        "transparency": false,
+
+        "multipleDocuments": false,
+        "tabbed": false,
+        "tiling": false
+      },
+
+      "chrome": {
+        "titleBar": "classic",
+        "controls": "icons",
+        "controlPosition": "left",
+
+        "buttons": {
+          "close": {
+            "style": "icon",
+            "content": "close_box",
+            "position": 1
+          }
+        },
+
+        "titleAlign": "center",
+        "showIcon": false,
+        "showPath": false
+      },
+
+      "effects": {
+        "openAnimation": "none",
+        "closeAnimation": "none",
+
+        "shadow": false,
+        "blur": false,
+        "wobbly": false
+      }
+    },
+
+    "menuSystem": {
+      "type": "global_menu",
+
+      "menuBar": {
+        "enabled": true,
+        "position": "top",
+        "sticky": true,
+        "autoHide": false,
+
+        "style": {
+          "background": "#FFFFFF",
+          "textColor": "#000000",
+          "height": 20
+        },
+
+        "items": {
+          "alwaysVisible": ["apple"],
+          "applicationMenu": true,
+          "systemMenu": false
+        }
+      },
+
+      "contextMenu": {
+        "enabled": false,
+        "trigger": "ctrl_click"
+      },
+
+      "behavior": {
+        "clickToOpen": true,
+        "keyboardShortcuts": true,
+        "mnemonics": false,
+        "icons": false,
+        "cascading": true,
+        "tearOff": false
+      }
+    },
+
+    "taskManagement": {
+      "type": "none",
+
+      "switching": {
+        "method": ["window_list"],
+        "altTab": {
+          "enabled": false
+        }
+      },
+
+      "multitasking": {
+        "preemptive": false,
+        "virtual_desktops": false,
+        "snapAssist": false,
+        "splitScreen": false
+      }
+    },
+
+    "desktop": {
+      "type": "spatial",
+
+      "layout": {
+        "type": "free_form",
+        "direction": "vertical",
+        "alignment": "right",
+        "snapToGrid": true,
+        "autoArrange": false
+      },
+
+      "items": {
+        "icons": true,
+        "widgets": false,
+        "shortcuts": true,
+        "folders": true,
+
+        "defaultItems": [
+          "disk_drive",
+          "trash"
+        ]
+      },
+
+      "interaction": {
+        "click": "double",
+        "selection": "single",
+        "dragAndDrop": true,
+        "hoverPreview": false
+      },
+
+      "behavior": {
+        "showTrash": true,
+        "showComputer": true,
+        "showNetwork": false,
+        "showHome": false
+      }
+    },
+
+    "inputMethods": {
+      "keyboard": {
+        "shortcuts": true,
+        "function_keys": false,
+        "navigation": "arrows",
+        "accessibility": false
+      },
+
+      "mouse": {
+        "buttons": 1,
+        "scroll": "none",
+        "gestures": false,
+        "acceleration": true
+      },
+
+      "touch": {
+        "enabled": false
+      }
+    }
+  },
+
+  "components": {
+    "core": {
+      "windowManager": "system1-window-manager",
+      "fileManager": "finder",
+
+      "optional": {
+        "menuBar": "system1-menu-bar",
+        "textEditor": "macwrite"
+      }
+    },
+
+    "applications": [
+      {
+        "id": "disk_drive",
+        "name": "Disk",
+        "icon": "icons/disk_drive.png",
+        "type": "system",
+        "component": "Finder",
+
+        "window": {
+          "title": "Disk",
+          "width": 512,
+          "height": 342,
+          "resizable": true,
+          "minimizable": false,
+          "maximizable": false,
+          "position": "center"
+        },
+
+        "desktop": {
+          "icon": true,
+          "position": { "x": 550, "y": 20 }
+        },
+
+        "features": {
+          "saveState": true,
+          "multiInstance": false
+        }
+      },
+      {
+        "id": "trash",
+        "name": "Trash",
+        "icon": "icons/trash_empty.png",
+        "type": "system",
+        "component": "Trash",
+
+        "window": {
+          "title": "Trash",
+          "width": 512,
+          "height": 342,
+          "resizable": true,
+          "minimizable": false,
+          "maximizable": false,
+          "position": "center"
+        },
+
+        "desktop": {
+          "icon": true,
+          "position": { "x": 550, "y": 430 }
+        }
+      },
+      {
+        "id": "macwrite",
+        "name": "MacWrite",
+        "icon": "icons/macwrite.png",
+        "type": "productivity",
+        "component": "MacWrite",
+
+        "window": {
+          "title": "Untitled",
+          "width": 480,
+          "height": 320,
+          "minWidth": 200,
+          "minHeight": 150,
+          "resizable": true,
+          "minimizable": false,
+          "maximizable": false,
+          "position": "cascade"
+        },
+
+        "features": {
+          "multiInstance": true,
+          "fileAssociations": [".txt"]
+        }
+      },
+      {
+        "id": "macpaint",
+        "name": "MacPaint",
+        "icon": "icons/macpaint.png",
+        "type": "creative",
+        "component": "MacPaint",
+
+        "window": {
+          "title": "Untitled",
+          "width": 512,
+          "height": 342,
+          "resizable": false,
+          "minimizable": false,
+          "maximizable": false,
+          "position": "center"
+        },
+
+        "features": {
+          "multiInstance": true
+        }
+      }
+    ],
+
+    "utilities": [
+      {
+        "id": "apple_menu",
+        "name": "Apple Menu",
+        "type": "system_preference",
+        "icon": "icons/apple.png",
+        "component": "AppleMenu"
+      }
+    ]
+  },
+
+  "features": {
+    "interaction": {
+      "dragAndDrop": true,
+      "clipboard": true,
+      "undo": true,
+
+      "fileOperations": {
+        "copy": true,
+        "move": true,
+        "delete": true,
+        "rename": true,
+        "properties": true
+      },
+
+      "networking": {
+        "enabled": false
+      },
+
+      "printing": true,
+      "scanning": false
+    },
+
+    "animations": {
+      "enabled": false,
+      "speed": "normal",
+
+      "effects": {
+        "windowOpen": false,
+        "windowClose": false,
+        "menuOpen": false,
+        "hover": false,
+        "transitions": false
+      }
+    },
+
+    "accessibility": {
+      "highContrast": false,
+      "screenReader": false,
+      "magnifier": false,
+      "keyboard_navigation": true
+    },
+
+    "easterEggs": {
+      "enabled": false
+    },
+
+    "customization": {
+      "themes": false,
+      "wallpaper": false,
+      "colors": false,
+      "fonts": false,
+      "layout": false
+    }
+  },
+
+  "assets": {
+    "basePath": "/assets/os/system1",
+
+    "paths": {
+      "icons": "icons",
+      "cursors": "cursors",
+      "sounds": "sounds",
+      "fonts": "fonts",
+      "wallpapers": "patterns"
+    },
+
+    "iconSets": {
+      "default": {
+        "path": "icons",
+        "format": "png",
+        "sizes": [32]
+      }
+    },
+
+    "cursorSets": {
+      "default": {
+        "path": "cursors",
+        "format": "png",
+        "animated": false
+      }
+    },
+
+    "soundSets": {
+      "default": {
+        "path": "sounds",
+        "format": "wav"
+      }
+    },
+
+    "fonts": {
+      "chicago": {
+        "path": "fonts/chicago.woff2",
+        "format": "woff2",
+        "weights": [400]
+      },
+      "monaco": {
+        "path": "fonts/monaco.woff2",
+        "format": "woff2",
+        "weights": [400]
+      }
+    },
+
+    "preload": [
+      "icons/disk_drive.png",
+      "icons/trash_empty.png",
+      "icons/folder.png",
+      "icons/apple.png",
+      "cursors/arrow.png",
+      "sounds/mac_startup_original.wav"
+    ]
+  }
+}

@@ -1,0 +1,523 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "os2-warp4",
+
+  "metadata": {
+    "name": "OS/2 Warp 4",
+    "fullName": "IBM OS/2 Warp 4.0",
+    "version": "4.0",
+    "company": "IBM",
+    "releaseYear": 1996,
+    "releaseDate": "1996-09-01",
+    "description": "IBM's powerful 32-bit operating system featuring the innovative Workplace Shell, superior multitasking, and the ability to run DOS, Windows, and OS/2 applications simultaneously.",
+    "tagline": "A Better Windows Than Windows",
+    "category": "desktop_alternative",
+    "architecture": ["x86"],
+
+    "historical": {
+      "significance": "Advanced object-oriented Workplace Shell, superior stability and multitasking compared to Windows 95. Pioneered drag-and-drop object model and integrated voice recognition.",
+      "marketShare": "Significant in corporate environments, especially banking and ATM systems",
+      "successor": "eComStation / ArcaOS",
+      "predecessor": "OS/2 Warp 3",
+      "endOfLife": "2006-12-31"
+    },
+
+    "links": {
+      "wikipedia": "https://en.wikipedia.org/wiki/OS/2"
+    }
+  },
+
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#008080",
+
+        "windowBackground": "#CCCCCC",
+        "windowBorder": "#000000",
+        "windowBorderWidth": 1,
+
+        "titleBarActive": "#000080",
+        "titleBarInactive": "#808080",
+        "titleBarText": "#FFFFFF",
+        "titleBarTextInactive": "#C0C0C0",
+
+        "buttonFace": "#CCCCCC",
+        "buttonText": "#000000",
+        "buttonHighlight": "#FFFFFF",
+        "buttonShadow": "#808080",
+        "buttonBorder": "#000000",
+
+        "highlight": "#000080",
+        "highlightText": "#FFFFFF",
+
+        "menuBackground": "#CCCCCC",
+        "menuText": "#000000",
+        "menuHighlight": "#000080",
+
+        "text": "#000000",
+        "textDisabled": "#808080",
+
+        "statusBar": "#CCCCCC",
+        "taskbar": "#CCCCCC",
+
+        "custom": {
+          "launchpad": "#008080",
+          "launchpadIcon": "#FFFFFF",
+          "notebook": "#CCCCCC",
+          "notebookTab": "#FFFFFF"
+        }
+      },
+
+      "typography": {
+        "systemFont": {
+          "family": "Helvetica",
+          "size": 9,
+          "weight": "normal",
+          "fallback": ["Arial", "sans-serif"]
+        },
+        "titleFont": {
+          "family": "Helvetica",
+          "size": 9,
+          "weight": "bold"
+        },
+        "menuFont": {
+          "family": "Helvetica",
+          "size": 9,
+          "weight": "normal"
+        },
+        "monospaceFont": {
+          "family": "Courier",
+          "size": 10,
+          "weight": "normal"
+        },
+
+        "antialiasing": false,
+        "baseFontSize": 9
+      },
+
+      "style": {
+        "type": "bevel_3d",
+        "borderStyle": "bevel_out",
+        "cornerRadius": 0,
+
+        "shadows": true,
+        "shadowStyle": "simple",
+        "transparency": false,
+
+        "bevels": true,
+        "gradients": false,
+
+        "animationStyle": "linear"
+      }
+    },
+
+    "cursor": {
+      "style": "classic_arrow",
+      "animated": true,
+      "shadows": false
+    },
+
+    "icons": {
+      "style": "icon_32",
+      "size": {
+        "default": 32,
+        "sizes": [16, 32]
+      },
+      "rendering": "antialiased",
+      "shadow": true,
+      "labelStyle": {
+        "position": "below",
+        "background": "transparent",
+        "textColor": "#000000",
+        "font": {
+          "family": "Helvetica",
+          "size": 8
+        }
+      }
+    },
+
+    "sounds": {
+      "enabled": true,
+      "sounds": {
+        "startup": "sounds/os2_startup.wav",
+        "error": "sounds/chord.wav",
+        "notification": "sounds/chimes.wav"
+      },
+      "volume": 70
+    },
+
+    "wallpaper": {
+      "type": "pattern",
+      "value": "#008080",
+      "pattern": "diagonal",
+      "overlay": true
+    }
+  },
+
+  "paradigm": {
+    "windowSystem": {
+      "type": "stacking",
+
+      "behavior": {
+        "overlap": true,
+        "resize": true,
+        "minimize": true,
+        "maximize": true,
+        "close": true,
+
+        "modal": true,
+        "transparency": false
+      },
+
+      "chrome": {
+        "titleBar": "classic",
+        "controls": "buttons",
+        "controlPosition": "right",
+
+        "buttons": {
+          "menu": {
+            "style": "icon",
+            "content": "menu",
+            "position": 0
+          },
+          "minimize": {
+            "style": "icon",
+            "content": "minimize",
+            "position": 1
+          },
+          "maximize": {
+            "style": "icon",
+            "content": "maximize",
+            "position": 2
+          },
+          "close": {
+            "style": "icon",
+            "content": "close",
+            "position": 3
+          }
+        },
+
+        "titleAlign": "left",
+        "showIcon": true
+      },
+
+      "effects": {
+        "openAnimation": "fade",
+        "closeAnimation": "fade",
+        "shadow": true
+      }
+    },
+
+    "menuSystem": {
+      "type": "hybrid",
+
+      "menuBar": {
+        "enabled": true,
+        "position": "window",
+        "sticky": false,
+
+        "style": {
+          "background": "#CCCCCC",
+          "textColor": "#000000",
+          "height": 18
+        }
+      },
+
+      "contextMenu": {
+        "enabled": true,
+        "trigger": "right_click",
+        "style": {
+          "background": "#CCCCCC",
+          "borderStyle": "bevel_out"
+        }
+      },
+
+      "behavior": {
+        "clickToOpen": true,
+        "keyboardShortcuts": true,
+        "mnemonics": true,
+        "icons": true,
+        "cascading": true
+      }
+    },
+
+    "taskManagement": {
+      "type": "taskbar",
+
+      "taskbar": {
+        "enabled": true,
+        "position": "bottom",
+        "autoHide": false,
+        "size": 40,
+
+        "style": {
+          "background": "#CCCCCC",
+          "transparency": false,
+          "blur": false,
+          "itemStyle": "icons",
+          "grouping": false,
+          "previews": false
+        },
+
+        "sections": {
+          "start": true,
+          "quick_launch": true,
+          "tasks": true,
+          "system_tray": true,
+          "clock": true
+        }
+      },
+
+      "switching": {
+        "method": ["taskbar_click", "alt_tab", "window_list"],
+        "altTab": {
+          "enabled": true,
+          "visual": "list",
+          "animation": false
+        }
+      },
+
+      "multitasking": {
+        "preemptive": true,
+        "virtual_desktops": false
+      }
+    },
+
+    "desktop": {
+      "type": "iconic",
+
+      "layout": {
+        "type": "grid",
+        "grid": {
+          "cellWidth": 80,
+          "cellHeight": 80,
+          "spacing": 16
+        },
+        "direction": "vertical",
+        "alignment": "left",
+        "snapToGrid": true,
+        "autoArrange": false
+      },
+
+      "items": {
+        "icons": true,
+        "shortcuts": true,
+        "folders": true,
+
+        "defaultItems": [
+          "os2_system",
+          "drives",
+          "shredder",
+          "launchpad"
+        ]
+      },
+
+      "interaction": {
+        "click": "double",
+        "selection": "rubber_band",
+        "dragAndDrop": true
+      },
+
+      "behavior": {
+        "showTrash": true,
+        "showComputer": true
+      }
+    },
+
+    "inputMethods": {
+      "keyboard": {
+        "shortcuts": true,
+        "function_keys": true,
+        "navigation": "arrows"
+      },
+
+      "mouse": {
+        "buttons": 3,
+        "scroll": "wheel",
+        "gestures": false
+      }
+    }
+  },
+
+  "components": {
+    "core": {
+      "windowManager": "workplace_shell",
+      "fileManager": "workplace_shell",
+
+      "optional": {
+        "terminal": "os2_window",
+        "textEditor": "enhanced_editor"
+      }
+    },
+
+    "applications": [
+      {
+        "id": "os2_system",
+        "name": "OS/2 System",
+        "icon": "icons/os2_system.png",
+        "type": "system",
+        "component": "SystemFolder",
+
+        "window": {
+          "title": "OS/2 System",
+          "width": 600,
+          "height": 400,
+          "resizable": true,
+          "minimizable": true,
+          "maximizable": true,
+          "position": "center"
+        },
+
+        "desktop": {
+          "icon": true,
+          "position": { "x": 30, "y": 30 }
+        }
+      },
+      {
+        "id": "drives",
+        "name": "Drives",
+        "icon": "icons/drives.png",
+        "type": "system",
+        "component": "DrivesFolder",
+
+        "window": {
+          "title": "Drives",
+          "width": 500,
+          "height": 350,
+          "resizable": true,
+          "minimizable": true,
+          "maximizable": true,
+          "position": "center"
+        },
+
+        "desktop": {
+          "icon": true,
+          "position": { "x": 30, "y": 120 }
+        }
+      },
+      {
+        "id": "shredder",
+        "name": "Shredder",
+        "icon": "icons/shredder.png",
+        "type": "system",
+        "component": "Shredder",
+
+        "window": {
+          "title": "Shredder",
+          "width": 400,
+          "height": 300,
+          "resizable": true,
+          "minimizable": true,
+          "maximizable": true,
+          "position": "center"
+        },
+
+        "desktop": {
+          "icon": true,
+          "position": { "x": 30, "y": 210 }
+        }
+      },
+      {
+        "id": "os2_window",
+        "name": "OS/2 Window",
+        "icon": "icons/os2window.png",
+        "type": "system",
+        "component": "OS2Terminal",
+
+        "window": {
+          "title": "OS/2 Window",
+          "width": 640,
+          "height": 400,
+          "resizable": true,
+          "minimizable": true,
+          "maximizable": true,
+          "position": "cascade"
+        },
+
+        "features": {
+          "multiInstance": true
+        }
+      },
+      {
+        "id": "enhanced_editor",
+        "name": "Enhanced Editor",
+        "icon": "icons/enhanced_editor.png",
+        "type": "productivity",
+        "component": "EnhancedEditor",
+
+        "window": {
+          "title": "Enhanced Editor - Untitled",
+          "width": 550,
+          "height": 400,
+          "resizable": true,
+          "minimizable": true,
+          "maximizable": true,
+          "position": "cascade"
+        },
+
+        "features": {
+          "multiInstance": true,
+          "fileAssociations": [".txt"]
+        }
+      }
+    ]
+  },
+
+  "features": {
+    "interaction": {
+      "dragAndDrop": true,
+      "clipboard": true,
+
+      "fileOperations": {
+        "copy": true,
+        "move": true,
+        "delete": true,
+        "rename": true,
+        "properties": true
+      },
+
+      "networking": {
+        "enabled": true,
+        "protocols": ["TCP/IP", "NetBIOS"]
+      }
+    },
+
+    "animations": {
+      "enabled": true,
+      "speed": "normal"
+    },
+
+    "customization": {
+      "themes": true,
+      "wallpaper": true,
+      "colors": true
+    }
+  },
+
+  "assets": {
+    "basePath": "/assets/os/os2",
+
+    "paths": {
+      "icons": "icons",
+      "cursors": "cursors",
+      "sounds": "sounds",
+      "fonts": "fonts"
+    },
+
+    "iconSets": {
+      "default": {
+        "path": "icons",
+        "format": "png",
+        "sizes": [16, 32]
+      }
+    },
+
+    "fonts": {
+      "helvetica": {
+        "path": "fonts/helvetica.woff2",
+        "format": "woff2",
+        "weights": [400, 700]
+      }
+    }
+  }
+}

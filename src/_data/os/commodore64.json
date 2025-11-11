@@ -1,0 +1,219 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "commodore64",
+
+  "metadata": {
+    "name": "Commodore 64",
+    "fullName": "Commodore 64 BASIC V2",
+    "version": "2.0",
+    "company": "Commodore International",
+    "releaseYear": 1982,
+    "releaseDate": "1982-08-01",
+    "description": "Best-selling single computer model of all time, featuring BASIC programming environment, impressive graphics and sound for gaming and creativity.",
+    "tagline": "The Computer for the Masses, Not the Classes",
+    "category": "desktop_alternative",
+    "architecture": ["6510"],
+
+    "historical": {
+      "significance": "Best-selling personal computer ever (12-17 million units). Introduced millions to programming via BASIC. Revolutionary SID sound chip influenced electronic music. Massive software library.",
+      "marketShare": "Dominated home computing 1982-1988",
+      "successor": "Commodore 128",
+      "endOfLife": "1994-04-01"
+    },
+
+    "links": {
+      "wikipedia": "https://en.wikipedia.org/wiki/Commodore_64"
+    }
+  },
+
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#3838C8",
+        "windowBackground": "#3838C8",
+        "text": "#A8A8FF",
+        "custom": {
+          "cursor": "#A8A8FF",
+          "promptColor": "#A8A8FF",
+          "border": "#6868FF"
+        }
+      },
+
+      "typography": {
+        "systemFont": {
+          "family": "C64 Pro Mono",
+          "size": 16,
+          "weight": "normal",
+          "fallback": ["Courier", "monospace"]
+        },
+        "antialiasing": false,
+        "baseFontSize": 16
+      },
+
+      "style": {
+        "type": "flat",
+        "borderStyle": "single",
+        "cornerRadius": 0,
+        "shadows": false,
+        "transparency": false,
+        "bevels": false,
+        "gradients": false,
+        "animationStyle": "instant"
+      }
+    },
+
+    "cursor": {
+      "style": "classic_arrow",
+      "animated": true,
+      "shadows": false
+    },
+
+    "icons": {
+      "style": "pixel_art",
+      "size": {
+        "default": 16,
+        "sizes": [16]
+      },
+      "rendering": "aliased",
+      "shadow": false
+    },
+
+    "sounds": {
+      "enabled": true,
+      "sounds": {
+        "startup": "sounds/c64_startup.wav",
+        "error": "sounds/beep.wav"
+      },
+      "volume": 80
+    },
+
+    "wallpaper": {
+      "type": "solid",
+      "value": "#3838C8",
+      "overlay": false
+    }
+  },
+
+  "paradigm": {
+    "windowSystem": {
+      "type": "none",
+      "behavior": {
+        "overlap": false,
+        "resize": false,
+        "minimize": false,
+        "maximize": false,
+        "close": false
+      },
+      "chrome": {
+        "titleBar": "hidden",
+        "controls": "none",
+        "controlPosition": "right",
+        "buttons": {}
+      }
+    },
+
+    "menuSystem": {
+      "type": "context_only",
+      "menuBar": {
+        "enabled": false
+      },
+      "contextMenu": {
+        "enabled": false
+      }
+    },
+
+    "taskManagement": {
+      "type": "none",
+      "switching": {
+        "method": []
+      },
+      "multitasking": {
+        "preemptive": false
+      }
+    },
+
+    "desktop": {
+      "type": "none",
+      "items": {
+        "icons": false
+      },
+      "interaction": {
+        "click": "single",
+        "selection": "single",
+        "dragAndDrop": false
+      }
+    },
+
+    "inputMethods": {
+      "keyboard": {
+        "shortcuts": false,
+        "function_keys": true,
+        "navigation": "custom"
+      },
+      "mouse": {
+        "buttons": 0,
+        "scroll": "none"
+      }
+    }
+  },
+
+  "components": {
+    "core": {
+      "windowManager": "none",
+      "fileManager": "basic",
+      "optional": {
+        "terminal": "basic_v2"
+      }
+    },
+    "applications": [
+      {
+        "id": "basic_v2",
+        "name": "BASIC V2",
+        "icon": "",
+        "type": "system",
+        "component": "C64Basic",
+        "window": {
+          "title": "",
+          "width": 320,
+          "height": 200,
+          "resizable": false,
+          "minimizable": false,
+          "maximizable": false,
+          "position": "center"
+        }
+      }
+    ]
+  },
+
+  "features": {
+    "interaction": {
+      "dragAndDrop": false,
+      "clipboard": false,
+      "fileOperations": {
+        "copy": false,
+        "move": false,
+        "delete": false,
+        "rename": false,
+        "properties": false
+      }
+    },
+    "animations": {
+      "enabled": false
+    }
+  },
+
+  "assets": {
+    "basePath": "/assets/os/c64",
+    "paths": {
+      "sounds": "sounds",
+      "fonts": "fonts"
+    },
+    "fonts": {
+      "c64pro": {
+        "path": "fonts/c64pro.woff2",
+        "format": "woff2",
+        "weights": [400]
+      }
+    }
+  }
+}

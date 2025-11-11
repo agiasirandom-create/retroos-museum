@@ -1,0 +1,111 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "android-23-gingerbread",
+  "metadata": {
+    "name": "Android 2.3 Gingerbread",
+    "version": "2.3",
+    "company": "Google",
+    "releaseYear": 2010,
+    "releaseDate": "2010-12-06",
+    "description": "Refined UI with improved keyboard, NFC support, front camera support, and better power management.",
+    "category": "mobile_modern",
+    "architecture": ["ARM"],
+    "historical": {
+      "significance": "Most popular Android version of its era, gaming improvements, video chat support",
+      "marketShare": "Peak 65% Android market share in 2012",
+      "successor": "Android 3.0 Honeycomb",
+      "predecessor": "Android 2.2 Froyo"
+    }
+  },
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#000000",
+        "windowBackground": "#FFFFFF",
+        "titleBarActive": "#000000",
+        "titleBarText": "#FFFFFF",
+        "buttonFace": "#3E3E3E",
+        "highlight": "#33B5E5",
+        "text": "#000000",
+        "statusBar": "rgba(0, 0, 0, 0.9)",
+        "custom": {
+          "accentColor": "#33B5E5"
+        }
+      },
+      "typography": {
+        "systemFont": {
+          "family": "Droid Sans",
+          "size": 14
+        },
+        "antialiasing": true,
+        "baseFontSize": 14
+      },
+      "style": {
+        "type": "flat",
+        "animationStyle": "linear"
+      }
+    },
+    "icons": {
+      "style": "icon_48",
+      "size": {
+        "default": 48,
+        "sizes": [48, 72]
+      },
+      "rendering": "antialiased"
+    },
+    "wallpaper": {
+      "type": "image",
+      "value": "wallpapers/gingerbread.jpg"
+    }
+  },
+  "paradigm": {
+    "windowSystem": {
+      "type": "full_screen"
+    },
+    "taskManagement": {
+      "type": "none",
+      "multitasking": {
+        "preemptive": true
+      }
+    },
+    "desktop": {
+      "type": "iconic",
+      "items": {
+        "widgets": true,
+        "shortcuts": true
+      }
+    },
+    "inputMethods": {
+      "touch": {
+        "enabled": true,
+        "multitouch": true,
+        "gestures": ["tap", "pinch", "swipe"]
+      }
+    }
+  },
+  "components": {
+    "core": {
+      "windowManager": "android-wm",
+      "optional": {
+        "webBrowser": "browser"
+      }
+    }
+  },
+  "features": {
+    "interaction": {
+      "networking": {
+        "enabled": true,
+        "protocols": ["WiFi", "3G", "NFC"]
+      }
+    },
+    "animations": {
+      "enabled": true
+    }
+  },
+  "assets": {
+    "basePath": "/assets/os/android-gingerbread",
+    "paths": {
+      "icons": "icons"
+    }
+  }
+}

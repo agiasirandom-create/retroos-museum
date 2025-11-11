@@ -1,0 +1,138 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "netbsd",
+  "metadata": {
+    "name": "NetBSD 1.0",
+    "fullName": "NetBSD 1.0 with TWM",
+    "version": "1.0",
+    "company": "NetBSD Foundation",
+    "releaseYear": 1993,
+    "releaseDate": "1993-10-26",
+    "description": "Portable BSD Unix focusing on code quality and cross-platform support, running on more hardware architectures than any other OS.",
+    "tagline": "Of course it runs NetBSD",
+    "category": "desktop_unix",
+    "architecture": ["x86", "Alpha", "Amiga", "Atari", "m68k", "MIPS", "PowerPC", "SPARC", "VAX"],
+    "historical": {
+      "significance": "Most portable operating system ever created. Pioneered pkgsrc package system. Known for clean code and security.",
+      "marketShare": "Popular in embedded systems and research",
+      "successor": "NetBSD continues development",
+      "predecessor": "386BSD"
+    },
+    "links": {
+      "wikipedia": "https://en.wikipedia.org/wiki/NetBSD",
+      "officialSite": "https://www.netbsd.org"
+    }
+  },
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#FF6600",
+        "windowBackground": "#C0C0C0",
+        "windowBorder": "#000000",
+        "windowBorderWidth": 1,
+        "titleBarActive": "#FF8800",
+        "titleBarInactive": "#808080",
+        "titleBarText": "#FFFFFF",
+        "titleBarTextInactive": "#C0C0C0",
+        "buttonFace": "#B0B0B0",
+        "buttonText": "#000000",
+        "buttonHighlight": "#E0E0E0",
+        "buttonShadow": "#404040",
+        "highlight": "#FF8800",
+        "highlightText": "#FFFFFF",
+        "menuBackground": "#B0B0B0",
+        "menuText": "#000000",
+        "menuHighlight": "#FF8800",
+        "text": "#000000",
+        "custom": {
+          "netbsdOrange": "#FF6600",
+          "netbsdFlag": "#FF8800"
+        }
+      },
+      "typography": {
+        "systemFont": {"family": "Helvetica", "size": 12, "weight": "normal", "fallback": ["Arial", "sans-serif"]},
+        "titleFont": {"family": "Helvetica", "size": 10, "weight": "bold"},
+        "menuFont": {"family": "Helvetica", "size": 10, "weight": "normal"},
+        "monospaceFont": {"family": "Fixed", "size": 10, "weight": "normal"},
+        "antialiasing": false,
+        "baseFontSize": 12
+      },
+      "style": {
+        "type": "classic",
+        "borderStyle": "single",
+        "cornerRadius": 0,
+        "shadows": false,
+        "transparency": false,
+        "bevels": false,
+        "gradients": false,
+        "animationStyle": "instant"
+      }
+    },
+    "cursor": {"style": "classic_arrow", "animated": false, "shadows": false},
+    "icons": {
+      "style": "icon_32",
+      "size": {"default": 32, "sizes": [32]},
+      "rendering": "aliased",
+      "shadow": false,
+      "labelStyle": {"position": "below", "background": "transparent", "textColor": "#000000", "font": {"family": "Helvetica", "size": 10}}
+    },
+    "wallpaper": {"type": "solid", "value": "#FF6600", "overlay": true}
+  },
+  "paradigm": {
+    "windowSystem": {
+      "type": "stacking",
+      "behavior": {"overlap": true, "resize": true, "minimize": true, "maximize": true, "close": true, "modal": true, "alwaysOnTop": false, "transparency": false},
+      "chrome": {
+        "titleBar": "classic",
+        "controls": "buttons",
+        "controlPosition": "right",
+        "buttons": {
+          "minimize": {"style": "icon", "content": "minimize", "position": 1},
+          "maximize": {"style": "icon", "content": "maximize", "position": 2},
+          "close": {"style": "icon", "content": "close", "position": 3}
+        },
+        "titleAlign": "left",
+        "showIcon": false
+      },
+      "effects": {"shadow": false}
+    },
+    "menuSystem": {
+      "type": "context_only",
+      "contextMenu": {"enabled": true, "trigger": "right_click", "style": {"background": "#B0B0B0", "borderStyle": "single"}},
+      "behavior": {"clickToOpen": true, "icons": false, "cascading": true, "tearOff": false}
+    },
+    "taskManagement": {
+      "type": "panel",
+      "switching": {"method": ["alt_tab", "window_list"]},
+      "multitasking": {"preemptive": true, "virtual_desktops": false}
+    },
+    "desktop": {
+      "type": "iconic",
+      "layout": {"type": "grid", "grid": {"cellWidth": 80, "cellHeight": 100, "spacing": 20}, "direction": "vertical", "alignment": "left", "snapToGrid": true},
+      "items": {"icons": true, "shortcuts": true, "folders": true},
+      "interaction": {"click": "double", "selection": "rubber_band", "dragAndDrop": true}
+    },
+    "inputMethods": {
+      "keyboard": {"shortcuts": true, "function_keys": true, "navigation": "arrows"},
+      "mouse": {"buttons": 3, "scroll": "none", "gestures": false}
+    }
+  },
+  "components": {
+    "core": {"windowManager": "twm", "fileManager": "xfm", "optional": {"terminal": "xterm", "textEditor": "vi"}},
+    "applications": [
+      {"id": "xterm", "name": "Terminal", "icon": "icons/xterm.png", "type": "system", "component": "XTerm", "window": {"title": "xterm", "width": 640, "height": 400, "resizable": true, "minimizable": true, "maximizable": true, "position": "cascade"}, "features": {"multiInstance": true}},
+      {"id": "xfm", "name": "File Manager", "icon": "icons/folder.png", "type": "system", "component": "XFM", "window": {"title": "File Manager", "width": 600, "height": 450, "resizable": true, "minimizable": true, "maximizable": true, "position": "center"}},
+      {"id": "xcalc", "name": "Calculator", "icon": "icons/xcalc.png", "type": "utility", "component": "XCalc", "window": {"title": "xcalc", "width": 250, "height": 320, "resizable": false, "minimizable": true, "maximizable": false, "position": "center"}}
+    ]
+  },
+  "features": {
+    "interaction": {"dragAndDrop": true, "clipboard": true, "fileOperations": {"copy": true, "move": true, "delete": true, "rename": true, "properties": true}, "networking": {"enabled": true, "protocols": ["TCP/IP", "NFS"]}},
+    "animations": {"enabled": false, "speed": "normal"},
+    "customization": {"themes": false, "wallpaper": true, "colors": true, "layout": true}
+  },
+  "assets": {
+    "basePath": "/assets/os/netbsd",
+    "paths": {"icons": "icons", "cursors": "cursors", "fonts": "fonts"},
+    "iconSets": {"default": {"path": "icons", "format": "png", "sizes": [32]}}
+  }
+}

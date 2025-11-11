@@ -1,0 +1,163 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "chrome-os",
+  "metadata": {
+    "name": "Chrome OS",
+    "fullName": "Google Chrome OS",
+    "version": "1.0",
+    "company": "Google",
+    "releaseYear": 2011,
+    "releaseDate": "2011-05-11",
+    "description": "Cloud-first operating system built around Chrome browser, designed for speed, simplicity, and web applications.",
+    "tagline": "Nothing but the web",
+    "category": "desktop_alternative",
+    "architecture": ["x86", "ARM"],
+    "historical": {
+      "significance": "Web-first OS, popularized Chromebooks, cloud storage focus, automatic updates",
+      "marketShare": "2% desktop market in 2011, 60% US K-12 education by 2020",
+      "successor": "Chrome OS (continuous updates)"
+    },
+    "links": {
+      "wikipedia": "https://en.wikipedia.org/wiki/Chrome_OS"
+    }
+  },
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#E8EAED",
+        "windowBackground": "#FFFFFF",
+        "titleBarActive": "#FFFFFF",
+        "titleBarText": "#202124",
+        "buttonFace": "#1A73E8",
+        "buttonText": "#FFFFFF",
+        "highlight": "#1A73E8",
+        "text": "#202124",
+        "statusBar": "#FFFFFF",
+        "taskbar": "rgba(255, 255, 255, 0.95)",
+        "custom": {
+          "shelf": "rgba(255, 255, 255, 0.95)",
+          "omnibox": "#FFFFFF"
+        }
+      },
+      "typography": {
+        "systemFont": {
+          "family": "Roboto",
+          "size": 13,
+          "weight": "400"
+        },
+        "titleFont": {
+          "family": "Roboto",
+          "size": 16,
+          "weight": "500"
+        },
+        "antialiasing": true,
+        "baseFontSize": 13
+      },
+      "style": {
+        "type": "material",
+        "cornerRadius": 8,
+        "shadows": true,
+        "shadowStyle": "soft",
+        "transparency": true,
+        "animationStyle": "ease"
+      }
+    },
+    "icons": {
+      "style": "material",
+      "size": {
+        "default": 48,
+        "sizes": [48, 96, 128]
+      },
+      "rendering": "vector"
+    },
+    "wallpaper": {
+      "type": "image",
+      "value": "wallpapers/chromeos-default.jpg"
+    }
+  },
+  "paradigm": {
+    "windowSystem": {
+      "type": "stacking",
+      "behavior": {
+        "overlap": true,
+        "resize": true,
+        "minimize": true,
+        "maximize": true,
+        "close": true
+      },
+      "chrome": {
+        "titleBar": "minimal",
+        "controls": "icons",
+        "controlPosition": "right"
+      },
+      "effects": {
+        "shadow": true
+      }
+    },
+    "menuSystem": {
+      "type": "application_menu"
+    },
+    "taskManagement": {
+      "type": "taskbar",
+      "taskbar": {
+        "enabled": true,
+        "position": "bottom",
+        "style": {
+          "itemStyle": "icons"
+        }
+      }
+    },
+    "desktop": {
+      "type": "clean",
+      "items": {
+        "icons": false
+      }
+    },
+    "inputMethods": {
+      "keyboard": {
+        "shortcuts": true
+      },
+      "mouse": {
+        "buttons": 2,
+        "scroll": "wheel"
+      },
+      "touch": {
+        "enabled": true,
+        "multitouch": true,
+        "gestures": ["tap", "swipe", "pinch"]
+      }
+    }
+  },
+  "components": {
+    "core": {
+      "windowManager": "ash",
+      "fileManager": "files",
+      "optional": {
+        "webBrowser": "chrome",
+        "textEditor": "text"
+      }
+    }
+  },
+  "features": {
+    "interaction": {
+      "networking": {
+        "enabled": true,
+        "protocols": ["WiFi", "Ethernet", "Bluetooth"]
+      }
+    },
+    "animations": {
+      "enabled": true
+    },
+    "customization": {
+      "wallpaper": true,
+      "themes": true
+    }
+  },
+  "assets": {
+    "basePath": "/assets/os/chrome-os",
+    "paths": {
+      "icons": "icons",
+      "wallpapers": "wallpapers"
+    }
+  }
+}

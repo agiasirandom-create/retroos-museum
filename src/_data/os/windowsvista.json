@@ -1,0 +1,171 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "windows-vista",
+  "metadata": {
+    "name": "Windows Vista",
+    "fullName": "Microsoft Windows Vista",
+    "version": "6.0.6000",
+    "company": "Microsoft Corporation",
+    "releaseYear": 2007,
+    "releaseDate": "2007-01-30",
+    "description": "Ambitious redesign featuring Aero Glass transparency, enhanced security with UAC, and modern visual effects.",
+    "tagline": "The Wow Starts Now",
+    "category": "desktop_windows",
+    "architecture": ["x86", "x64"],
+    "historical": {
+      "significance": "Introduced Aero Glass UI, UAC security, and modern DirectX 10, though criticized for performance",
+      "marketShare": "Mixed reception, overshadowed by XP and later Windows 7",
+      "successor": "Windows 7",
+      "predecessor": "Windows XP",
+      "endOfLife": "2017-04-11"
+    },
+    "links": {"wikipedia": "https://en.wikipedia.org/wiki/Windows_Vista"}
+  },
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#000000",
+        "windowBackground": "#FFFFFF",
+        "windowBorder": "#000000",
+        "windowBorderWidth": 1,
+        "titleBarActive": "rgba(0, 0, 0, 0.7)",
+        "titleBarInactive": "rgba(255, 255, 255, 0.3)",
+        "titleBarText": "#FFFFFF",
+        "titleBarTextInactive": "#525252",
+        "buttonFace": "#F0F0F0",
+        "buttonText": "#000000",
+        "buttonHighlight": "#FFFFFF",
+        "buttonShadow": "#D0D0D0",
+        "buttonBorder": "#707070",
+        "highlight": "#3399FF",
+        "highlightText": "#FFFFFF",
+        "menuBackground": "rgba(255, 255, 255, 0.95)",
+        "menuText": "#000000",
+        "text": "#000000",
+        "taskbar": "rgba(0, 0, 0, 0.6)",
+        "shadow": "rgba(0, 0, 0, 0.5)"
+      },
+      "typography": {
+        "systemFont": {"family": "Segoe UI", "size": 12, "weight": "normal", "fallback": ["Tahoma", "Arial", "sans-serif"]},
+        "titleFont": {"family": "Segoe UI", "size": 12, "weight": "600"},
+        "menuFont": {"family": "Segoe UI", "size": 12, "weight": "normal"},
+        "monospaceFont": {"family": "Consolas", "size": 10, "weight": "normal"},
+        "antialiasing": true,
+        "subpixelRendering": true,
+        "baseFontSize": 12,
+        "scaleFactor": 1.0
+      },
+      "style": {
+        "type": "aero",
+        "borderStyle": "shadow",
+        "cornerRadius": 8,
+        "shadows": true,
+        "shadowStyle": "soft",
+        "transparency": true,
+        "blur": true,
+        "bevels": false,
+        "gradients": true,
+        "textures": true,
+        "animationStyle": "ease"
+      },
+      "specialElements": {"scrollbarStyle": "classic", "focusIndicator": "glow", "dragVisual": "ghost"}
+    },
+    "cursor": {"style": "modern_arrow", "animated": true, "shadows": true},
+    "icons": {
+      "style": "photo_realistic",
+      "size": {"default": 48, "sizes": [16, 32, 48, 256]},
+      "rendering": "antialiased",
+      "shadow": true,
+      "labelStyle": {"position": "below", "background": "solid", "backgroundColor": "rgba(0, 0, 0, 0.3)", "textColor": "#FFFFFF", "font": {"family": "Segoe UI", "size": 9}}
+    },
+    "sounds": {
+      "enabled": true,
+      "sounds": {"startup": "sounds/startup.wav", "shutdown": "sounds/shutdown.wav", "error": "sounds/critical.wav", "notification": "sounds/notify.wav"},
+      "volume": 80
+    },
+    "wallpaper": {"type": "image", "value": "wallpapers/aurora.jpg", "tiling": "stretch", "overlay": true}
+  },
+  "paradigm": {
+    "windowSystem": {
+      "type": "stacking",
+      "behavior": {"overlap": true, "resize": true, "minimize": true, "maximize": true, "close": true, "modal": true, "alwaysOnTop": true, "transparency": true, "multipleDocuments": false, "tabbed": false, "tiling": false},
+      "chrome": {
+        "titleBar": "unified",
+        "controls": "buttons",
+        "controlPosition": "right",
+        "buttons": {
+          "minimize": {"style": "icon", "content": "minimize", "position": 1},
+          "maximize": {"style": "icon", "content": "maximize", "position": 2},
+          "close": {"style": "icon", "content": "close", "position": 3, "color": "#D32F2F", "hoverColor": "#F44336"}
+        },
+        "titleAlign": "left",
+        "showIcon": true,
+        "showPath": false
+      },
+      "effects": {"openAnimation": "fade", "closeAnimation": "fade", "minimizeAnimation": "genie", "shadow": true, "blur": true}
+    },
+    "menuSystem": {
+      "type": "hybrid",
+      "menuBar": {"enabled": true, "position": "window", "style": {"background": "rgba(255, 255, 255, 0.95)", "textColor": "#000000", "height": 24}},
+      "contextMenu": {"enabled": true, "trigger": "right_click", "style": {"background": "rgba(255, 255, 255, 0.95)", "borderStyle": "shadow"}},
+      "behavior": {"clickToOpen": true, "keyboardShortcuts": true, "mnemonics": true, "icons": true, "cascading": true}
+    },
+    "taskManagement": {
+      "type": "taskbar",
+      "taskbar": {
+        "enabled": true,
+        "position": "bottom",
+        "autoHide": false,
+        "size": 40,
+        "style": {"background": "rgba(0, 0, 0, 0.6)", "transparency": true, "blur": true, "itemStyle": "icons_and_labels", "grouping": true, "previews": true},
+        "sections": {"start": true, "quick_launch": true, "tasks": true, "system_tray": true, "clock": true}
+      },
+      "switching": {"method": ["alt_tab", "taskbar_click"], "altTab": {"enabled": true, "visual": "thumbnails", "animation": true}, "expose": {"enabled": true, "layout": "cascade"}},
+      "multitasking": {"preemptive": true, "virtual_desktops": false, "snapAssist": false}
+    },
+    "desktop": {
+      "type": "iconic",
+      "layout": {"type": "grid", "grid": {"cellWidth": 75, "cellHeight": 100, "spacing": 10}, "direction": "vertical", "alignment": "left", "snapToGrid": true, "autoArrange": false},
+      "items": {"icons": true, "widgets": true, "shortcuts": true, "folders": true, "defaultItems": ["computer", "recycle_bin", "network"]},
+      "interaction": {"click": "double", "selection": "rubber_band", "dragAndDrop": true, "hoverPreview": true},
+      "behavior": {"showTrash": true, "showComputer": true, "showNetwork": true}
+    },
+    "inputMethods": {
+      "keyboard": {"shortcuts": true, "function_keys": true, "navigation": "arrows", "accessibility": true},
+      "mouse": {"buttons": 5, "scroll": "wheel", "gestures": false, "acceleration": true},
+      "touch": {"enabled": false}
+    }
+  },
+  "components": {
+    "core": {
+      "windowManager": "windowsvista-window-manager",
+      "fileManager": "windows-explorer-vista",
+      "optional": {"taskbar": "windowsvista-taskbar", "terminal": "command-prompt", "textEditor": "notepad", "mediaPlayer": "windows-media-player-11", "webBrowser": "internet-explorer-7"}
+    },
+    "applications": [
+      {"id": "computer", "name": "Computer", "icon": "icons/computer.png", "type": "system", "component": "FileExplorer", "window": {"title": "Computer", "width": 800, "height": 600, "resizable": true, "minimizable": true, "maximizable": true, "position": "center"}, "desktop": {"icon": true, "position": {"x": 0, "y": 0}}},
+      {"id": "recycle_bin", "name": "Recycle Bin", "icon": "icons/recycle_bin_empty.png", "type": "system", "component": "RecycleBin", "window": {"title": "Recycle Bin", "width": 800, "height": 600, "resizable": true, "minimizable": true, "maximizable": true, "position": "center"}, "desktop": {"icon": true, "position": {"x": 0, "y": 100}}},
+      {"id": "internet_explorer", "name": "Internet Explorer", "icon": "icons/ie7.png", "type": "web", "component": "InternetExplorer7", "window": {"title": "Windows Internet Explorer", "width": 1000, "height": 700, "resizable": true, "minimizable": true, "maximizable": true, "position": "center"}},
+      {"id": "notepad", "name": "Notepad", "icon": "icons/notepad.png", "type": "productivity", "component": "Notepad", "window": {"title": "Untitled - Notepad", "width": 650, "height": 500, "resizable": true, "minimizable": true, "maximizable": true, "position": "cascade"}},
+      {"id": "calculator", "name": "Calculator", "icon": "icons/calculator.png", "type": "utility", "component": "Calculator", "window": {"title": "Calculator", "width": 320, "height": 400, "resizable": false, "minimizable": true, "maximizable": false, "position": "center"}}
+    ],
+    "utilities": [
+      {"id": "control_panel", "name": "Control Panel", "type": "control_panel", "icon": "icons/control_panel.png"},
+      {"id": "gadgets", "name": "Windows Sidebar", "type": "system_preference", "icon": "icons/sidebar.png"}
+    ]
+  },
+  "features": {
+    "interaction": {"dragAndDrop": true, "clipboard": true, "undo": true, "fileOperations": {"copy": true, "move": true, "delete": true, "rename": true, "properties": true}, "networking": {"enabled": true, "protocols": ["TCP/IP"]}, "printing": true, "scanning": true},
+    "animations": {"enabled": true, "speed": "normal", "effects": {"windowOpen": true, "windowClose": true, "windowMinimize": true, "minimize": true, "maximize": true, "menuOpen": true, "hover": true, "click": true, "transitions": true, "parallax": true}},
+    "accessibility": {"highContrast": true, "screenReader": true, "magnifier": true, "keyboard_navigation": true},
+    "easterEggs": {"enabled": false, "list": []},
+    "customization": {"themes": true, "wallpaper": true, "colors": true, "fonts": true, "layout": true}
+  },
+  "assets": {
+    "basePath": "/assets/os/windowsvista",
+    "paths": {"icons": "icons", "cursors": "cursors", "sounds": "sounds", "fonts": "fonts", "wallpapers": "wallpapers"},
+    "iconSets": {"default": {"path": "icons", "format": "png", "sizes": [16, 32, 48, 256]}},
+    "fonts": {"segoe_ui": {"path": "fonts/segoe-ui.woff2", "format": "woff2", "weights": [400, 600, 700]}, "consolas": {"path": "fonts/consolas.woff2", "format": "woff2", "weights": [400]}},
+    "preload": ["icons/computer.png", "sounds/startup.wav", "wallpapers/aurora.jpg"]
+  }
+}

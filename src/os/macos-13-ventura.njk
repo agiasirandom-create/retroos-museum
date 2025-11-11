@@ -1,0 +1,88 @@
+---
+layout: layouts/base.njk
+title: macOS Ventura - RetroOS Museum
+description: Experience the macOS Ventura desktop environment with authentic design and interactive features.
+bodyClass: macos-13-ventura-body
+permalink: /os/macos-13-ventura/
+---
+
+{% block head %}
+<!-- macOS Ventura CSS -->
+<link rel="stylesheet" href="/assets/css/macos-13-ventura.css">
+<style>
+  /* Hide default header and footer for full desktop experience */
+  body.macos-13-ventura-body header,
+  body.macos-13-ventura-body footer {
+    display: none;
+  }
+
+  body.macos-13-ventura-body main {
+    padding: 0;
+    max-width: none;
+    margin: 0;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- macOS Ventura Desktop Environment -->
+<div id="macos-13-ventura-desktop" class="macos-13-ventura-desktop" role="application" aria-label="macOS Ventura Desktop">
+
+  <!-- Global Menu Bar (Mac paradigm) -->
+  <div id="macos-13-ventura-menubar" class="macos-13-ventura-menubar" role="menubar" aria-label="Menu Bar">
+    <!-- Menu items will be populated by JavaScript -->
+  </div>
+
+  <!-- Desktop Area -->
+  <div id="desktop-area" class="desktop-area">
+    <!-- Desktop Icons Container -->
+    <div id="desktop-icons" class="desktop-icons">
+      <!-- Icons will be added by JavaScript -->
+    </div>
+  </div>
+
+  <!-- Windows Container -->
+  <div id="windows-container" class="windows-container">
+    <!-- Windows will be added here by WindowManager -->
+  </div>
+
+  <!-- Dock (for OS X and later) -->
+  <div id="macos-13-ventura-dock" class="macos-13-ventura-dock">
+    <!-- Dock items will be populated by JavaScript -->
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<!-- Core Systems -->
+<script src="/assets/js/window-manager.js"></script>
+<script src="/assets/js/menu-system.js"></script>
+<script src="/assets/js/desktop.js"></script>
+
+<!-- macOS Ventura Specific -->
+<script src="/assets/js/macos-13-ventura-window-adapter.js"></script>
+<script src="/assets/js/macos-13-ventura-menubar.js"></script>
+<script src="/assets/js/macos-13-ventura-desktop.js"></script>
+
+<!-- Applications -->
+<script src="/assets/js/apps/macos-13-ventura-finder.js"></script>
+<script src="/assets/js/apps/macos-13-ventura-apps.js"></script>
+
+<!-- Initialize macOS Ventura -->
+<script>
+  // Wait for DOM to be ready
+  document.addEventListener('DOMContentLoaded', function() {
+    // Load OS configuration
+    fetch('/assets/data/os/macos-13-ventura.json')
+      .then(response => response.json())
+      .then(config => {
+        // Initialize macOS Ventura desktop
+        window.osInstance = new OSInstance(config);
+        window.osInstance.init();
+      })
+      .catch(error => {
+        console.error('Failed to load OS configuration:', error);
+      });
+  });
+</script>
+{% endblock %}

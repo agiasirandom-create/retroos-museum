@@ -1,0 +1,149 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "solaris",
+  "metadata": {
+    "name": "Solaris 2.6",
+    "fullName": "Sun Solaris 2.6 with CDE",
+    "version": "2.6",
+    "company": "Sun Microsystems",
+    "releaseYear": 1997,
+    "releaseDate": "1997-07-01",
+    "description": "Enterprise Unix system featuring the Common Desktop Environment (CDE), known for exceptional stability and scalability on SPARC workstations.",
+    "tagline": "The Network is the Computer",
+    "category": "desktop_unix",
+    "architecture": ["SPARC", "x86"],
+    "historical": {
+      "significance": "Industry-leading Unix system powering enterprise computing. Pioneered network computing paradigm. Introduced ZFS and DTrace in later versions.",
+      "marketShare": "Dominated enterprise Unix market and web server infrastructure",
+      "successor": "Solaris 10, Oracle Solaris",
+      "predecessor": "SunOS 4.x"
+    },
+    "links": {
+      "wikipedia": "https://en.wikipedia.org/wiki/Oracle_Solaris",
+      "officialSite": "https://www.oracle.com/solaris"
+    }
+  },
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#5F9EA0",
+        "windowBackground": "#AEB2C3",
+        "windowBorder": "#000000",
+        "windowBorderWidth": 1,
+        "titleBarActive": "#4682B4",
+        "titleBarInactive": "#9E9E9E",
+        "titleBarText": "#FFFFFF",
+        "titleBarTextInactive": "#000000",
+        "buttonFace": "#AEB2C3",
+        "buttonText": "#000000",
+        "buttonHighlight": "#E0E0E0",
+        "buttonShadow": "#5F5F5F",
+        "highlight": "#4682B4",
+        "highlightText": "#FFFFFF",
+        "menuBackground": "#AEB2C3",
+        "menuText": "#000000",
+        "menuHighlight": "#4682B4",
+        "text": "#000000",
+        "custom": {
+          "panelBackground": "#7F8C9E",
+          "sunBlue": "#4682B4"
+        }
+      },
+      "typography": {
+        "systemFont": {"family": "Helvetica", "size": 12, "weight": "normal", "fallback": ["Arial", "sans-serif"]},
+        "titleFont": {"family": "Helvetica", "size": 10, "weight": "bold"},
+        "menuFont": {"family": "Helvetica", "size": 12, "weight": "normal"},
+        "monospaceFont": {"family": "Courier", "size": 12, "weight": "normal"},
+        "antialiasing": false,
+        "baseFontSize": 12
+      },
+      "style": {
+        "type": "bevel_3d",
+        "borderStyle": "bevel_out",
+        "cornerRadius": 0,
+        "shadows": true,
+        "shadowStyle": "simple",
+        "transparency": false,
+        "bevels": true,
+        "gradients": false,
+        "animationStyle": "instant"
+      }
+    },
+    "cursor": {"style": "classic_arrow", "animated": false, "shadows": false},
+    "icons": {
+      "style": "icon_48",
+      "size": {"default": 48, "sizes": [32, 48]},
+      "rendering": "antialiased",
+      "shadow": false,
+      "labelStyle": {"position": "below", "background": "transparent", "textColor": "#000000", "font": {"family": "Helvetica", "size": 10}}
+    },
+    "wallpaper": {"type": "solid", "value": "#5F9EA0", "overlay": true}
+  },
+  "paradigm": {
+    "windowSystem": {
+      "type": "stacking",
+      "behavior": {"overlap": true, "resize": true, "minimize": true, "maximize": true, "close": true, "modal": true, "alwaysOnTop": false, "transparency": false},
+      "chrome": {
+        "titleBar": "classic",
+        "controls": "buttons",
+        "controlPosition": "right",
+        "buttons": {
+          "menu": {"style": "icon", "content": "menu", "position": 0},
+          "minimize": {"style": "icon", "content": "minimize", "position": 1},
+          "maximize": {"style": "icon", "content": "maximize", "position": 2}
+        },
+        "titleAlign": "left",
+        "showIcon": false
+      },
+      "effects": {"shadow": false}
+    },
+    "menuSystem": {
+      "type": "menu_bar",
+      "menuBar": {"enabled": false},
+      "contextMenu": {"enabled": true, "trigger": "right_click", "style": {"background": "#AEB2C3", "borderStyle": "bevel_out"}},
+      "behavior": {"clickToOpen": true, "icons": true, "cascading": true, "tearOff": false}
+    },
+    "taskManagement": {
+      "type": "panel",
+      "taskbar": {
+        "enabled": true,
+        "position": "bottom",
+        "autoHide": false,
+        "size": 50,
+        "style": {"background": "#7F8C9E", "transparency": false, "blur": false, "itemStyle": "icons", "grouping": false, "previews": false},
+        "sections": {"start": true, "quick_launch": false, "tasks": true, "system_tray": true, "clock": true}
+      },
+      "switching": {"method": ["alt_tab", "taskbar_click"]},
+      "multitasking": {"preemptive": true, "virtual_desktops": true}
+    },
+    "desktop": {
+      "type": "iconic",
+      "layout": {"type": "grid", "grid": {"cellWidth": 80, "cellHeight": 100, "spacing": 20}, "direction": "vertical", "alignment": "right", "snapToGrid": true},
+      "items": {"icons": true, "shortcuts": true, "folders": true},
+      "interaction": {"click": "double", "selection": "rubber_band", "dragAndDrop": true}
+    },
+    "inputMethods": {
+      "keyboard": {"shortcuts": true, "function_keys": true, "navigation": "arrows"},
+      "mouse": {"buttons": 3, "scroll": "none", "gestures": false}
+    }
+  },
+  "components": {
+    "core": {"windowManager": "dtwm", "fileManager": "dtfile", "optional": {"terminal": "dtterm", "textEditor": "dtpad"}},
+    "applications": [
+      {"id": "dtterm", "name": "Terminal", "icon": "icons/dtterm.png", "type": "system", "component": "XTerm", "window": {"title": "Terminal", "width": 640, "height": 400, "resizable": true, "minimizable": true, "maximizable": true, "position": "cascade"}, "features": {"multiInstance": true}},
+      {"id": "dtfile", "name": "File Manager", "icon": "icons/dtfile.png", "type": "system", "component": "XFM", "window": {"title": "File Manager", "width": 600, "height": 450, "resizable": true, "minimizable": true, "maximizable": true, "position": "center"}},
+      {"id": "admintool", "name": "Admin Tool", "icon": "icons/admintool.png", "type": "system", "component": "AdminTool", "window": {"title": "Solaris Admin Suite", "width": 700, "height": 500, "resizable": true, "minimizable": true, "maximizable": true, "position": "center"}},
+      {"id": "dtcalc", "name": "Calculator", "icon": "icons/dtcalc.png", "type": "utility", "component": "XCalc", "window": {"title": "Calculator", "width": 250, "height": 320, "resizable": false, "minimizable": true, "maximizable": false, "position": "center"}}
+    ]
+  },
+  "features": {
+    "interaction": {"dragAndDrop": true, "clipboard": true, "fileOperations": {"copy": true, "move": true, "delete": true, "rename": true, "properties": true}, "networking": {"enabled": true, "protocols": ["TCP/IP", "NFS", "NIS"]}},
+    "animations": {"enabled": false, "speed": "normal"},
+    "customization": {"themes": true, "wallpaper": true, "colors": true, "layout": true}
+  },
+  "assets": {
+    "basePath": "/assets/os/solaris",
+    "paths": {"icons": "icons", "cursors": "cursors", "fonts": "fonts"},
+    "iconSets": {"default": {"path": "icons", "format": "png", "sizes": [32, 48]}}
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "harmonyos-2",
+  "metadata": {
+    "name": "HarmonyOS 2.0",
+    "fullName": "Huawei HarmonyOS 2.0",
+    "version": "2.0",
+    "company": "Huawei Technologies",
+    "releaseYear": 2020,
+    "releaseDate": "2020-09-10",
+    "description": "Distributed OS for smartphones, tablets, IoT devices with seamless cross-device experience and microkernel architecture.",
+    "tagline": "One as All, All as One",
+    "category": "mobile_modern",
+    "architecture": ["ARM64", "ARM"],
+    "historical": {
+      "significance": "China's alternative to Android, distributed architecture, cross-device continuity, 300M+ devices by 2022",
+      "successor": "HarmonyOS 3.0"
+    },
+    "links": {
+      "wikipedia": "https://en.wikipedia.org/wiki/HarmonyOS"
+    }
+  },
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#F5F5F5",
+        "windowBackground": "#FFFFFF",
+        "titleBarActive": "#FFFFFF",
+        "titleBarText": "#000000",
+        "buttonFace": "#007DFF",
+        "buttonText": "#FFFFFF",
+        "highlight": "#007DFF",
+        "text": "#000000",
+        "statusBar": "#FFFFFF",
+        "custom": {
+          "accentColor": "#007DFF",
+          "distributedUI": "#00D6A8"
+        }
+      },
+      "typography": {
+        "systemFont": {
+          "family": "HarmonyOS Sans",
+          "size": 14,
+          "weight": "400"
+        },
+        "titleFont": {
+          "family": "HarmonyOS Sans",
+          "size": 24,
+          "weight": "500"
+        },
+        "antialiasing": true,
+        "baseFontSize": 14
+      },
+      "style": {
+        "type": "material",
+        "cornerRadius": 16,
+        "shadows": true,
+        "shadowStyle": "soft",
+        "transparency": true,
+        "blur": true,
+        "animationStyle": "ease"
+      }
+    },
+    "icons": {
+      "style": "flat_modern",
+      "size": {
+        "default": 48,
+        "sizes": [48, 96, 192]
+      },
+      "rendering": "vector"
+    },
+    "wallpaper": {
+      "type": "image",
+      "value": "wallpapers/harmonyos-default.jpg"
+    }
+  },
+  "paradigm": {
+    "windowSystem": {
+      "type": "full_screen",
+      "behavior": {
+        "modal": true
+      },
+      "effects": {
+        "blur": true
+      }
+    },
+    "menuSystem": {
+      "type": "context_only"
+    },
+    "taskManagement": {
+      "type": "cards",
+      "multitasking": {
+        "preemptive": true,
+        "splitScreen": true
+      }
+    },
+    "desktop": {
+      "type": "iconic",
+      "layout": {
+        "type": "grid"
+      },
+      "items": {
+        "icons": true,
+        "widgets": true,
+        "folders": true
+      }
+    },
+    "inputMethods": {
+      "touch": {
+        "enabled": true,
+        "multitouch": true,
+        "gestures": ["tap", "swipe", "pinch", "long_press"]
+      }
+    }
+  },
+  "components": {
+    "core": {
+      "windowManager": "harmony-wm",
+      "fileManager": "files",
+      "optional": {
+        "webBrowser": "browser"
+      }
+    }
+  },
+  "features": {
+    "interaction": {
+      "dragAndDrop": true,
+      "clipboard": true,
+      "networking": {
+        "enabled": true,
+        "protocols": ["WiFi 6", "5G", "Bluetooth 5.2"]
+      }
+    },
+    "animations": {
+      "enabled": true,
+      "effects": {
+        "transitions": true
+      }
+    },
+    "customization": {
+      "themes": true,
+      "wallpaper": true,
+      "layout": true
+    }
+  },
+  "assets": {
+    "basePath": "/assets/os/harmonyos-2",
+    "paths": {
+      "icons": "icons",
+      "wallpapers": "wallpapers"
+    }
+  }
+}

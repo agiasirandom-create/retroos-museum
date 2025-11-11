@@ -1,0 +1,197 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "ios-14",
+  "metadata": {
+    "name": "iOS 14",
+    "fullName": "Apple iOS 14",
+    "version": "14.0",
+    "company": "Apple Inc.",
+    "releaseYear": 2020,
+    "releaseDate": "2020-09-16",
+    "description": "Major update introducing Home Screen widgets, App Library, App Clips, and Picture in Picture support for iPhone.",
+    "tagline": "Your iPhone. More personal than ever.",
+    "category": "mobile_modern",
+    "architecture": ["ARM64"],
+    "historical": {
+      "significance": "Home Screen widgets revolutionized customization, App Library auto-organized apps, privacy transparency",
+      "marketShare": "90% iOS device adoption within a year",
+      "successor": "iOS 15",
+      "predecessor": "iOS 13",
+      "endOfLife": "2023-09-18"
+    },
+    "links": {
+      "wikipedia": "https://en.wikipedia.org/wiki/IOS_14"
+    }
+  },
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#FFFFFF",
+        "windowBackground": "rgba(255, 255, 255, 0.98)",
+        "titleBarActive": "rgba(247, 247, 247, 0.85)",
+        "titleBarText": "#000000",
+        "buttonFace": "#007AFF",
+        "buttonText": "#FFFFFF",
+        "highlight": "#007AFF",
+        "text": "#000000",
+        "custom": {
+          "widgetBackground": "rgba(255, 255, 255, 0.95)",
+          "appLibrary": "rgba(0, 0, 0, 0.3)",
+          "notificationBadge": "#FF3B30"
+        }
+      },
+      "typography": {
+        "systemFont": {
+          "family": "San Francisco",
+          "size": 17,
+          "weight": "400"
+        },
+        "titleFont": {
+          "family": "San Francisco",
+          "size": 34,
+          "weight": "700"
+        },
+        "antialiasing": true,
+        "baseFontSize": 17,
+        "scaleFactor": 3.0
+      },
+      "style": {
+        "type": "flat",
+        "cornerRadius": 0,
+        "transparency": true,
+        "blur": true,
+        "animationStyle": "ease"
+      }
+    },
+    "icons": {
+      "style": "flat_modern",
+      "size": {
+        "default": 60,
+        "sizes": [60, 120, 180]
+      },
+      "rendering": "vector",
+      "labelStyle": {
+        "position": "below",
+        "textColor": "#000000"
+      }
+    },
+    "wallpaper": {
+      "type": "image",
+      "value": "wallpapers/ios14-default.jpg",
+      "tiling": "fill"
+    }
+  },
+  "paradigm": {
+    "windowSystem": {
+      "type": "full_screen",
+      "behavior": {
+        "modal": true
+      },
+      "chrome": {
+        "titleBar": "unified",
+        "titleAlign": "center"
+      },
+      "effects": {
+        "openAnimation": "zoom",
+        "blur": true
+      }
+    },
+    "menuSystem": {
+      "type": "context_only"
+    },
+    "taskManagement": {
+      "type": "cards",
+      "multitasking": {
+        "preemptive": true,
+        "splitScreen": true
+      }
+    },
+    "desktop": {
+      "type": "iconic",
+      "layout": {
+        "type": "grid",
+        "grid": {
+          "cellWidth": 76,
+          "cellHeight": 90,
+          "spacing": 10
+        },
+        "autoArrange": true
+      },
+      "items": {
+        "icons": true,
+        "widgets": true,
+        "folders": true,
+        "defaultItems": ["app_library", "widgets"]
+      },
+      "interaction": {
+        "click": "single",
+        "dragAndDrop": true
+      }
+    },
+    "inputMethods": {
+      "touch": {
+        "enabled": true,
+        "multitouch": true,
+        "gestures": ["tap", "swipe", "pinch", "long_press"]
+      }
+    }
+  },
+  "components": {
+    "core": {
+      "windowManager": "springboard",
+      "fileManager": "files",
+      "optional": {
+        "webBrowser": "safari"
+      }
+    },
+    "applications": [
+      {
+        "id": "app_library",
+        "name": "App Library",
+        "icon": "icons/app-library.png",
+        "type": "system",
+        "window": {
+          "title": "App Library",
+          "width": 390,
+          "height": 844
+        },
+        "desktop": {
+          "icon": true
+        }
+      }
+    ]
+  },
+  "features": {
+    "interaction": {
+      "dragAndDrop": true,
+      "clipboard": true,
+      "networking": {
+        "enabled": true,
+        "protocols": ["WiFi 6", "5G", "Bluetooth 5.0"]
+      }
+    },
+    "animations": {
+      "enabled": true,
+      "effects": {
+        "transitions": true,
+        "parallax": true
+      }
+    },
+    "accessibility": {
+      "screenReader": true,
+      "magnifier": true
+    },
+    "customization": {
+      "wallpaper": true,
+      "layout": true,
+      "themes": false
+    }
+  },
+  "assets": {
+    "basePath": "/assets/os/ios-14",
+    "paths": {
+      "icons": "icons",
+      "wallpapers": "wallpapers"
+    }
+  }
+}

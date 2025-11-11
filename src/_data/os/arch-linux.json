@@ -1,0 +1,134 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "arch-linux",
+  "metadata": {
+    "name": "Arch Linux 0.5",
+    "fullName": "Arch Linux 0.5 (Nova) with TWM",
+    "version": "0.5 (Nova)",
+    "company": "Arch Linux Community",
+    "releaseYear": 2002,
+    "releaseDate": "2002-12-03",
+    "description": "Lightweight rolling-release Linux distribution following the KISS principle with powerful pacman package manager.",
+    "tagline": "Keep It Simple, Stupid",
+    "category": "desktop_linux",
+    "architecture": ["x86"],
+    "historical": {
+      "significance": "Pioneered rolling-release model and minimalist philosophy. Inspired numerous distributions. Known for extensive documentation (Arch Wiki).",
+      "marketShare": "Popular among advanced Linux users and enthusiasts",
+      "successor": "Arch Linux continues development",
+      "predecessor": "CRUX (inspiration)"
+    },
+    "links": {
+      "wikipedia": "https://en.wikipedia.org/wiki/Arch_Linux",
+      "officialSite": "https://archlinux.org"
+    }
+  },
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#1793D1",
+        "windowBackground": "#C0C0C0",
+        "windowBorder": "#000000",
+        "windowBorderWidth": 1,
+        "titleBarActive": "#1793D1",
+        "titleBarInactive": "#808080",
+        "titleBarText": "#FFFFFF",
+        "titleBarTextInactive": "#C0C0C0",
+        "buttonFace": "#B0B0B0",
+        "buttonText": "#000000",
+        "buttonHighlight": "#E0E0E0",
+        "buttonShadow": "#404040",
+        "highlight": "#1793D1",
+        "highlightText": "#FFFFFF",
+        "menuBackground": "#B0B0B0",
+        "menuText": "#000000",
+        "menuHighlight": "#1793D1",
+        "text": "#000000"
+      },
+      "typography": {
+        "systemFont": {"family": "Helvetica", "size": 12, "weight": "normal", "fallback": ["Arial", "sans-serif"]},
+        "titleFont": {"family": "Helvetica", "size": 10, "weight": "bold"},
+        "menuFont": {"family": "Helvetica", "size": 10, "weight": "normal"},
+        "monospaceFont": {"family": "Fixed", "size": 10, "weight": "normal"},
+        "antialiasing": false,
+        "baseFontSize": 12
+      },
+      "style": {
+        "type": "classic",
+        "borderStyle": "single",
+        "cornerRadius": 0,
+        "shadows": false,
+        "transparency": false,
+        "bevels": false,
+        "gradients": false,
+        "animationStyle": "instant"
+      }
+    },
+    "cursor": {"style": "classic_arrow", "animated": false, "shadows": false},
+    "icons": {
+      "style": "icon_32",
+      "size": {"default": 32, "sizes": [32]},
+      "rendering": "aliased",
+      "shadow": false,
+      "labelStyle": {"position": "below", "background": "transparent", "textColor": "#FFFFFF", "font": {"family": "Helvetica", "size": 10}}
+    },
+    "wallpaper": {"type": "solid", "value": "#1793D1", "overlay": true}
+  },
+  "paradigm": {
+    "windowSystem": {
+      "type": "stacking",
+      "behavior": {"overlap": true, "resize": true, "minimize": true, "maximize": true, "close": true, "modal": true, "alwaysOnTop": false, "transparency": false},
+      "chrome": {
+        "titleBar": "classic",
+        "controls": "buttons",
+        "controlPosition": "right",
+        "buttons": {
+          "minimize": {"style": "icon", "content": "minimize", "position": 1},
+          "maximize": {"style": "icon", "content": "maximize", "position": 2},
+          "close": {"style": "icon", "content": "close", "position": 3}
+        },
+        "titleAlign": "left",
+        "showIcon": false
+      },
+      "effects": {"shadow": false}
+    },
+    "menuSystem": {
+      "type": "context_only",
+      "contextMenu": {"enabled": true, "trigger": "right_click", "style": {"background": "#B0B0B0", "borderStyle": "single"}},
+      "behavior": {"clickToOpen": true, "icons": false, "cascading": true, "tearOff": false}
+    },
+    "taskManagement": {
+      "type": "panel",
+      "switching": {"method": ["alt_tab", "window_list"]},
+      "multitasking": {"preemptive": true, "virtual_desktops": false}
+    },
+    "desktop": {
+      "type": "iconic",
+      "layout": {"type": "grid", "grid": {"cellWidth": 80, "cellHeight": 100, "spacing": 20}, "direction": "vertical", "alignment": "left", "snapToGrid": true},
+      "items": {"icons": true, "shortcuts": true, "folders": true},
+      "interaction": {"click": "double", "selection": "rubber_band", "dragAndDrop": true}
+    },
+    "inputMethods": {
+      "keyboard": {"shortcuts": true, "function_keys": true, "navigation": "arrows"},
+      "mouse": {"buttons": 3, "scroll": "none", "gestures": false}
+    }
+  },
+  "components": {
+    "core": {"windowManager": "twm", "fileManager": "xfm", "optional": {"terminal": "rxvt", "textEditor": "vi"}},
+    "applications": [
+      {"id": "rxvt", "name": "Terminal", "icon": "icons/terminal.png", "type": "system", "component": "XTerm", "window": {"title": "rxvt", "width": 640, "height": 400, "resizable": true, "minimizable": true, "maximizable": true, "position": "cascade"}, "features": {"multiInstance": true}},
+      {"id": "pacman", "name": "Pacman Package Manager", "icon": "icons/package.png", "type": "system", "component": "XTerm", "window": {"title": "pacman", "width": 700, "height": 500, "resizable": true, "minimizable": true, "maximizable": true, "position": "center"}},
+      {"id": "xfm", "name": "File Manager", "icon": "icons/folder.png", "type": "system", "component": "XFM", "window": {"title": "File Manager", "width": 600, "height": 450, "resizable": true, "minimizable": true, "maximizable": true, "position": "center"}}
+    ]
+  },
+  "features": {
+    "interaction": {"dragAndDrop": true, "clipboard": true, "fileOperations": {"copy": true, "move": true, "delete": true, "rename": true, "properties": true}, "networking": {"enabled": true, "protocols": ["TCP/IP", "NFS"]}},
+    "animations": {"enabled": false, "speed": "normal"},
+    "customization": {"themes": false, "wallpaper": true, "colors": true, "layout": true}
+  },
+  "assets": {
+    "basePath": "/assets/os/arch-linux",
+    "paths": {"icons": "icons", "cursors": "cursors", "fonts": "fonts"},
+    "iconSets": {"default": {"path": "icons", "format": "png", "sizes": [32]}}
+  }
+}

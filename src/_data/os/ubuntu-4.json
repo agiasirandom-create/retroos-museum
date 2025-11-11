@@ -1,0 +1,494 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "ubuntu-4",
+
+  "metadata": {
+    "name": "Ubuntu 4.10 Warty Warthog",
+    "fullName": "Ubuntu 4.10 (Warty Warthog) with GNOME",
+    "version": "4.10 (Warty Warthog)",
+    "company": "Canonical Ltd.",
+    "releaseYear": 2004,
+    "releaseDate": "2004-10-20",
+    "description": "Revolutionary Linux distribution bringing ease-of-use and human-centered design to Linux, featuring GNOME desktop and commitment to regular releases.",
+    "tagline": "Linux for Human Beings",
+    "category": "desktop_linux",
+    "architecture": ["x86", "AMD64", "PowerPC"],
+
+    "historical": {
+      "significance": "Revolutionized Linux desktop usability with focus on user experience. Introduced 6-month release cycle and free ShipIt CD distribution program. Made Linux mainstream.",
+      "marketShare": "Became most popular desktop Linux distribution by 2010",
+      "successor": "Ubuntu continues development",
+      "predecessor": "Debian (based on)"
+    },
+
+    "links": {
+      "wikipedia": "https://en.wikipedia.org/wiki/Ubuntu",
+      "officialSite": "https://ubuntu.com"
+    }
+  },
+
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#5C3317",
+
+        "windowBackground": "#EDECEB",
+        "windowBorder": "#000000",
+        "windowBorderWidth": 1,
+
+        "titleBarActive": "#DD4814",
+        "titleBarInactive": "#C0BEBF",
+        "titleBarText": "#FFFFFF",
+        "titleBarTextInactive": "#666666",
+
+        "buttonFace": "#EDECEB",
+        "buttonText": "#000000",
+        "buttonHighlight": "#FFFFFF",
+        "buttonShadow": "#808080",
+
+        "highlight": "#DD4814",
+        "highlightText": "#FFFFFF",
+
+        "menuBackground": "#EDECEB",
+        "menuText": "#000000",
+        "menuHighlight": "#DD4814",
+
+        "text": "#000000",
+        "taskbar": "#EDECEB",
+
+        "custom": {
+          "ubuntuOrange": "#DD4814",
+          "ubuntuBrown": "#5C3317",
+          "panelBackground": "#E6E6E6"
+        }
+      },
+
+      "typography": {
+        "systemFont": {
+          "family": "Sans",
+          "size": 10,
+          "weight": "normal",
+          "fallback": ["DejaVu Sans", "Arial", "sans-serif"]
+        },
+        "titleFont": {
+          "family": "Sans",
+          "size": 10,
+          "weight": "bold"
+        },
+        "menuFont": {
+          "family": "Sans",
+          "size": 10,
+          "weight": "normal"
+        },
+        "monospaceFont": {
+          "family": "Monospace",
+          "size": 10,
+          "weight": "normal",
+          "fallback": ["DejaVu Sans Mono", "Courier"]
+        },
+
+        "antialiasing": true,
+        "baseFontSize": 10
+      },
+
+      "style": {
+        "type": "bevel_3d",
+        "borderStyle": "bevel_out",
+        "cornerRadius": 0,
+
+        "shadows": false,
+        "transparency": false,
+
+        "bevels": true,
+        "gradients": false,
+
+        "animationStyle": "linear"
+      }
+    },
+
+    "cursor": {
+      "style": "classic_arrow",
+      "animated": false,
+      "shadows": true
+    },
+
+    "icons": {
+      "style": "icon_48",
+      "size": {
+        "default": 48,
+        "sizes": [24, 32, 48]
+      },
+      "rendering": "antialiased",
+      "shadow": false,
+      "labelStyle": {
+        "position": "below",
+        "background": "transparent",
+        "textColor": "#FFFFFF",
+        "font": {
+          "family": "Sans",
+          "size": 10
+        }
+      }
+    },
+
+    "wallpaper": {
+      "type": "solid",
+      "value": "#5C3317",
+      "overlay": true
+    }
+  },
+
+  "paradigm": {
+    "windowSystem": {
+      "type": "stacking",
+
+      "behavior": {
+        "overlap": true,
+        "resize": true,
+        "minimize": true,
+        "maximize": true,
+        "close": true,
+
+        "modal": true,
+        "alwaysOnTop": true,
+        "transparency": false
+      },
+
+      "chrome": {
+        "titleBar": "classic",
+        "controls": "buttons",
+        "controlPosition": "right",
+
+        "buttons": {
+          "minimize": {
+            "style": "icon",
+            "content": "minimize",
+            "position": 1
+          },
+          "maximize": {
+            "style": "icon",
+            "content": "maximize",
+            "position": 2
+          },
+          "close": {
+            "style": "icon",
+            "content": "close",
+            "position": 3
+          }
+        },
+
+        "titleAlign": "left",
+        "showIcon": true
+      },
+
+      "effects": {
+        "shadow": false
+      }
+    },
+
+    "menuSystem": {
+      "type": "menu_bar",
+
+      "menuBar": {
+        "enabled": true,
+        "position": "top",
+        "sticky": true,
+        "autoHide": false,
+
+        "style": {
+          "background": "#E6E6E6",
+          "textColor": "#000000",
+          "height": 24,
+          "font": {
+            "family": "Sans",
+            "size": 10,
+            "weight": "normal"
+          }
+        }
+      },
+
+      "contextMenu": {
+        "enabled": true,
+        "trigger": "right_click",
+        "style": {
+          "background": "#EDECEB",
+          "borderStyle": "single"
+        }
+      },
+
+      "behavior": {
+        "clickToOpen": true,
+        "icons": true,
+        "cascading": true,
+        "tearOff": false
+      }
+    },
+
+    "taskManagement": {
+      "type": "panel",
+
+      "taskbar": {
+        "enabled": true,
+        "position": "bottom",
+        "autoHide": false,
+        "size": 24,
+
+        "style": {
+          "background": "#E6E6E6",
+          "transparency": false,
+          "blur": false,
+
+          "itemStyle": "icons",
+          "grouping": false,
+          "previews": false
+        },
+
+        "sections": {
+          "start": false,
+          "quick_launch": true,
+          "tasks": true,
+          "system_tray": true,
+          "clock": false
+        }
+      },
+
+      "switching": {
+        "method": ["alt_tab", "taskbar_click"],
+        "altTab": {
+          "enabled": true,
+          "visual": "icons",
+          "animation": true
+        }
+      },
+
+      "multitasking": {
+        "preemptive": true,
+        "virtual_desktops": true
+      }
+    },
+
+    "desktop": {
+      "type": "iconic",
+
+      "layout": {
+        "type": "grid",
+        "grid": {
+          "cellWidth": 80,
+          "cellHeight": 80,
+          "spacing": 10
+        },
+        "direction": "vertical",
+        "alignment": "left",
+        "snapToGrid": true
+      },
+
+      "items": {
+        "icons": true,
+        "shortcuts": true,
+        "folders": true
+      },
+
+      "interaction": {
+        "click": "double",
+        "selection": "rubber_band",
+        "dragAndDrop": true
+      },
+
+      "behavior": {
+        "showTrash": true,
+        "showComputer": true,
+        "showHome": true
+      }
+    },
+
+    "inputMethods": {
+      "keyboard": {
+        "shortcuts": true,
+        "function_keys": true,
+        "navigation": "arrows",
+        "accessibility": true
+      },
+
+      "mouse": {
+        "buttons": 3,
+        "scroll": "wheel",
+        "gestures": false,
+        "acceleration": true
+      }
+    }
+  },
+
+  "components": {
+    "core": {
+      "windowManager": "metacity",
+      "fileManager": "nautilus",
+
+      "optional": {
+        "terminal": "gnome-terminal",
+        "textEditor": "gedit",
+        "webBrowser": "firefox"
+      }
+    },
+
+    "applications": [
+      {
+        "id": "gnome-terminal",
+        "name": "Terminal",
+        "icon": "icons/terminal.png",
+        "type": "system",
+        "component": "XTerm",
+
+        "window": {
+          "title": "Terminal",
+          "width": 640,
+          "height": 400,
+          "resizable": true,
+          "minimizable": true,
+          "maximizable": true,
+          "position": "cascade"
+        },
+
+        "features": {
+          "multiInstance": true
+        }
+      },
+      {
+        "id": "nautilus",
+        "name": "Nautilus",
+        "icon": "icons/nautilus.png",
+        "type": "system",
+        "component": "XFM",
+
+        "window": {
+          "title": "File Browser",
+          "width": 700,
+          "height": 500,
+          "resizable": true,
+          "minimizable": true,
+          "maximizable": true,
+          "position": "center"
+        }
+      },
+      {
+        "id": "synaptic",
+        "name": "Synaptic Package Manager",
+        "icon": "icons/synaptic.png",
+        "type": "system",
+        "component": "Synaptic",
+
+        "window": {
+          "title": "Synaptic Package Manager",
+          "width": 800,
+          "height": 600,
+          "resizable": true,
+          "minimizable": true,
+          "maximizable": true,
+          "position": "center"
+        }
+      },
+      {
+        "id": "gcalctool",
+        "name": "Calculator",
+        "icon": "icons/calculator.png",
+        "type": "utility",
+        "component": "XCalc",
+
+        "window": {
+          "title": "Calculator",
+          "width": 250,
+          "height": 320,
+          "resizable": false,
+          "minimizable": true,
+          "maximizable": false,
+          "position": "center"
+        }
+      },
+      {
+        "id": "firefox",
+        "name": "Firefox Web Browser",
+        "icon": "icons/firefox.png",
+        "type": "web",
+        "component": "Browser",
+
+        "window": {
+          "title": "Mozilla Firefox",
+          "width": 800,
+          "height": 600,
+          "resizable": true,
+          "minimizable": true,
+          "maximizable": true,
+          "position": "center"
+        }
+      }
+    ]
+  },
+
+  "features": {
+    "interaction": {
+      "dragAndDrop": true,
+      "clipboard": true,
+
+      "fileOperations": {
+        "copy": true,
+        "move": true,
+        "delete": true,
+        "rename": true,
+        "properties": true
+      },
+
+      "networking": {
+        "enabled": true,
+        "protocols": ["TCP/IP", "NFS", "SMB", "WebDAV"]
+      },
+
+      "printing": true
+    },
+
+    "animations": {
+      "enabled": true,
+      "speed": "normal",
+
+      "effects": {
+        "windowOpen": true,
+        "windowClose": true,
+        "windowMinimize": true,
+        "menuOpen": true,
+        "transitions": true
+      }
+    },
+
+    "accessibility": {
+      "highContrast": true,
+      "screenReader": true,
+      "magnifier": true,
+      "keyboard_navigation": true
+    },
+
+    "customization": {
+      "themes": true,
+      "wallpaper": true,
+      "colors": true,
+      "fonts": true,
+      "layout": true
+    }
+  },
+
+  "assets": {
+    "basePath": "/assets/os/ubuntu-4",
+
+    "paths": {
+      "icons": "icons",
+      "cursors": "cursors",
+      "fonts": "fonts",
+      "sounds": "sounds"
+    },
+
+    "iconSets": {
+      "default": {
+        "path": "icons",
+        "format": "png",
+        "sizes": [24, 32, 48]
+      }
+    }
+  }
+}

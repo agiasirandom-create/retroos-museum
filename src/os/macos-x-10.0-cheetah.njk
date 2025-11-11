@@ -1,0 +1,88 @@
+---
+layout: layouts/base.njk
+title: Mac OS X Cheetah - RetroOS Museum
+description: Experience the Mac OS X Cheetah desktop environment with authentic design and interactive features.
+bodyClass: macos-x-10.0-cheetah-body
+permalink: /os/macos-x-10.0-cheetah/
+---
+
+{% block head %}
+<!-- Mac OS X Cheetah CSS -->
+<link rel="stylesheet" href="/assets/css/macos-x-10.0-cheetah.css">
+<style>
+  /* Hide default header and footer for full desktop experience */
+  body.macos-x-10.0-cheetah-body header,
+  body.macos-x-10.0-cheetah-body footer {
+    display: none;
+  }
+
+  body.macos-x-10.0-cheetah-body main {
+    padding: 0;
+    max-width: none;
+    margin: 0;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Mac OS X Cheetah Desktop Environment -->
+<div id="macos-x-10.0-cheetah-desktop" class="macos-x-10.0-cheetah-desktop" role="application" aria-label="Mac OS X Cheetah Desktop">
+
+  <!-- Global Menu Bar (Mac paradigm) -->
+  <div id="macos-x-10.0-cheetah-menubar" class="macos-x-10.0-cheetah-menubar" role="menubar" aria-label="Menu Bar">
+    <!-- Menu items will be populated by JavaScript -->
+  </div>
+
+  <!-- Desktop Area -->
+  <div id="desktop-area" class="desktop-area">
+    <!-- Desktop Icons Container -->
+    <div id="desktop-icons" class="desktop-icons">
+      <!-- Icons will be added by JavaScript -->
+    </div>
+  </div>
+
+  <!-- Windows Container -->
+  <div id="windows-container" class="windows-container">
+    <!-- Windows will be added here by WindowManager -->
+  </div>
+
+  <!-- Dock (for OS X and later) -->
+  <div id="macos-x-10.0-cheetah-dock" class="macos-x-10.0-cheetah-dock">
+    <!-- Dock items will be populated by JavaScript -->
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<!-- Core Systems -->
+<script src="/assets/js/window-manager.js"></script>
+<script src="/assets/js/menu-system.js"></script>
+<script src="/assets/js/desktop.js"></script>
+
+<!-- Mac OS X Cheetah Specific -->
+<script src="/assets/js/macos-x-10.0-cheetah-window-adapter.js"></script>
+<script src="/assets/js/macos-x-10.0-cheetah-menubar.js"></script>
+<script src="/assets/js/macos-x-10.0-cheetah-desktop.js"></script>
+
+<!-- Applications -->
+<script src="/assets/js/apps/macos-x-10.0-cheetah-finder.js"></script>
+<script src="/assets/js/apps/macos-x-10.0-cheetah-apps.js"></script>
+
+<!-- Initialize Mac OS X Cheetah -->
+<script>
+  // Wait for DOM to be ready
+  document.addEventListener('DOMContentLoaded', function() {
+    // Load OS configuration
+    fetch('/assets/data/os/macos-x-10.0-cheetah.json')
+      .then(response => response.json())
+      .then(config => {
+        // Initialize Mac OS X Cheetah desktop
+        window.osInstance = new OSInstance(config);
+        window.osInstance.init();
+      })
+      .catch(error => {
+        console.error('Failed to load OS configuration:', error);
+      });
+  });
+</script>
+{% endblock %}

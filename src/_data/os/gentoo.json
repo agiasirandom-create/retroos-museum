@@ -1,0 +1,139 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "gentoo",
+  "metadata": {
+    "name": "Gentoo Linux 1.4",
+    "fullName": "Gentoo Linux 1.4 with Enlightenment",
+    "version": "1.4",
+    "company": "Gentoo Foundation",
+    "releaseYear": 2002,
+    "releaseDate": "2002-03-31",
+    "description": "Source-based meta-distribution featuring Portage package system, allowing extreme customization and optimization.",
+    "tagline": "The Power to Serve",
+    "category": "desktop_linux",
+    "architecture": ["x86", "PowerPC", "SPARC", "Alpha"],
+    "historical": {
+      "significance": "Pioneered source-based distribution model with extensive USE flags for customization. Portage influenced many package managers.",
+      "marketShare": "Popular among performance enthusiasts and power users",
+      "successor": "Gentoo continues development",
+      "predecessor": "Enoch Linux"
+    },
+    "links": {
+      "wikipedia": "https://en.wikipedia.org/wiki/Gentoo_Linux",
+      "officialSite": "https://www.gentoo.org"
+    }
+  },
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#61538D",
+        "windowBackground": "#D0D0D0",
+        "windowBorder": "#000000",
+        "windowBorderWidth": 1,
+        "titleBarActive": "#54487A",
+        "titleBarInactive": "#A0A0A0",
+        "titleBarText": "#FFFFFF",
+        "titleBarTextInactive": "#C0C0C0",
+        "buttonFace": "#C0C0C0",
+        "buttonText": "#000000",
+        "buttonHighlight": "#FFFFFF",
+        "buttonShadow": "#404040",
+        "highlight": "#54487A",
+        "highlightText": "#FFFFFF",
+        "menuBackground": "#C0C0C0",
+        "menuText": "#000000",
+        "menuHighlight": "#54487A",
+        "text": "#000000",
+        "custom": {
+          "gentooPurple": "#54487A",
+          "gentooLightPurple": "#61538D"
+        }
+      },
+      "typography": {
+        "systemFont": {"family": "Helvetica", "size": 11, "weight": "normal", "fallback": ["Arial", "sans-serif"]},
+        "titleFont": {"family": "Helvetica", "size": 10, "weight": "bold"},
+        "menuFont": {"family": "Helvetica", "size": 10, "weight": "normal"},
+        "monospaceFont": {"family": "Fixed", "size": 10, "weight": "normal"},
+        "antialiasing": true,
+        "baseFontSize": 11
+      },
+      "style": {
+        "type": "skeuomorphic",
+        "borderStyle": "bevel_out",
+        "cornerRadius": 2,
+        "shadows": true,
+        "shadowStyle": "simple",
+        "transparency": true,
+        "bevels": true,
+        "gradients": true,
+        "animationStyle": "ease"
+      }
+    },
+    "cursor": {"style": "classic_arrow", "animated": true, "shadows": true},
+    "icons": {
+      "style": "icon_48",
+      "size": {"default": 48, "sizes": [32, 48, 64]},
+      "rendering": "antialiased",
+      "shadow": true,
+      "labelStyle": {"position": "below", "background": "transparent", "textColor": "#FFFFFF", "font": {"family": "Helvetica", "size": 10}}
+    },
+    "wallpaper": {"type": "solid", "value": "#61538D", "overlay": true}
+  },
+  "paradigm": {
+    "windowSystem": {
+      "type": "stacking",
+      "behavior": {"overlap": true, "resize": true, "minimize": true, "maximize": true, "close": true, "modal": true, "alwaysOnTop": true, "transparency": true},
+      "chrome": {
+        "titleBar": "classic",
+        "controls": "buttons",
+        "controlPosition": "right",
+        "buttons": {
+          "minimize": {"style": "icon", "content": "minimize", "position": 1},
+          "maximize": {"style": "icon", "content": "maximize", "position": 2},
+          "close": {"style": "icon", "content": "close", "position": 3}
+        },
+        "titleAlign": "left",
+        "showIcon": true
+      },
+      "effects": {"shadow": true}
+    },
+    "menuSystem": {
+      "type": "context_only",
+      "contextMenu": {"enabled": true, "trigger": "right_click", "style": {"background": "#C0C0C0", "borderStyle": "bevel_out"}},
+      "behavior": {"clickToOpen": true, "icons": true, "cascading": true, "tearOff": false}
+    },
+    "taskManagement": {
+      "type": "dock",
+      "switching": {"method": ["alt_tab", "window_list"]},
+      "multitasking": {"preemptive": true, "virtual_desktops": true}
+    },
+    "desktop": {
+      "type": "iconic",
+      "layout": {"type": "free_form", "grid": {"cellWidth": 80, "cellHeight": 100, "spacing": 20}, "direction": "vertical", "alignment": "left", "snapToGrid": false},
+      "items": {"icons": true, "shortcuts": true, "folders": true},
+      "interaction": {"click": "double", "selection": "rubber_band", "dragAndDrop": true}
+    },
+    "inputMethods": {
+      "keyboard": {"shortcuts": true, "function_keys": true, "navigation": "arrows"},
+      "mouse": {"buttons": 3, "scroll": "wheel", "gestures": false}
+    }
+  },
+  "components": {
+    "core": {"windowManager": "enlightenment", "fileManager": "efm", "optional": {"terminal": "eterm", "textEditor": "vim"}},
+    "applications": [
+      {"id": "eterm", "name": "Enlightened Terminal", "icon": "icons/eterm.png", "type": "system", "component": "XTerm", "window": {"title": "Eterm", "width": 640, "height": 400, "resizable": true, "minimizable": true, "maximizable": true, "position": "cascade"}, "features": {"multiInstance": true}},
+      {"id": "portage", "name": "Portage Package Manager", "icon": "icons/portage.png", "type": "system", "component": "XTerm", "window": {"title": "emerge", "width": 700, "height": 500, "resizable": true, "minimizable": true, "maximizable": true, "position": "center"}},
+      {"id": "efm", "name": "File Manager", "icon": "icons/folder.png", "type": "system", "component": "XFM", "window": {"title": "EFM", "width": 600, "height": 450, "resizable": true, "minimizable": true, "maximizable": true, "position": "center"}}
+    ]
+  },
+  "features": {
+    "interaction": {"dragAndDrop": true, "clipboard": true, "fileOperations": {"copy": true, "move": true, "delete": true, "rename": true, "properties": true}, "networking": {"enabled": true, "protocols": ["TCP/IP", "NFS"]}},
+    "animations": {"enabled": true, "speed": "normal", "effects": {"windowOpen": true, "windowClose": true, "windowMinimize": true, "transitions": true}},
+    "customization": {"themes": true, "wallpaper": true, "colors": true, "layout": true}
+  },
+  "assets": {
+    "basePath": "/assets/os/gentoo",
+    "paths": {"icons": "icons", "cursors": "cursors", "fonts": "fonts"},
+    "iconSets": {"default": {"path": "icons", "format": "png", "sizes": [32, 48, 64]}}
+  }
+}

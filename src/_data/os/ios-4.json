@@ -1,0 +1,537 @@
+{
+  "schema_version": "1.0.0",
+  "os_id": "ios-4",
+
+  "metadata": {
+    "name": "iOS 4",
+    "fullName": "Apple iOS 4",
+    "version": "4.0",
+    "company": "Apple Inc.",
+    "releaseYear": 2010,
+    "releaseDate": "2010-06-21",
+    "description": "Major update introducing multitasking, folders, retina display support, and FaceTime. Renamed from iPhone OS to iOS.",
+    "tagline": "Multitask. Multitasking.",
+    "category": "mobile_modern",
+    "architecture": ["ARM"],
+
+    "historical": {
+      "significance": "Introduced true multitasking to iOS, App Store had 225,000 apps, Retina Display era began",
+      "marketShare": "16% smartphone market share in 2010",
+      "successor": "iOS 5",
+      "predecessor": "iPhone OS 3",
+      "endOfLife": "2013-09-10"
+    },
+
+    "links": {
+      "wikipedia": "https://en.wikipedia.org/wiki/IOS_4"
+    }
+  },
+
+  "visual": {
+    "theme": {
+      "colors": {
+        "desktop": "#000000",
+
+        "windowBackground": "#FFFFFF",
+        "windowBorder": "transparent",
+        "windowBorderWidth": 0,
+
+        "titleBarActive": "#6D84A2",
+        "titleBarInactive": "#6D84A2",
+        "titleBarText": "#FFFFFF",
+
+        "buttonFace": "linear-gradient(180deg, #6195ED 0%, #4176D7 50%, #2F5FBE 100%)",
+        "buttonText": "#FFFFFF",
+        "buttonHighlight": "#7BA3F0",
+        "buttonShadow": "#1E3E7A",
+
+        "highlight": "#3366CC",
+        "highlightText": "#FFFFFF",
+
+        "menuBackground": "rgba(0, 0, 0, 0.9)",
+        "menuText": "#FFFFFF",
+
+        "text": "#000000",
+        "textDisabled": "#999999",
+
+        "statusBar": "rgba(0, 0, 0, 0.8)",
+        "taskbar": "rgba(0, 0, 0, 0.5)",
+
+        "custom": {
+          "iconGlow": "#FFFFFF",
+          "folderBackground": "rgba(180, 180, 180, 0.8)",
+          "notificationBadge": "#FF3B30",
+          "multitaskingBar": "rgba(70, 70, 70, 0.95)"
+        }
+      },
+
+      "typography": {
+        "systemFont": {
+          "family": "Helvetica",
+          "size": 14,
+          "weight": "normal",
+          "fallback": ["Arial", "sans-serif"]
+        },
+        "titleFont": {
+          "family": "Helvetica",
+          "size": 20,
+          "weight": "bold"
+        },
+        "menuFont": {
+          "family": "Helvetica",
+          "size": 16,
+          "weight": "normal"
+        },
+
+        "antialiasing": true,
+        "subpixelRendering": true,
+        "baseFontSize": 14,
+        "scaleFactor": 2.0
+      },
+
+      "style": {
+        "type": "skeuomorphic",
+        "borderStyle": "none",
+        "cornerRadius": 12,
+
+        "shadows": true,
+        "shadowStyle": "soft",
+        "transparency": true,
+        "blur": false,
+
+        "bevels": false,
+        "gradients": true,
+        "textures": true,
+
+        "animationStyle": "ease"
+      },
+
+      "specialElements": {
+        "scrollbarStyle": "thin",
+        "focusIndicator": "glow",
+        "dragVisual": "full"
+      }
+    },
+
+    "cursor": {
+      "style": "custom",
+      "animated": false,
+      "shadows": false
+    },
+
+    "icons": {
+      "style": "skeuomorphic",
+      "size": {
+        "default": 60,
+        "sizes": [60, 120]
+      },
+      "rendering": "antialiased",
+      "shadow": true,
+      "labelStyle": {
+        "position": "below",
+        "background": "transparent",
+        "textColor": "#FFFFFF",
+        "font": {
+          "family": "Helvetica",
+          "size": 11,
+          "weight": "bold"
+        }
+      }
+    },
+
+    "sounds": {
+      "enabled": true,
+      "sounds": {
+        "notification": "sounds/tri-tone.caf",
+        "error": "sounds/tock.caf",
+        "lock": "sounds/lock.caf",
+        "unlock": "sounds/unlock.caf",
+        "click": "sounds/tock.caf",
+        "keyboard": "sounds/keyboard.caf",
+        "mail_sent": "sounds/mail-sent.caf",
+        "camera_shutter": "sounds/photoShutter.caf"
+      },
+      "volume": 80
+    },
+
+    "wallpaper": {
+      "type": "image",
+      "value": "wallpapers/water-drops.jpg",
+      "tiling": "fill",
+      "overlay": true
+    }
+  },
+
+  "paradigm": {
+    "windowSystem": {
+      "type": "full_screen",
+
+      "behavior": {
+        "overlap": false,
+        "resize": false,
+        "minimize": false,
+        "maximize": false,
+        "close": false,
+
+        "modal": true,
+        "alwaysOnTop": false,
+        "transparency": false,
+
+        "multipleDocuments": false,
+        "tabbed": false,
+        "tiling": false
+      },
+
+      "chrome": {
+        "titleBar": "minimal",
+        "controls": "icons",
+        "controlPosition": "left",
+
+        "buttons": {
+          "close": {
+            "style": "text",
+            "content": "Back",
+            "position": 1
+          }
+        },
+
+        "titleAlign": "center",
+        "showIcon": false,
+        "showPath": false
+      },
+
+      "effects": {
+        "openAnimation": "slide",
+        "closeAnimation": "slide",
+        "minimizeAnimation": "zoom",
+        "maximizeAnimation": "none",
+
+        "shadow": false,
+        "blur": false,
+        "wobbly": false
+      }
+    },
+
+    "menuSystem": {
+      "type": "context_only",
+
+      "menuBar": {
+        "enabled": false
+      },
+
+      "contextMenu": {
+        "enabled": true,
+        "trigger": "long_press",
+        "style": {
+          "background": "rgba(255, 255, 255, 0.95)",
+          "borderStyle": "custom"
+        }
+      },
+
+      "behavior": {
+        "clickToOpen": false,
+        "keyboardShortcuts": false,
+        "mnemonics": false,
+        "icons": false,
+        "cascading": false,
+        "tearOff": false
+      }
+    },
+
+    "taskManagement": {
+      "type": "cards",
+
+      "taskbar": {
+        "enabled": true,
+        "position": "bottom",
+        "autoHide": true,
+        "size": 100,
+
+        "style": {
+          "background": "rgba(70, 70, 70, 0.95)",
+          "transparency": true,
+          "blur": true,
+          "itemStyle": "icons",
+          "grouping": false,
+          "previews": true
+        }
+      },
+
+      "switching": {
+        "method": ["gesture", "taskbar_click"],
+        "altTab": {
+          "enabled": false
+        }
+      },
+
+      "multitasking": {
+        "preemptive": true,
+        "virtual_desktops": false,
+        "snapAssist": false,
+        "splitScreen": false
+      }
+    },
+
+    "desktop": {
+      "type": "iconic",
+
+      "layout": {
+        "type": "grid",
+        "grid": {
+          "cellWidth": 76,
+          "cellHeight": 90,
+          "spacing": 10
+        },
+        "direction": "vertical",
+        "alignment": "left",
+        "snapToGrid": true,
+        "autoArrange": true
+      },
+
+      "items": {
+        "icons": true,
+        "widgets": false,
+        "shortcuts": false,
+        "folders": true,
+
+        "defaultItems": [
+          "messages",
+          "calendar",
+          "photos",
+          "camera",
+          "youtube",
+          "stocks",
+          "maps",
+          "weather",
+          "clock",
+          "calculator",
+          "notes",
+          "settings",
+          "app_store",
+          "game_center",
+          "safari",
+          "mail",
+          "phone",
+          "ipod"
+        ]
+      },
+
+      "interaction": {
+        "click": "single",
+        "selection": "single",
+        "dragAndDrop": true,
+        "hoverPreview": false
+      },
+
+      "behavior": {
+        "showTrash": false,
+        "showComputer": false,
+        "showNetwork": false,
+        "showHome": true
+      }
+    },
+
+    "inputMethods": {
+      "keyboard": {
+        "shortcuts": false,
+        "function_keys": false,
+        "navigation": "custom",
+        "accessibility": true
+      },
+
+      "mouse": {
+        "buttons": 0,
+        "scroll": "none",
+        "gestures": false,
+        "acceleration": false
+      },
+
+      "touch": {
+        "enabled": true,
+        "multitouch": true,
+        "gestures": ["tap", "double_tap", "long_press", "swipe", "pinch"],
+        "pressureSensitive": false
+      }
+    }
+  },
+
+  "components": {
+    "core": {
+      "windowManager": "springboard",
+      "fileManager": "none",
+
+      "optional": {
+        "textEditor": "notes",
+        "imageViewer": "photos",
+        "mediaPlayer": "ipod",
+        "webBrowser": "safari",
+        "emailClient": "mail"
+      }
+    },
+
+    "applications": [
+      {
+        "id": "safari",
+        "name": "Safari",
+        "icon": "icons/safari.png",
+        "type": "web",
+        "component": "Safari",
+        "window": {
+          "title": "Safari",
+          "width": 320,
+          "height": 480,
+          "resizable": false,
+          "position": "center"
+        },
+        "desktop": {
+          "icon": true
+        }
+      },
+      {
+        "id": "mail",
+        "name": "Mail",
+        "icon": "icons/mail.png",
+        "type": "communication",
+        "component": "Mail",
+        "window": {
+          "title": "Mail",
+          "width": 320,
+          "height": 480,
+          "resizable": false,
+          "position": "center"
+        },
+        "desktop": {
+          "icon": true
+        }
+      },
+      {
+        "id": "facetime",
+        "name": "FaceTime",
+        "icon": "icons/facetime.png",
+        "type": "communication",
+        "component": "FaceTime",
+        "window": {
+          "title": "FaceTime",
+          "width": 320,
+          "height": 480,
+          "resizable": false,
+          "position": "center"
+        },
+        "desktop": {
+          "icon": true
+        }
+      },
+      {
+        "id": "app_store",
+        "name": "App Store",
+        "icon": "icons/appstore.png",
+        "type": "system",
+        "component": "AppStore",
+        "window": {
+          "title": "App Store",
+          "width": 320,
+          "height": 480,
+          "resizable": false,
+          "position": "center"
+        },
+        "desktop": {
+          "icon": true
+        }
+      }
+    ]
+  },
+
+  "features": {
+    "interaction": {
+      "dragAndDrop": true,
+      "clipboard": true,
+      "undo": true,
+
+      "fileOperations": {
+        "copy": true,
+        "move": true,
+        "delete": true,
+        "rename": false,
+        "properties": false
+      },
+
+      "networking": {
+        "enabled": true,
+        "protocols": ["WiFi", "3G", "Bluetooth"]
+      },
+
+      "printing": true,
+      "scanning": false
+    },
+
+    "animations": {
+      "enabled": true,
+      "speed": "normal",
+
+      "effects": {
+        "windowOpen": true,
+        "windowClose": true,
+        "windowMinimize": true,
+        "menuOpen": true,
+        "hover": false,
+        "click": true,
+        "transitions": true,
+        "parallax": false
+      }
+    },
+
+    "accessibility": {
+      "highContrast": false,
+      "screenReader": true,
+      "magnifier": true,
+      "keyboard_navigation": true
+    },
+
+    "easterEggs": {
+      "enabled": false
+    },
+
+    "customization": {
+      "themes": false,
+      "wallpaper": true,
+      "colors": false,
+      "fonts": false,
+      "layout": true
+    }
+  },
+
+  "assets": {
+    "basePath": "/assets/os/ios-4",
+
+    "paths": {
+      "icons": "icons",
+      "sounds": "sounds",
+      "fonts": "fonts",
+      "wallpapers": "wallpapers"
+    },
+
+    "iconSets": {
+      "default": {
+        "path": "icons",
+        "format": "png",
+        "sizes": [60, 120]
+      }
+    },
+
+    "soundSets": {
+      "default": {
+        "path": "sounds",
+        "format": "caf"
+      }
+    },
+
+    "preload": [
+      "icons/safari.png",
+      "icons/mail.png",
+      "icons/phone.png",
+      "icons/ipod.png",
+      "icons/appstore.png",
+      "wallpapers/water-drops.jpg"
+    ]
+  }
+}
