@@ -352,19 +352,29 @@
 
   // ===== Modal Functions =====
   function openOSModal(osId) {
-    // Check if OS has a dedicated recreation page
-    const osPages = {
-      'windows-95': '/os/windows-95/',
-      'system-7': '/os/macos-system7/'
-    };
+    // All OS now have interactive recreation pages
+    // Attempt to navigate directly to the OS page
+    const osPageUrl = `/os/${osId}/`;
 
-    // If OS page exists, navigate to it
-    if (osPages[osId]) {
-      window.location.href = osPages[osId];
-      return;
-    }
+    // Check if page exists by attempting to fetch it
+    fetch(osPageUrl, { method: 'HEAD' })
+      .then(response => {
+        if (response.ok) {
+          // Page exists, navigate to it
+          window.location.href = osPageUrl;
+        } else {
+          // Page doesn't exist, show placeholder modal
+          showPlaceholderModal(osId);
+        }
+      })
+      .catch(() => {
+        // Network error or page doesn't exist, show placeholder
+        showPlaceholderModal(osId);
+      });
+  }
 
-    // Otherwise, show placeholder modal
+  function showPlaceholderModal(osId) {
+    // Show placeholder modal for OS without dedicated pages
     if (!elements.modal || !elements.modalBody) return;
 
     // Find OS data (in a real implementation, this would fetch from data)
