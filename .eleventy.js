@@ -2,6 +2,9 @@ module.exports = function(eleventyConfig) {
   // Passthrough copy for assets
   eleventyConfig.addPassthroughCopy("src/assets");
 
+  // Passthrough copy for OS configuration JSON files
+  eleventyConfig.addPassthroughCopy({ "src/_data/os": "assets/data/os" });
+
   // Watch targets
   eleventyConfig.addWatchTarget("src/assets/css/");
   eleventyConfig.addWatchTarget("src/assets/js/");

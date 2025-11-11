@@ -4,6 +4,10 @@
 @import 'components/macos.css';
 @import 'components/unix.css';
 
+/* Import OS generator and window system styles */
+@import 'os-generator.css';
+@import 'window-system.css';
+
 /* Reset and base styles */
 * {
   margin: 0;
