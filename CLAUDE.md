@@ -83,3 +83,4 @@ Clarify scope of interactivity:
 
 - ROSM.md contains comprehensive OS history from 1980s-2020s
 - Major OS families to potentially recreate: Windows (3.1, 95, 98, XP), Mac OS (System 7, 8, 9), Linux/Unix environments (early KDE, GNOME), BeOS, AmigaOS
+- add to memory

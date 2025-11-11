@@ -1,0 +1,119 @@
+---
+layout: layouts/base.njk
+title: BeOS R5 - RetroOS Museum
+description: Experience the innovative BeOS R5 desktop with its iconic yellow tabs, Deskbar, pervasive multithreading, and media-centric design.
+bodyClass: beos-body
+permalink: /os/beos-r5/
+---
+
+{% block head %}
+<!-- BeOS R5 CSS -->
+<link rel="stylesheet" href="/assets/css/beos.css">
+<style>
+  /* Hide default header and footer for full desktop experience */
+  body.beos-body header,
+  body.beos-body footer {
+    display: none;
+  }
+
+  body.beos-body main {
+    padding: 0;
+    max-width: none;
+    margin: 0;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- BeOS R5 Desktop Environment -->
+<div id="beos-desktop" class="beos-desktop" role="application" aria-label="BeOS R5 Desktop">
+
+  <!-- Desktop Icons Container -->
+  <div id="desktop-icons" class="desktop-icons">
+    <!-- Icons will be added by JavaScript -->
+  </div>
+
+  <!-- Workspace Switcher (Replicant) -->
+  <div id="workspace-switcher" class="workspace-switcher replicant" aria-label="Workspace Switcher">
+    <div class="replicant-handle"></div>
+    <div class="workspace-grid">
+      <!-- 3x3 workspace grid will be populated by JavaScript -->
+    </div>
+  </div>
+
+  <!-- Deskbar (BeOS taskbar equivalent) -->
+  <div id="beos-deskbar" class="beos-deskbar" role="navigation" aria-label="Deskbar">
+    <!-- Be Menu Button -->
+    <button id="be-menu-button" class="be-menu-button" aria-label="Be Menu" aria-expanded="false" aria-haspopup="true">
+      <svg class="be-logo" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+        <path fill="#FFCC00" d="M10,2 L18,6 L18,14 L10,18 L2,14 L2,6 Z"/>
+        <path fill="#CC9900" d="M10,2 L10,18 L18,14 L18,6 Z"/>
+      </svg>
+    </button>
+
+    <!-- Application Tray -->
+    <div id="deskbar-apps" class="deskbar-apps">
+      <!-- Running application tabs will be added here -->
+    </div>
+
+    <!-- System Tray -->
+    <div class="deskbar-tray">
+      <!-- Replicants can be placed here -->
+      <div id="deskbar-clock" class="deskbar-clock" aria-live="polite">
+        <span id="clock-time">12:00 PM</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Be Menu (hidden by default) -->
+  <div id="be-menu" class="be-menu" role="menu" aria-label="Be Menu" hidden>
+    <div class="be-menu-items">
+      <!-- Menu items will be populated by JavaScript -->
+    </div>
+  </div>
+
+  <!-- Windows Container -->
+  <div id="windows-container" class="windows-container">
+    <!-- Windows will be added here by WindowManager -->
+  </div>
+
+  <!-- Desktop Context Menu -->
+  <div id="desktop-context-menu" class="desktop-context-menu" hidden>
+    <!-- Context menu items -->
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<!-- Core Systems -->
+<script src="/assets/js/window-manager.js"></script>
+<script src="/assets/js/menu-system.js"></script>
+<script src="/assets/js/desktop.js"></script>
+
+<!-- BeOS Specific Systems -->
+<script src="/assets/js/beos-window-system.js"></script>
+<script src="/assets/js/beos-workspace-switcher.js"></script>
+<script src="/assets/js/beos-deskbar.js"></script>
+<script src="/assets/js/beos-desktop.js"></script>
+
+<!-- Applications -->
+<script src="/assets/js/apps/beos-tracker.js"></script>
+<script src="/assets/js/apps/beos-stylededit.js"></script>
+<script src="/assets/js/apps/beos-terminal.js"></script>
+<script src="/assets/js/apps/beos-mediaplayer.js"></script>
+<script src="/assets/js/apps/beos-bedepot.js"></script>
+
+<!-- Initialize BeOS R5 -->
+<script>
+  // Wait for DOM to be ready
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize BeOS R5 desktop
+    if (typeof BeOSDesktop !== 'undefined') {
+      window.beos = new BeOSDesktop();
+      window.beos.init();
+    } else {
+      console.error('BeOSDesktop not loaded');
+    }
+  });
+</script>
+{% endblock %}

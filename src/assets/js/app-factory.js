@@ -351,17 +351,39 @@ class AppFactory {
   }
 
   /**
+   * Safely evaluate a math expression without using eval()
+   * @param {string} expression - Math expression to evaluate
+   * @returns {number|string} Result or 'Error'
+   */
+  safeEval(expression) {
+    try {
+      // Sanitize the expression - only allow numbers, operators, and basic math symbols
+      const cleaned = expression.replace(/[^0-9+\-*/().\s]/g, '');
+
+      // Use Function constructor with restricted scope (safer than eval)
+      // Note: Still not CSP-safe, but significantly better than eval()
+      const result = Function('"use strict"; return (' + cleaned + ')')();
+
+      // Validate result is a number
+      if (typeof result !== 'number' || !isFinite(result)) {
+        return 'Error';
+      }
+
+      return result;
+    } catch (e) {
+      return 'Error';
+    }
+  }
+
+  /**
    * Handle calculator button click
    */
   handleCalcButton(label, display) {
     if (label === 'C') {
       display.value = '0';
     } else if (label === '=') {
-      try {
-        display.value = eval(display.value.replace('×', '*').replace('÷', '/'));
-      } catch (e) {
-        display.value = 'Error';
-      }
+      const expression = display.value.replace('×', '*').replace('÷', '/');
+      display.value = this.safeEval(expression);
     } else {
       if (display.value === '0' || display.value === 'Error') {
         display.value = label;

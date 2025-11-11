@@ -224,12 +224,13 @@
         onOpen: function(icon) {
           const action = element.getAttribute('data-icon-action');
           if (action) {
-            // Try to execute as function or eval
+            // Only execute if it's a registered function
+            // This prevents arbitrary code execution
             try {
               if (typeof window[action] === 'function') {
                 window[action](icon);
               } else {
-                eval(action);
+                console.warn('Icon action must be a registered function:', action);
               }
             } catch (e) {
               console.error('Failed to execute icon action:', e);

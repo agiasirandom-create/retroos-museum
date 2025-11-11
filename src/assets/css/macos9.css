@@ -1,0 +1,875 @@
+/**
+ * Mac OS 9 Styles
+ * Authentic recreation of the Mac OS 9 Platinum interface
+ */
+
+/* Charcoal, Geneva, and Monaco font stacks for Mac OS 9 */
+@font-face {
+  font-family: 'Charcoal';
+  src: local('Charcoal'), local('Geneva'), local('Helvetica');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Geneva';
+  src: local('Geneva'), local('Helvetica'), local('Arial');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Monaco';
+  src: local('Monaco'), local('Courier New'), local('Courier');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  /* Mac OS 9 Platinum Color Palette */
+  --mac9-platinum: #DDDDDD;
+  --mac9-platinum-light: #EEEEEE;
+  --mac9-platinum-dark: #CCCCCC;
+  --mac9-gray-dark: #888888;
+  --mac9-gray-darker: #555555;
+  --mac9-white: #FFFFFF;
+  --mac9-black: #000000;
+  --mac9-highlight: #3366FF;
+  --mac9-highlight-text: #FFFFFF;
+  --mac9-menu-bg: #CCCCCC;
+  --mac9-desktop: #5899CE;
+  --mac9-scrollbar-gray: #CCCCCC;
+  --mac9-window-stripe-light: #DDDDDD;
+  --mac9-window-stripe-dark: #CCCCCC;
+  --mac9-shadow: rgba(0, 0, 0, 0.35);
+
+  /* Typography */
+  --mac9-charcoal: 'Charcoal', Geneva, Helvetica, Arial, sans-serif;
+  --mac9-geneva: 'Geneva', Helvetica, Arial, sans-serif;
+  --mac9-monaco: 'Monaco', 'Courier New', Courier, monospace;
+  --mac9-font-size: 12px;
+  --mac9-title-font-size: 10px;
+}
+
+/* Desktop */
+.macos9-desktop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--mac9-desktop);
+  background-image:
+    radial-gradient(
+      circle at 30% 40%,
+      rgba(255, 255, 255, 0.1) 0%,
+      transparent 50%
+    );
+  overflow: hidden;
+  font-family: var(--mac9-charcoal);
+  font-size: var(--mac9-font-size);
+  cursor: default;
+  user-select: none;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* Global Menu Bar with subtle gradient */
+.macos9-menubar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 22px;
+  background: linear-gradient(to bottom, #DDDDDD 0%, #CCCCCC 100%);
+  border-bottom: 1px solid var(--mac9-gray-darker);
+  display: flex;
+  align-items: center;
+  z-index: 10000;
+  font-family: var(--mac9-charcoal);
+  font-size: var(--mac9-font-size);
+  padding: 0 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.macos9-menubar .menu-item {
+  display: inline-block;
+  padding: 3px 12px;
+  height: 20px;
+  line-height: 14px;
+  cursor: default;
+  white-space: nowrap;
+  color: var(--mac9-black);
+  position: relative;
+  border-radius: 2px;
+  transition: background-color 0.1s;
+}
+
+.macos9-menubar .menu-item:hover {
+  background-color: var(--mac9-highlight);
+  color: var(--mac9-highlight-text);
+}
+
+.macos9-menubar .menu-item.active {
+  background-color: var(--mac9-highlight);
+  color: var(--mac9-highlight-text);
+}
+
+.macos9-menubar .apple-menu {
+  font-family: 'Lucida Grande', 'Apple Color Emoji', sans-serif;
+  font-size: 16px;
+  padding: 2px 10px;
+  font-weight: bold;
+}
+
+.macos9-menubar .app-menu {
+  font-weight: bold;
+  margin-left: 8px;
+}
+
+/* Menu bar right side items */
+.macos9-menubar-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.macos9-menubar .menu-clock {
+  font-family: var(--mac9-charcoal);
+  font-size: 11px;
+  padding: 2px 8px;
+}
+
+.macos9-menubar .app-switcher {
+  padding: 2px 8px;
+  cursor: default;
+}
+
+/* Menu Dropdown with enhanced Platinum style */
+.macos9-menu-dropdown {
+  position: absolute;
+  top: 22px;
+  left: 0;
+  min-width: 180px;
+  background-color: var(--mac9-white);
+  border: 1px solid var(--mac9-black);
+  border-radius: 4px;
+  box-shadow: 3px 3px 8px var(--mac9-shadow);
+  display: none;
+  z-index: 10001;
+  font-family: var(--mac9-charcoal);
+  font-size: var(--mac9-font-size);
+}
+
+.macos9-menu-dropdown.visible {
+  display: block;
+  animation: menuSlideDown 0.15s ease-out;
+}
+
+@keyframes menuSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.macos9-menu-dropdown ul {
+  list-style: none;
+  margin: 0;
+  padding: 4px 0;
+}
+
+.macos9-menu-dropdown li {
+  padding: 0;
+}
+
+.macos9-menu-dropdown li.separator {
+  height: 0;
+  border-top: 1px solid var(--mac9-platinum-dark);
+  margin: 4px 8px;
+}
+
+.macos9-menu-dropdown button {
+  width: 100%;
+  padding: 4px 24px 4px 12px;
+  text-align: left;
+  border: none;
+  background: none;
+  cursor: default;
+  font-family: var(--mac9-charcoal);
+  font-size: var(--mac9-font-size);
+  color: var(--mac9-black);
+  position: relative;
+  transition: background-color 0.08s;
+}
+
+.macos9-menu-dropdown button:hover:not(:disabled) {
+  background-color: var(--mac9-highlight);
+  color: var(--mac9-highlight-text);
+}
+
+.macos9-menu-dropdown button:disabled {
+  color: var(--mac9-gray-dark);
+}
+
+.macos9-menu-dropdown .menu-shortcut {
+  position: absolute;
+  right: 12px;
+  color: inherit;
+  font-size: 11px;
+}
+
+/* Desktop Area */
+.desktop-area {
+  position: absolute;
+  top: 22px;
+  left: 0;
+  right: 0;
+  bottom: 28px;
+  overflow: hidden;
+}
+
+/* Desktop Icons */
+.desktop-icons {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  bottom: 12px;
+  width: 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.desktop-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90px;
+  cursor: default;
+  outline: none;
+  pointer-events: all;
+  flex-shrink: 0;
+  min-height: 70px;
+}
+
+.desktop-icon-image {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 6px;
+  pointer-events: none;
+  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.3));
+}
+
+.desktop-icon-image svg {
+  width: 48px;
+  height: 48px;
+  display: block;
+}
+
+.desktop-icon-image img {
+  width: 48px;
+  height: 48px;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  pointer-events: none;
+}
+
+.desktop-icon-label {
+  color: var(--mac9-white);
+  font-family: var(--mac9-geneva);
+  font-size: 10px;
+  text-align: center;
+  background-color: transparent;
+  padding: 2px 4px;
+  border-radius: 3px;
+  max-width: 90px;
+  word-wrap: break-word;
+  pointer-events: none;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.desktop-icon.selected .desktop-icon-label {
+  background-color: var(--mac9-highlight);
+  color: var(--mac9-highlight-text);
+  text-shadow: none;
+}
+
+.desktop-icon:focus {
+  outline: 1px dotted var(--mac9-white);
+  outline-offset: 2px;
+}
+
+/* Windows Container */
+.windows-container {
+  position: absolute;
+  top: 22px;
+  left: 0;
+  right: 0;
+  bottom: 28px;
+  pointer-events: none;
+}
+
+.windows-container > * {
+  pointer-events: all;
+}
+
+/* Mac OS 9 Windows with rounded corners and pinstripes */
+.os-window {
+  position: absolute;
+  background-color: var(--mac9-white);
+  border: 1px solid var(--mac9-gray-darker);
+  border-radius: 6px;
+  box-shadow: 4px 4px 12px var(--mac9-shadow);
+  display: flex;
+  flex-direction: column;
+  min-width: 180px;
+  min-height: 120px;
+  overflow: hidden;
+}
+
+/* Title Bar with Pinstripes */
+.window-titlebar {
+  height: 22px;
+  background: linear-gradient(to bottom, #DDDDDD 0%, #CCCCCC 100%);
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      var(--mac9-window-stripe-light) 0px,
+      var(--mac9-window-stripe-light) 1px,
+      var(--mac9-window-stripe-dark) 1px,
+      var(--mac9-window-stripe-dark) 2px
+    );
+  border-bottom: 1px solid var(--mac9-gray-darker);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  display: flex;
+  align-items: center;
+  padding: 0 6px;
+  cursor: move;
+  position: relative;
+}
+
+.os-window:not(.active) .window-titlebar {
+  background-image: none;
+  background: linear-gradient(to bottom, #EEEEEE 0%, #E0E0E0 100%);
+}
+
+.window-title {
+  flex: 1;
+  text-align: center;
+  font-family: var(--mac9-geneva);
+  font-size: var(--mac9-title-font-size);
+  font-weight: bold;
+  color: var(--mac9-black);
+  pointer-events: none;
+  padding: 0 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.os-window:not(.active) .window-title {
+  color: var(--mac9-gray-dark);
+}
+
+/* Window Controls - Mac OS 9 Style (Close, Collapse, Zoom) */
+.window-controls {
+  position: absolute;
+  left: 8px;
+  top: 4px;
+  display: flex;
+  gap: 6px;
+}
+
+.window-btn {
+  width: 14px;
+  height: 14px;
+  border: 1px solid var(--mac9-gray-darker);
+  background: linear-gradient(to bottom, #FFFFFF 0%, #DDDDDD 100%);
+  border-radius: 2px;
+  cursor: default;
+  font-size: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.window-btn:hover {
+  background: linear-gradient(to bottom, #FFFFFF 0%, #CCCCCC 100%);
+}
+
+.window-btn:active {
+  background: linear-gradient(to bottom, #CCCCCC 0%, #AAAAAA 100%);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Close Box */
+.window-btn-close::before,
+.window-btn-close::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 2px;
+  background-color: var(--mac9-black);
+  top: 50%;
+  left: 50%;
+}
+
+.window-btn-close::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.window-btn-close::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* Collapse Box (Minimize) */
+.window-btn-minimize::before {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 2px;
+  background-color: var(--mac9-black);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Zoom Box (Maximize) */
+.window-btn-maximize {
+  display: flex !important;
+}
+
+.window-btn-maximize::before {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border: 2px solid var(--mac9-black);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Window Content */
+.window-content {
+  flex: 1;
+  overflow: auto;
+  background-color: var(--mac9-white);
+  position: relative;
+}
+
+/* Grow Box (bottom right corner for resizing) */
+.os-window::after {
+  content: '';
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+  width: 16px;
+  height: 16px;
+  background-image:
+    repeating-linear-gradient(
+      135deg,
+      transparent,
+      transparent 2px,
+      var(--mac9-gray-dark) 2px,
+      var(--mac9-gray-dark) 3px
+    );
+  cursor: nwse-resize;
+  pointer-events: all;
+  border-bottom-right-radius: 5px;
+}
+
+/* Resize Handles */
+.resize-handle {
+  position: absolute;
+  opacity: 0;
+}
+
+.resize-handle.resize-se {
+  bottom: 0;
+  right: 0;
+  width: 16px;
+  height: 16px;
+  cursor: nwse-resize;
+  opacity: 1;
+}
+
+/* Mac OS 9 Scrollbars */
+.window-content::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+
+.window-content::-webkit-scrollbar-track {
+  background-color: var(--mac9-platinum-light);
+  border-left: 1px solid var(--mac9-gray-darker);
+  border-top: 1px solid var(--mac9-gray-darker);
+}
+
+.window-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(to right, #FFFFFF 0%, #DDDDDD 50%, #FFFFFF 100%);
+  border: 1px solid var(--mac9-gray-darker);
+  border-radius: 2px;
+}
+
+.window-content::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to right, #EEEEEE 0%, #CCCCCC 50%, #EEEEEE 100%);
+}
+
+.window-content::-webkit-scrollbar-button {
+  background: linear-gradient(to bottom, #FFFFFF 0%, #DDDDDD 100%);
+  border: 1px solid var(--mac9-gray-darker);
+  height: 16px;
+  width: 16px;
+}
+
+.window-content::-webkit-scrollbar-button:hover {
+  background: linear-gradient(to bottom, #EEEEEE 0%, #CCCCCC 100%);
+}
+
+/* Window States */
+.os-window.minimized {
+  display: none;
+}
+
+.os-window.collapsed {
+  height: 22px !important;
+  min-height: 22px !important;
+}
+
+.os-window.collapsed .window-content {
+  display: none;
+}
+
+.os-window.collapsed::after {
+  display: none;
+}
+
+.os-window.dragging {
+  opacity: 0.85;
+}
+
+.os-window.resizing {
+  user-select: none;
+}
+
+/* Mac OS 9 Buttons */
+.mac9-button {
+  padding: 5px 20px;
+  background: linear-gradient(to bottom, #FFFFFF 0%, #DDDDDD 100%);
+  border: 1px solid var(--mac9-gray-darker);
+  border-radius: 12px;
+  font-family: var(--mac9-charcoal);
+  font-size: var(--mac9-font-size);
+  cursor: default;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transition: all 0.1s;
+}
+
+.mac9-button:hover {
+  background: linear-gradient(to bottom, #FFFFFF 0%, #CCCCCC 100%);
+}
+
+.mac9-button:active {
+  background: linear-gradient(to bottom, #CCCCCC 0%, #AAAAAA 100%);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.mac9-button.default {
+  border: 2px solid var(--mac9-highlight);
+  font-weight: bold;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(51, 102, 255, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 4px rgba(51, 102, 255, 0);
+  }
+}
+
+/* Mac OS 9 Text Input */
+.mac9-input {
+  padding: 4px 6px;
+  background-color: var(--mac9-white);
+  border: 1px solid var(--mac9-gray-darker);
+  border-radius: 3px;
+  font-family: var(--mac9-charcoal);
+  font-size: var(--mac9-font-size);
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.mac9-input:focus {
+  outline: 2px solid var(--mac9-highlight);
+  outline-offset: -1px;
+}
+
+/* Mac OS 9 Textarea */
+.mac9-textarea {
+  width: 100%;
+  height: 100%;
+  padding: 6px;
+  border: none;
+  font-family: var(--mac9-geneva);
+  font-size: var(--mac9-font-size);
+  resize: none;
+  background-color: var(--mac9-white);
+  line-height: 1.4;
+}
+
+.mac9-textarea:focus {
+  outline: none;
+}
+
+/* Control Strip */
+.macos9-control-strip {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  height: 28px;
+  background: linear-gradient(to bottom, #CCCCCC 0%, #AAAAAA 100%);
+  border-top: 1px solid var(--mac9-gray-darker);
+  border-left: 1px solid var(--mac9-gray-darker);
+  border-top-left-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  gap: 4px;
+  z-index: 9999;
+  box-shadow: -2px -2px 6px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.macos9-control-strip.collapsed {
+  transform: translateX(calc(100% - 32px));
+}
+
+.macos9-control-strip-tab {
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(to right, #DDDDDD 0%, #CCCCCC 100%);
+  border: 1px solid var(--mac9-gray-darker);
+  border-radius: 3px;
+  cursor: default;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+}
+
+.macos9-control-strip-module {
+  width: 28px;
+  height: 24px;
+  background: linear-gradient(to bottom, #FFFFFF 0%, #DDDDDD 100%);
+  border: 1px solid var(--mac9-gray-darker);
+  border-radius: 3px;
+  cursor: default;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+}
+
+.macos9-control-strip-module:hover {
+  background: linear-gradient(to bottom, #FFFFFF 0%, #CCCCCC 100%);
+}
+
+/* About Box Dialog */
+.about-dialog {
+  padding: 24px;
+  text-align: center;
+}
+
+.about-dialog .mac-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 16px;
+}
+
+.about-dialog h2 {
+  font-family: var(--mac9-charcoal);
+  font-size: 16px;
+  margin: 0 0 8px 0;
+  font-weight: bold;
+}
+
+.about-dialog p {
+  font-family: var(--mac9-geneva);
+  font-size: var(--mac9-font-size);
+  margin: 6px 0;
+}
+
+.about-dialog .version-info {
+  margin-top: 16px;
+  padding: 12px;
+  background-color: var(--mac9-platinum-light);
+  border: 1px solid var(--mac9-platinum-dark);
+  border-radius: 4px;
+  text-align: left;
+}
+
+/* Icon View (Finder) */
+.icon-view {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 90px);
+  gap: 20px;
+  background-color: var(--mac9-white);
+}
+
+.icon-view-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: default;
+  padding: 6px;
+  border-radius: 3px;
+}
+
+.icon-view-item:hover {
+  background-color: var(--mac9-platinum-light);
+}
+
+.icon-view-item.selected {
+  background-color: var(--mac9-highlight);
+  color: var(--mac9-highlight-text);
+}
+
+.icon-view-item img {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 6px;
+}
+
+.icon-view-item span {
+  font-family: var(--mac9-geneva);
+  font-size: 10px;
+  text-align: center;
+  word-wrap: break-word;
+  max-width: 80px;
+}
+
+/* List View (Finder) */
+.list-view {
+  background-color: var(--mac9-white);
+}
+
+.list-view table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--mac9-geneva);
+  font-size: var(--mac9-font-size);
+}
+
+.list-view th {
+  background: linear-gradient(to bottom, #EEEEEE 0%, #DDDDDD 100%);
+  border-bottom: 1px solid var(--mac9-gray-darker);
+  padding: 6px 10px;
+  text-align: left;
+  font-weight: bold;
+  cursor: default;
+}
+
+.list-view th:hover {
+  background: linear-gradient(to bottom, #DDDDDD 0%, #CCCCCC 100%);
+}
+
+.list-view td {
+  padding: 3px 10px;
+  border-bottom: 1px solid var(--mac9-platinum-light);
+}
+
+.list-view tr:hover {
+  background-color: var(--mac9-platinum-light);
+}
+
+.list-view tr.selected {
+  background-color: var(--mac9-highlight);
+  color: var(--mac9-highlight-text);
+}
+
+/* Utility Classes */
+.mac9-divider {
+  height: 1px;
+  background-color: var(--mac9-platinum-dark);
+  margin: 12px 0;
+}
+
+.mac9-group {
+  border: 1px solid var(--mac9-gray-darker);
+  border-radius: 4px;
+  padding: 12px;
+  margin: 12px;
+  background-color: var(--mac9-platinum-light);
+}
+
+.mac9-group-title {
+  font-family: var(--mac9-charcoal);
+  font-size: var(--mac9-font-size);
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+/* Tabs (for Sherlock and other apps) */
+.mac9-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--mac9-gray-darker);
+  background: linear-gradient(to bottom, #EEEEEE 0%, #DDDDDD 100%);
+}
+
+.mac9-tab {
+  padding: 6px 16px;
+  background: linear-gradient(to bottom, #DDDDDD 0%, #CCCCCC 100%);
+  border: 1px solid var(--mac9-gray-darker);
+  border-bottom: none;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  cursor: default;
+  font-family: var(--mac9-charcoal);
+  font-size: var(--mac9-font-size);
+  margin-right: 2px;
+}
+
+.mac9-tab:hover {
+  background: linear-gradient(to bottom, #EEEEEE 0%, #DDDDDD 100%);
+}
+
+.mac9-tab.active {
+  background: var(--mac9-white);
+  border-bottom: 1px solid var(--mac9-white);
+  margin-bottom: -1px;
+  font-weight: bold;
+}
+
+/* Accessibility */
+.skip-link {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.skip-link:focus {
+  position: static;
+  width: auto;
+  height: auto;
+}

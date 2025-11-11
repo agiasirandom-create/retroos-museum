@@ -1,22 +1,22 @@
 ---
 layout: layouts/base.njk
 title: Mac OS 9 - RetroOS Museum
-description: Experience the Mac OS 9 desktop environment with authentic design and interactive features.
-bodyClass: macos-9-body
+description: Experience the final classic Mac OS with its refined Platinum interface, Sherlock 2, multiple user support, and the pinnacle of pre-OS X design.
+bodyClass: macos9-body
 permalink: /os/macos-9/
 ---
 
 {% block head %}
 <!-- Mac OS 9 CSS -->
-<link rel="stylesheet" href="/assets/css/macos-9.css">
+<link rel="stylesheet" href="/assets/css/macos9.css">
 <style>
   /* Hide default header and footer for full desktop experience */
-  body.macos-9-body header,
-  body.macos-9-body footer {
+  body.macos9-body header,
+  body.macos9-body footer {
     display: none;
   }
 
-  body.macos-9-body main {
+  body.macos9-body main {
     padding: 0;
     max-width: none;
     margin: 0;
@@ -26,14 +26,14 @@ permalink: /os/macos-9/
 
 {% block content %}
 <!-- Mac OS 9 Desktop Environment -->
-<div id="macos-9-desktop" class="macos-9-desktop" role="application" aria-label="Mac OS 9 Desktop">
+<div id="macos9-desktop" class="macos9-desktop" role="application" aria-label="Mac OS 9 Desktop">
 
-  <!-- Global Menu Bar (Mac paradigm) -->
-  <div id="macos-9-menubar" class="macos-9-menubar" role="menubar" aria-label="Menu Bar">
+  <!-- Global Menu Bar -->
+  <div id="macos9-menubar" class="macos9-menubar" role="menubar" aria-label="Menu Bar">
     <!-- Menu items will be populated by JavaScript -->
   </div>
 
-  <!-- Desktop Area -->
+  <!-- Desktop -->
   <div id="desktop-area" class="desktop-area">
     <!-- Desktop Icons Container -->
     <div id="desktop-icons" class="desktop-icons">
@@ -46,9 +46,9 @@ permalink: /os/macos-9/
     <!-- Windows will be added here by WindowManager -->
   </div>
 
-  <!-- Dock (for OS X and later) -->
-  <div id="macos-9-dock" class="macos-9-dock">
-    <!-- Dock items will be populated by JavaScript -->
+  <!-- Control Strip -->
+  <div id="macos9-control-strip" class="macos9-control-strip collapsed">
+    <!-- Control strip modules will be added by JavaScript -->
   </div>
 </div>
 {% endblock %}
@@ -60,29 +60,29 @@ permalink: /os/macos-9/
 <script src="/assets/js/desktop.js"></script>
 
 <!-- Mac OS 9 Specific -->
-<script src="/assets/js/macos-9-window-adapter.js"></script>
-<script src="/assets/js/macos-9-menubar.js"></script>
-<script src="/assets/js/macos-9-desktop.js"></script>
+<script src="/assets/js/macos9-window-system.js"></script>
+<script src="/assets/js/macos9-menubar.js"></script>
+<script src="/assets/js/macos9-desktop.js"></script>
+<script src="/assets/js/macos9-control-strip.js"></script>
 
 <!-- Applications -->
-<script src="/assets/js/apps/macos-9-finder.js"></script>
-<script src="/assets/js/apps/macos-9-apps.js"></script>
+<script src="/assets/js/apps/macos9-finder.js"></script>
+<script src="/assets/js/apps/macos9-simpletext.js"></script>
+<script src="/assets/js/apps/macos9-sherlock.js"></script>
+<script src="/assets/js/apps/macos9-control-panels.js"></script>
+<script src="/assets/js/apps/macos9-system-profiler.js"></script>
 
 <!-- Initialize Mac OS 9 -->
 <script>
   // Wait for DOM to be ready
   document.addEventListener('DOMContentLoaded', function() {
-    // Load OS configuration
-    fetch('/assets/data/os/macos-9.json')
-      .then(response => response.json())
-      .then(config => {
-        // Initialize Mac OS 9 desktop
-        window.osInstance = new OSInstance(config);
-        window.osInstance.init();
-      })
-      .catch(error => {
-        console.error('Failed to load OS configuration:', error);
-      });
+    // Initialize Mac OS 9 desktop
+    if (typeof MacOS9Desktop !== 'undefined') {
+      window.macos9 = new MacOS9Desktop();
+      window.macos9.init();
+    } else {
+      console.error('MacOS9Desktop not loaded');
+    }
   });
 </script>
 {% endblock %}

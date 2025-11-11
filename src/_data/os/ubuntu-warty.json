@@ -1,0 +1,34 @@
+{
+  "id": "ubuntu-warty",
+  "name": "Ubuntu 4.10",
+  "codename": "Warty Warthog",
+  "version": "4.10",
+  "releaseDate": "2004-10-20",
+  "family": "Linux",
+  "developer": "Canonical Ltd.",
+  "description": "The first Ubuntu release that made Linux for human beings. Revolutionary brown/orange Human theme and focus on usability.",
+  "features": [
+    "GNOME 2.8 desktop environment",
+    "Human theme - brown and orange color scheme",
+    "Live CD that installs",
+    "Sudo instead of root account",
+    "Free CDs shipped worldwide",
+    "6-month release cycle"
+  ],
+  "applications": [
+    "Firefox 0.9",
+    "GNOME Terminal",
+    "Nautilus File Manager",
+    "gedit Text Editor",
+    "Synaptic Package Manager",
+    "System Monitor",
+    "Rhythmbox",
+    "Evolution Email",
+    "OpenOffice.org",
+    "GIMP"
+  ],
+  "significance": "First Ubuntu release that revolutionized Linux desktop accessibility",
+  "wallpaper": "Warty Warthog brown abstract waves",
+  "iconSet": "Tango",
+  "defaultFont": "DejaVu Sans"
+}

@@ -1,0 +1,186 @@
+---
+layout: layouts/base.njk
+title: Ubuntu 4.10 Warty Warthog - RetroOS Museum
+description: Experience the revolutionary first Ubuntu release with the iconic Human theme, brown and orange colors, and "Linux for human beings" philosophy.
+bodyClass: ubuntu-warty-body
+permalink: /os/ubuntu-warty/
+---
+
+{% block head %}
+<!-- Ubuntu 4.10 Warty Warthog CSS -->
+<link rel="stylesheet" href="/assets/css/ubuntu-warty.css">
+<style>
+  /* Hide default header and footer for full desktop experience */
+  body.ubuntu-warty-body header,
+  body.ubuntu-warty-body footer {
+    display: none;
+  }
+
+  body.ubuntu-warty-body main {
+    padding: 0;
+    max-width: none;
+    margin: 0;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Ubuntu 4.10 Warty Warthog Desktop Environment -->
+<div id="ubuntu-desktop" class="ubuntu-desktop" role="application" aria-label="Ubuntu 4.10 Desktop">
+
+  <!-- Top Panel (Menu Bar) -->
+  <div id="ubuntu-top-panel" class="ubuntu-panel ubuntu-panel-top" role="navigation" aria-label="Top Panel">
+    <!-- Applications Menu -->
+    <div class="panel-menu-container">
+      <button id="applications-menu-btn" class="panel-menu-button" aria-label="Applications" aria-expanded="false" aria-haspopup="true">
+        <svg class="panel-menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <circle cx="7" cy="7" r="2"/>
+          <circle cx="17" cy="7" r="2"/>
+          <circle cx="7" cy="17" r="2"/>
+          <circle cx="17" cy="17" r="2"/>
+        </svg>
+        <span class="panel-menu-label">Applications</span>
+      </button>
+    </div>
+
+    <!-- Places Menu -->
+    <div class="panel-menu-container">
+      <button id="places-menu-btn" class="panel-menu-button" aria-label="Places" aria-expanded="false" aria-haspopup="true">
+        <span class="panel-menu-label">Places</span>
+      </button>
+    </div>
+
+    <!-- System Menu -->
+    <div class="panel-menu-container">
+      <button id="system-menu-btn" class="panel-menu-button" aria-label="System" aria-expanded="false" aria-haspopup="true">
+        <span class="panel-menu-label">System</span>
+      </button>
+    </div>
+
+    <!-- Spacer -->
+    <div class="panel-spacer"></div>
+
+    <!-- System Tray -->
+    <div class="panel-system-tray">
+      <div class="panel-tray-icon" title="Volume">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+          <path d="M8 3L4 6H1v4h3l4 3V3z"/>
+          <path d="M11 5c.5.5 1 1.5 1 3s-.5 2.5-1 3"/>
+        </svg>
+      </div>
+      <div class="panel-tray-icon" title="Network">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+          <circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="2"/>
+          <circle cx="8" cy="8" r="2"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Clock -->
+    <div id="panel-clock" class="panel-clock" aria-live="polite" aria-atomic="true">
+      <span id="panel-clock-time">12:00 PM</span>
+    </div>
+
+    <!-- User Menu -->
+    <div class="panel-menu-container">
+      <button id="user-menu-btn" class="panel-menu-button panel-user-button" aria-label="User Menu" aria-expanded="false" aria-haspopup="true">
+        <svg class="panel-user-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+          <circle cx="8" cy="5" r="3"/>
+          <path d="M2 14c0-3.3 2.7-6 6-6s6 2.7 6 6"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Desktop Area -->
+  <div id="desktop-area" class="desktop-area">
+    <!-- Desktop Icons Container -->
+    <div id="desktop-icons" class="desktop-icons">
+      <!-- Icons will be added by JavaScript -->
+    </div>
+  </div>
+
+  <!-- Bottom Panel (Window List & Workspace Switcher) -->
+  <div id="ubuntu-bottom-panel" class="ubuntu-panel ubuntu-panel-bottom" role="navigation" aria-label="Bottom Panel">
+    <!-- Show Desktop Button -->
+    <button class="panel-show-desktop-btn" title="Show Desktop" aria-label="Show Desktop">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="2" y="2" width="16" height="16" rx="1"/>
+      </svg>
+    </button>
+
+    <!-- Window List -->
+    <div id="window-list" class="panel-window-list">
+      <!-- Window buttons will be added dynamically -->
+    </div>
+
+    <!-- Spacer -->
+    <div class="panel-spacer"></div>
+
+    <!-- Workspace Switcher (2x2 grid) -->
+    <div id="workspace-switcher" class="workspace-switcher" aria-label="Workspace Switcher">
+      <div class="workspace-grid">
+        <button class="workspace-button active" data-workspace="1" title="Workspace 1" aria-label="Workspace 1">
+          <span class="workspace-number">1</span>
+        </button>
+        <button class="workspace-button" data-workspace="2" title="Workspace 2" aria-label="Workspace 2">
+          <span class="workspace-number">2</span>
+        </button>
+        <button class="workspace-button" data-workspace="3" title="Workspace 3" aria-label="Workspace 3">
+          <span class="workspace-number">3</span>
+        </button>
+        <button class="workspace-button" data-workspace="4" title="Workspace 4" aria-label="Workspace 4">
+          <span class="workspace-number">4</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Trash Applet -->
+    <button class="panel-trash-button" title="Trash" aria-label="Trash">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+        <path d="M7 2h6v2H7V2zM4 5v13c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V5H4zm4 11H7V8h1v8zm2 0H9V8h1v8zm2 0h-1V8h1v8z"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Windows Container -->
+  <div id="windows-container" class="windows-container">
+    <!-- Windows will be added here by WindowManager -->
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<!-- Core Systems -->
+<script src="/assets/js/window-manager.js"></script>
+<script src="/assets/js/menu-system.js"></script>
+<script src="/assets/js/desktop.js"></script>
+
+<!-- Ubuntu Specific -->
+<script src="/assets/js/ubuntu-desktop.js"></script>
+<script src="/assets/js/ubuntu-panels.js"></script>
+<script src="/assets/js/ubuntu-menu.js"></script>
+<script src="/assets/js/ubuntu-workspace-switcher.js"></script>
+
+<!-- Applications -->
+<script src="/assets/js/apps/ubuntu-nautilus.js"></script>
+<script src="/assets/js/apps/ubuntu-gedit.js"></script>
+<script src="/assets/js/apps/ubuntu-terminal.js"></script>
+<script src="/assets/js/apps/ubuntu-firefox.js"></script>
+<script src="/assets/js/apps/ubuntu-synaptic.js"></script>
+<script src="/assets/js/apps/ubuntu-system-monitor.js"></script>
+
+<!-- Initialize Ubuntu 4.10 -->
+<script>
+  // Wait for DOM to be ready
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize Ubuntu desktop
+    if (typeof UbuntuDesktop !== 'undefined') {
+      window.ubuntu = new UbuntuDesktop();
+      window.ubuntu.init();
+    } else {
+      console.error('UbuntuDesktop not loaded');
+    }
+  });
+</script>
+{% endblock %}
