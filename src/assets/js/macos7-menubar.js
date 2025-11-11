@@ -54,8 +54,14 @@
         items: [
           { label: 'About This Macintosh...', action: () => this._showAboutBox() },
           { type: 'separator' },
-          { label: 'Control Panels', action: () => this._openControlPanels(), arrow: true },
+          { label: 'Alarm Clock', action: () => this._openApp('AlarmClock') },
+          { label: 'Calculator', action: () => this._openApp('Calculator'), disabled: true },
           { label: 'Chooser', action: () => this._openChooser() },
+          { label: 'Key Caps', action: () => this._openApp('KeyCaps') },
+          { label: 'Puzzle', action: () => this._openApp('Puzzle') },
+          { label: 'Scrapbook', action: () => this._openApp('Scrapbook') },
+          { type: 'separator' },
+          { label: 'Control Panels', action: () => this._openControlPanels(), arrow: true },
           { type: 'separator' },
           { label: 'Recent Applications', arrow: true, disabled: true },
           { label: 'Recent Documents', arrow: true, disabled: true },
@@ -470,6 +476,50 @@
      */
     _showHelp(topic) {
       alert('Help is not available in this demo.');
+    }
+
+    /**
+     * Open application from Apple menu
+     * @param {string} appName - Application name
+     * @private
+     */
+    _openApp(appName) {
+      if (!global.macos7) return;
+
+      switch(appName) {
+        case 'AlarmClock':
+          if (typeof MacOS7AlarmClock !== 'undefined') {
+            const app = new MacOS7AlarmClock(global.macos7);
+            app.open();
+          }
+          break;
+        case 'KeyCaps':
+          if (typeof MacOS7KeyCaps !== 'undefined') {
+            const app = new MacOS7KeyCaps(global.macos7);
+            app.open();
+          }
+          break;
+        case 'Puzzle':
+          if (typeof MacOS7Puzzle !== 'undefined') {
+            const app = new MacOS7Puzzle(global.macos7);
+            app.open();
+          }
+          break;
+        case 'Scrapbook':
+          if (typeof MacOS7Scrapbook !== 'undefined') {
+            const app = new MacOS7Scrapbook(global.macos7);
+            app.open();
+          }
+          break;
+        case 'Stickies':
+          if (typeof MacOS7Stickies !== 'undefined') {
+            const app = new MacOS7Stickies(global.macos7);
+            app.open();
+          }
+          break;
+        default:
+          alert(`${appName} is not available`);
+      }
     }
 
     /**

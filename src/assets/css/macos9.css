@@ -579,6 +579,20 @@
   cursor: default;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
   transition: all 0.1s;
+  position: relative;
+  overflow: hidden;
+}
+
+.mac9-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4) 0%, transparent 100%);
+  pointer-events: none;
+  border-radius: 12px 12px 0 0;
 }
 
 .mac9-button:hover {
@@ -590,10 +604,16 @@
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
+.mac9-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .mac9-button.default {
   border: 2px solid var(--mac9-highlight);
   font-weight: bold;
   animation: pulse 1.5s ease-in-out infinite;
+  background: linear-gradient(to bottom, #FFFFFF 0%, #E6F0FF 100%);
 }
 
 @keyframes pulse {
@@ -832,6 +852,7 @@
   display: flex;
   border-bottom: 1px solid var(--mac9-gray-darker);
   background: linear-gradient(to bottom, #EEEEEE 0%, #DDDDDD 100%);
+  padding: 0 4px;
 }
 
 .mac9-tab {
@@ -845,6 +866,9 @@
   font-family: var(--mac9-charcoal);
   font-size: var(--mac9-font-size);
   margin-right: 2px;
+  position: relative;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  transition: background 0.15s;
 }
 
 .mac9-tab:hover {
@@ -856,6 +880,17 @@
   border-bottom: 1px solid var(--mac9-white);
   margin-bottom: -1px;
   font-weight: bold;
+  box-shadow: none;
+}
+
+.mac9-tab.active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(to right, transparent 0%, rgba(51, 102, 255, 0.3) 50%, transparent 100%);
 }
 
 /* Accessibility */

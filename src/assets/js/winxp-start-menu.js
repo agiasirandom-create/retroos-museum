@@ -93,7 +93,7 @@
           icon: this.getIconSvg('pictures'),
           action: () => {
             this.close();
-            this.desktop.showPlaceholder('My Pictures');
+            this.desktop.openMyPictures();
           }
         },
         {
@@ -185,7 +185,15 @@
               icon: this.getIconSvg('paint'),
               action: () => {
                 this.close();
-                this.desktop.showPlaceholder('Paint');
+                this.desktop.openPaint();
+              }
+            },
+            {
+              label: 'WordPad',
+              icon: this.getIconSvg('notepad'),
+              action: () => {
+                this.close();
+                this.desktop.openWordPad();
               }
             },
             {
@@ -241,8 +249,22 @@
           icon: this.getIconSvg('media'),
           action: () => {
             this.close();
-            this.desktop.showPlaceholder('Windows Media Player');
+            this.desktop.openMediaPlayer();
           }
+        },
+        {
+          label: 'System Tools',
+          icon: this.getIconSvg('folder'),
+          submenu: [
+            {
+              label: 'Disk Cleanup',
+              icon: this.getIconSvg('default'),
+              action: () => {
+                this.close();
+                this.desktop.openDiskCleanup();
+              }
+            }
+          ]
         }
       ];
 
@@ -277,7 +299,7 @@
       if (item.submenu) {
         const arrow = document.createElement('div');
         arrow.className = 'start-menu-item-arrow';
-        arrow.textContent = '¶';
+        arrow.textContent = 'ï¿½';
         element.appendChild(arrow);
 
         // Show submenu on hover

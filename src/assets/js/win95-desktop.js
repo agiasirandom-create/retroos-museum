@@ -380,6 +380,51 @@
             this.startMenu.toggle();
           }
         }
+
+        // F1 - Help
+        else if (e.key === 'F1') {
+          e.preventDefault();
+          this.showHelp();
+        }
+
+        // Alt+F4 is already handled by window manager
+
+        // Alt+Tab is already handled by window manager
+      });
+    }
+
+    /**
+     * Show help dialog
+     */
+    showHelp() {
+      this.windowManager.createWindow({
+        id: 'help-not-available',
+        title: 'Windows Help',
+        width: 350,
+        height: 180,
+        content: `
+          <div style="padding: 24px; text-align: center; font-family: 'MS Sans Serif', sans-serif; font-size: 11px;">
+            <div style="font-size: 48px; margin-bottom: 16px;">?</div>
+            <p style="margin-bottom: 24px;">
+              Help is not available in this simulation.
+            </p>
+            <button onclick="this.closest('.os-window').querySelector('.window-btn-close').click()"
+                    style="
+                      padding: 4px 16px;
+                      min-width: 75px;
+                      background: #C0C0C0;
+                      border: 2px solid;
+                      border-color: #FFF #808080 #808080 #FFF;
+                      font-family: 'MS Sans Serif', sans-serif;
+                      font-size: 11px;
+                      cursor: pointer;
+                    ">
+              OK
+            </button>
+          </div>
+        `,
+        resizable: false,
+        maximizable: false
       });
     }
 
@@ -419,6 +464,41 @@
           }
           break;
 
+        case 'paint':
+          if (typeof Win95Paint !== 'undefined') {
+            const paint = new Win95Paint(this.windowManager);
+            paint.open();
+          }
+          break;
+
+        case 'wordpad':
+          if (typeof Win95WordPad !== 'undefined') {
+            const wordpad = new Win95WordPad(this.windowManager);
+            wordpad.open();
+          }
+          break;
+
+        case 'minesweeper':
+          if (typeof Win95Minesweeper !== 'undefined') {
+            const minesweeper = new Win95Minesweeper(this.windowManager);
+            minesweeper.open();
+          }
+          break;
+
+        case 'solitaire':
+          if (typeof Win95Solitaire !== 'undefined') {
+            const solitaire = new Win95Solitaire(this.windowManager);
+            solitaire.open();
+          }
+          break;
+
+        case 'media-player':
+          if (typeof Win95MediaPlayer !== 'undefined') {
+            const mediaPlayer = new Win95MediaPlayer(this.windowManager);
+            mediaPlayer.open();
+          }
+          break;
+
         case 'explorer':
           if (typeof Win95Explorer !== 'undefined') {
             const explorer = new Win95Explorer(this.windowManager);
@@ -433,11 +513,8 @@
           }
           break;
 
-        case 'minesweeper':
-        case 'solitaire':
-        case 'paint':
         case 'calculator':
-          this.showComingSoon(appId.charAt(0).toUpperCase() + appId.slice(1));
+          this.showComingSoon('Calculator');
           break;
 
         default:

@@ -65,6 +65,10 @@
           { label: 'Recent Servers', arrow: true, disabled: true },
           { type: 'separator' },
           { label: 'Sherlock 2', action: () => this._triggerAction('openSherlock') },
+          { label: 'AppleScript Editor', action: () => this._triggerAction('openAppleScript') },
+          { label: 'Keychain Access', action: () => this._triggerAction('openKeychain') },
+          { type: 'separator' },
+          { label: 'Applications', arrow: true, submenu: this._getApplicationsSubmenu() },
           { type: 'separator' },
           { label: 'Sleep', action: () => this._sleep() },
           { label: 'Restart', action: () => this._triggerAction('restart') },
@@ -185,6 +189,22 @@
 
       // Add right-side elements
       this._addRightSideElements();
+    }
+
+    /**
+     * Get Applications submenu
+     * @private
+     */
+    _getApplicationsSubmenu() {
+      return [
+        { label: 'Apple DVD Player', action: () => this._triggerAction('openDVDPlayer') },
+        { label: 'AppleScript Editor', action: () => this._triggerAction('openAppleScript') },
+        { label: 'Graphing Calculator', action: () => this._triggerAction('openGraphingCalc') },
+        { label: 'Keychain Access', action: () => this._triggerAction('openKeychain') },
+        { label: 'QuickTime Player', action: () => this._triggerAction('openQuickTime') },
+        { label: 'Sherlock 2', action: () => this._triggerAction('openSherlock') },
+        { label: 'SimpleText', action: () => this._triggerAction('openSimpleText') }
+      ];
     }
 
     /**

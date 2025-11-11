@@ -324,6 +324,66 @@
     }
 
     /**
+     * Open Evolution Email Client
+     */
+    openEvolution() {
+      if (typeof UbuntuEvolution !== 'undefined') {
+        const evolution = new UbuntuEvolution(this.windowManager);
+        evolution.open();
+      }
+    }
+
+    /**
+     * Open Rhythmbox Music Player
+     */
+    openRhythmbox() {
+      if (typeof UbuntuRhythmbox !== 'undefined') {
+        const rhythmbox = new UbuntuRhythmbox(this.windowManager);
+        rhythmbox.open();
+      }
+    }
+
+    /**
+     * Open GIMP Image Editor
+     */
+    openGimp() {
+      if (typeof UbuntuGimp !== 'undefined') {
+        const gimp = new UbuntuGimp(this.windowManager);
+        gimp.open();
+      }
+    }
+
+    /**
+     * Open Totem Movie Player
+     */
+    openTotem() {
+      if (typeof UbuntuTotem !== 'undefined') {
+        const totem = new UbuntuTotem(this.windowManager);
+        totem.open();
+      }
+    }
+
+    /**
+     * Open Update Manager
+     */
+    openUpdateManager() {
+      if (typeof UbuntuUpdateManager !== 'undefined') {
+        const updateManager = new UbuntuUpdateManager(this.windowManager);
+        updateManager.open();
+      }
+    }
+
+    /**
+     * Open Software Center (Add/Remove Programs)
+     */
+    openSoftwareCenter() {
+      if (typeof UbuntuSoftwareCenter !== 'undefined') {
+        const softwareCenter = new UbuntuSoftwareCenter(this.windowManager);
+        softwareCenter.open();
+      }
+    }
+
+    /**
      * Show welcome message
      */
     showWelcomeMessage() {

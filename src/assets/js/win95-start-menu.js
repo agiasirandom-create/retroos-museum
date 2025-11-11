@@ -157,9 +157,25 @@
                   action: () => this.desktop.openApplication('paint')
                 },
                 {
+                  label: 'WordPad',
+                  icon: this.getAppIcon('wordpad'),
+                  action: () => this.desktop.openApplication('wordpad')
+                },
+                {
                   label: 'Calculator',
                   icon: this.getAppIcon('calculator'),
                   action: () => this.desktop.openApplication('calculator')
+                }
+              ]
+            },
+            {
+              label: 'Multimedia',
+              icon: this.getFolderIcon(),
+              submenu: [
+                {
+                  label: 'Media Player',
+                  icon: this.getAppIcon('media-player'),
+                  action: () => this.desktop.openApplication('media-player')
                 }
               ]
             },
@@ -283,6 +299,26 @@
           <circle cx="20" cy="16" r="4" fill="#FF0000"/>
           <circle cx="12" cy="16" r="3" fill="#0000FF"/>
         </svg>`,
+        wordpad: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <rect x="6" y="4" width="20" height="24" fill="#FFF" stroke="#000" stroke-width="2"/>
+          <rect x="8" y="7" width="16" height="3" fill="#0000FF"/>
+          <line x1="8" y1="13" x2="22" y2="13" stroke="#000" stroke-width="2"/>
+          <line x1="8" y1="17" x2="22" y2="17" stroke="#000"/>
+          <line x1="8" y1="20" x2="18" y2="20" stroke="#000"/>
+        </svg>`,
+        'media-player': `<svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <rect x="4" y="6" width="24" height="20" fill="#C0C0C0" stroke="#000" stroke-width="2"/>
+          <polygon points="12,12 12,22 22,17" fill="#0000FF" stroke="#000" stroke-width="1"/>
+        </svg>`,
+        minesweeper: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <rect x="4" y="4" width="24" height="24" fill="#C0C0C0" stroke="#000" stroke-width="2"/>
+          <circle cx="16" cy="16" r="6" fill="#000"/>
+          <circle cx="16" cy="16" r="3" fill="#FF0000"/>
+        </svg>`,
+        solitaire: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <rect x="8" y="6" width="16" height="20" rx="2" fill="#FFF" stroke="#000" stroke-width="2"/>
+          <text x="16" y="18" text-anchor="middle" fill="#FF0000" font-size="14" font-weight="bold">A♥</text>
+        </svg>`,
         explorer: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none">
           <path d="M4 8 L14 8 L16 6 L28 6 L28 26 L4 26 Z" fill="#FFD700" stroke="#000" stroke-width="2"/>
         </svg>`,
@@ -292,6 +328,14 @@
           <rect x="18" y="8" width="6" height="6" fill="#FFF"/>
           <rect x="8" y="18" width="6" height="6" fill="#FFF"/>
           <rect x="18" y="18" width="6" height="6" fill="#FFF"/>
+        </svg>`,
+        find: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <circle cx="14" cy="14" r="8" fill="none" stroke="#000" stroke-width="2"/>
+          <line x1="20" y1="20" x2="28" y2="28" stroke="#000" stroke-width="3"/>
+        </svg>`,
+        run: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <rect x="4" y="10" width="24" height="12" fill="#FFF" stroke="#000" stroke-width="2"/>
+          <text x="16" y="19" text-anchor="middle" fill="#000" font-size="10" font-family="monospace">C:\\></text>
         </svg>`,
         help: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none">
           <circle cx="16" cy="16" r="12" fill="#0080FF" stroke="#000" stroke-width="2"/>
@@ -391,40 +435,12 @@
      * Open Run dialog
      */
     openRunDialog() {
-      this.desktop.windowManager.createWindow({
-        id: 'run-dialog',
-        title: 'Run',
-        width: 380,
-        height: 180,
-        content: `
-          <div style="padding: 16px; font-family: 'MS Sans Serif', sans-serif; font-size: 11px;">
-            <p style="margin-bottom: 16px;">
-              Type the name of a program, folder, document, or Internet resource, and Windows will open it for you.
-            </p>
-            <div style="margin-bottom: 16px;">
-              <label for="run-input" style="display: block; margin-bottom: 4px;">Open:</label>
-              <input type="text" id="run-input"
-                     style="width: 100%; padding: 4px; border: 2px inset; font-family: 'MS Sans Serif', sans-serif; font-size: 11px;">
-            </div>
-            <div style="text-align: right;">
-              <button onclick="alert('This feature is not yet implemented')"
-                      class="retro-button--win95" style="min-width: 75px; margin-right: 8px;">
-                OK
-              </button>
-              <button onclick="this.closest('.os-window').querySelector('.window-btn-close').click()"
-                      class="retro-button--win95" style="min-width: 75px; margin-right: 8px;">
-                Cancel
-              </button>
-              <button onclick="alert('Browse not yet implemented')"
-                      class="retro-button--win95" style="min-width: 75px;">
-                Browse...
-              </button>
-            </div>
-          </div>
-        `,
-        resizable: false,
-        maximizable: false
-      });
+      if (typeof Win95Run !== 'undefined') {
+        const runDialog = new Win95Run(this.desktop.windowManager, this.desktop);
+        runDialog.open();
+      } else {
+        console.error('Win95Run not loaded');
+      }
     }
   }
 

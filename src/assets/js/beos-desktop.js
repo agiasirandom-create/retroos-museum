@@ -228,7 +228,12 @@
         'stylededit': BeOSStyledEdit,
         'terminal': BeOSTerminal,
         'mediaplayer': BeOSMediaPlayer,
-        'bedepot': BeOSBeDepot
+        'bedepot': BeOSBeDepot,
+        'people': BeOSPeople,
+        'showimage': BeOSShowImage,
+        'netpositive': BeOSNetPositive,
+        'soundplay': BeOSSoundPlay,
+        'mail': BeOSMail
       };
 
       const AppClass = appMap[appName];

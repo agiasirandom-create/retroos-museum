@@ -110,6 +110,15 @@
       this.desktop.addEventListener('click', (e) => {
         if (e.target === this.desktop || e.target.classList.contains('desktop-icons')) {
           this.deselectAllIcons();
+          this.hideContextMenu();
+        }
+      });
+
+      // Set up desktop right-click context menu
+      this.desktop.addEventListener('contextmenu', (e) => {
+        if (e.target === this.desktop || e.target.classList.contains('desktop-icons')) {
+          e.preventDefault();
+          this.showContextMenu(e.clientX, e.clientY);
         }
       });
     }
@@ -336,7 +345,72 @@
      * Open Internet Explorer
      */
     openInternetExplorer() {
-      this.showPlaceholder('Internet Explorer');
+      if (typeof WinXPInternetExplorer !== 'undefined') {
+        const ie = new WinXPInternetExplorer(this);
+        ie.open();
+      } else {
+        this.showPlaceholder('Internet Explorer');
+      }
+    }
+
+    /**
+     * Open Paint
+     */
+    openPaint() {
+      if (typeof WinXPPaint !== 'undefined') {
+        const paint = new WinXPPaint(this);
+        paint.open();
+      } else {
+        this.showPlaceholder('Paint');
+      }
+    }
+
+    /**
+     * Open WordPad
+     */
+    openWordPad() {
+      if (typeof WinXPWordPad !== 'undefined') {
+        const wordpad = new WinXPWordPad(this);
+        wordpad.open();
+      } else {
+        this.showPlaceholder('WordPad');
+      }
+    }
+
+    /**
+     * Open Windows Media Player
+     */
+    openMediaPlayer() {
+      if (typeof WinXPMediaPlayer !== 'undefined') {
+        const wmp = new WinXPMediaPlayer(this);
+        wmp.open();
+      } else {
+        this.showPlaceholder('Windows Media Player');
+      }
+    }
+
+    /**
+     * Open My Pictures
+     */
+    openMyPictures() {
+      if (typeof WinXPMyPictures !== 'undefined') {
+        const myPictures = new WinXPMyPictures(this);
+        myPictures.open();
+      } else {
+        this.showPlaceholder('My Pictures');
+      }
+    }
+
+    /**
+     * Open Disk Cleanup
+     */
+    openDiskCleanup() {
+      if (typeof WinXPDiskCleanup !== 'undefined') {
+        const diskCleanup = new WinXPDiskCleanup(this);
+        diskCleanup.open();
+      } else {
+        this.showPlaceholder('Disk Cleanup');
+      }
     }
 
     /**
@@ -467,6 +541,104 @@
 
       updateClock();
       setInterval(updateClock, 1000);
+    }
+
+    /**
+     * Show desktop context menu
+     */
+    showContextMenu(x, y) {
+      this.hideContextMenu();
+
+      const menu = document.createElement('div');
+      menu.id = 'desktop-context-menu';
+      menu.style.cssText = `
+        position: fixed;
+        left: ${x}px;
+        top: ${y}px;
+        background: linear-gradient(to bottom, #FFFFFF 0%, #F0F0F0 100%);
+        border: 2px solid #003C74;
+        border-radius: 4px;
+        box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        z-index: 10003;
+        min-width: 180px;
+        font-family: Tahoma, Arial, sans-serif;
+        font-size: 11px;
+      `;
+
+      const menuItems = [
+        { label: 'Arrange Icons By', divider: false, submenu: true },
+        { label: 'Refresh', divider: false, action: () => location.reload() },
+        { label: 'Paste', divider: false, disabled: true },
+        { label: 'Paste Shortcut', divider: false, disabled: true },
+        { divider: true },
+        { label: 'New', divider: false, submenu: true },
+        { divider: true },
+        { label: 'Properties', divider: false, action: () => alert('Display Properties\n\nIn a full implementation, this would open Display Properties.') }
+      ];
+
+      menuItems.forEach(item => {
+        if (item.divider) {
+          const divider = document.createElement('div');
+          divider.style.cssText = 'height: 1px; background: linear-gradient(to right, transparent 0%, #D0D0D0 10%, #D0D0D0 90%, transparent 100%); margin: 4px 0;';
+          menu.appendChild(divider);
+        } else {
+          const menuItem = document.createElement('div');
+          menuItem.style.cssText = `
+            padding: 6px 24px 6px 32px;
+            cursor: ${item.disabled ? 'default' : 'pointer'};
+            color: ${item.disabled ? '#999' : '#000'};
+            position: relative;
+            transition: background-color 0.1s;
+          `;
+
+          if (!item.disabled) {
+            menuItem.addEventListener('mouseenter', () => {
+              menuItem.style.background = 'linear-gradient(to right, #3C81F3 0%, #4B91FF 100%)';
+              menuItem.style.color = 'white';
+            });
+
+            menuItem.addEventListener('mouseleave', () => {
+              menuItem.style.background = '';
+              menuItem.style.color = '#000';
+            });
+
+            if (item.action) {
+              menuItem.addEventListener('click', () => {
+                item.action();
+                this.hideContextMenu();
+              });
+            }
+          }
+
+          menuItem.textContent = item.label;
+
+          if (item.submenu) {
+            const arrow = document.createElement('span');
+            arrow.textContent = '▶';
+            arrow.style.cssText = 'position: absolute; right: 8px; font-size: 8px;';
+            menuItem.appendChild(arrow);
+          }
+
+          menu.appendChild(menuItem);
+        }
+      });
+
+      document.body.appendChild(menu);
+
+      // Close menu on click outside
+      setTimeout(() => {
+        document.addEventListener('click', () => this.hideContextMenu(), { once: true });
+      }, 0);
+    }
+
+    /**
+     * Hide desktop context menu
+     */
+    hideContextMenu() {
+      const menu = document.getElementById('desktop-context-menu');
+      if (menu) {
+        menu.remove();
+      }
     }
   }
 

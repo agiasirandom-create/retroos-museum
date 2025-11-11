@@ -690,6 +690,60 @@
   margin-bottom: 8px;
 }
 
+/* Stickies specific */
+.stickies-note {
+  font-family: var(--mac7-geneva);
+  font-size: var(--mac7-font-size);
+}
+
+.stickies-textarea {
+  font-family: var(--mac7-geneva);
+  font-size: var(--mac7-font-size);
+  line-height: 1.4;
+}
+
+/* Key Caps */
+.key-cap-btn {
+  font-family: var(--mac7-chicago);
+  transition: background-color 0.1s ease;
+}
+
+.key-cap-btn:hover {
+  background-color: var(--mac7-gray);
+}
+
+.key-cap-btn:active {
+  background-color: var(--mac7-dark-gray);
+  color: var(--mac7-white);
+}
+
+/* Puzzle Game */
+.puzzle-tile {
+  font-family: var(--mac7-chicago);
+  user-select: none;
+}
+
+/* Alarm Clock */
+#clock-face {
+  pointer-events: none;
+}
+
+/* Scrapbook */
+#scrapbook-page {
+  font-family: var(--mac7-geneva);
+}
+
+/* Mac checkboxes */
+input[type="checkbox"] {
+  cursor: default;
+  accent-color: var(--mac7-highlight);
+}
+
+input[type="time"] {
+  font-family: var(--mac7-geneva);
+  font-size: var(--mac7-font-size);
+}
+
 /* Accessibility */
 .skip-link {
   position: absolute;

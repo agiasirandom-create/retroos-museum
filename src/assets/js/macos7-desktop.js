@@ -198,18 +198,59 @@
      * @private
      */
     _showGetInfo(itemName) {
+      // Get item icon
+      let iconSvg = '';
+      if (itemName === 'Macintosh HD') {
+        iconSvg = this._createHardDriveIcon();
+      } else if (itemName === 'Trash') {
+        iconSvg = this._createTrashIcon(this.trashEmpty);
+      } else {
+        iconSvg = '<svg width="32" height="32" viewBox="0 0 32 32"><rect x="6" y="6" width="20" height="20" fill="#fff" stroke="#000" stroke-width="1.5"/></svg>';
+      }
+
       const content = `
-        <div style="padding: 16px;">
-          <h3 style="font-family: var(--mac7-chicago); margin: 0 0 12px 0;">${itemName}</h3>
-          <div class="mac-group">
-            <div class="mac-group-title">Info</div>
-            <p style="margin: 4px 0;"><strong>Kind:</strong> ${itemName === 'Trash' ? 'System' : 'Disk'}</p>
-            <p style="margin: 4px 0;"><strong>Size:</strong> ${itemName === 'Trash' ? '0 KB' : '2 GB'}</p>
-            <p style="margin: 4px 0;"><strong>Where:</strong> Desktop</p>
-            <p style="margin: 4px 0;"><strong>Created:</strong> Mon, Nov 10, 2025</p>
-            <p style="margin: 4px 0;"><strong>Modified:</strong> Mon, Nov 10, 2025</p>
+        <div style="padding: 16px; font-family: var(--mac7-geneva); font-size: 11px;">
+          <!-- Icon and name -->
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--mac7-black);">
+            <div style="width: 32px; height: 32px;">
+              ${iconSvg}
+            </div>
+            <h3 style="font-family: var(--mac7-chicago); font-size: 14px; margin: 0;">${itemName}</h3>
           </div>
-          <div style="margin-top: 16px; text-align: right;">
+
+          <!-- Info details -->
+          <div style="display: grid; grid-template-columns: 90px 1fr; gap: 8px; margin-bottom: 16px;">
+            <div style="font-weight: bold;">Kind:</div>
+            <div>${itemName === 'Trash' ? 'System' : 'Disk'}</div>
+
+            <div style="font-weight: bold;">Size:</div>
+            <div>${itemName === 'Trash' ? (this.trashEmpty ? '0 bytes' : '256 KB (3 items)') : '2 GB on disk (1.5 GB available)'}</div>
+
+            <div style="font-weight: bold;">Where:</div>
+            <div>Desktop</div>
+
+            <div style="font-weight: bold;">Created:</div>
+            <div>Mon, Nov 10, 2025, 9:00 AM</div>
+
+            <div style="font-weight: bold;">Modified:</div>
+            <div>Mon, Nov 11, 2025, 2:30 PM</div>
+          </div>
+
+          <!-- Checkboxes -->
+          <div style="border-top: 1px solid var(--mac7-dark-gray); padding-top: 12px;">
+            <label style="display: flex; align-items: center; gap: 6px; margin-bottom: 6px; cursor: default;">
+              <input type="checkbox" ${itemName === 'Macintosh HD' ? 'checked' : ''}>
+              <span>Locked</span>
+            </label>
+            <label style="display: flex; align-items: center; gap: 6px; cursor: default;">
+              <input type="checkbox">
+              <span>Stationery pad</span>
+            </label>
+          </div>
+
+          <!-- Buttons -->
+          <div style="margin-top: 16px; text-align: right; display: flex; gap: 8px; justify-content: flex-end;">
+            <button class="mac-button" onclick="this.closest('.os-window').querySelector('.window-btn-close').click()">Cancel</button>
             <button class="mac-button default" onclick="this.closest('.os-window').querySelector('.window-btn-close').click()">OK</button>
           </div>
         </div>
@@ -219,8 +260,8 @@
         id: 'getinfo-' + itemName.toLowerCase().replace(/\s+/g, '-'),
         title: itemName + ' Info',
         content: content,
-        width: 320,
-        height: 300,
+        width: 340,
+        height: 380,
         resizable: false
       });
     }
@@ -291,7 +332,7 @@
           break;
 
         case 'cleanUpDesktop':
-          alert('Desktop cleaned up (demo)');
+          this._cleanUpDesktop();
           break;
 
         case 'openControlPanels':
@@ -304,6 +345,19 @@
         default:
           console.log('Unhandled action:', action);
       }
+    }
+
+    /**
+     * Clean up desktop icons
+     * @private
+     */
+    _cleanUpDesktop() {
+      // In real Mac OS 7, this would auto-arrange desktop icons in a grid
+      // For now, just show a message
+      alert('Desktop icons cleaned up (arranged in grid)');
+
+      // Could implement actual rearrangement here
+      console.log('Clean Up Desktop - icons would be arranged in neat grid');
     }
 
     /**

@@ -67,9 +67,17 @@
           icon: '📁',
           submenu: [
             { label: 'Tracker', action: () => this._launchApp('tracker') },
+            { label: 'NetPositive', action: () => this._launchApp('netpositive') },
+            { label: 'Mail', action: () => this._launchApp('mail') },
+            { label: 'People', action: () => this._launchApp('people') },
+            { separator: true },
             { label: 'StyledEdit', action: () => this._launchApp('stylededit') },
             { label: 'Terminal', action: () => this._launchApp('terminal') },
+            { separator: true },
             { label: 'MediaPlayer', action: () => this._launchApp('mediaplayer') },
+            { label: 'SoundPlay', action: () => this._launchApp('soundplay') },
+            { label: 'ShowImage', action: () => this._launchApp('showimage') },
+            { separator: true },
             { label: 'BeDepot', action: () => this._launchApp('bedepot') }
           ]
         },
@@ -79,9 +87,14 @@
           icon: '⚙️',
           submenu: [
             { label: 'Appearance...', action: () => this._showPreferences('appearance') },
+            { label: 'Backgrounds...', action: () => this._showPreferences('backgrounds') },
+            { label: 'FileTypes...', action: () => this._showPreferences('filetypes') },
             { label: 'Keyboard...', action: () => this._showPreferences('keyboard') },
             { label: 'Mouse...', action: () => this._showPreferences('mouse') },
-            { label: 'Screen...', action: () => this._showPreferences('screen') }
+            { label: 'Media...', action: () => this._showPreferences('media') },
+            { label: 'Screen...', action: () => this._showPreferences('screen') },
+            { label: 'Sounds...', action: () => this._showPreferences('sounds') },
+            { label: 'Workspaces...', action: () => this._showPreferences('workspaces') }
           ]
         },
         {
@@ -99,8 +112,8 @@
         { label: 'Find...', icon: '🔍', action: () => this._openFind() },
         { label: 'Show Replicants', action: () => this._toggleReplicants() },
         { separator: true },
-        { label: 'Mount', icon: '💾', action: () => this._showMount() },
-        { label: 'Eject', icon: '⏏️', action: () => this._showEject() },
+        { label: 'BeDepot', icon: '📦', action: () => this._launchApp('bedepot') },
+        { label: 'About BeOS...', icon: 'ℹ️', action: () => this._showAboutBeOS() },
         { separator: true },
         { label: 'Shutdown...', icon: '⏻', action: () => this._showShutdown() },
         { label: 'Restart...', icon: '🔄', action: () => this._showRestart() }
@@ -379,6 +392,59 @@
     _showRestart() {
       if (confirm('Are you sure you want to restart?')) {
         window.location.reload();
+      }
+    }
+
+    /**
+     * Show About BeOS dialog
+     * @private
+     */
+    _showAboutBeOS() {
+      if (!global.beosDesktop || !global.beosDesktop.windowSystem) return;
+
+      const content = `
+        <div style="padding: 20px; text-align: center;">
+          <div style="font-size: 72px; margin-bottom: 16px;">
+            <svg width="80" height="80" viewBox="0 0 80 80" style="filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));">
+              <path fill="#FFCC00" d="M40,10 L70,25 L70,55 L40,70 L10,55 L10,25 Z"/>
+              <path fill="#CC9900" d="M40,10 L40,70 L70,55 L70,25 Z"/>
+              <path fill="#336699" d="M40,10 L10,25 L10,55 L40,70 Z" opacity="0.7"/>
+            </svg>
+          </div>
+          <h2 style="color: #336699; margin: 0 0 8px 0; font-size: 18px;">BeOS R5</h2>
+          <p style="margin: 8px 0; font-size: 11px; color: #666;">The Media Operating System</p>
+          <p style="margin: 16px 0 8px 0; font-size: 10px; line-height: 1.6;">
+            <strong>Version:</strong> 5.0<br>
+            <strong>Released:</strong> March 2000<br>
+            <strong>Copyright:</strong> Be Incorporated
+          </p>
+          <div style="margin-top: 20px; padding: 12px; background: #EEEEEE; border: 1px solid #CCC; text-align: left; font-size: 9px; line-height: 1.6;">
+            <strong>Key Features:</strong><br>
+            • Pervasive multithreading<br>
+            • Symmetric multiprocessing<br>
+            • 64-bit journaling file system (BFS)<br>
+            • Database-like file attributes<br>
+            • Powerful Media Kit<br>
+            • Up to 32 workspaces
+          </div>
+          <div style="margin-top: 20px;">
+            <button class="beos-button default" onclick="this.closest('.beos-window').querySelector('.beos-tab-btn').click()">OK</button>
+          </div>
+        </div>
+      `;
+
+      const aboutWindow = global.beosDesktop.windowSystem.createWindow({
+        id: 'about-beos',
+        title: 'About BeOS',
+        width: 380,
+        height: 480,
+        content: content,
+        resizable: false
+      });
+
+      const container = document.getElementById('windows-container');
+      if (container) {
+        container.appendChild(aboutWindow);
       }
     }
   }

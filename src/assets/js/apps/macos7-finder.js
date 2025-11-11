@@ -132,7 +132,9 @@
         { name: 'Documents', type: 'folder', size: '--', kind: 'Folder', date: 'Today, 10:30 AM' },
         { name: 'Read Me', type: 'document', size: '4 KB', kind: 'Document', date: 'Yesterday, 2:15 PM' },
         { name: 'SimpleText', type: 'app', size: '128 KB', kind: 'Application', date: 'Nov 8, 1996' },
-        { name: 'Stickies', type: 'app', size: '64 KB', kind: 'Application', date: 'Nov 8, 1996' }
+        { name: 'Stickies', type: 'app', size: '64 KB', kind: 'Application', date: 'Nov 8, 1996' },
+        { name: 'Scrapbook', type: 'app', size: '96 KB', kind: 'Application', date: 'Nov 8, 1996' },
+        { name: 'Puzzle', type: 'app', size: '32 KB', kind: 'Application', date: 'Nov 8, 1996' }
       ];
     }
 
@@ -273,16 +275,40 @@
     _openItem(itemName) {
       console.log('Opening item:', itemName);
 
-      if (itemName === 'SimpleText') {
-        if (typeof MacOS7SimpleText !== 'undefined') {
-          const simpleText = new MacOS7SimpleText(this.desktop);
-          simpleText.open();
-        }
-      } else if (itemName === 'Applications' || itemName === 'System Folder' || itemName === 'Documents') {
-        // Open subfolder (would create new Finder window in real Mac OS)
-        alert(`Opening folder: ${itemName} (demo)`);
-      } else {
-        alert(`Opening: ${itemName} (demo)`);
+      // Open applications
+      switch(itemName) {
+        case 'SimpleText':
+          if (typeof MacOS7SimpleText !== 'undefined') {
+            const simpleText = new MacOS7SimpleText(this.desktop);
+            simpleText.open();
+          }
+          break;
+        case 'Stickies':
+          if (typeof MacOS7Stickies !== 'undefined') {
+            const stickies = new MacOS7Stickies(this.desktop);
+            stickies.open();
+          }
+          break;
+        case 'Scrapbook':
+          if (typeof MacOS7Scrapbook !== 'undefined') {
+            const scrapbook = new MacOS7Scrapbook(this.desktop);
+            scrapbook.open();
+          }
+          break;
+        case 'Puzzle':
+          if (typeof MacOS7Puzzle !== 'undefined') {
+            const puzzle = new MacOS7Puzzle(this.desktop);
+            puzzle.open();
+          }
+          break;
+        case 'Applications':
+        case 'System Folder':
+        case 'Documents':
+          // Open subfolder (would create new Finder window in real Mac OS)
+          alert(`Opening folder: ${itemName} (demo)`);
+          break;
+        default:
+          alert(`Opening: ${itemName} (demo)`);
       }
     }
 

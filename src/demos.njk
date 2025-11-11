@@ -1,0 +1,892 @@
+---
+layout: layouts/base.njk
+title: "Interactive OS Showcase - RetroOS Museum"
+description: "Experience 10 fully functional operating system recreations spanning 1991-2020. Pixel-perfect implementations with working applications."
+bodyClass: "demos-page"
+permalink: /demos/
+---
+
+<!-- Hero Section -->
+<section class="demos-hero">
+  <div class="demos-hero-content">
+    <h1 class="demos-hero-title">
+      <span class="hero-highlight">Interactive OS Showcase</span>
+    </h1>
+    <p class="demos-hero-subtitle">
+      Experience 10 fully functional operating system recreations
+    </p>
+    <div class="demos-hero-stats">
+      <div class="stat-item">
+        <div class="stat-number">10</div>
+        <div class="stat-label">Custom OS</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-number">20,000+</div>
+        <div class="stat-label">Lines of Code</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-number">1991-2020s</div>
+        <div class="stat-label">Time Span</div>
+      </div>
+    </div>
+    <div class="demos-hero-actions">
+      <a href="#os-gallery" class="btn btn-primary">Start Exploring</a>
+      <button id="compare-mode-btn" class="btn btn-secondary">Compare OS</button>
+    </div>
+  </div>
+
+  <!-- Floating Preview -->
+  <div class="demos-hero-preview">
+    <div class="preview-window">
+      <div class="preview-chrome">
+        <span class="preview-dot preview-dot-red"></span>
+        <span class="preview-dot preview-dot-yellow"></span>
+        <span class="preview-dot preview-dot-green"></span>
+      </div>
+      <div class="preview-content">
+        <div class="preview-screenshot" id="hero-preview"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Quick Stats Bar -->
+<section class="quick-stats">
+  <div class="stats-grid">
+    <div class="quick-stat">
+      <span class="quick-stat-icon">🪟</span>
+      <div class="quick-stat-text">
+        <div class="quick-stat-value">4</div>
+        <div class="quick-stat-label">Windows Versions</div>
+      </div>
+    </div>
+    <div class="quick-stat">
+      <span class="quick-stat-icon">🍎</span>
+      <div class="quick-stat-text">
+        <div class="quick-stat-value">3</div>
+        <div class="quick-stat-label">macOS Systems</div>
+      </div>
+    </div>
+    <div class="quick-stat">
+      <span class="quick-stat-icon">🐧</span>
+      <div class="quick-stat-text">
+        <div class="quick-stat-value">1</div>
+        <div class="quick-stat-label">Linux Desktop</div>
+      </div>
+    </div>
+    <div class="quick-stat">
+      <span class="quick-stat-icon">📱</span>
+      <div class="quick-stat-text">
+        <div class="quick-stat-value">1</div>
+        <div class="quick-stat-label">Mobile OS</div>
+      </div>
+    </div>
+    <div class="quick-stat">
+      <span class="quick-stat-icon">⚡</span>
+      <div class="quick-stat-text">
+        <div class="quick-stat-value">1</div>
+        <div class="quick-stat-label">Alternative OS</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Timeline View -->
+<section class="timeline-view" id="timeline-view">
+  <div class="section-header">
+    <h2 class="section-title">Timeline Explorer</h2>
+    <p class="section-subtitle">Journey through 30 years of operating system evolution</p>
+  </div>
+
+  <div class="timeline-container">
+    <div class="timeline-track">
+      <!-- 1990s -->
+      <div class="timeline-era">
+        <div class="era-label">1990s</div>
+        <div class="era-line"></div>
+      </div>
+
+      <div class="timeline-os" data-year="1991" data-os="macos-system7" style="left: 0%;">
+        <div class="timeline-marker">
+          <span class="timeline-icon">🍎</span>
+        </div>
+        <div class="timeline-tooltip">
+          <strong>Mac OS System 7</strong><br>1991
+        </div>
+      </div>
+
+      <div class="timeline-os" data-year="1992" data-os="windows-31" style="left: 3.3%;">
+        <div class="timeline-marker">
+          <span class="timeline-icon">🪟</span>
+        </div>
+        <div class="timeline-tooltip">
+          <strong>Windows 3.1</strong><br>1992
+        </div>
+      </div>
+
+      <div class="timeline-os" data-year="1995" data-os="windows-95" style="left: 13.3%;">
+        <div class="timeline-marker">
+          <span class="timeline-icon">🪟</span>
+        </div>
+        <div class="timeline-tooltip">
+          <strong>Windows 95</strong><br>1995
+        </div>
+      </div>
+
+      <div class="timeline-os" data-year="1999" data-os="macos-9" style="left: 26.7%;">
+        <div class="timeline-marker">
+          <span class="timeline-icon">🍏</span>
+        </div>
+        <div class="timeline-tooltip">
+          <strong>Mac OS 9</strong><br>1999
+        </div>
+      </div>
+
+      <!-- 2000s -->
+      <div class="timeline-era" style="left: 33.3%;">
+        <div class="era-label">2000s</div>
+        <div class="era-line"></div>
+      </div>
+
+      <div class="timeline-os" data-year="2000" data-os="beos-r5" style="left: 30%;">
+        <div class="timeline-marker">
+          <span class="timeline-icon">🟡</span>
+        </div>
+        <div class="timeline-tooltip">
+          <strong>BeOS R5</strong><br>2000
+        </div>
+      </div>
+
+      <div class="timeline-os" data-year="2001" data-os="windows-xp" style="left: 33.3%;">
+        <div class="timeline-marker">
+          <span class="timeline-icon">💠</span>
+        </div>
+        <div class="timeline-tooltip">
+          <strong>Windows XP</strong><br>2001
+        </div>
+      </div>
+
+      <div class="timeline-os" data-year="2001" data-os="macos-x-cheetah" style="left: 36.7%;">
+        <div class="timeline-marker">
+          <span class="timeline-icon">🐆</span>
+        </div>
+        <div class="timeline-tooltip">
+          <strong>Mac OS X Cheetah</strong><br>2001
+        </div>
+      </div>
+
+      <div class="timeline-os" data-year="2004" data-os="ubuntu-warty" style="left: 46.7%;">
+        <div class="timeline-marker">
+          <span class="timeline-icon">🐧</span>
+        </div>
+        <div class="timeline-tooltip">
+          <strong>Ubuntu 4.10 Warty</strong><br>2004
+        </div>
+      </div>
+
+      <div class="timeline-os" data-year="2007" data-os="ios-1" style="left: 56.7%;">
+        <div class="timeline-marker">
+          <span class="timeline-icon">📱</span>
+        </div>
+        <div class="timeline-tooltip">
+          <strong>iOS 1.0</strong><br>2007
+        </div>
+      </div>
+
+      <div class="timeline-os" data-year="2009" data-os="windows-7" style="left: 63.3%;">
+        <div class="timeline-marker">
+          <span class="timeline-icon">🪟</span>
+        </div>
+        <div class="timeline-tooltip">
+          <strong>Windows 7</strong><br>2009
+        </div>
+      </div>
+
+      <!-- 2010s+ -->
+      <div class="timeline-era" style="left: 66.7%;">
+        <div class="era-label">2010s+</div>
+        <div class="era-line"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OS Gallery Grid -->
+<section class="os-gallery" id="os-gallery">
+  <div class="section-header">
+    <h2 class="section-title">Operating System Gallery</h2>
+    <p class="section-subtitle">Click to explore each fully interactive recreation</p>
+  </div>
+
+  <!-- Filter Controls -->
+  <div class="gallery-filters">
+    <button class="filter-btn active" data-filter="all">All OS (10)</button>
+    <button class="filter-btn" data-filter="windows">Windows (4)</button>
+    <button class="filter-btn" data-filter="macos">macOS (3)</button>
+    <button class="filter-btn" data-filter="linux">Linux (1)</button>
+    <button class="filter-btn" data-filter="mobile">Mobile (1)</button>
+    <button class="filter-btn" data-filter="other">Other (1)</button>
+  </div>
+
+  <div class="os-grid">
+    <!-- Windows 3.1 -->
+    <article class="os-card" data-category="windows" data-year="1992">
+      <div class="os-card-header">
+        <div class="os-icon os-icon-win31">
+          <span class="icon-emoji">🪟</span>
+        </div>
+        <div class="os-badge os-badge-windows">Windows</div>
+      </div>
+      <div class="os-card-body">
+        <h3 class="os-name">Windows 3.1</h3>
+        <p class="os-year">1992 • Microsoft</p>
+        <p class="os-tagline">The GUI that brought Windows to the masses</p>
+        <ul class="os-features">
+          <li>Program Manager interface</li>
+          <li>TrueType font support</li>
+          <li>Multimedia extensions</li>
+          <li>Enhanced memory management</li>
+        </ul>
+      </div>
+      <div class="os-card-footer">
+        <a href="/os/windows-31/" class="btn btn-launch">Launch OS</a>
+        <a href="/os/windows-31/" class="btn-link">Learn More →</a>
+      </div>
+    </article>
+
+    <!-- Windows 95 -->
+    <article class="os-card" data-category="windows" data-year="1995">
+      <div class="os-card-header">
+        <div class="os-icon os-icon-win95">
+          <span class="icon-emoji">🪟</span>
+        </div>
+        <div class="os-badge os-badge-windows">Windows</div>
+      </div>
+      <div class="os-card-body">
+        <h3 class="os-name">Windows 95</h3>
+        <p class="os-year">1995 • Microsoft</p>
+        <p class="os-tagline">The revolution: Start menu and taskbar</p>
+        <ul class="os-features">
+          <li>Iconic Start button</li>
+          <li>32-bit architecture</li>
+          <li>Plug and Play support</li>
+          <li>Desktop icons and taskbar</li>
+        </ul>
+      </div>
+      <div class="os-card-footer">
+        <a href="/os/windows-95/" class="btn btn-launch">Launch OS</a>
+        <a href="/os/windows-95/" class="btn-link">Learn More →</a>
+      </div>
+    </article>
+
+    <!-- Windows XP -->
+    <article class="os-card" data-category="windows" data-year="2001">
+      <div class="os-card-header">
+        <div class="os-icon os-icon-winxp">
+          <span class="icon-emoji">💠</span>
+        </div>
+        <div class="os-badge os-badge-windows">Windows</div>
+      </div>
+      <div class="os-card-body">
+        <h3 class="os-name">Windows XP</h3>
+        <p class="os-year">2001 • Microsoft</p>
+        <p class="os-tagline">Luna theme perfection and Bliss wallpaper</p>
+        <ul class="os-features">
+          <li>Fisher-Price Luna theme</li>
+          <li>Enhanced Start menu</li>
+          <li>Remote Desktop Protocol</li>
+          <li>ClearType font rendering</li>
+        </ul>
+      </div>
+      <div class="os-card-footer">
+        <a href="/os/windows-xp/" class="btn btn-launch">Launch OS</a>
+        <a href="/os/windows-xp/" class="btn-link">Learn More →</a>
+      </div>
+    </article>
+
+    <!-- Windows 7 -->
+    <article class="os-card" data-category="windows" data-year="2009">
+      <div class="os-card-header">
+        <div class="os-icon os-icon-win7">
+          <span class="icon-emoji">🪟</span>
+        </div>
+        <div class="os-badge os-badge-windows">Windows</div>
+      </div>
+      <div class="os-card-body">
+        <h3 class="os-name">Windows 7</h3>
+        <p class="os-year">2009 • Microsoft</p>
+        <p class="os-tagline">Aero Glass beauty and peak Windows design</p>
+        <ul class="os-features">
+          <li>Aero Glass transparency</li>
+          <li>Taskbar improvements</li>
+          <li>Jump Lists and Snap</li>
+          <li>Libraries and HomeGroup</li>
+        </ul>
+      </div>
+      <div class="os-card-footer">
+        <a href="/os/windows-7/" class="btn btn-launch">Launch OS</a>
+        <a href="/os/windows-7/" class="btn-link">Learn More →</a>
+      </div>
+    </article>
+
+    <!-- Mac OS System 7 -->
+    <article class="os-card" data-category="macos" data-year="1991">
+      <div class="os-card-header">
+        <div class="os-icon os-icon-macos7">
+          <span class="icon-emoji">🍎</span>
+        </div>
+        <div class="os-badge os-badge-macos">Classic Mac</div>
+      </div>
+      <div class="os-card-body">
+        <h3 class="os-name">Mac OS System 7</h3>
+        <p class="os-year">1991 • Apple</p>
+        <p class="os-tagline">Classic Mac elegance with Chicago font</p>
+        <ul class="os-features">
+          <li>Global menu bar</li>
+          <li>Cooperative multitasking</li>
+          <li>Finder with labels</li>
+          <li>Balloon help system</li>
+        </ul>
+      </div>
+      <div class="os-card-footer">
+        <a href="/os/macos-system7/" class="btn btn-launch">Launch OS</a>
+        <a href="/os/macos-system7/" class="btn-link">Learn More →</a>
+      </div>
+    </article>
+
+    <!-- Mac OS 9 -->
+    <article class="os-card" data-category="macos" data-year="1999">
+      <div class="os-card-header">
+        <div class="os-icon os-icon-macos9">
+          <span class="icon-emoji">🍏</span>
+        </div>
+        <div class="os-badge os-badge-macos">Classic Mac</div>
+      </div>
+      <div class="os-card-body">
+        <h3 class="os-name">Mac OS 9</h3>
+        <p class="os-year">1999 • Apple</p>
+        <p class="os-tagline">Platinum pinstripes and Sherlock 2</p>
+        <ul class="os-features">
+          <li>Platinum appearance</li>
+          <li>Multiple user support</li>
+          <li>Sherlock 2 search</li>
+          <li>Software Update</li>
+        </ul>
+      </div>
+      <div class="os-card-footer">
+        <a href="/os/macos-9/" class="btn btn-launch">Launch OS</a>
+        <a href="/os/macos-9/" class="btn-link">Learn More →</a>
+      </div>
+    </article>
+
+    <!-- Mac OS X Cheetah -->
+    <article class="os-card" data-category="macos" data-year="2001">
+      <div class="os-card-header">
+        <div class="os-icon os-icon-macosx">
+          <span class="icon-emoji">🐆</span>
+        </div>
+        <div class="os-badge os-badge-macos">Mac OS X</div>
+      </div>
+      <div class="os-card-body">
+        <h3 class="os-name">Mac OS X Cheetah</h3>
+        <p class="os-year">2001 • Apple</p>
+        <p class="os-tagline">Aqua interface revolution begins</p>
+        <ul class="os-features">
+          <li>Aqua visual design</li>
+          <li>Unix-based foundation</li>
+          <li>Dock interface</li>
+          <li>Protected memory</li>
+        </ul>
+      </div>
+      <div class="os-card-footer">
+        <a href="/os/macos-x-cheetah/" class="btn btn-launch">Launch OS</a>
+        <a href="/os/macos-x-cheetah/" class="btn-link">Learn More →</a>
+      </div>
+    </article>
+
+    <!-- Ubuntu 4.10 Warty -->
+    <article class="os-card" data-category="linux" data-year="2004">
+      <div class="os-card-header">
+        <div class="os-icon os-icon-ubuntu">
+          <span class="icon-emoji">🐧</span>
+        </div>
+        <div class="os-badge os-badge-linux">Linux</div>
+      </div>
+      <div class="os-card-body">
+        <h3 class="os-name">Ubuntu 4.10 "Warty"</h3>
+        <p class="os-year">2004 • Canonical</p>
+        <p class="os-tagline">Linux for human beings with Human theme</p>
+        <ul class="os-features">
+          <li>Human brown/orange theme</li>
+          <li>GNOME 2.8 desktop</li>
+          <li>Synaptic package manager</li>
+          <li>Live CD installer</li>
+        </ul>
+      </div>
+      <div class="os-card-footer">
+        <a href="/os/ubuntu-warty/" class="btn btn-launch">Launch OS</a>
+        <a href="/os/ubuntu-warty/" class="btn-link">Learn More →</a>
+      </div>
+    </article>
+
+    <!-- BeOS R5 -->
+    <article class="os-card" data-category="other" data-year="2000">
+      <div class="os-card-header">
+        <div class="os-icon os-icon-beos">
+          <span class="icon-emoji">🟡</span>
+        </div>
+        <div class="os-badge os-badge-other">Alternative</div>
+      </div>
+      <div class="os-card-body">
+        <h3 class="os-name">BeOS R5</h3>
+        <p class="os-year">2000 • Be Inc.</p>
+        <p class="os-tagline">Media OS with iconic yellow tabs</p>
+        <ul class="os-features">
+          <li>Pervasive multithreading</li>
+          <li>Yellow window tabs</li>
+          <li>64-bit journaling BFS</li>
+          <li>Real-time media handling</li>
+        </ul>
+      </div>
+      <div class="os-card-footer">
+        <a href="/os/beos-r5/" class="btn btn-launch">Launch OS</a>
+        <a href="/os/beos-r5/" class="btn-link">Learn More →</a>
+      </div>
+    </article>
+
+    <!-- iOS 1.0 -->
+    <article class="os-card" data-category="mobile" data-year="2007">
+      <div class="os-card-header">
+        <div class="os-icon os-icon-ios">
+          <span class="icon-emoji">📱</span>
+        </div>
+        <div class="os-badge os-badge-mobile">Mobile</div>
+      </div>
+      <div class="os-card-body">
+        <h3 class="os-name">iOS 1.0</h3>
+        <p class="os-year">2007 • Apple</p>
+        <p class="os-tagline">Touch revolution with skeuomorphic design</p>
+        <ul class="os-features">
+          <li>Multi-touch interface</li>
+          <li>Skeuomorphic icons</li>
+          <li>Visual voicemail</li>
+          <li>Safari web browser</li>
+        </ul>
+      </div>
+      <div class="os-card-footer">
+        <a href="/os/ios-1/" class="btn btn-launch">Launch OS</a>
+        <a href="/os/ios-1/" class="btn-link">Learn More →</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- Feature Explorer -->
+<section class="feature-explorer">
+  <div class="section-header">
+    <h2 class="section-title">Feature Explorer</h2>
+    <p class="section-subtitle">Find OS by their signature features</p>
+  </div>
+
+  <div class="feature-filters">
+    <button class="feature-tag" data-feature="start-menu">
+      <span class="feature-icon">🚀</span>
+      Start Menu
+    </button>
+    <button class="feature-tag" data-feature="dock">
+      <span class="feature-icon">📌</span>
+      Dock
+    </button>
+    <button class="feature-tag" data-feature="taskbar">
+      <span class="feature-icon">📊</span>
+      Taskbar
+    </button>
+    <button class="feature-tag" data-feature="menu-bar">
+      <span class="feature-icon">📋</span>
+      Menu Bar
+    </button>
+    <button class="feature-tag" data-feature="workspaces">
+      <span class="feature-icon">🖥️</span>
+      Workspaces
+    </button>
+    <button class="feature-tag" data-feature="glass">
+      <span class="feature-icon">💎</span>
+      Glass UI
+    </button>
+    <button class="feature-tag" data-feature="touch">
+      <span class="feature-icon">👆</span>
+      Touch Support
+    </button>
+    <button class="feature-tag" data-feature="widgets">
+      <span class="feature-icon">🧩</span>
+      Widgets
+    </button>
+  </div>
+
+  <div id="feature-results" class="feature-results">
+    <p class="feature-results-text">Select features to filter operating systems</p>
+  </div>
+</section>
+
+<!-- What Makes These Special -->
+<section class="special-section">
+  <div class="section-header">
+    <h2 class="section-title">What Makes These Special</h2>
+  </div>
+
+  <div class="special-grid">
+    <div class="special-card">
+      <div class="special-icon">🎨</div>
+      <h3 class="special-title">Pixel-Perfect Recreations</h3>
+      <p class="special-description">
+        Every detail meticulously crafted to match the original OS, from fonts to button styles to window chrome.
+      </p>
+    </div>
+
+    <div class="special-card">
+      <div class="special-icon">⚙️</div>
+      <h3 class="special-title">Fully Functional Applications</h3>
+      <p class="special-description">
+        Working file managers, text editors, control panels, and more. Not just screenshots - real interactions.
+      </p>
+    </div>
+
+    <div class="special-card">
+      <div class="special-icon">🖱️</div>
+      <h3 class="special-title">Period-Accurate Interactions</h3>
+      <p class="special-description">
+        Window dragging, menu animations, taskbar behaviors - everything works like the original operating system.
+      </p>
+    </div>
+
+    <div class="special-card">
+      <div class="special-icon">🌐</div>
+      <h3 class="special-title">Modern Web Technologies</h3>
+      <p class="special-description">
+        Built with vanilla JavaScript, CSS3, and HTML5. No frameworks needed, just pure web standards.
+      </p>
+    </div>
+
+    <div class="special-card">
+      <div class="special-icon">♿</div>
+      <h3 class="special-title">Accessible Design</h3>
+      <p class="special-description">
+        Keyboard navigation, ARIA labels, and screen reader support make these recreations accessible to everyone.
+      </p>
+    </div>
+
+    <div class="special-card">
+      <div class="special-icon">📱</div>
+      <h3 class="special-title">Responsive & Mobile-Ready</h3>
+      <p class="special-description">
+        Experience desktop OS on any device with smart scaling and touch-friendly interactions.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Technology Stack -->
+<section class="tech-stack">
+  <div class="section-header">
+    <h2 class="section-title">Technology Stack</h2>
+    <p class="section-subtitle">Built with modern web standards</p>
+  </div>
+
+  <div class="tech-grid">
+    <div class="tech-item">
+      <div class="tech-icon">📜</div>
+      <h3>Vanilla JavaScript</h3>
+      <p>No framework dependencies, pure ES6+ code</p>
+    </div>
+
+    <div class="tech-item">
+      <div class="tech-icon">🎨</div>
+      <h3>CSS3</h3>
+      <p>Grid, Flexbox, backdrop-filter, animations</p>
+    </div>
+
+    <div class="tech-item">
+      <div class="tech-icon">🏗️</div>
+      <h3>Modular Architecture</h3>
+      <p>Component-based design with reusable modules</p>
+    </div>
+
+    <div class="tech-item">
+      <div class="tech-icon">⚡</div>
+      <h3>Performance First</h3>
+      <p>Optimized rendering, lazy loading, efficient DOM</p>
+    </div>
+  </div>
+
+  <div class="tech-stats">
+    <div class="tech-stat">
+      <div class="tech-stat-number">20,000+</div>
+      <div class="tech-stat-label">Lines of Code</div>
+    </div>
+    <div class="tech-stat">
+      <div class="tech-stat-number">50+</div>
+      <div class="tech-stat-label">Applications Built</div>
+    </div>
+    <div class="tech-stat">
+      <div class="tech-stat-number">9</div>
+      <div class="tech-stat-label">Core Components</div>
+    </div>
+    <div class="tech-stat">
+      <div class="tech-stat-number">30</div>
+      <div class="tech-stat-label">Years Covered</div>
+    </div>
+  </div>
+</section>
+
+<!-- Evolution Highlights -->
+<section class="evolution-highlights">
+  <div class="section-header">
+    <h2 class="section-title">Evolution Highlights</h2>
+    <p class="section-subtitle">Trace the evolution of operating system design</p>
+  </div>
+
+  <div class="evolution-grid">
+    <!-- Windows Evolution -->
+    <div class="evolution-card">
+      <h3 class="evolution-title">
+        <span class="evolution-icon">🪟</span>
+        Windows Evolution
+      </h3>
+      <div class="evolution-timeline">
+        <div class="evolution-step">
+          <div class="evolution-year">1992</div>
+          <div class="evolution-name">Windows 3.1</div>
+          <div class="evolution-note">Program Manager era</div>
+        </div>
+        <div class="evolution-arrow">→</div>
+        <div class="evolution-step">
+          <div class="evolution-year">1995</div>
+          <div class="evolution-name">Windows 95</div>
+          <div class="evolution-note">Start button revolution</div>
+        </div>
+        <div class="evolution-arrow">→</div>
+        <div class="evolution-step">
+          <div class="evolution-year">2001</div>
+          <div class="evolution-name">Windows XP</div>
+          <div class="evolution-note">Luna visual refresh</div>
+        </div>
+        <div class="evolution-arrow">→</div>
+        <div class="evolution-step">
+          <div class="evolution-year">2009</div>
+          <div class="evolution-name">Windows 7</div>
+          <div class="evolution-note">Aero Glass perfection</div>
+        </div>
+      </div>
+      <p class="evolution-summary">
+        From simple Program Manager to sophisticated Aero Glass, Windows evolved from
+        basic windowing to a complete desktop environment with rich visual effects.
+      </p>
+    </div>
+
+    <!-- Mac Evolution -->
+    <div class="evolution-card">
+      <h3 class="evolution-title">
+        <span class="evolution-icon">🍎</span>
+        Mac Evolution
+      </h3>
+      <div class="evolution-timeline">
+        <div class="evolution-step">
+          <div class="evolution-year">1991</div>
+          <div class="evolution-name">System 7</div>
+          <div class="evolution-note">Classic Mac perfected</div>
+        </div>
+        <div class="evolution-arrow">→</div>
+        <div class="evolution-step">
+          <div class="evolution-year">1999</div>
+          <div class="evolution-name">Mac OS 9</div>
+          <div class="evolution-note">Platinum interface</div>
+        </div>
+        <div class="evolution-arrow">→</div>
+        <div class="evolution-step">
+          <div class="evolution-year">2001</div>
+          <div class="evolution-name">Mac OS X</div>
+          <div class="evolution-note">Aqua revolution</div>
+        </div>
+      </div>
+      <p class="evolution-summary">
+        The dramatic shift from Classic Mac OS to OS X with Aqua interface marked one of
+        the biggest design transformations in computing history.
+      </p>
+    </div>
+
+    <!-- Linux/Mobile/Alternative -->
+    <div class="evolution-card">
+      <h3 class="evolution-title">
+        <span class="evolution-icon">🌟</span>
+        Alternative Systems
+      </h3>
+      <div class="evolution-timeline">
+        <div class="evolution-step">
+          <div class="evolution-year">2000</div>
+          <div class="evolution-name">BeOS R5</div>
+          <div class="evolution-note">Media OS innovation</div>
+        </div>
+        <div class="evolution-step">
+          <div class="evolution-year">2004</div>
+          <div class="evolution-name">Ubuntu Warty</div>
+          <div class="evolution-note">Linux for humans</div>
+        </div>
+        <div class="evolution-step">
+          <div class="evolution-year">2007</div>
+          <div class="evolution-name">iOS 1.0</div>
+          <div class="evolution-note">Touch revolution</div>
+        </div>
+      </div>
+      <p class="evolution-summary">
+        BeOS showed what could be possible with pervasive multithreading, Ubuntu brought
+        Linux to the mainstream, and iOS revolutionized mobile computing.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Comparison Mode Modal -->
+<div id="compare-modal" class="modal" hidden>
+  <div class="modal-overlay"></div>
+  <div class="modal-content modal-large">
+    <div class="modal-header">
+      <h2 class="modal-title">Compare Operating Systems</h2>
+      <button class="modal-close" aria-label="Close comparison mode">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="compare-selectors">
+        <div class="compare-selector">
+          <label for="compare-os-1">First OS:</label>
+          <select id="compare-os-1" class="compare-select">
+            <option value="">Select OS...</option>
+            <option value="windows-31">Windows 3.1 (1992)</option>
+            <option value="windows-95">Windows 95 (1995)</option>
+            <option value="windows-xp">Windows XP (2001)</option>
+            <option value="windows-7">Windows 7 (2009)</option>
+            <option value="macos-system7">Mac OS System 7 (1991)</option>
+            <option value="macos-9">Mac OS 9 (1999)</option>
+            <option value="macos-x-cheetah">Mac OS X Cheetah (2001)</option>
+            <option value="ubuntu-warty">Ubuntu 4.10 Warty (2004)</option>
+            <option value="beos-r5">BeOS R5 (2000)</option>
+            <option value="ios-1">iOS 1.0 (2007)</option>
+          </select>
+        </div>
+        <div class="compare-vs">vs</div>
+        <div class="compare-selector">
+          <label for="compare-os-2">Second OS:</label>
+          <select id="compare-os-2" class="compare-select">
+            <option value="">Select OS...</option>
+            <option value="windows-31">Windows 3.1 (1992)</option>
+            <option value="windows-95">Windows 95 (1995)</option>
+            <option value="windows-xp">Windows XP (2001)</option>
+            <option value="windows-7">Windows 7 (2009)</option>
+            <option value="macos-system7">Mac OS System 7 (1991)</option>
+            <option value="macos-9">Mac OS 9 (1999)</option>
+            <option value="macos-x-cheetah">Mac OS X Cheetah (2001)</option>
+            <option value="ubuntu-warty">Ubuntu 4.10 Warty (2004)</option>
+            <option value="beos-r5">BeOS R5 (2000)</option>
+            <option value="ios-1">iOS 1.0 (2007)</option>
+          </select>
+        </div>
+      </div>
+      <div class="compare-actions">
+        <button id="start-comparison" class="btn btn-primary" disabled>Start Comparison</button>
+      </div>
+      <div id="compare-frames" class="compare-frames" hidden>
+        <div class="compare-frame">
+          <div class="compare-frame-header">
+            <h3 id="compare-title-1">OS 1</h3>
+            <a id="compare-fullscreen-1" class="btn-link" href="#" target="_blank">Open in New Tab</a>
+          </div>
+          <iframe id="compare-iframe-1" class="compare-iframe"></iframe>
+        </div>
+        <div class="compare-frame">
+          <div class="compare-frame-header">
+            <h3 id="compare-title-2">OS 2</h3>
+            <a id="compare-fullscreen-2" class="btn-link" href="#" target="_blank">Open in New Tab</a>
+          </div>
+          <iframe id="compare-iframe-2" class="compare-iframe"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Keyboard Shortcuts Modal -->
+<div id="shortcuts-modal" class="modal" hidden>
+  <div class="modal-overlay"></div>
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 class="modal-title">Keyboard Shortcuts</h2>
+      <button class="modal-close" aria-label="Close shortcuts">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="shortcuts-section">
+        <h3>Global Shortcuts</h3>
+        <dl class="shortcuts-list">
+          <dt><kbd>?</kbd></dt>
+          <dd>Show keyboard shortcuts</dd>
+
+          <dt><kbd>Esc</kbd></dt>
+          <dd>Close current modal</dd>
+
+          <dt><kbd>C</kbd></dt>
+          <dd>Open comparison mode</dd>
+
+          <dt><kbd>1</kbd> - <kbd>9</kbd></dt>
+          <dd>Quick launch OS 1-9</dd>
+        </dl>
+      </div>
+
+      <div class="shortcuts-section">
+        <h3>Navigation</h3>
+        <dl class="shortcuts-list">
+          <dt><kbd>Tab</kbd></dt>
+          <dd>Navigate through OS cards</dd>
+
+          <dt><kbd>Enter</kbd></dt>
+          <dd>Launch selected OS</dd>
+
+          <dt><kbd>/</kbd></dt>
+          <dd>Focus search (on timeline page)</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Quick Launcher Widget -->
+<div id="quick-launcher" class="quick-launcher">
+  <button id="quick-launcher-toggle" class="quick-launcher-toggle" aria-label="Quick launcher">
+    <span class="launcher-icon">🚀</span>
+  </button>
+  <div id="quick-launcher-menu" class="quick-launcher-menu" hidden>
+    <div class="quick-launcher-header">
+      <h3>Quick Launch</h3>
+      <input type="search" id="quick-search" placeholder="Search OS..." class="quick-search">
+    </div>
+    <div class="quick-launcher-list" id="quick-launcher-list">
+      <!-- Will be populated by JavaScript -->
+    </div>
+  </div>
+</div>
+
+<!-- CTA Section -->
+<section class="cta-section">
+  <div class="cta-content">
+    <h2 class="cta-title">Ready to Explore Computing History?</h2>
+    <p class="cta-subtitle">
+      Experience 30 years of operating system evolution through pixel-perfect recreations
+    </p>
+    <div class="cta-actions">
+      <a href="/os/windows-95/" class="btn btn-primary btn-large">Start with Windows 95</a>
+      <a href="/" class="btn btn-secondary btn-large">View Full Timeline (94 OS)</a>
+    </div>
+  </div>
+</section>
+
+<!-- Include CSS and JavaScript -->
+<link rel="stylesheet" href="/assets/css/demos.css">
+<script src="/assets/js/demos.js"></script>

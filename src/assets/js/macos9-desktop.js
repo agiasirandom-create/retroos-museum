@@ -118,6 +118,30 @@
         ]
       });
 
+      // Applications folder shortcut
+      this.desktop.addIcon({
+        id: 'applications',
+        label: 'Applications',
+        icon: this._createFolderIcon(),
+        onOpen: () => this._showAlert('Applications folder (demo)'),
+        contextMenuItems: [
+          { label: 'Open', action: () => this._showAlert('Applications folder (demo)') },
+          { label: 'Get Info', action: () => this._showGetInfo('Applications') }
+        ]
+      });
+
+      // Documents folder shortcut
+      this.desktop.addIcon({
+        id: 'documents',
+        label: 'Documents',
+        icon: this._createFolderIcon(),
+        onOpen: () => this._showAlert('Documents folder (demo)'),
+        contextMenuItems: [
+          { label: 'Open', action: () => this._showAlert('Documents folder (demo)') },
+          { label: 'Get Info', action: () => this._showGetInfo('Documents') }
+        ]
+      });
+
       // Trash icon
       this.desktop.addIcon({
         id: 'trash',
@@ -185,6 +209,14 @@
      */
     _createHardDriveIcon() {
       return '<svg width="48" height="48" viewBox="0 0 48 48"><defs><linearGradient id="hdGrad" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:#EEEEEE;stop-opacity:1" /><stop offset="100%" style="stop-color:#CCCCCC;stop-opacity:1" /></linearGradient></defs><rect x="6" y="12" width="36" height="28" rx="2" fill="url(#hdGrad)" stroke="#000" stroke-width="2"/><rect x="6" y="12" width="36" height="6" fill="#DDDDDD" stroke="#000" stroke-width="2"/><circle cx="38" cy="15" r="2" fill="#00AA00"/><rect x="14" y="24" width="20" height="10" rx="1" fill="#999999" stroke="#000" stroke-width="1"/><rect x="18" y="28" width="12" height="2" fill="#666666"/></svg>';
+    }
+
+    /**
+     * Create folder icon SVG
+     * @private
+     */
+    _createFolderIcon() {
+      return '<svg width="48" height="48" viewBox="0 0 48 48"><defs><linearGradient id="folderGrad" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:#6699FF;stop-opacity:1" /><stop offset="100%" style="stop-color:#3366CC;stop-opacity:1" /></linearGradient></defs><path d="M6 14 L6 38 C6 40 8 42 10 42 L38 42 C40 42 42 40 42 38 L42 18 C42 16 40 14 38 14 L24 14 L20 10 L10 10 C8 10 6 12 6 14 Z" fill="url(#folderGrad)" stroke="#000" stroke-width="2"/><path d="M6 14 L6 18 L42 18 L42 14 L24 14 L20 10 L10 10 C8 10 6 12 6 14 Z" fill="#4477DD" stroke="#000" stroke-width="2"/></svg>';
     }
 
     /**
@@ -388,6 +420,48 @@
           if (typeof MacOS9SystemProfiler !== 'undefined') {
             const profiler = new MacOS9SystemProfiler(this);
             profiler.open();
+          }
+          break;
+
+        case 'openSimpleText':
+          if (typeof MacOS9SimpleText !== 'undefined') {
+            const simpleText = new MacOS9SimpleText(this);
+            simpleText.open();
+          }
+          break;
+
+        case 'openDVDPlayer':
+          if (typeof MacOS9AppleDVDPlayer !== 'undefined') {
+            const dvdPlayer = new MacOS9AppleDVDPlayer(this);
+            dvdPlayer.open();
+          }
+          break;
+
+        case 'openGraphingCalc':
+          if (typeof MacOS9GraphingCalc !== 'undefined') {
+            const graphingCalc = new MacOS9GraphingCalc(this);
+            graphingCalc.open();
+          }
+          break;
+
+        case 'openQuickTime':
+          if (typeof MacOS9QuickTime !== 'undefined') {
+            const quickTime = new MacOS9QuickTime(this);
+            quickTime.open();
+          }
+          break;
+
+        case 'openAppleScript':
+          if (typeof MacOS9AppleScript !== 'undefined') {
+            const appleScript = new MacOS9AppleScript(this);
+            appleScript.open();
+          }
+          break;
+
+        case 'openKeychain':
+          if (typeof MacOS9Keychain !== 'undefined') {
+            const keychain = new MacOS9Keychain(this);
+            keychain.open();
           }
           break;
 

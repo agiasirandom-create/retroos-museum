@@ -81,7 +81,7 @@
               },
               {
                 label: 'The GIMP',
-                action: () => alert('GIMP would launch here')
+                action: () => this.desktop.openGimp()
               }
             ]
           },
@@ -95,7 +95,7 @@
               },
               {
                 label: 'Evolution Email',
-                action: () => alert('Evolution would launch here')
+                action: () => this.desktop.openEvolution()
               },
               {
                 label: 'Gaim Internet Messenger',
@@ -127,11 +127,11 @@
             submenu: [
               {
                 label: 'Rhythmbox Music Player',
-                action: () => alert('Rhythmbox would launch here')
+                action: () => this.desktop.openRhythmbox()
               },
               {
                 label: 'Totem Movie Player',
-                action: () => alert('Totem would launch here')
+                action: () => this.desktop.openTotem()
               },
               {
                 label: 'Sound Recorder',
@@ -291,6 +291,10 @@
             icon: this.getMenuIcon('administration'),
             submenu: [
               {
+                label: 'Add/Remove Applications',
+                action: () => this.desktop.openSoftwareCenter()
+              },
+              {
                 label: 'Login Window',
                 action: () => alert('Login Window settings would open here')
               },
@@ -312,7 +316,7 @@
               },
               {
                 label: 'Update Manager',
-                action: () => alert('Update Manager would launch here')
+                action: () => this.desktop.openUpdateManager()
               },
               {
                 label: 'Users and Groups',
