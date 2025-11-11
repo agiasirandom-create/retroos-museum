@@ -1,0 +1,1122 @@
+/**
+ * Windows 7 Aero Glass Theme
+ * Pixel-perfect recreation with authentic glass effects
+ */
+
+/* ========================================
+   Base & Reset
+   ======================================== */
+
+@font-face {
+  font-family: 'Segoe UI';
+  font-weight: 400;
+  font-style: normal;
+  src: local('Segoe UI'), local('SegoeUI');
+}
+
+@font-face {
+  font-family: 'Segoe UI';
+  font-weight: 600;
+  font-style: normal;
+  src: local('Segoe UI Semibold'), local('SegoeUI-Semibold');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body.win7-body {
+  font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+  font-size: 12px;
+  overflow: hidden;
+  cursor: default;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========================================
+   Desktop
+   ======================================== */
+
+.win7-desktop {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: linear-gradient(180deg, #3A6EA5 0%, #224F7A 100%);
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.desktop-icons {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 1;
+}
+
+.desktop-icon {
+  width: 75px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background 0.1s ease;
+}
+
+.desktop-icon:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.desktop-icon.selected {
+  background: rgba(77, 166, 255, 0.4);
+  border: 1px solid rgba(77, 166, 255, 0.8);
+}
+
+.desktop-icon-image {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 4px;
+  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.5));
+}
+
+.desktop-icon-label {
+  color: #FFFFFF;
+  font-size: 11px;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9);
+  word-wrap: break-word;
+  max-width: 75px;
+}
+
+/* ========================================
+   Desktop Gadgets Sidebar
+   ======================================== */
+
+.gadgets-sidebar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: calc(100vh - 40px);
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 2;
+}
+
+.gadget {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(20px);
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.3),
+    0 4px 16px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease;
+}
+
+.gadget:hover {
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.4),
+    0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* ========================================
+   Taskbar (Superbar)
+   ======================================== */
+
+.win7-taskbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(20px);
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 -1px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Start Button (Orb) */
+.start-button {
+  width: 54px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+  position: relative;
+}
+
+.start-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.start-button:active,
+.start-button[aria-expanded="true"] {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.start-button .start-orb {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+  transition: all 0.15s ease;
+}
+
+.start-button:hover .start-orb {
+  filter: drop-shadow(0 2px 6px rgba(77, 166, 255, 0.6));
+}
+
+/* Taskbar Apps Area */
+.taskbar-apps {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 0 4px;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.taskbar-apps::-webkit-scrollbar {
+  display: none;
+}
+
+.taskbar-app {
+  width: 48px;
+  height: 36px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  transition: all 0.15s ease;
+  position: relative;
+}
+
+.taskbar-app::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background: rgba(77, 166, 255, 0.8);
+  transition: width 0.15s ease;
+}
+
+.taskbar-app.active::before {
+  width: 40px;
+}
+
+.taskbar-app:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.taskbar-app:active {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.taskbar-app-icon {
+  width: 32px;
+  height: 32px;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+}
+
+/* System Tray */
+.system-tray {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 8px;
+  gap: 8px;
+}
+
+.show-hidden-icons {
+  width: 20px;
+  height: 20px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  color: #FFFFFF;
+  transition: background 0.15s ease;
+}
+
+.show-hidden-icons:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.tray-icons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tray-icon {
+  width: 20px;
+  height: 20px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  color: #FFFFFF;
+  transition: background 0.15s ease;
+}
+
+.tray-icon:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.clock {
+  color: #FFFFFF;
+  font-size: 11px;
+  text-align: right;
+  padding: 0 8px;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background 0.15s ease;
+  min-width: 60px;
+}
+
+.clock:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.clock-time {
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.clock-date {
+  font-size: 10px;
+  opacity: 0.9;
+  line-height: 1.2;
+}
+
+.show-desktop-btn {
+  width: 8px;
+  height: 40px;
+  border: none;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.show-desktop-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.show-desktop-btn:active {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* ========================================
+   Start Menu
+   ======================================== */
+
+.start-menu {
+  position: fixed;
+  bottom: 45px;
+  left: 0;
+  width: 420px;
+  background: rgba(30, 30, 30, 0.95);
+  backdrop-filter: blur(30px);
+  border-radius: 8px 8px 0 0;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    0 8px 32px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.2s ease;
+  z-index: 10001;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.start-menu-container {
+  display: flex;
+  height: 500px;
+}
+
+.start-menu-left {
+  flex: 1;
+  padding: 12px 8px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.start-menu-search {
+  position: relative;
+  margin-bottom: 12px;
+}
+
+.start-menu-search input {
+  width: 100%;
+  padding: 6px 30px 6px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 12px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.start-menu-search input:focus {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(77, 166, 255, 0.6);
+  box-shadow: 0 0 6px rgba(77, 166, 255, 0.4);
+}
+
+.start-menu-search input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.search-icon {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255, 255, 255, 0.6);
+  pointer-events: none;
+}
+
+.start-menu-pinned {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 4px 0;
+}
+
+.start-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #FFFFFF;
+  transition: background 0.15s ease;
+}
+
+.start-menu-item:hover {
+  background: rgba(77, 166, 255, 0.3);
+}
+
+.start-menu-item-icon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+.start-menu-item-text {
+  font-size: 12px;
+  flex: 1;
+}
+
+.start-menu-separator {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 8px 0;
+}
+
+.start-menu-all-programs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #FFFFFF;
+  transition: background 0.15s ease;
+}
+
+.start-menu-all-programs:hover {
+  background: rgba(77, 166, 255, 0.3);
+}
+
+.start-menu-right {
+  width: 200px;
+  padding: 12px 8px;
+  background: rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.start-menu-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.start-menu-user:hover {
+  background: rgba(77, 166, 255, 0.3);
+}
+
+.user-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.user-name {
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.start-menu-place {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #FFFFFF;
+  transition: background 0.15s ease;
+}
+
+.start-menu-place:hover {
+  background: rgba(77, 166, 255, 0.3);
+}
+
+.start-menu-place-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.start-menu-place-text {
+  font-size: 12px;
+}
+
+.start-menu-footer {
+  height: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 0 0 8px 8px;
+}
+
+.shutdown-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: #FFFFFF;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.shutdown-btn:hover {
+  background: rgba(77, 166, 255, 0.3);
+}
+
+.dropdown-arrow {
+  margin-left: auto;
+}
+
+/* ========================================
+   Windows (Aero Glass)
+   ======================================== */
+
+.windows-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 40px;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.win7-window {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(20px);
+  border-radius: 8px 8px 0 0;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.3),
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  pointer-events: all;
+  transition: box-shadow 0.2s ease;
+}
+
+.win7-window.maximized {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.win7-window.inactive {
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.2),
+    0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Title Bar with Aero Glass */
+.win7-titlebar {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  background: linear-gradient(
+    to bottom,
+    rgba(215, 228, 242, 0.95) 0%,
+    rgba(185, 209, 234, 0.95) 50%,
+    rgba(160, 190, 222, 0.95) 51%,
+    rgba(188, 212, 237, 0.95) 100%
+  );
+  backdrop-filter: blur(20px);
+  border-radius: 8px 8px 0 0;
+  cursor: move;
+  user-select: none;
+}
+
+.win7-window.inactive .win7-titlebar {
+  background: linear-gradient(
+    to bottom,
+    rgba(242, 242, 242, 0.9) 0%,
+    rgba(228, 228, 228, 0.9) 50%,
+    rgba(218, 218, 218, 0.9) 51%,
+    rgba(235, 235, 235, 0.9) 100%
+  );
+}
+
+.win7-titlebar-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+}
+
+.win7-titlebar-text {
+  flex: 1;
+  font-size: 12px;
+  font-weight: 600;
+  color: #000000;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.win7-window.inactive .win7-titlebar-text {
+  color: #646464;
+}
+
+.win7-titlebar-controls {
+  display: flex;
+  gap: 1px;
+}
+
+.win7-control-btn {
+  width: 46px;
+  height: 24px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease;
+  border-radius: 2px;
+}
+
+.win7-control-btn:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.win7-control-btn.close:hover {
+  background: #D32F2F;
+  color: #FFFFFF;
+}
+
+.win7-control-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Window Content Area */
+.win7-window-content {
+  flex: 1;
+  background: #FFFFFF;
+  overflow: auto;
+  position: relative;
+}
+
+/* Menu Bar */
+.win7-menubar {
+  height: 24px;
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom: 1px solid #E0E0E0;
+  display: flex;
+  align-items: center;
+  padding: 0 4px;
+}
+
+.win7-menu-item {
+  padding: 4px 12px;
+  font-size: 11px;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background 0.15s ease;
+}
+
+.win7-menu-item:hover {
+  background: rgba(77, 166, 255, 0.2);
+}
+
+/* Toolbar */
+.win7-toolbar {
+  height: 32px;
+  background: linear-gradient(to bottom, #F6F6F6 0%, #ECECEC 100%);
+  border-bottom: 1px solid #D0D0D0;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  gap: 2px;
+}
+
+.win7-toolbar-btn {
+  height: 24px;
+  padding: 0 8px;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  transition: all 0.15s ease;
+}
+
+.win7-toolbar-btn:hover {
+  border-color: #3A6EA5;
+  background: linear-gradient(to bottom, #EAF6FF 0%, #D9F0FF 100%);
+}
+
+.win7-toolbar-btn:active {
+  background: #C4E5F6;
+}
+
+/* Address Bar */
+.win7-addressbar {
+  height: 28px;
+  background: #FFFFFF;
+  border: 1px solid #D0D0D0;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  padding: 0 6px;
+  margin: 8px;
+  gap: 4px;
+}
+
+.win7-addressbar-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.win7-addressbar-item {
+  padding: 4px 8px;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 11px;
+  transition: background 0.15s ease;
+}
+
+.win7-addressbar-item:hover {
+  background: rgba(77, 166, 255, 0.15);
+}
+
+.win7-addressbar-arrow {
+  color: #666666;
+  font-size: 10px;
+}
+
+/* Status Bar */
+.win7-statusbar {
+  height: 22px;
+  background: linear-gradient(to bottom, #F6F6F6 0%, #ECECEC 100%);
+  border-top: 1px solid #D0D0D0;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  font-size: 11px;
+  color: #333333;
+}
+
+/* Resize Handle */
+.win7-resize-handle {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 16px;
+  height: 16px;
+  cursor: nwse-resize;
+}
+
+/* ========================================
+   Thumbnail Previews (Aero Peek)
+   ======================================== */
+
+.thumbnail-previews {
+  position: fixed;
+  bottom: 50px;
+  background: rgba(30, 30, 30, 0.95);
+  backdrop-filter: blur(30px);
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    0 8px 32px rgba(0, 0, 0, 0.5);
+  animation: fadeIn 0.15s ease;
+  z-index: 10002;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.thumbnail-preview {
+  width: 200px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.thumbnail-preview:hover {
+  background: rgba(77, 166, 255, 0.3);
+  transform: scale(1.05);
+}
+
+.thumbnail-preview-image {
+  width: 100%;
+  height: 120px;
+  background: #FFFFFF;
+  object-fit: cover;
+}
+
+.thumbnail-preview-title {
+  padding: 6px 8px;
+  color: #FFFFFF;
+  font-size: 11px;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.thumbnail-close-btn {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: 2px;
+  background: rgba(211, 47, 47, 0.9);
+  color: #FFFFFF;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.thumbnail-preview:hover .thumbnail-close-btn {
+  opacity: 1;
+}
+
+/* ========================================
+   Aero Snap Preview
+   ======================================== */
+
+.snap-preview {
+  position: fixed;
+  border: 2px solid rgba(77, 166, 255, 0.8);
+  background: rgba(77, 166, 255, 0.2);
+  backdrop-filter: blur(10px);
+  pointer-events: none;
+  z-index: 9999;
+  animation: snapFade 0.2s ease;
+}
+
+@keyframes snapFade {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ========================================
+   Aero Peek Overlay
+   ======================================== */
+
+.aero-peek-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 40px;
+  background: rgba(0, 0, 0, 0);
+  pointer-events: none;
+  z-index: 99;
+  transition: background 0.3s ease;
+}
+
+.aero-peek-overlay.active {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.aero-peek-overlay.active ~ .win7-window {
+  opacity: 0.1;
+}
+
+/* ========================================
+   Context Menu
+   ======================================== */
+
+.win7-context-menu {
+  position: fixed;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 4px;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.1),
+    0 4px 16px rgba(0, 0, 0, 0.2);
+  padding: 4px 0;
+  min-width: 200px;
+  z-index: 10003;
+  animation: menuFadeIn 0.15s ease;
+}
+
+@keyframes menuFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.context-menu-item {
+  padding: 6px 32px 6px 12px;
+  font-size: 11px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.15s ease;
+}
+
+.context-menu-item:hover {
+  background: rgba(77, 166, 255, 0.2);
+}
+
+.context-menu-item.disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.context-menu-separator {
+  height: 1px;
+  background: rgba(0, 0, 0, 0.1);
+  margin: 4px 8px;
+}
+
+.context-menu-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.context-menu-text {
+  flex: 1;
+}
+
+.context-menu-shortcut {
+  margin-left: auto;
+  font-size: 10px;
+  color: #666666;
+}
+
+/* ========================================
+   Loading Animation
+   ======================================== */
+
+.win7-loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  animation: fadeOut 1s ease 2s forwards;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.win7-loading-logo {
+  width: 120px;
+  height: 120px;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+/* ========================================
+   Scrollbars
+   ======================================== */
+
+.win7-window-content::-webkit-scrollbar {
+  width: 17px;
+  height: 17px;
+}
+
+.win7-window-content::-webkit-scrollbar-track {
+  background: #F0F0F0;
+}
+
+.win7-window-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #E4E4E4 0%, #D0D0D0 50%, #BEBEBE 100%);
+  border: 1px solid #A0A0A0;
+  border-radius: 2px;
+}
+
+.win7-window-content::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #C0D8F0 0%, #A0C0E0 50%, #80A0D0 100%);
+}
+
+.win7-window-content::-webkit-scrollbar-button {
+  height: 17px;
+  width: 17px;
+  background: linear-gradient(to bottom, #F0F0F0 0%, #E0E0E0 100%);
+  border: 1px solid #A0A0A0;
+}
+
+.win7-window-content::-webkit-scrollbar-button:hover {
+  background: linear-gradient(to bottom, #E0F0FF 0%, #C0D8F0 100%);
+}
+
+/* ========================================
+   Accessibility
+   ======================================== */
+
+.win7-window:focus-within {
+  outline: 2px solid rgba(77, 166, 255, 0.6);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ========================================
+   Utilities
+   ======================================== */
+
+.hidden {
+  display: none !important;
+}
+
+.no-select {
+  user-select: none;
+}
+
+.dragging {
+  cursor: move !important;
+}
+
+.resizing {
+  cursor: nwse-resize !important;
+}

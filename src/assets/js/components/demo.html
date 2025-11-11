@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Window Systems Demo - RetroOS Museum</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    .control-panel {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      z-index: 10001;
+      max-width: 300px;
+    }
+
+    .control-panel h2 {
+      font-size: 18px;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .control-panel h3 {
+      font-size: 14px;
+      margin-top: 15px;
+      margin-bottom: 8px;
+      color: #666;
+      border-top: 1px solid #e0e0e0;
+      padding-top: 12px;
+    }
+
+    .control-panel h3:first-of-type {
+      border-top: none;
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 10px 16px;
+      margin-bottom: 8px;
+      background: #667eea;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-weight: 500;
+    }
+
+    .btn:hover {
+      background: #5568d3;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+    }
+
+    .btn-secondary {
+      background: #48bb78;
+    }
+
+    .btn-secondary:hover {
+      background: #38a169;
+      box-shadow: 0 4px 12px rgba(72, 187, 120, 0.4);
+    }
+
+    #desktop {
+      width: 100vw;
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .info {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 12px;
+      z-index: 10001;
+    }
+  </style>
+</head>
+<body>
+  <div class="control-panel">
+    <h2>Window Systems Demo</h2>
+
+    <h3>Classic Windows</h3>
+    <button class="btn" onclick="createClassicWindow('win95')">Windows 95</button>
+    <button class="btn" onclick="createClassicWindow('winxp')">Windows XP</button>
+
+    <h3>Modern Windows</h3>
+    <button class="btn" onclick="createModernWindow('win7')">Windows 7 (Aero)</button>
+    <button class="btn" onclick="createModernWindow('win11')">Windows 11</button>
+
+    <h3>Mac Classic</h3>
+    <button class="btn" onclick="createMacClassicWindow()">Mac OS 9</button>
+
+    <h3>Mac Modern</h3>
+    <button class="btn" onclick="createMacModernWindow()">macOS Aqua</button>
+
+    <h3>UNIX</h3>
+    <button class="btn" onclick="createUnixWindow('cde')">CDE</button>
+    <button class="btn" onclick="createUnixWindow('motif')">Motif</button>
+
+    <h3>Actions</h3>
+    <button class="btn btn-secondary" onclick="closeAllWindows()">Close All</button>
+  </div>
+
+  <div id="desktop"></div>
+
+  <div class="info">
+    <strong>RetroOS Museum</strong><br>
+    Window Systems Component Library
+  </div>
+
+  <!-- Load all window system components -->
+  <script src="classic-windows.js"></script>
+  <script src="modern-windows.js"></script>
+  <script src="mac-classic.js"></script>
+  <script src="mac-modern.js"></script>
+  <script src="unix-windows.js"></script>
+
+  <script>
+    // Initialize all window systems
+    const classicSystem = new ClassicWindowsSystem();
+    const modernSystem = new ModernWindowsSystem();
+    const macClassicSystem = new MacClassicSystem();
+    const macModernSystem = new MacModernSystem();
+    const unixSystem = new UnixWindowsSystem();
+
+    const desktop = document.getElementById('desktop');
+    let windowCounter = 0;
+
+    // Utility function to get random position
+    function getRandomPosition() {
+      const margin = 100;
+      return {
+        x: Math.random() * (window.innerWidth - 600 - margin * 2) + margin,
+        y: Math.random() * (window.innerHeight - 400 - margin * 2) + margin
+      };
+    }
+
+    // Create Classic Windows window
+    function createClassicWindow(style) {
+      classicSystem.setTheme({ style });
+      const pos = getRandomPosition();
+      const win = classicSystem.createWindow({
+        id: `classic-${++windowCounter}`,
+        title: `${style === 'win95' ? 'Windows 95' : 'Windows XP'} Window`,
+        content: `
+          <div style="padding: 20px; font-family: Tahoma, Arial, sans-serif;">
+            <h2 style="color: #0054E3; margin-bottom: 10px;">
+              ${style === 'win95' ? 'Windows 95' : 'Windows XP'}
+            </h2>
+            <p style="margin-bottom: 10px;">
+              Classic ${style === 'win95' ? '3D' : 'gradient'} title bar with authentic styling.
+            </p>
+            <ul style="margin-left: 20px; line-height: 1.6;">
+              <li>Draggable and resizable</li>
+              <li>8-direction resize handles</li>
+              <li>Min/Max/Close buttons</li>
+              <li>3D raised borders</li>
+            </ul>
+          </div>
+        `,
+        width: 500,
+        height: 350,
+        x: pos.x,
+        y: pos.y,
+        menuItems: [
+          { label: 'File', onClick: () => alert('File menu') },
+          { label: 'Edit', onClick: () => alert('Edit menu') },
+          { label: 'View', onClick: () => alert('View menu') },
+          { label: 'Help', onClick: () => alert('Help menu') }
+        ],
+        statusBar: 'Ready',
+        onClose: () => console.log('Classic window closed')
+      });
+      desktop.appendChild(win);
+    }
+
+    // Create Modern Windows window
+    function createModernWindow(style) {
+      modernSystem.setTheme({ style });
+      const pos = getRandomPosition();
+      const win = modernSystem.createWindow({
+        id: `modern-${++windowCounter}`,
+        title: `${style === 'win7' ? 'Windows 7' : 'Windows 11'} Window`,
+        content: `
+          <div style="padding: 30px; font-family: 'Segoe UI', sans-serif;">
+            <h2 style="color: #0078d4; margin-bottom: 15px;">
+              ${style === 'win7' ? 'Aero Glass' : 'Modern Design'}
+            </h2>
+            <p style="margin-bottom: 15px; line-height: 1.6;">
+              ${style === 'win7'
+                ? 'Experience the iconic Aero Glass effect with blur and transparency.'
+                : 'Sleek modern design with rounded corners and shadows.'}
+            </p>
+            <ul style="line-height: 1.8;">
+              <li>Snap assist (drag to edges)</li>
+              <li>Smooth animations</li>
+              <li>SVG control buttons</li>
+              <li>${style === 'win7' ? 'Blur effects' : 'Rounded corners'}</li>
+            </ul>
+          </div>
+        `,
+        width: 600,
+        height: 400,
+        x: pos.x,
+        y: pos.y,
+        onClose: () => console.log('Modern window closed')
+      });
+      desktop.appendChild(win);
+    }
+
+    // Create Mac Classic window
+    function createMacClassicWindow() {
+      const pos = getRandomPosition();
+      const win = macClassicSystem.createWindow({
+        id: `mac-classic-${++windowCounter}`,
+        title: 'Macintosh HD',
+        content: `
+          <div style="padding: 20px; font-family: Geneva, Helvetica, sans-serif;">
+            <h2 style="color: #333; margin-bottom: 10px;">Mac OS 9 Platinum</h2>
+            <p style="margin-bottom: 10px; line-height: 1.6;">
+              Authentic Mac OS Classic window with pinstriped title bar.
+            </p>
+            <ul style="margin-left: 20px; line-height: 1.6;">
+              <li>Close/Collapse/Zoom boxes (left side)</li>
+              <li>Window shade (double-click title bar)</li>
+              <li>Resize handle (bottom-right)</li>
+              <li>Rounded corners</li>
+            </ul>
+            <p style="margin-top: 15px; padding: 10px; background: #f0f0f0; border-radius: 4px; font-size: 11px;">
+              💡 Try double-clicking the title bar!
+            </p>
+          </div>
+        `,
+        width: 450,
+        height: 350,
+        x: pos.x,
+        y: pos.y,
+        onClose: () => console.log('Mac Classic window closed'),
+        onCollapse: (collapsed) => console.log('Window shade:', collapsed)
+      });
+      desktop.appendChild(win);
+    }
+
+    // Create Mac Modern window
+    function createMacModernWindow() {
+      const pos = getRandomPosition();
+      const win = macModernSystem.createWindow({
+        id: `mac-modern-${++windowCounter}`,
+        title: 'Safari',
+        content: `
+          <div style="padding: 30px; font-family: -apple-system, sans-serif;">
+            <h2 style="color: #007aff; margin-bottom: 15px;">macOS Aqua</h2>
+            <p style="margin-bottom: 15px; line-height: 1.6;">
+              Beautiful translucent Aqua interface with traffic light buttons.
+            </p>
+            <ul style="line-height: 1.8;">
+              <li>Red/Yellow/Green traffic lights</li>
+              <li>Backdrop blur effects</li>
+              <li>Drop shadows</li>
+              <li>Smooth animations</li>
+              <li>Optional toolbar</li>
+            </ul>
+            <p style="margin-top: 15px; padding: 12px; background: #f5f5f5; border-radius: 8px; font-size: 12px;">
+              💡 Hover over the traffic lights to see icons appear!
+            </p>
+          </div>
+        `,
+        width: 600,
+        height: 450,
+        x: pos.x,
+        y: pos.y,
+        toolbar: [
+          { label: '◀', onClick: () => console.log('Back') },
+          { label: '▶', onClick: () => console.log('Forward') },
+          { label: '↻', onClick: () => console.log('Reload') }
+        ],
+        onClose: () => console.log('Mac Modern window closed')
+      });
+      desktop.appendChild(win);
+    }
+
+    // Create UNIX window
+    function createUnixWindow(style) {
+      unixSystem.setTheme({ style });
+      const pos = getRandomPosition();
+      const win = unixSystem.createWindow({
+        id: `unix-${++windowCounter}`,
+        title: `${style.toUpperCase()} Terminal`,
+        content: `
+          <div style="padding: 20px; font-family: 'Lucida Sans', sans-serif; color: #333;">
+            <h2 style="color: #5b7e95; margin-bottom: 10px;">
+              ${style === 'cde' ? 'CDE' : 'Motif'} Window
+            </h2>
+            <p style="margin-bottom: 10px; line-height: 1.6;">
+              Classic UNIX window manager style with 3D borders.
+            </p>
+            <ul style="margin-left: 20px; line-height: 1.6;">
+              <li>CDE/Motif 3D appearance</li>
+              <li>Focus-follows-mouse support</li>
+              <li>Virtual desktop support</li>
+              <li>Classic X11 decorations</li>
+            </ul>
+            <div style="margin-top: 15px; padding: 10px; background: #e8e8e8; border: 2px inset #999; font-family: monospace; font-size: 11px;">
+              $ echo "Hello from UNIX"<br>
+              Hello from UNIX
+            </div>
+          </div>
+        `,
+        width: 500,
+        height: 400,
+        x: pos.x,
+        y: pos.y,
+        icon: '<svg width="16" height="16" viewBox="0 0 16 16"><rect width="16" height="16" fill="#333"/></svg>',
+        menuItems: [
+          { label: 'File', onClick: () => alert('File menu') },
+          { label: 'Options', onClick: () => alert('Options menu') }
+        ],
+        onClose: () => console.log('UNIX window closed')
+      });
+      desktop.appendChild(win);
+    }
+
+    // Close all windows
+    function closeAllWindows() {
+      [classicSystem, modernSystem, macClassicSystem, macModernSystem, unixSystem].forEach(system => {
+        system.getAllWindows().forEach(winData => {
+          system.destroy(winData.element.id);
+        });
+      });
+      windowCounter = 0;
+      console.log('All windows closed');
+    }
+
+    // Create initial demo windows
+    window.addEventListener('load', () => {
+      setTimeout(() => createClassicWindow('win95'), 100);
+      setTimeout(() => createModernWindow('win11'), 300);
+      setTimeout(() => createMacModernWindow(), 500);
+    });
+  </script>
+</body>
+</html>

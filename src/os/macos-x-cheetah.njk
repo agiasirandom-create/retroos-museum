@@ -1,0 +1,91 @@
+---
+layout: layouts/base.njk
+title: Mac OS X 10.0 Cheetah - RetroOS Museum
+description: Experience the revolutionary Mac OS X 10.0 Cheetah with its stunning Aqua interface, translucent elements, the Dock, and Unix foundation.
+bodyClass: macosx-cheetah-body
+permalink: /os/macos-x-cheetah/
+---
+
+{% block head %}
+<!-- Mac OS X Cheetah CSS -->
+<link rel="stylesheet" href="/assets/css/macosx-cheetah.css">
+<style>
+  /* Hide default header and footer for full desktop experience */
+  body.macosx-cheetah-body header,
+  body.macosx-cheetah-body footer {
+    display: none;
+  }
+
+  body.macosx-cheetah-body main {
+    padding: 0;
+    max-width: none;
+    margin: 0;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Mac OS X Cheetah Desktop Environment -->
+<div id="macosx-desktop" class="macosx-desktop" role="application" aria-label="Mac OS X Desktop">
+
+  <!-- Global Menu Bar -->
+  <div id="macosx-menubar" class="macosx-menubar" role="menubar" aria-label="Menu Bar">
+    <!-- Menu items will be populated by JavaScript -->
+  </div>
+
+  <!-- Desktop -->
+  <div id="desktop-area" class="desktop-area">
+    <!-- Desktop Icons Container -->
+    <div id="desktop-icons" class="desktop-icons">
+      <!-- Icons will be added by JavaScript -->
+    </div>
+  </div>
+
+  <!-- Windows Container -->
+  <div id="windows-container" class="windows-container">
+    <!-- Windows will be added here by WindowManager -->
+  </div>
+
+  <!-- The Dock -->
+  <div id="macosx-dock" class="macosx-dock" role="toolbar" aria-label="Dock">
+    <div class="dock-container">
+      <div class="dock-icons">
+        <!-- Dock icons will be added by JavaScript -->
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<!-- Core Systems -->
+<script src="/assets/js/window-manager.js"></script>
+<script src="/assets/js/menu-system.js"></script>
+<script src="/assets/js/desktop.js"></script>
+
+<!-- Mac OS X Specific -->
+<script src="/assets/js/macosx-window-system.js"></script>
+<script src="/assets/js/macosx-menubar.js"></script>
+<script src="/assets/js/macosx-dock.js"></script>
+<script src="/assets/js/macosx-desktop.js"></script>
+
+<!-- Applications -->
+<script src="/assets/js/apps/macosx-finder.js"></script>
+<script src="/assets/js/apps/macosx-textedit.js"></script>
+<script src="/assets/js/apps/macosx-terminal.js"></script>
+<script src="/assets/js/apps/macosx-system-prefs.js"></script>
+
+<!-- Initialize Mac OS X -->
+<script>
+  // Wait for DOM to be ready
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize Mac OS X desktop
+    if (typeof MacOSXDesktop !== 'undefined') {
+      window.macosx = new MacOSXDesktop();
+      window.macosx.init();
+    } else {
+      console.error('MacOSXDesktop not loaded');
+    }
+  });
+</script>
+{% endblock %}
