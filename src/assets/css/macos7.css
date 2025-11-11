@@ -195,6 +195,7 @@
   flex-direction: column;
   gap: 16px;
   pointer-events: none; /* Allow clicking through to individual icons */
+  z-index: 10; /* Ensure icons are above desktop but below windows */
 }
 
 .desktop-icon {
@@ -205,6 +206,8 @@
   cursor: default;
   outline: none;
   pointer-events: all;
+  flex-shrink: 0; /* Prevent icons from shrinking */
+  min-height: 60px; /* Ensure minimum height for icon + label */
 }
 
 .desktop-icon-image {
@@ -215,6 +218,12 @@
   justify-content: center;
   margin-bottom: 4px;
   pointer-events: none;
+}
+
+.desktop-icon-image svg {
+  width: 32px;
+  height: 32px;
+  display: block;
 }
 
 .desktop-icon-image img {

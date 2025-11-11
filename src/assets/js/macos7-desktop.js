@@ -120,14 +120,7 @@
      * @private
      */
     _createHardDriveIcon() {
-      return `
-        <svg width="32" height="32" viewBox="0 0 32 32">
-          <rect x="4" y="8" width="24" height="18" fill="#ffffff" stroke="#000" stroke-width="1.5"/>
-          <rect x="4" y="8" width="24" height="4" fill="#cccccc" stroke="#000" stroke-width="1.5"/>
-          <circle cx="26" cy="10" r="1.5" fill="#000"/>
-          <rect x="10" y="16" width="12" height="6" fill="#cccccc" stroke="#000" stroke-width="1"/>
-        </svg>
-      `;
+      return '<svg width="32" height="32" viewBox="0 0 32 32"><rect x="4" y="8" width="24" height="18" fill="#ffffff" stroke="#000" stroke-width="1.5"/><rect x="4" y="8" width="24" height="4" fill="#cccccc" stroke="#000" stroke-width="1.5"/><circle cx="26" cy="10" r="1.5" fill="#000"/><rect x="10" y="16" width="12" height="6" fill="#cccccc" stroke="#000" stroke-width="1"/></svg>';
     }
 
     /**
@@ -137,25 +130,9 @@
      */
     _createTrashIcon(empty = true) {
       if (empty) {
-        return `
-          <svg width="32" height="32" viewBox="0 0 32 32">
-            <path d="M8 8 L8 28 L24 28 L24 8 Z" fill="#ffffff" stroke="#000" stroke-width="1.5"/>
-            <rect x="6" y="6" width="20" height="3" fill="#cccccc" stroke="#000" stroke-width="1.5"/>
-            <rect x="12" y="4" width="8" height="2" fill="#cccccc" stroke="#000" stroke-width="1"/>
-            <line x1="12" y1="12" x2="12" y2="24" stroke="#000" stroke-width="1"/>
-            <line x1="16" y1="12" x2="16" y2="24" stroke="#000" stroke-width="1"/>
-            <line x1="20" y1="12" x2="20" y2="24" stroke="#000" stroke-width="1"/>
-          </svg>
-        `;
+        return '<svg width="32" height="32" viewBox="0 0 32 32"><path d="M8 8 L8 28 L24 28 L24 8 Z" fill="#ffffff" stroke="#000" stroke-width="1.5"/><rect x="6" y="6" width="20" height="3" fill="#cccccc" stroke="#000" stroke-width="1.5"/><rect x="12" y="4" width="8" height="2" fill="#cccccc" stroke="#000" stroke-width="1"/><line x1="12" y1="12" x2="12" y2="24" stroke="#000" stroke-width="1"/><line x1="16" y1="12" x2="16" y2="24" stroke="#000" stroke-width="1"/><line x1="20" y1="12" x2="20" y2="24" stroke="#000" stroke-width="1"/></svg>';
       } else {
-        return `
-          <svg width="32" height="32" viewBox="0 0 32 32">
-            <path d="M8 8 L8 28 L24 28 L24 8 Z" fill="#ffffff" stroke="#000" stroke-width="1.5"/>
-            <rect x="6" y="6" width="20" height="3" fill="#cccccc" stroke="#000" stroke-width="1.5"/>
-            <rect x="12" y="4" width="8" height="2" fill="#cccccc" stroke="#000" stroke-width="1"/>
-            <rect x="10" y="14" width="12" height="8" fill="#cccccc" stroke="#000" stroke-width="1"/>
-          </svg>
-        `;
+        return '<svg width="32" height="32" viewBox="0 0 32 32"><path d="M8 8 L8 28 L24 28 L24 8 Z" fill="#ffffff" stroke="#000" stroke-width="1.5"/><rect x="6" y="6" width="20" height="3" fill="#cccccc" stroke="#000" stroke-width="1.5"/><rect x="12" y="4" width="8" height="2" fill="#cccccc" stroke="#000" stroke-width="1"/><rect x="10" y="14" width="12" height="8" fill="#cccccc" stroke="#000" stroke-width="1"/></svg>';
       }
     }
 
